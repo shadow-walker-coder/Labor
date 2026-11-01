@@ -1,14 +1,20 @@
 """Download every card in series_config.py from FRED and write data/series.js.
 
 Usage:
-    export FRED_API_KEY=...   # free key: https://fred.stlouisfed.org/docs/api/api_key.html
     python scripts/fetch_data.py
+    FRED_API_KEY=... python scripts/fetch_data.py   # optional, uses the official API
+
+With FRED_API_KEY set (free key: https://fred.stlouisfed.org/docs/api/api_key.html)
+the script uses the FRED API. Without one it downloads the same data from FRED's
+public graph CSV endpoint, which needs no key.
 
 Uses only the Python standard library. A series that fails to download is
 logged and left empty (the page shows a placeholder) instead of stopping the run.
 """
 
+import csv
 import datetime as dt
+import io
 import json
 import os
 import sys
@@ -21,6 +27,8 @@ sys.path.insert(0, str(Path(__file__).parent))
 from series_config import RECESSION_SERIES, SECTION_INTROS, SECTIONS, SERIES, START  # noqa: E402
 
 API = "https://api.stlouisfed.org/fred"
+GRAPH_CSV = "https://fred.stlouisfed.org/graph/fredgraph.csv"
+FREQ_NAMES = {"d": "Daily", "w": "Weekly", "m": "Monthly", "q": "Quarterly", "a": "Annual"}
 OUT = Path(__file__).resolve().parent.parent / "data" / "series.js"
 DROP = ("scale", "freq", "agg", "units", "start", "lines", "ratio", "id")
 
@@ -33,6 +41,8 @@ def fred(path, **params):
 
 
 def observations(series_id, start, units="lin", freq=None, agg=None):
+    if not os.environ.get("FRED_API_KEY"):
+        return csv_observations(series_id, start, units, freq, agg)
     params = dict(series_id=series_id, observation_start=start, units=units)
     if freq:
         params.update(frequency=freq, aggregation_method=agg or "avg")
@@ -40,12 +50,26 @@ def observations(series_id, start, units="lin", freq=None, agg=None):
     return [(r["date"], None if r["value"] == "." else float(r["value"])) for r in rows]
 
 
+def csv_observations(series_id, start, units="lin", freq=None, agg=None):
+    params = dict(id=series_id, cosd=start, transformation=units)
+    if freq:
+        params.update(fq=FREQ_NAMES[freq], fam=agg or "avg")
+    req = urllib.request.Request(f"{GRAPH_CSV}?{urllib.parse.urlencode(params)}",
+                                 headers={"User-Agent": "macro-monitor-data-refresh"})
+    with urllib.request.urlopen(req, timeout=60) as resp:
+        rows = list(csv.reader(io.StringIO(resp.read().decode("utf-8"))))
+    out = []
+    for date, value in (r[:2] for r in rows[1:] if len(r) >= 2):
+        out.append((date, None if value in ("", ".") else float(value)))
+    return [o for o in out if o[0] >= start]
+
+
 def safe_observations(series_id, *args):
     try:
         obs = observations(series_id, *args)
         print(f"  {series_id}: {len(obs)} observations")
         return obs
-    except (urllib.error.URLError, KeyError, ValueError) as err:
+    except Exception as err:  # one bad series should not stop the refresh
         print(f"  WARNING {series_id}: {err}")
         return []
 
@@ -104,9 +128,13 @@ def write(payload, path=OUT):
 
 
 def main():
-    if not os.environ.get("FRED_API_KEY"):
-        sys.exit("Set FRED_API_KEY first.")
+    print("Using the FRED API" if os.environ.get("FRED_API_KEY") else "No FRED_API_KEY set; using FRED graph CSVs")
     cards = [(cfg, card_lines(cfg)) for cfg in SERIES]
+    filled = sum(any(obs for _, _, obs in lines) for _, lines in cards)
+    print(f"{filled} of {len(cards)} cards have data")
+    if filled < len(cards) / 2:
+        # most downloads failed, so FRED is probably unreachable; keep the existing data
+        sys.exit("Too many series failed; not overwriting data/series.js")
     write(build_payload(cards, recession_ranges(START), dt.date.today().isoformat()))
 
 
