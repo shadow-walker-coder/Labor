@@ -29,17 +29,20 @@ script file.
 
 ## Refresh the data
 
-Locally: `python site/scripts/fetch_data.py`. No key is needed: without one the script
-downloads FRED's public graph CSVs. Set `FRED_API_KEY` (free at
-https://fred.stlouisfed.org/docs/api/api_key.html) to use the official API instead.
+Locally: `python site/scripts/fetch_data.py`. Without a key the script tries FRED's
+public graph CSVs; set `FRED_API_KEY` (free at
+https://fred.stlouisfed.org/docs/api/api_key.html) to use the official API.
 
 On GitHub, `.github/workflows/site.yml` refreshes the data every weekday, on pushes to
 `main` that touch `site/`, on pull requests, and on demand from the Actions tab. It
 commits the new data and, outside pull requests, deploys `site/` to GitHub Pages.
 If most downloads fail, it keeps the existing data instead of overwriting it.
 
-One-time setup: Settings > Pages > Build and deployment > Source: **GitHub Actions**.
-Adding a `FRED_API_KEY` repository secret is optional.
+One-time setup:
+
+1. Settings > Secrets and variables > Actions > New repository secret named `FRED_API_KEY`.
+   This is required on GitHub: FRED's keyless CSV endpoint does not answer GitHub's runners.
+2. Settings > Pages > Build and deployment > Source: **GitHub Actions**.
 
 ## Add an indicator
 

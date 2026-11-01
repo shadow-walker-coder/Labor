@@ -5,8 +5,9 @@ Usage:
     FRED_API_KEY=... python scripts/fetch_data.py   # optional, uses the official API
 
 With FRED_API_KEY set (free key: https://fred.stlouisfed.org/docs/api/api_key.html)
-the script uses the FRED API. Without one it downloads the same data from FRED's
-public graph CSV endpoint, which needs no key.
+the script uses the FRED API. This is the reliable route, and the one GitHub Actions
+needs. Without a key it tries FRED's public graph CSV endpoint, which works from a
+personal machine but does not respond to requests from GitHub's runners.
 
 Uses only the Python standard library. A series that fails to download is
 logged and left empty (the page shows a placeholder) instead of stopping the run.
@@ -56,7 +57,7 @@ def csv_observations(series_id, start, units="lin", freq=None, agg=None):
         params.update(fq=FREQ_NAMES[freq], fam=agg or "avg")
     req = urllib.request.Request(f"{GRAPH_CSV}?{urllib.parse.urlencode(params)}",
                                  headers={"User-Agent": "macro-monitor-data-refresh"})
-    with urllib.request.urlopen(req, timeout=60) as resp:
+    with urllib.request.urlopen(req, timeout=20) as resp:
         rows = list(csv.reader(io.StringIO(resp.read().decode("utf-8"))))
     out = []
     for date, value in (r[:2] for r in rows[1:] if len(r) >= 2):
@@ -64,13 +65,20 @@ def csv_observations(series_id, start, units="lin", freq=None, agg=None):
     return [o for o in out if o[0] >= start]
 
 
+FAILURES = {"in_a_row": 0}
+
+
 def safe_observations(series_id, *args):
+    if FAILURES["in_a_row"] >= 5:
+        sys.exit("Five downloads in a row failed; FRED looks unreachable. Keeping the existing data.")
     try:
         obs = observations(series_id, *args)
-        print(f"  {series_id}: {len(obs)} observations")
+        print(f"  {series_id}: {len(obs)} observations", flush=True)
+        FAILURES["in_a_row"] = 0
         return obs
     except Exception as err:  # one bad series should not stop the refresh
-        print(f"  WARNING {series_id}: {err}")
+        print(f"  WARNING {series_id}: {err}", flush=True)
+        FAILURES["in_a_row"] += 1
         return []
 
 
