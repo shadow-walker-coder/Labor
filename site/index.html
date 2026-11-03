@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Macro Monitor</title>
+<meta name="description" content="A running check on the U.S. economy, built on FRED data.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="wrap mast">
+  <h1>Macro Monitor</h1>
+  <p>A running check on the U.S. economy: the latest story in a few lines, a model of where GDP growth is heading, and charts on growth, spending, jobs, inflation, energy, rates, credit and the federal budget. Everything refreshes from public data as new numbers are released.</p>
+  <div class="updated" id="updated"></div>
+</header>
+
+<div class="bar">
+  <div class="wrap">
+    <nav id="sections-nav" aria-label="Sections"></nav>
+    <div class="ranges">
+      <span class="legend"><i></i>Recession</span>
+      <span class="btns" role="group" aria-label="Time range">
+        <button type="button" id="r5" data-range="5Y" aria-pressed="false">5Y</button>
+        <button type="button" id="r10" data-range="10Y" aria-pressed="true">10Y</button>
+        <button type="button" id="rall" data-range="All" aria-pressed="false">All</button>
+      </span>
+    </div>
+  </div>
+</div>
+
+<main class="wrap" id="main"></main>
+
+<footer class="wrap">
+  <p class="note">All data comes from <a href="https://fred.stlouisfed.org" target="_blank" rel="noopener">FRED</a> at the Federal Reserve Bank of St. Louis, which republishes figures from BEA, BLS, the Federal Reserve, Freddie Mac and the Treasury. Shaded bands mark NBER recessions. Hover over or tap a chart to read exact values.</p>
+</footer>
+<script src="data/series.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
