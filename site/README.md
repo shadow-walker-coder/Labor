@@ -44,6 +44,22 @@ One-time setup:
    This is required on GitHub: FRED's keyless CSV endpoint does not answer GitHub's runners.
 2. Settings > Pages > Build and deployment > Source: **GitHub Actions**.
 
+## The latest and the GDP outlook
+
+The two sections at the top are built in the browser from the same data file:
+
+- **The latest** (`app.js`, `punchlines()` and `risks()`): one punchline each on growth, the labor
+  market, inflation, consumer spending, and rates and energy, plus a list of ten risks (yield curve,
+  Sahm-rule unemployment, jobless claims, sticky inflation, oil, bank credit, delinquencies, saving rate,
+  financial conditions, long rates) flagged Calm, Watch or Concern by simple thresholds. The wording
+  updates itself each time the data refreshes; edit the thresholds there.
+- **GDP outlook** (`scripts/nowcast.py`): a bridge equation fitted at every refresh. Payrolls,
+  industrial production and real consumer spending are averaged by quarter and regressed on real GDP
+  growth. Once a quarter has some monthly data, the page shows a nowcast for it. Before then, it shows a
+  one-quarter-ahead forecast that also uses the yield curve and the latest GDP print. The typical miss
+  shown is the out-of-sample error from refitting on earlier data only. Inputs are set in
+  `MODEL_INPUTS` in `series_config.py`.
+
 ## Add an indicator
 
 Add one `dict(...)` to `SERIES` in `scripts/series_config.py`. A card can be a single

@@ -25,7 +25,9 @@ import urllib.request
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from series_config import RECESSION_SERIES, SECTION_INTROS, SECTIONS, SERIES, START  # noqa: E402
+from series_config import (MODEL_INPUTS, MODEL_SPREAD, MODEL_START, MODEL_TARGET,  # noqa: E402
+                           RECESSION_SERIES, SECTION_INTROS, SECTIONS, SERIES, START)
+import nowcast  # noqa: E402
 
 API = "https://api.stlouisfed.org/fred"
 GRAPH_CSV = "https://fred.stlouisfed.org/graph/fredgraph.csv"
@@ -110,7 +112,15 @@ def recession_ranges(start):
     return ranges
 
 
-def build_payload(cards_with_lines, recessions, updated):
+def model_payload():
+    """Download the GDP model's inputs and fit it. Returns None if anything is missing."""
+    gdp = safe_observations(MODEL_TARGET, MODEL_START)
+    inputs = [(sid, label, safe_observations(sid, MODEL_START)) for sid, label in MODEL_INPUTS]
+    spread = safe_observations(MODEL_SPREAD, MODEL_START, "lin", "m", "avg")
+    return nowcast.build(gdp, inputs, spread)
+
+
+def build_payload(cards_with_lines, recessions, updated, model=None):
     """cards_with_lines: [(cfg, [(label, id, obs or None), ...])]. A line with obs None is a
     source only (the denominator of a ratio) and is listed but not drawn."""
     out = []
@@ -126,7 +136,7 @@ def build_payload(cards_with_lines, recessions, updated):
         item["sources"] = [sid for _, sid, _ in lines]
         out.append(item)
     return {"updated": updated, "sections": SECTIONS, "intros": SECTION_INTROS,
-            "recessions": recessions, "series": out}
+            "recessions": recessions, "series": out, "model": model}
 
 
 def write(payload, path=OUT):
@@ -143,7 +153,7 @@ def main():
     if filled < len(cards) / 2:
         # most downloads failed, so FRED is probably unreachable; keep the existing data
         sys.exit("Too many series failed; not overwriting data/series.js")
-    write(build_payload(cards, recession_ranges(START), dt.date.today().isoformat()))
+    write(build_payload(cards, recession_ranges(START), dt.date.today().isoformat(), model_payload()))
 
 
 if __name__ == "__main__":

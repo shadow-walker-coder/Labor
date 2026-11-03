@@ -6,6 +6,8 @@
   const RANGES = { "5Y": 5, "10Y": 10, "All": null };
   const COLORS = ["var(--s1)", "var(--s2)", "var(--s3)"];
   const state = { range: "10Y" };
+  const EXTRA = []; // charts drawn outside the card grid (the GDP outlook)
+  const findCard = (key) => DATA.series.concat(EXTRA).find((c) => c.key === key);
 
   // ---------- data helpers ----------
   // Every card has lines: [{label, id, obs: [[date, value], ...]}]. Single-series cards have one line.
@@ -83,7 +85,9 @@
   // ---------- page ----------
   function renderNav() {
     const box = document.getElementById("sections-nav");
-    box.innerHTML = Object.entries(DATA.sections)
+    const top = { latest: "The latest" };
+    if (DATA.model) top.outlook = "GDP outlook";
+    box.innerHTML = Object.entries(Object.assign(top, DATA.sections))
       .map(([key, label]) => `<a href="#${key}">${label}</a>`).join("");
   }
 
@@ -105,6 +109,8 @@
   function renderSections() {
     const main = document.getElementById("main");
     main.textContent = "";
+    main.appendChild(latestSection());
+    if (DATA.model) main.appendChild(outlookSection());
     for (const [key, label] of Object.entries(DATA.sections)) {
       const list = DATA.series.filter((c) => c.section === key);
       const sec = document.createElement("section");
@@ -133,7 +139,7 @@
 
   function drawAll() {
     document.querySelectorAll(".chart[data-key]").forEach((host) =>
-      drawChart(host, DATA.series.find((c) => c.key === host.dataset.key)));
+      drawChart(host, findCard(host.dataset.key)));
   }
 
   function drawChart(host, c) {
@@ -265,6 +271,222 @@
     hit.addEventListener("pointermove", move);
     hit.addEventListener("pointerdown", move);
     hit.addEventListener("pointerleave", leave);
+  }
+
+  // ---------- the latest: punchlines written from the newest numbers ----------
+  // Every sentence below is generated from data/series.js, so the narrative updates with each refresh.
+  function obsOf(key, i) {
+    const c = findCard(key);
+    if (!c || !c.lines[i || 0]) return null;
+    const v = valid(c.lines[i || 0]);
+    return v.length ? v : null;
+  }
+  const lastOf = (key, i) => { const v = obsOf(key, i); return v ? v[v.length - 1] : null; };
+  const backOf = (key, n, i) => { const v = obsOf(key, i); return v && v.length > n ? v[v.length - 1 - n] : null; };
+  const when = (key, o, i) => { const c = findCard(key); return periodLabel(c, c.lines[i || 0], o[0]); };
+  const pct = (x, d) => (x === null || x === undefined ? "–" : x.toFixed(d === undefined ? 1 : d) + "%");
+  const signed = (x, d) => {
+    const t = Math.abs(x).toFixed(d === undefined ? 1 : d);
+    return (+t === 0 ? "" : x > 0 ? "+" : "−") + t;
+  };
+  const avg = (a) => a.reduce((s, x) => s + x, 0) / a.length;
+  const qLabel = (d) => { const t = toDate(d); return "Q" + (Math.floor(t.getUTCMonth() / 3) + 1) + " " + t.getUTCFullYear(); };
+  const TONE = { good: "Healthy", watch: "Watch", concern: "Concern" };
+
+  function punchlines() {
+    const out = [];
+    const M = DATA.model;
+
+    // Growth
+    const g = lastOf("A191RL1Q225SBEA");
+    if (g) {
+      const v = g[1];
+      const head = v >= 2.5 ? "The economy is growing at a solid clip" : v >= 1 ? "Growth is positive but modest"
+        : v >= 0 ? "Growth has nearly stalled" : "The economy shrank last quarter";
+      let text = `Real GDP grew at a ${pct(v)} annual rate in ${when("A191RL1Q225SBEA", g)}.`;
+      const f = M && (M.nowcast || M.forecast);
+      if (f) text += ` Our model puts ${qLabel(f.quarter)} at about ${pct(f.value)}, with a typical miss of ±${(f.high - f.value).toFixed(1)} points.`;
+      out.push({ topic: "Growth", tone: v >= 2 ? "good" : v >= 0.5 ? "watch" : "concern", head, text });
+    }
+
+    // Labor market
+    const u = obsOf("UNRATE"), p = obsOf("PAYEMS");
+    if (u && p) {
+      const now = u[u.length - 1][1];
+      const avg3 = (k) => avg(u.slice(u.length - 3 - k, u.length - k).map((o) => o[1]));
+      const lows = []; for (let k = 1; k <= 12; k++) lows.push(avg3(k));
+      const rise = avg3(0) - Math.min(...lows);
+      const jobs3 = avg(p.slice(-3).map((o) => o[1]));
+      const ratio = lastOf("OPENINGS_PER_UNEMPLOYED");
+      const head = rise >= 0.5 ? "The job market is weakening" : jobs3 < 50 ? "Hiring has slowed to a crawl"
+        : jobs3 < 125 ? "The job market is cooling, not cracking" : "Employers are still hiring at a healthy pace";
+      let text = `Unemployment is ${pct(now)} (${when("UNRATE", u[u.length - 1])}), and payrolls have grown by about ${Math.round(jobs3)}k a month over the last three months.`;
+      if (ratio) text += ` There are ${ratio[1].toFixed(2)} job openings for every unemployed person.`;
+      out.push({ topic: "Labor market", tone: rise >= 0.5 ? "concern" : jobs3 < 100 || rise >= 0.3 ? "watch" : "good", head, text });
+    }
+
+    // Inflation
+    const core = lastOf("PCEPILFE"), cpi = lastOf("CPIAUCSL");
+    if (core) {
+      const prev = backOf("PCEPILFE", 6);
+      const v = core[1];
+      const dir = prev ? (v < prev[1] - 0.15 ? "easing" : v > prev[1] + 0.15 ? "picking up" : "flat") : "";
+      const head = v <= 2.3 ? "Inflation is back near the Fed's 2% goal" : v <= 3
+        ? (dir === "easing" ? "Inflation is above target but easing" : dir === "picking up" ? "Inflation is above target and creeping up" : "Inflation is stuck above target")
+        : "Inflation is running hot";
+      let text = `Core PCE prices, the Fed's preferred gauge, are up ${pct(v)} from a year earlier (${when("PCEPILFE", core)})`;
+      text += prev ? `, versus ${pct(prev[1])} six months before.` : ".";
+      if (cpi) text += ` Headline CPI is up ${pct(cpi[1])}.`;
+      out.push({ topic: "Inflation", tone: v <= 2.3 ? "good" : v <= 3 ? "watch" : "concern", head, text });
+    }
+
+    // Consumer spending
+    const pce = lastOf("PCEC96"), rs = lastOf("RSAFS"), inc = lastOf("DSPIC96"), sav = lastOf("PSAVERT");
+    if (pce) {
+      const v = pce[1];
+      const head = v >= 2.5 ? "Households are still spending freely" : v >= 1 ? "Consumer spending is growing modestly" : "Consumers are pulling back";
+      let text = `Inflation-adjusted consumer spending is up ${pct(v)} from a year earlier (${when("PCEC96", pce)}).`;
+      if (rs) text += ` Retail sales are up ${pct(rs[1])} before adjusting for prices.`;
+      if (inc && sav) {
+        text += inc[1] < v ? ` Real disposable income is growing more slowly (${pct(inc[1])}), so households are leaning on savings: the saving rate is ${pct(sav[1])}.`
+          : ` Real disposable income is up ${pct(inc[1])} and the saving rate is ${pct(sav[1])}.`;
+      }
+      out.push({ topic: "Consumer spending", tone: v >= 2 ? "good" : v >= 0.5 ? "watch" : "concern", head, text });
+    }
+
+    // Rates and energy
+    const ten = lastOf("DGS10"), tenAgo = backOf("DGS10", 12), wti = lastOf("CRUDE"), wtiAgo = backOf("CRUDE", 12), gas = lastOf("GASREGCOVM");
+    if (ten && wti) {
+      const oil = wtiAgo ? (wti[1] / wtiAgo[1] - 1) * 100 : 0;
+      const head = oil >= 20 ? "Oil prices have jumped" : tenAgo && ten[1] - tenAgo[1] >= 0.5 ? "Long-term borrowing costs are climbing" : "Rates and energy are steady";
+      let text = `The 10-year Treasury yield is ${pct(ten[1], 2)}${tenAgo ? ` (${signed(ten[1] - tenAgo[1], 2)} points over the year)` : ""}.`;
+      text += ` WTI crude averaged $${wti[1].toFixed(0)} a barrel in ${when("CRUDE", wti)}${wtiAgo ? `, ${oil >= 0 ? "up" : "down"} ${Math.abs(oil).toFixed(0)}% from a year earlier` : ""}`;
+      text += gas ? `, and regular gasoline cost $${gas[1].toFixed(2)} a gallon.` : ".";
+      out.push({ topic: "Rates & energy", tone: oil >= 20 ? "concern" : oil >= 10 ? "watch" : "good", head, text });
+    }
+    return out;
+  }
+
+  // Each risk returns [tone, reading, note] or null when the data isn't there.
+  function risks() {
+    const list = [];
+    const add = (name, fn) => { try { const r = fn(); if (r) list.push({ name, tone: r[0], reading: r[1], note: r[2] }); } catch (e) { /* skip */ } };
+    add("Inverted yield curve", () => {
+      const v = lastOf("T10Y2Y")[1];
+      return [v < 0 ? "concern" : v < 0.5 ? "watch" : "good", `${signed(v, 2)} pts`,
+        v < 0 ? "Short rates above long rates have preceded most recessions."
+          : v < 0.5 ? "10-year minus 2-year yield. Positive again, but the curve is still flat by historical standards."
+            : "10-year minus 2-year yield. Long rates above short rates is the normal shape."];
+    });
+    add("Rising unemployment", () => {
+      const u = obsOf("UNRATE");
+      const a3 = (k) => avg(u.slice(u.length - 3 - k, u.length - k).map((o) => o[1]));
+      const lows = []; for (let k = 1; k <= 12; k++) lows.push(a3(k));
+      const r = a3(0) - Math.min(...lows);
+      return [r >= 0.5 ? "concern" : r >= 0.3 ? "watch" : "good", `${signed(r, 2)} pts`,
+        "Three-month average jobless rate versus its low of the past year. A rise of 0.5 points (the Sahm rule) has marked the start of recessions."];
+    });
+    add("Layoffs picking up", () => {
+      const n = lastOf("ICSA")[1], a = backOf("ICSA", 12)[1], ch = (n / a - 1) * 100;
+      return [ch >= 15 ? "concern" : ch >= 5 ? "watch" : "good", `${signed(ch, 0)}% y/y`, `Initial jobless claims average ${Math.round(n)}k a week.`];
+    });
+    add("Sticky inflation", () => {
+      const v = lastOf("PCEPILFE")[1];
+      return [v >= 3 ? "concern" : v >= 2.5 ? "watch" : "good", pct(v), "Core PCE inflation. Above 2.5% keeps the Fed cautious about cutting rates."];
+    });
+    add("Oil price shock", () => {
+      const n = lastOf("CRUDE")[1], a = backOf("CRUDE", 12)[1], ch = (n / a - 1) * 100;
+      return [ch >= 30 ? "concern" : ch >= 15 ? "watch" : "good", `${signed(ch, 0)}% y/y`, `WTI at $${n.toFixed(0)} a barrel. Sharp oil rises feed inflation and squeeze budgets.`];
+    });
+    add("Banks tightening credit", () => {
+      const v = lastOf("SLOOS_CI")[1];
+      return [v >= 20 ? "concern" : v >= 5 ? "watch" : "good", `${signed(v, 1)} net %`, "Share of banks tightening business loan standards, from the Fed's loan officer survey."];
+    });
+    add("Household credit stress", () => {
+      const n = lastOf("DELINQUENCY")[1], a = backOf("DELINQUENCY", 4)[1];
+      return [n >= 3.5 ? "concern" : n >= 3 || n - a >= 0.3 ? "watch" : "good", pct(n, 2), `Credit card delinquency rate, ${n >= a ? "up" : "down"} ${Math.abs(n - a).toFixed(2)} points over the year.`];
+    });
+    add("Thin savings cushion", () => {
+      const v = lastOf("PSAVERT")[1];
+      return [v < 3 ? "concern" : v < 4.5 ? "watch" : "good", pct(v), "Personal saving rate. A low rate leaves less room to keep spending if income slows."];
+    });
+    add("Tighter financial conditions", () => {
+      const v = lastOf("NFCI")[1];
+      return [v > 0 ? "concern" : v > -0.3 ? "watch" : "good", v.toFixed(2), "Chicago Fed index. Above zero means credit is tighter than average."];
+    });
+    add("Rising long-term rates", () => {
+      const n = lastOf("DGS10")[1], a = backOf("DGS10", 12)[1], ch = n - a;
+      return [ch >= 1 ? "concern" : ch >= 0.5 ? "watch" : "good", `${signed(ch, 2)} pts y/y`, `10-year yield at ${n.toFixed(2)}%. Higher long rates raise mortgage and business borrowing costs.`];
+    });
+    const order = { concern: 0, watch: 1, good: 2 };
+    return list.sort((a, b) => order[a.tone] - order[b.tone]);
+  }
+
+  function latestSection() {
+    const sec = document.createElement("section");
+    sec.className = "sec";
+    sec.id = "latest";
+    const cards = punchlines().map((p) =>
+      `<article class="punch"><div class="punch-top"><span class="topic">${p.topic}</span><span class="tag ${p.tone}">${TONE[p.tone]}</span></div>` +
+      `<h3>${p.head}</h3><p>${p.text}</p></article>`).join("");
+    const rk = risks();
+    const flagged = rk.filter((r) => r.tone !== "good").length;
+    const rows = rk.map((r) =>
+      `<li class="${r.tone}"><span class="dot"></span><span class="rname">${r.name}</span><span class="rval">${r.reading}</span>` +
+      `<span class="tag ${r.tone}">${r.tone === "good" ? "Calm" : TONE[r.tone]}</span><span class="rnote">${r.note}</span></li>`).join("");
+    sec.innerHTML =
+      `<header class="sec-head"><h2>The latest</h2><p>Where the economy stands, in a sentence or two per topic. Written automatically from the newest numbers on this page.</p></header>` +
+      `<div class="punches">${cards}</div>` +
+      `<div class="risks"><h3>Key risks to watch <span>${flagged} of ${rk.length} flashing</span></h3><ul>${rows}</ul></div>`;
+    return sec;
+  }
+
+  // ---------- GDP outlook: the bridge-equation model ----------
+  function outlookSection() {
+    const M = DATA.model;
+    const sec = document.createElement("section");
+    sec.className = "sec";
+    sec.id = "outlook";
+    const main = M.nowcast || M.forecast;
+    const info = M.nowcast ? M.models[0] : M.models[1];
+    const kind = M.nowcast ? "nowcast" : "forecast";
+    const lastFit = M.fitted.find((f) => f[0] === M.last_actual[0]);
+    const rows = (M.nowcast ? M.nowcast.inputs.map((x) => ({ label: `${x.label} (${x.months} of 3 months in)`, val: pct(x.growth), c: x.contribution }))
+      : M.forecast.inputs.map((x) => ({ label: x.label + (x.label.startsWith("Yield") ? "" : `, ${qLabel(M.forecast.based_on)}`), val: x.label.startsWith("Yield") ? `${x.value.toFixed(2)} pts` : pct(x.value), c: x.contribution })));
+    const table = `<table class="contrib"><thead><tr><th>Input</th><th>Reading</th><th>Adds</th></tr></thead><tbody>` +
+      `<tr><td>Starting point (average growth)</td><td></td><td>${signed(main.constant, 2)}</td></tr>` +
+      rows.map((r) => `<tr><td>${r.label}</td><td>${r.val}</td><td>${signed(r.c, 2)}</td></tr>`).join("") +
+      `<tr class="sum"><td>Model ${kind}</td><td></td><td>${main.value.toFixed(2)}%</td></tr></tbody></table>`;
+
+    EXTRA.length = 0;
+    const fc = { key: "GDP_MODEL", title: "GDP growth: actual vs model", unit: "% annualized", decimals: 1, chart: "line", ylim: [-10, 10],
+      lines: [{ label: "Actual GDP growth", id: "A191RL1Q225SBEA", obs: M.actual },
+              { label: "Model estimate", id: "model", obs: M.fitted },
+              { label: "Forecast", id: "forecast", obs: M.nowcast ? [] : [M.last_actual, [M.forecast.quarter, M.forecast.value]] }] };
+    EXTRA.push(fc);
+    const models = M.models.map((m) => `<li><b>${m.name}.</b> Fit on ${m.n} quarters (${qLabel(m.fit_start)} to ${qLabel(m.fit_end)}); explains ${Math.round(m.r2 * 100)}% of the ups and downs. ` +
+      `Out-of-sample typical miss: ±${m.oos_rmse} points. Coefficients: ${m.coefs.map((c) => `${c.label} ${c.value}`).join(", ")}.</li>`).join("");
+
+    sec.innerHTML =
+      `<header class="sec-head"><h2>GDP outlook</h2><p>A simple, transparent model of real GDP growth built from the monthly data on this page.</p></header>` +
+      `<div class="outlook">` +
+      `<article class="card hero"><div class="kicker">${qLabel(main.quarter)} real GDP growth, model ${kind}</div>` +
+      `<div class="big">${main.value.toFixed(1)}<span>%</span></div>` +
+      `<div class="meta">Annualized. Typical miss: ${main.low.toFixed(1)}% to ${main.high.toFixed(1)}%.</div>` +
+      `<p class="blurb">Last reported: <b>${pct(M.last_actual[1])}</b> in ${qLabel(M.last_actual[0])}` +
+      (lastFit ? ` (the model had ${pct(lastFit[1])}).` : ".") +
+      (M.nowcast ? "" : ` No monthly data for ${qLabel(main.quarter)} is out yet, so this is a one-quarter-ahead forecast from ${qLabel(M.forecast.based_on)} data. It switches to a nowcast as October numbers arrive.`) + `</p>` +
+      `<h4>What's behind the number</h4>${table}</article>` +
+      `<article class="card"><div class="card-head"><h3>${fc.title}</h3></div>` +
+      `<ul class="multi">${fc.lines.map((l, i) => `<li><i style="background:${COLORS[i]}"></i><span class="lbl">${l.label}</span><span class="num"></span><span class="when"></span></li>`).join("")}</ul>` +
+      `<div class="chart" data-key="GDP_MODEL"></div>` +
+      `<details class="how"><summary>How the model works</summary>` +
+      `<p>It's a "bridge equation", the same basic idea the Atlanta Fed and others use. Monthly data on payroll jobs, industrial production and inflation-adjusted consumer spending is averaged by quarter, turned into annualized growth, and regressed on real GDP growth. ` +
+      `When some months of a quarter are out, the model nowcasts that quarter, holding missing months at the latest reading. Before any are out, a second equation forecasts it from the previous quarter's data, GDP growth and the yield curve. ` +
+      `${qLabel(M.excluded[0])} to ${qLabel(M.excluded[1])} is left out of the fit because the pandemic swings would dominate it. The model refits every time the data refreshes.</p>` +
+      `<ul>${models}</ul><p>It's a rough guide, not an official forecast: real-time misses are larger than these figures because the data gets revised.</p></details>` +
+      `</article></div>`;
+    return sec;
   }
 
   // ---------- boot ----------

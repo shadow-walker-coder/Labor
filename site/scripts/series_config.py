@@ -31,6 +31,7 @@ SECTIONS = {
     "consumer": "Consumer health",
     "jobs": "Jobs",
     "prices": "Inflation",
+    "energy": "Energy",
     "money": "Financial conditions",
     "credit": "Bank lending & credit",
     "budget": "Federal budget",
@@ -42,6 +43,7 @@ SECTION_INTROS = {
     "consumer": "Whether households are earning, spending and saving.",
     "jobs": "Whether people who want work can find it, and how much workers are moving.",
     "prices": "How quickly the cost of living is rising.",
+    "energy": "What drivers pay at the pump and what a barrel of crude costs.",
     "money": "What it costs to borrow, and how easily money is flowing.",
     "credit": "Whether banks are willing to lend, whether borrowers want loans, and how many are falling behind.",
     "budget": "How much Washington borrows and what that debt costs.",
@@ -124,6 +126,13 @@ SERIES = [
          blurb="The Federal Reserve's preferred inflation gauge. Its target is 2%."),
 
     # Financial conditions
+    dict(id="GASREGCOVM", section="energy", title="Gasoline price", units="lin",
+         unit="$ per gallon", decimals=2, chart="line",
+         blurb="Average U.S. retail price of regular gasoline, all formulations, monthly. A quick read on what households feel at the pump."),
+    dict(key="CRUDE", section="energy", title="Crude oil prices", units="lin", unit="$ per barrel", decimals=2,
+         chart="line", lines=[dict(id="MCOILWTICO", label="WTI (U.S.)"), dict(id="MCOILBRENTEU", label="Brent (global)")],
+         blurb="Monthly average spot prices for West Texas Intermediate and Brent crude. Oil feeds into gasoline, shipping and airfares, so big moves show up in inflation a month or two later."),
+
     dict(id="FEDFUNDS", section="money", title="Federal funds rate", units="lin",
          unit="%", decimals=2, chart="line",
          blurb="The overnight rate the Fed steers to speed up or cool down the economy."),
@@ -170,3 +179,12 @@ SERIES = [
 ]
 
 RECESSION_SERIES = "USREC"
+
+
+# GDP model (see scripts/nowcast.py). Monthly levels are averaged by quarter and turned into
+# annualized growth; the yield curve enters the one-quarter-ahead forecast.
+MODEL_TARGET = "A191RL1Q225SBEA"
+MODEL_INPUTS = [("PAYEMS", "Payroll jobs"), ("INDPRO", "Industrial production"),
+                ("PCEC96", "Real consumer spending")]
+MODEL_SPREAD = "T10Y2Y"
+MODEL_START = "2006-01-01"
