@@ -73,8 +73,7 @@
     const themeRows = top.map(([t, n]) => `<div class="theme"><span class="lab" title="${esc(D.themes[t])}">${esc(D.themes[t])}</span>
       <span class="track"><span class="fill" style="width:${(n / latest.length) * 100}%"></span></span><span class="n">${n}</span></div>`).join("");
 
-    const points = (b?.points || []).map((p) => `<li><b>${esc(p.title)}</b><p>${esc(p.body)}</p>
-      ${p.tickers?.length ? `<div class="chips">${p.tickers.map((t) => `<span class="tick">${esc(t)}</span>`).join("")}</div>` : ""}</li>`).join("");
+    const points = (b?.points || []).map((p) => `<li><b>${esc(p.title)}</b><p>${esc(p.body)}</p></li>`).join("");
 
     return `<section class="wrap brief" aria-label="Briefing">
       <div class="verdict">

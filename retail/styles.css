@@ -87,8 +87,6 @@ h1, h2, h3 { text-wrap: balance; }
 .points li { padding: 12px 0; border-bottom: 1px solid var(--rule); display: grid; gap: 2px; }
 .points b { font-weight: 700; }
 .points p { margin: 0; color: var(--ink-2); font-size: 14px; }
-.chips { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
-.tick { font: 600 11px var(--mono); padding: 1px 6px; border-radius: 3px; background: var(--accent-soft); color: var(--accent); }
 .autonote { font-size: 12px; color: var(--muted); }
 
 .pulse { background: var(--card); border: 1px solid var(--rule); border-radius: 10px; padding: 18px; display: flex; flex-direction: column; gap: 16px; min-width: 0; }
