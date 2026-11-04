@@ -2,61 +2,73 @@
   "AMZN": {
     "date": "2027-02-04",
     "confirmed": false,
-    "label": "Q4 2026"
+    "label": "Q4 2026",
+    "basis": "Based on last year (Feb 5, after the close); not yet announced."
   },
   "BBY": {
     "date": "2026-11-24",
-    "confirmed": false,
-    "label": "Q3 FY2027"
+    "confirmed": true,
+    "label": "Q3 FY2027",
+    "time": "before the open, call 8am ET"
   },
   "COST": {
     "date": "2026-12-10",
-    "confirmed": false,
-    "label": "Q1 FY2027"
+    "confirmed": true,
+    "label": "Q1 FY2027",
+    "time": "after the close, call 5pm ET"
   },
   "DG": {
     "date": "2026-12-03",
     "confirmed": false,
-    "label": "Q3 2026"
+    "label": "Q3 2026",
+    "basis": "Based on last year (Dec 4, before the open); not yet announced."
   },
   "DLTR": {
     "date": "2026-11-24",
     "confirmed": true,
-    "label": "Q3 2026"
+    "label": "Q3 2026",
+    "time": "before the open, call 8am ET"
   },
   "HD": {
     "date": "2026-11-17",
-    "confirmed": false,
-    "label": "Q3 FY2026"
+    "confirmed": true,
+    "label": "Q3 FY2026",
+    "time": "before the open, call 9am ET"
   },
   "KR": {
     "date": "2026-12-03",
     "confirmed": false,
-    "label": "Q3 2026"
+    "label": "Q3 2026",
+    "basis": "Based on last year (Dec 4); some calendars show Nov 26. Not yet announced."
   },
   "LOW": {
     "date": "2026-11-18",
     "confirmed": false,
-    "label": "Q3 FY2026"
+    "label": "Q3 FY2026",
+    "basis": "Listed as tentative on Lowe's investor calendar; no announcement yet."
   },
   "ROST": {
     "date": "2026-11-19",
     "confirmed": false,
-    "label": "Q3 FY2026"
+    "label": "Q3 FY2026",
+    "basis": "Based on last year (Nov 20, after the close); not yet announced."
   },
   "TGT": {
     "date": "2026-11-18",
-    "confirmed": false,
-    "label": "Q3 2026"
+    "confirmed": true,
+    "label": "Q3 2026",
+    "time": "before the open, call 8am ET"
   },
   "TJX": {
     "date": "2026-11-18",
-    "confirmed": false,
-    "label": "Q3 FY2027"
+    "confirmed": true,
+    "label": "Q3 FY2027",
+    "time": "before the open, call 11am ET"
   },
   "WMT": {
     "date": "2026-11-19",
-    "confirmed": false,
-    "label": "Q3 FY2027"
+    "confirmed": true,
+    "label": "Q3 FY2027",
+    "time": "before the open, call 8am ET"
   }
 }
