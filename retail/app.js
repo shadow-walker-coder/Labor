@@ -109,7 +109,7 @@
     const btn = (k, label) => `<button type="button" data-f="${k}" aria-pressed="${filter === k}">${esc(label)}</button>`;
     return `<nav class="bar" aria-label="Filter by category"><div class="wrap">
       ${btn("all", "All retailers")}${D.categories.map((c) => btn(c.key, c.name)).join("")}
-      <button type="button" data-jump="heatmap">Comp heatmap ↓</button><button type="button" data-jump="calendar">Calendar ↓</button>
+      <button type="button" data-jump="calendar">Calendar ↓</button>
     </div></nav>`;
   }
 
@@ -215,7 +215,7 @@
   // ---------- comp heatmap: retailers x calendar quarter
   function heatmap() {
     const qs = [...new Set(D.reports.filter((r) => r.cal_quarter).map((r) => r.cal_quarter))].sort().slice(-6);
-    const rows = D.retailers.filter((t) => filter === "all" || t.category === filter);
+    const rows = D.retailers;
     const bucket = (v) => (v >= 5 ? "p3" : v >= 2 ? "p2" : v >= 0.5 ? "p1" : v > -0.5 ? "" : v > -2 ? "n1" : v > -5 ? "n2" : "n3");
     const lab = (q) => q.replace(/^(\d{4}) (Q\d)$/, "$2 $1");
     const body = rows.map((t) => {
@@ -229,8 +229,8 @@
       return `<tr><th class="rowh" scope="row">${esc(t.name)}<span>${t.ticker}</span></th>${cells}</tr>`;
     }).join("");
     const sw = [["n3", "≤ −5"], ["n2", "−5 to −2"], ["n1", "−2 to −0.5"], ["", "flat"], ["p1", "0.5 to 2"], ["p2", "2 to 5"], ["p3", "≥ 5"]];
-    return `<section class="wrap sec" id="heatmap"><div class="sec-head"><h2>Comp sales heatmap</h2>
-      <p>Each retailer's headline comparable-sales growth, lined up by the calendar quarter it covers so different fiscal years compare. Blue is growth, red is decline.</p></div>
+    return `<section class="wrap sec heat-sec" id="heatmap"><div class="sec-head"><div class="eyebrow">Comp sales, quarter by quarter</div>
+      <p>Each retailer's headline comparable-sales growth, lined up by the calendar quarter it covers so different fiscal years compare. Blue is growth, red is decline. Hover a cell for the fiscal quarter.</p></div>
       <div class="panel scroll"><table class="heat"><thead><tr><th></th>${qs.map((q) => `<th scope="col">${lab(q)}</th>`).join("")}</tr></thead><tbody>${body}</tbody></table>
       <div class="scale">${sw.map(([c, l]) => `<span><i style="background:var(--div-${c ? (c[0] === "p" ? "pos-" : "neg-") + c[1] : "mid"})"></i> ${l}</span>`).join("")} <span>% comp</span></div></div></section>`;
   }
@@ -259,11 +259,10 @@
 
   // ---------- render + interaction
   function render() {
-    app.innerHTML = mast() + briefing() + bar() + `<div id="cards">${categories()}</div>` + heatmap() + calendar() + foot();
+    app.innerHTML = mast() + briefing() + heatmap() + bar() + `<div id="cards">${categories()}</div>` + calendar() + foot();
   }
   function rerenderFiltered() {
     document.getElementById("cards").innerHTML = categories();
-    document.getElementById("heatmap").outerHTML = heatmap();
     const cal = document.getElementById("calendar");
     if (cal) cal.outerHTML = calendar() || "<span id=\"calendar\"></span>";
     document.querySelectorAll(".bar [data-f]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.f === filter)));
