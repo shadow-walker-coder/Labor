@@ -1,0 +1,83 @@
+{
+  "ticker": "ETSY",
+  "fiscal_period": "Q1 2026",
+  "period_end": "2026-03-31",
+  "report_date": "2026-04-29",
+  "headline": "Etsy marketplace GMS rose 5.5% (3.6% FX-neutral) and buyers grew again quarter over quarter; FY GMS outlook raised to low single digits.",
+  "metrics": {
+    "revenue_bn": 0.6313,
+    "revenue_yoy_pct": 3.1,
+    "revenue_consensus_bn": 0.6211,
+    "comp_pct": 5.5,
+    "comp_label": "Etsy marketplace GMS (+3.6% FX-neutral)",
+    "traffic_pct": null,
+    "ticket_pct": null,
+    "ecom_yoy_pct": null,
+    "gross_margin_bps": null,
+    "eps_adj": 0.89,
+    "eps_consensus": 0.62,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null,
+    "eps_ex_one_offs": null
+  },
+  "guidance": "raised",
+  "guidance_note": "FY 2026 marketplace GMS growth raised to low single digits (from slight growth); Q2 GMS guided to $2.48-2.53bn (+3-5%); FY adj. EBITDA margin 28-30% unchanged.",
+  "key_messages": [
+    "Etsy marketplace GMS ~$2.46bn, +5.5% YoY but only +3.6% FX-neutral; management cited FX and an easy prior-year comparison.",
+    "Active buyers 86.6m (TTM), the first quarter-over-quarter gain in two years; GMS per active buyer $122 (TTM).",
+    "App GMS +11.2% YoY (vs 6.6% in Q4), about 47% of GMS; active sellers +3.3% to 5.6m.",
+    "CEO says listing-price increases after de minimis ended and tariffs began are likely 'sticky'; Etsy will lap that boost later.",
+    "Depop to be sold to eBay ($1.2bn at the time); $145m of stock bought back."
+  ],
+  "consumer": {
+    "verdict": "choosy",
+    "income_split": null,
+    "big_ticket": "Discretionary GMS growth was modest ex-FX and helped by higher prices; management said gains in buyer frequency and retention will take time.",
+    "pricing": "Listing prices rose after the de minimis exemption ended and tariffs began; CEO expects those increases to stick.",
+    "quote": "Those increases are probably sticky price increases (CEO Kruti Patel Goyal on tariff and de minimis-related listing prices)."
+  },
+  "themes": [
+    "tariff_pricing",
+    "digital_strength"
+  ],
+  "macro_read": "Q1 2026 growth at a discretionary marketplace came largely from higher prices and FX rather than volume, which fits a consumer still spending but absorbing tariff-driven price increases.",
+  "one_offs_undisclosed": false,
+  "notes": [
+    "Continuing-operations consolidated GMS fell 3.9% because the prior year included Reverb.",
+    "Etsy reports GAAP only; eps_adj is GAAP diluted EPS from continuing operations ($0.89; continuing net income $104.7m vs a $35.1m loss a year earlier, which included a $101.7m impairment). One transcript summary cited $0.60 on an unstated basis.",
+    "Depop is in discontinued operations; Reverb (sold mid-2025) is in the prior-year continuing base, so consolidated GMS fell 3.9% while marketplace GMS rose 5.5%.",
+    "FX lifted reported marketplace GMS growth by about 1.9 pts (5.5% reported vs 3.6% FX-neutral).",
+    "Revenue consensus ($621.1m) comes from a single source (Investing.com).",
+    "Stock reaction left null: only low-quality aggregators (+1.7% / +2.7%) found."
+  ],
+  "sources": [
+    {
+      "label": "Etsy Q1 2026 shareholder letter (SEC 8-K)",
+      "url": "https://www.sec.gov/Archives/edgar/data/0001370637/000137063726000042/q126shareholderletter.htm"
+    },
+    {
+      "label": "TradingView: Etsy posts Q1 2026",
+      "url": "https://www.tradingview.com/news/tradingview:93b4a689dc3f3:0-etsy-posts-q1-2026-revenue-631-3m-gms-2-46b-net-income-from-continuing-operations-104-7m/"
+    },
+    {
+      "label": "Yahoo Finance / Quartz: Etsy Q1 2026 beats revenue estimates",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/etsy-q1-2026-earnings-beat-132225112.html"
+    },
+    {
+      "label": "Zacks: Etsy up 3.8% since last earnings report",
+      "url": "https://www.zacks.com/stock/news/2929293/etsy-etsy-up-3-8-since-last-earnings-report-can-it-continue"
+    },
+    {
+      "label": "Investing.com Q1 2026 call transcript",
+      "url": "https://www.investing.com/news/transcripts/earnings-call-transcript-etsys-q1-2026-revenue-beats-forecast-stock-jumps-93CH-4645578"
+    },
+    {
+      "label": "GuruFocus: Q1 2026 call highlights",
+      "url": "https://www.gurufocus.com/news/8830932/etsy-inc-etsy-q1-2026-earnings-call-highlights-strong-gms-growth-and-strategic-app-enhancements"
+    },
+    {
+      "label": "Yahoo Finance Q1 FY2026 call transcript",
+      "url": "https://finance.yahoo.com/quote/ETSY/earnings/ETSY-Q1-2026-earnings_call-560269.html"
+    }
+  ]
+}

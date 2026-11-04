@@ -1,0 +1,85 @@
+{
+  "ticker": "ETSY",
+  "fiscal_period": "Q3 2026",
+  "period_end": "2026-09-30",
+  "report_date": "2026-10-28",
+  "headline": "Etsy marketplace GMS growth sped up to 8.8% and active buyers grew for the first time in two years; FY GMS outlook raised to ~7%.",
+  "metrics": {
+    "revenue_bn": 0.6925,
+    "revenue_yoy_pct": 10.9,
+    "revenue_consensus_bn": null,
+    "comp_pct": 8.8,
+    "comp_label": "Etsy marketplace GMS (+9.1% FX-neutral)",
+    "traffic_pct": null,
+    "ticket_pct": null,
+    "ecom_yoy_pct": null,
+    "gross_margin_bps": null,
+    "eps_adj": 1.0,
+    "eps_consensus": null,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": 5.35,
+    "eps_ex_one_offs": null
+  },
+  "guidance": "raised",
+  "guidance_note": "Q4 marketplace GMS guided to $3.46-3.52bn (~+5-7% YoY); full-year 2026 GMS growth now ~7%, up from mid-single digits after Q2.",
+  "key_messages": [
+    "Etsy marketplace GMS ~$2.65bn, +8.8% YoY (+9.1% FX-neutral), about 190 bps faster than Q2 ex-FX; third straight quarter of acceleration.",
+    "Active buyers +1.0% YoY to ~87.5m (TTM), first YoY gain in two years; GMS per active buyer +3.9% YoY (TTM).",
+    "App GMS +10.4% vs non-app +7.5%; app share about 47% of GMS. Habitual/repeat buyers rose modestly quarter over quarter (no count given).",
+    "Management credits AI personalization with ~2 pts of annualized GMS growth; said early-2026 growth leaned on higher listing prices (tariffs) and FX.",
+    "Adj. EBITDA $210.4m (+14.6%, ~30% margin); $33.9m restructuring charge; CFO Lanny Baker leaving March 1, 2027."
+  ],
+  "consumer": {
+    "verdict": "steady",
+    "income_split": null,
+    "big_ticket": "Discretionary marketplace demand accelerated (GMS +8.8%) and buyer count returned to growth; no explicit comment on big-ticket spending found.",
+    "pricing": "Management said early-2026 growth was helped by higher listing prices tied to inflation and tariffs, plus FX; CEO said Etsy is focused on experience quality, not on driving price.",
+    "quote": "Increasingly confident that our business is now firmly in growth mode (shareholder letter, as quoted in secondary coverage)."
+  },
+  "themes": [
+    "discretionary_ok",
+    "digital_strength",
+    "tariff_pricing"
+  ],
+  "macro_read": "A highly discretionary, gift-heavy marketplace sped up through Q3 2026 and added buyers, consistent with resilient US goods spending, though part of the growth reflects higher prices rather than volume.",
+  "one_offs_undisclosed": false,
+  "notes": [
+    "Etsy marketplace GMS now equals consolidated GMS from continuing operations after the Depop and Reverb sales.",
+    "Etsy reports GAAP only; eps_adj is GAAP diluted EPS from continuing operations ($1.00 vs $0.86). Total diluted EPS is far higher because it includes the Depop sale gain (net income $853.5m incl. $739.9m from discontinued ops).",
+    "Depop (sold to eBay, closed July 30, 2026) and Reverb (sold 2025) are excluded; YoY figures are on a continuing-operations basis.",
+    "EPS includes a $33.9m pre-tax restructuring charge (12% workforce cut); per-share effect not disclosed, so eps_ex_one_offs is null.",
+    "Consensus left null: revenue estimates cited ranged $667.3m-$680.6m; EPS 'consensus' figures were on mismatched bases.",
+    "Stock reaction (+5.35%, close $92.35 on Oct 28) comes from a single price-history source; intraday reports ranged +4.2% to +8.5% pre-market.",
+    "Take rate reported ~26.2% by one secondary source only."
+  ],
+  "sources": [
+    {
+      "label": "Etsy Q3 2026 shareholder letter (SEC 8-K)",
+      "url": "https://www.sec.gov/Archives/edgar/data/0001370637/000137063726000090/q326shareholderletter.htm"
+    },
+    {
+      "label": "Etsy Q3 2026 Form 10-Q",
+      "url": "https://www.sec.gov/Archives/edgar/data/0001370637/000137063726000092/etsy-20260930.htm"
+    },
+    {
+      "label": "MarketScreener: Etsy Q3 2026 earnings results",
+      "url": "https://www.marketscreener.com/news/etsy-inc-reports-earnings-results-for-the-third-quarter-and-nine-months-ended-september-30-2026-ce785cd2de81f126"
+    },
+    {
+      "label": "Retail Insight Network: Etsy Q3 GMS and revenue growth",
+      "url": "https://www.retail-insight-network.com/newsletters/etsy-reports-third-quarter-gms-and-revenue-growth"
+    },
+    {
+      "label": "StockStory: Etsy reports strong Q3 2026",
+      "url": "https://stockstory.org/us/stocks/nyse/etsy/news/earnings/etsy-nyseetsy-reports-strong-q3-2026-stock-soars"
+    },
+    {
+      "label": "Stocktwits: Etsy stock hits 3-year high",
+      "url": "https://stocktwits.com/news-articles/markets/equity/etsy-stock-hits-over-3-year-highs-q3-revenue-jumps-11-cfo-to-depart-in-2027/cZU91ZYR9GJ"
+    },
+    {
+      "label": "Motley Fool Q3 2026 call transcript",
+      "url": "https://www.fool.com/earnings/call-transcripts/2026/10/28/etsy-etsy-q3-2026-earnings-call-transcript/"
+    }
+  ]
+}

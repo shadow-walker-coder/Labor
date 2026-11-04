@@ -17,11 +17,11 @@
   },
   {
     "title": "Tariff refunds and other one-time items in EPS",
-    "body": "In mid-2026 many retailers booked one-time IEEPA tariff refunds. Where the per-share effect was disclosed (Target, Dollar Tree, Dollar General, Costco), the EPS beat is measured without it. Where it was not (Home Depot, Walmart, Best Buy), the card says part of the beat may come from refunds, and the pulse tile counts those separately. TJX and Ross adjusted EPS already exclude refunds. Amazon's EPS is GAAP and in Q1 and Q2 2026 included large gains on its Anthropic investment, so no consensus comparison is shown."
+    "body": "In mid-2026 many retailers booked one-time IEEPA tariff refunds. Where the per-share effect was disclosed (Target, Dollar Tree, Dollar General, Costco), the EPS beat is measured without it. Where it was not (Home Depot, Walmart, Best Buy), the card says part of the beat may come from refunds, and the pulse tile counts those separately. TJX and Ross adjusted EPS already exclude refunds. Amazon's EPS is GAAP and in Q1 and Q2 2026 included large gains on its Anthropic investment, so no consensus comparison is shown. Etsy's EPS is GAAP from continuing operations; eBay's is non-GAAP."
   },
   {
-    "title": "Amazon is not a like-for-like comp",
-    "body": "Amazon reports total online-stores growth, not comparable sales, so its figure is marked in the heatmap and left out of the median comp. Its Q3 2026 growth of 2% was held down by Prime Day moving into June, which Amazon put at about 4 points."
+    "title": "E-commerce figures are growth, not comps",
+    "body": "Amazon reports total online-stores growth, eBay gross merchandise volume (GMV) and Etsy gross merchandise sales (GMS): what shoppers bought, including new business, not like-for-like comparable sales. They have a dashed outline in the heatmap and left out of the median comp. Amazon's Q3 2026 growth of 2% was held down by Prime Day moving into June (about 4 points); eBay's Q3 2026 GMV growth includes about 3 points from buying Depop."
   },
   {
     "title": "Comps are measured differently by each retailer",

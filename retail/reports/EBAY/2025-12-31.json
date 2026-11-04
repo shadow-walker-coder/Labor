@@ -1,0 +1,82 @@
+{
+  "ticker": "EBAY",
+  "fiscal_period": "Q4 2025",
+  "period_end": "2025-12-31",
+  "report_date": "2026-02-18",
+  "headline": "eBay beat in Q4 with GMV up 8% FX-neutral and announced a $1.2bn deal for Depop.",
+  "metrics": {
+    "revenue_bn": 2.97,
+    "revenue_yoy_pct": 15,
+    "revenue_consensus_bn": null,
+    "comp_pct": 8,
+    "comp_label": "GMV growth, FX-neutral",
+    "traffic_pct": null,
+    "ticket_pct": null,
+    "ecom_yoy_pct": null,
+    "gross_margin_bps": null,
+    "eps_adj": 1.41,
+    "eps_consensus": 1.36,
+    "eps_ex_one_offs": null,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null
+  },
+  "guidance": "initiated",
+  "guidance_note": "FY26 (ex-Depop): FX-neutral GMV growth similar to 2025, non-GAAP op income +8-10%; Q1 GMV $21.5-21.9bn (+10-12%), EPS $1.53-1.59 above consensus.",
+  "key_messages": [
+    "GMV $21.2bn, +10% reported / +8% FX-neutral; revenue +15% reported / +13% FX-neutral.",
+    "Focus-category GMV grew 16%+, led by collectibles, parts & accessories, luxury, refurbished, apparel and sneakers; international lagged the US.",
+    "Active buyers ~135M; >134M ex-Tise, up ~1% organically. ~16M enthusiasts spend >$3,300 a year each.",
+    "Agreed to buy Depop from Etsy for $1.2bn; dividend raised 7% to $0.31 and buyback authorization raised by $2bn."
+  ],
+  "consumer": {
+    "verdict": "steady",
+    "income_split": null,
+    "big_ticket": "Holiday-quarter demand healthy in enthusiast and refurbished categories; international weaker than US.",
+    "pricing": null,
+    "quote": null
+  },
+  "themes": [
+    "value_seeking",
+    "discretionary_ok",
+    "digital_strength"
+  ],
+  "macro_read": "Holiday 2025 discretionary demand held up on eBay, with refurbished goods and collectibles growing and the US outperforming abroad. Buyer counts were nearly flat.",
+  "one_offs_undisclosed": false,
+  "notes": [
+    "Revenue $2.97bn comes from Zacks/Investing coverage; the release headline rounds it to $3.0bn.",
+    "Revenue consensus left null because sources disagree ($2.87bn vs $2.89bn). EPS consensus uses Zacks ($1.36); other outlets cited $1.35.",
+    "Stock reaction left null: shares rose ~6.8-7.3% after hours and ~7-8% premarket, but the Feb 19 close was not confirmed.",
+    "A call summary says return/cancellation rates stabilized as buyers and sellers adjusted to US trade-policy changes; the source text was truncated, so this is unconfirmed.",
+    "Tise acquisition adds ~1M buyers to the count."
+  ],
+  "sources": [
+    {
+      "label": "eBay Q4/FY2025 release (ebayinc.com)",
+      "url": "https://www.ebayinc.com/stories/news/ebay-inc-reports-fourth-quarter-and-full-year-2025-results/"
+    },
+    {
+      "label": "eBay Q4 2025 8-K Ex. 99.1 (SEC)",
+      "url": "https://www.sec.gov/Archives/edgar/data/1065088/000106508826000017/exhibit991erebayq42025.htm"
+    },
+    {
+      "label": "Investing.com: eBay shares jump as Q4 beat, Depop deal",
+      "url": "https://www.investing.com/news/earnings/ebay-shares-jump-as-q4-earnings-beat-depop-acquisition-announced-4512157"
+    },
+    {
+      "label": "Benzinga: eBay tops Q4, agrees to acquire Depop",
+      "url": "https://www.benzinga.com/markets/earnings/26/02/50706524/ebay-tops-q4-earnings-agrees-to-acquire-depop-shares-spring-higher"
+    },
+    {
+      "label": "Yahoo/Zacks: EBAY Q4 earnings surpass estimates",
+      "url": "https://finance.yahoo.com/news/ebay-q4-earnings-surpass-estimates-161200333.html"
+    },
+    {
+      "label": "Yahoo: eBay Q4 earnings call highlights",
+      "url": "https://finance.yahoo.com/news/ebay-q4-earnings-call-highlights-003820598.html"
+    },
+    {
+      "label": "EcommerceBytes: eBay grows GMV 10% in Q4 2025",
+      "url": "https://www.ecommercebytes.com/2026/02/18/ebay-grows-gmv-10-in-fourth-quarter-of-2025/"
+    }
+  ]
+}

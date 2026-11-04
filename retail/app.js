@@ -149,7 +149,7 @@
     const base = isNum(m.eps_ex_one_offs) ? m.eps_ex_one_offs : m.eps_adj;
     const eps = isNum(base) ? `$${base.toFixed(2)}${r.one_offs_undisclosed ? "*" : ""}${isNum(m.eps_consensus) ? ` vs ${m.eps_consensus.toFixed(2)}` : ""}` : "—";
     const rows = [
-      ["Revenue", isNum(m.revenue_bn) ? `$${m.revenue_bn.toFixed(1)}bn` : "—", ""],
+      ["Revenue", isNum(m.revenue_bn) ? (m.revenue_bn < 1 ? `$${Math.round(m.revenue_bn * 1000)}m` : `$${m.revenue_bn.toFixed(1)}bn`) : "—", ""],
       ["Rev. YoY", pct(m.revenue_yoy_pct), cls(m.revenue_yoy_pct)],
       ["Traffic", pct(m.traffic_pct), cls(m.traffic_pct)],
       ["Ticket", pct(m.ticket_pct), cls(m.ticket_pct)],
@@ -212,7 +212,7 @@
     return `<div class="glance">${ts.map((t) => {
       const r = hist[t.ticker]?.[0];
       if (!r) return "";
-      return `<a class="g" href="#r-${t.ticker}"><span class="gn">${esc(t.name)}</span><span class="gv num">${pct(r.metrics.comp_pct)}${t.comp_is_growth ? "†" : ""}</span>
+      return `<a class="g" href="#r-${t.ticker}"><span class="gn">${esc(t.name)}</span><span class="gv num">${pct(r.metrics.comp_pct)}</span>${t.comp_is_growth ? `<span class="gtag">growth</span>` : ""}
         <span class="verd ${r.consumer.verdict}">${VERD[r.consumer.verdict]}</span></a>`;
     }).join("")}</div>`;
   }
@@ -234,16 +234,16 @@
         const v = r.metrics.comp_pct;
         const tip = `${t.name} ${r.fiscal_period}\n${pct(v)} ${r.metrics.comp_label || t.comp_label}\nconsumer: ${VERD[r.consumer.verdict]}`;
         const g = t.comp_is_growth;
-        return `<td class="${bucket(v)}${g ? " growth" : ""}" data-tip="${esc(tip + (g ? "\ntotal growth, not a like-for-like comp" : ""))}" tabindex="0">${pct(v)}${g ? "†" : ""}</td>`;
+        return `<td class="${bucket(v)}${g ? " growth" : ""}" data-tip="${esc(tip + (g ? "\ngrowth, not a like-for-like comp" : ""))}" tabindex="0">${pct(v)}</td>`;
       }).join("");
-      return `<tr><th class="rowh" scope="row">${esc(t.name)}${t.comp_is_growth ? "†" : ""}<span>${t.ticker}</span></th>${cells}</tr>`;
+      return `<tr><th class="rowh" scope="row">${esc(t.name)}<span>${t.ticker}${t.comp_is_growth ? " · growth" : ""}</span></th>${cells}</tr>`;
     }).join("");
     const sw = [["n3", "≤ −5"], ["n2", "−5 to −2"], ["n1", "−2 to −0.5"], ["", "flat"], ["p1", "0.5 to 2"], ["p2", "2 to 5"], ["p3", "≥ 5"]];
     return `<section class="wrap sec heat-sec"><div class="sec-head"><div class="eyebrow">Comp sales, quarter by quarter</div>
       <p>Each retailer's headline comparable-sales growth, lined up by the calendar quarter it covers so different fiscal years compare. Blue is growth, red is decline. Hover a cell for the fiscal quarter. Each retailer defines comps a little differently, so treat small gaps as approximate.</p></div>
       <div class="panel scroll"><table class="heat"><thead><tr><th></th>${qs.map((q) => `<th scope="col">${lab(q)}</th>`).join("")}</tr></thead><tbody>${body}</tbody></table>
       <div class="scale">${sw.map(([c, l]) => `<span><i style="background:var(--div-${c ? (c[0] === "p" ? "pos-" : "neg-") + c[1] : "mid"})"></i> ${l}</span>`).join("")} <span>% comp</span></div>
-      ${D.retailers.some((t) => t.comp_is_growth) ? `<div class="scale">† ${esc(D.retailers.filter((t) => t.comp_is_growth).map((t) => t.name).join(", "))}: total online-stores growth, not a like-for-like comp.</div>` : ""}</div></section>`;
+      ${D.retailers.some((t) => t.comp_is_growth) ? `<div class="scale"><i class="growth-key"></i> Dashed outline (${esc(D.retailers.filter((t) => t.comp_is_growth).map((t) => t.name).join(", "))}): total sales or merchandise-volume growth, not a like-for-like comp.</div>` : ""}</div></section>`;
   }
 
   // ---------- calendar

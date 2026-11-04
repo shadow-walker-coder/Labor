@@ -29,6 +29,18 @@
     "label": "Q3 2026",
     "time": "before the open, call 8am ET"
   },
+  "EBAY": {
+    "date": "2027-02-18",
+    "confirmed": false,
+    "label": "Q4 2026",
+    "basis": "Based on last year (Feb 18, after the close); not yet announced."
+  },
+  "ETSY": {
+    "date": "2027-02-19",
+    "confirmed": false,
+    "label": "Q4 2026",
+    "basis": "Based on last year (Feb 19); not yet announced."
+  },
   "HD": {
     "date": "2026-11-17",
     "confirmed": true,

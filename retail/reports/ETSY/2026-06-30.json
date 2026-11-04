@@ -1,0 +1,78 @@
+{
+  "ticker": "ETSY",
+  "fiscal_period": "Q2 2026",
+  "period_end": "2026-06-30",
+  "report_date": "2026-08-05",
+  "headline": "Etsy marketplace GMS rose 7.5% as growth sped up; it raised the FY outlook, cut 12% of staff and approved a $2bn buyback.",
+  "metrics": {
+    "revenue_bn": 0.6683,
+    "revenue_yoy_pct": 6.2,
+    "revenue_consensus_bn": null,
+    "comp_pct": 7.5,
+    "comp_label": "Etsy marketplace GMS (+7.2% FX-neutral)",
+    "traffic_pct": null,
+    "ticket_pct": null,
+    "ecom_yoy_pct": null,
+    "gross_margin_bps": null,
+    "eps_adj": 0.98,
+    "eps_consensus": null,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null,
+    "eps_ex_one_offs": null
+  },
+  "guidance": "raised",
+  "guidance_note": "FY 2026 GMS growth raised to mid-single digits (from low single digits); Q3 GMS guided to $2.53-2.58bn (+4-6%), adj. EBITDA margin 28-30%.",
+  "key_messages": [
+    "Etsy marketplace GMS ~$2.6bn, +7.5% YoY (+7.2% FX-neutral), the third straight quarter of growth; marketplace revenue +9.3%.",
+    "Active buyers ~87m (TTM), roughly flat YoY (one source: -0.4%); GMS per active buyer $124, +2.8% YoY.",
+    "App GMS +12.5% YoY, about 47% of GMS.",
+    "Restructuring cuts ~220 jobs (12%), with ~$35m in charges expected in Q3; CEO says it is about speed, not cost-cutting. $2bn buyback authorized.",
+    "Coverage notes rising competition from Amazon, Walmart, TikTok Shop and Temu."
+  ],
+  "consumer": {
+    "verdict": "steady",
+    "income_split": null,
+    "big_ticket": "Discretionary marketplace GMS accelerated while buyer count stayed flat, so growth came from spend per buyer.",
+    "pricing": null,
+    "quote": null
+  },
+  "themes": [
+    "discretionary_ok",
+    "digital_strength"
+  ],
+  "macro_read": "Discretionary online spending firmed in Q2 2026, but it came from existing buyers spending more rather than new buyers, which points to steady rather than broadening demand.",
+  "one_offs_undisclosed": false,
+  "notes": [
+    "Etsy reports GAAP only; eps_adj is GAAP diluted EPS from continuing operations ($0.98 vs $0.39). Total diluted EPS was a $0.36 loss, driven by a $161.0m (-$1.34/share) Depop disposal charge in discontinued operations.",
+    "Depop was classified as discontinued operations (sale pending at quarter end); revenue growth of 6.2% is continuing-ops basis. Some outlets described sales as flat on a different basis.",
+    "Consensus left null: EPS estimates cited were $0.73 and $0.75, and AP/Zacks used a different 'adjusted' $1.34 vs $1.17.",
+    "Stock reaction left null: sources conflict (shares -0.66% on report day before after-hours results; later moves cited of flat, -0.4% and +4%).",
+    "Restructuring charges fall mainly in Q3, not Q2."
+  ],
+  "sources": [
+    {
+      "label": "Etsy Q2 2026 shareholder letter (SEC 8-K)",
+      "url": "https://www.sec.gov/Archives/edgar/data/0001370637/000137063726000079/q226shareholderletter.htm"
+    },
+    {
+      "label": "Etsy Q2 2026 Form 10-Q",
+      "url": "https://investors.etsy.com/sec-filings/all-sec-filings/content/0001370637-26-000080/etsy-20260630.htm"
+    },
+    {
+      "label": "CNBC: Etsy laying off 12% of staff",
+      "url": "https://www.cnbc.com/2026/08/05/etsy-layoffs-q2-earnings.html"
+    },
+    {
+      "label": "MarketScreener: Etsy Q2 2026 earnings results",
+      "url": "https://www.marketscreener.com/news/etsy-inc-reports-earnings-results-for-the-second-quarter-and-six-months-ended-june-30-2026-ce7f50dcdc8bf526"
+    },
+    {
+      "label": "Yahoo Finance: Etsy Q2 2026 call highlights",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/etsy-inc-etsy-q2-2026-231603652.html"
+    },
+    {
+      "label": "Stocktwits: Etsy cuts 12% of workforce after Q2 beat",
+      "url": "https://stocktwits.com/news-articles/markets/equity/etsy-cuts-12-percent-workforce-after-q2-beat-says-layoffs-not-a-cost-cutting-move/cZoIPhcRJek"
+    }
+  ]
+}

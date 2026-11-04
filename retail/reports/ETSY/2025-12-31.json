@@ -1,0 +1,77 @@
+{
+  "ticker": "ETSY",
+  "fiscal_period": "Q4 2025",
+  "period_end": "2025-12-31",
+  "report_date": "2026-02-19",
+  "headline": "Etsy marketplace GMS turned barely positive (+0.1%) in holiday Q4 as buyers kept shrinking; Etsy agreed to sell Depop to eBay for $1.2bn.",
+  "metrics": {
+    "revenue_bn": 0.8816,
+    "revenue_yoy_pct": 3.5,
+    "revenue_consensus_bn": 0.885,
+    "comp_pct": 0.1,
+    "comp_label": "Etsy marketplace GMS (−1% FX-neutral)",
+    "traffic_pct": null,
+    "ticket_pct": null,
+    "ecom_yoy_pct": null,
+    "gross_margin_bps": null,
+    "eps_adj": 0.92,
+    "eps_consensus": null,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null,
+    "eps_ex_one_offs": null
+  },
+  "guidance": "initiated",
+  "guidance_note": "Q1 2026 GMS guided to $2.38-2.43bn; FY 2026 expected to show slight YoY GMS growth with gains in every quarter; take rate ~25.5%.",
+  "key_messages": [
+    "Etsy marketplace GMS +0.1% YoY, its first positive comparison since Q3 2023, but -1% FX-neutral. Consolidated GMS $3.59bn (-3.8%; +2.4% ex-Reverb).",
+    "Active buyers 86.5m (TTM), -3.4% YoY and flat versus Q3; habitual buyers reportedly -8.6% YoY and purchase frequency still below last year.",
+    "App GMS growth sped up to +6.6%, app about 46% of GMS; agentic/AI-referred traffic up ~15x but under 1% of total.",
+    "Depop (Q4 GMS ~$300m, +38%) to be sold to eBay for $1.2bn in cash; Kruti Patel Goyal's first call as CEO."
+  ],
+  "consumer": {
+    "verdict": "choosy",
+    "income_split": null,
+    "big_ticket": "Holiday-quarter discretionary GMS was flat ex-FX, with fewer buyers and fewer habitual buyers.",
+    "pricing": null,
+    "quote": null
+  },
+  "themes": [
+    "digital_strength"
+  ],
+  "macro_read": "Flat holiday GMS and a shrinking buyer base at a discretionary gift marketplace point to cautious, selective goods spending in late 2025.",
+  "one_offs_undisclosed": false,
+  "notes": [
+    "Consolidated GMS fell 3.8% as reported, or rose 2.4% excluding Reverb, which was sold in 2025.",
+    "Etsy reports GAAP only; eps_adj is GAAP diluted EPS ($0.92). Net income of $110.7m was down YoY mainly because Q4 2024 included a non-cash FX gain.",
+    "Reverb was sold in mid-2025, so reported revenue (+3.5%) and GMS (-3.8%) understate the underlying trend (+6.6% revenue and +2.4% GMS ex-Reverb). Q4 2025 figures still include Depop.",
+    "EPS consensus left null: sources cited $0.84 and $0.85. Revenue consensus ($885m) is from secondary coverage; some outlets called revenue in line.",
+    "Stock reaction left null: sources conflict (+21.4% pre-market/early, 'more than 11%', +9.3%, +8.39% on the following day).",
+    "Habitual-buyer decline (-8.6%) comes from secondary call summaries."
+  ],
+  "sources": [
+    {
+      "label": "Etsy Q4/FY2025 release (investors.etsy.com)",
+      "url": "https://investors.etsy.com/news-events/press-releases/detail/218/etsy-inc-reports-fourth-quarter-and-full-year-2025-results"
+    },
+    {
+      "label": "Etsy Q4 2025 release (SEC 8-K Ex. 99.1)",
+      "url": "https://www.sec.gov/Archives/edgar/data/1370637/000137063726000017/exhibit99112312025.htm"
+    },
+    {
+      "label": "Barchart: release text with outlook",
+      "url": "https://www.barchart.com/story/news/300269/etsy-inc-reports-fourth-quarter-and-full-year-2025-results"
+    },
+    {
+      "label": "Yahoo Finance: Etsy shares surge on Depop sale",
+      "url": "https://finance.yahoo.com/news/etsy-shares-surge-depop-sale-151600001.html"
+    },
+    {
+      "label": "Investing.com Q4 2025 call transcript",
+      "url": "https://www.investing.com/news/transcripts/earnings-call-transcript-etsys-q4-2025-eps-beats-forecast-stock-surges-93CH-4514105"
+    },
+    {
+      "label": "Motley Fool Q4 2025 call transcript",
+      "url": "https://www.fool.com/earnings/call-transcripts/2026/02/19/etsy-etsy-q4-2025-earnings-call-transcript"
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "ticker": "EBAY",
+  "fiscal_period": "Q2 2026",
+  "period_end": "2026-06-30",
+  "report_date": "2026-08-05",
+  "headline": "eBay's Q2 GMV grew 14% FX-neutral on a trading-card-led US surge; it beat estimates and raised full-year targets.",
+  "metrics": {
+    "revenue_bn": 3.13,
+    "revenue_yoy_pct": 15,
+    "revenue_consensus_bn": 3.01,
+    "comp_pct": 14,
+    "comp_label": "GMV growth, FX-neutral",
+    "traffic_pct": null,
+    "ticket_pct": null,
+    "ecom_yoy_pct": null,
+    "gross_margin_bps": null,
+    "eps_adj": 1.6,
+    "eps_consensus": 1.51,
+    "eps_ex_one_offs": null,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null
+  },
+  "guidance": "raised",
+  "guidance_note": "Raised FY26 outlook incl. Depop (FX-neutral GMV growth reported as 11.5-12.5% vs 7-7.5% prior); Q3 GMV $22.0-22.4bn, rev $3.07-3.12bn, EPS $1.36-1.42.",
+  "key_messages": [
+    "GMV $22.4bn, +15% reported / +14% FX-neutral; FX added ~1 pt.",
+    "US GMV $11.69bn (+24%) vs international $10.71bn (+6%), so growth was concentrated in the US.",
+    "Active buyers 136M, +2% YoY (flat QoQ); US active buyers ~+6%, US enthusiast buyers +9%.",
+    "Focus-category GMV +26%, now >40% of GMV; trading cards led (NBA Finals, World Cup); bullion lift faded vs prior quarters.",
+    "Non-GAAP EPS $1.60 (+17%) vs GAAP $1.21; Depop's ~9M buyers join the count from Q3."
+  ],
+  "consumer": {
+    "verdict": "steady",
+    "income_split": null,
+    "big_ticket": "Enthusiast/collectibles spend strong (trading cards, coins, toys, memorabilia); gold/silver bullion a smaller tailwind than in Q4-Q1.",
+    "pricing": null,
+    "quote": null
+  },
+  "themes": [
+    "discretionary_ok",
+    "digital_strength"
+  ],
+  "macro_read": "Discretionary enthusiast spending in the US was robust in spring 2026, but buyer growth was only 2%, so this mostly shows deep-pocketed hobbyists spending more rather than broad consumer strength.",
+  "one_offs_undisclosed": false,
+  "notes": [
+    "FY GMV guidance range 11.5-12.5% comes from secondary coverage (Teleborsa summary) and includes Depop; not verified against the release.",
+    "Revenue consensus is implied from Zacks' 3.85% beat; 24/7 Wall St cited ~$3.02bn.",
+    "Stock reaction on Aug 6 not found; left null.",
+    "No Q2 management comments on tariffs/de minimis were found."
+  ],
+  "sources": [
+    {
+      "label": "eBay Q2 2026 release (ebayinc.com)",
+      "url": "https://www.ebayinc.com/stories/news/ebay-inc-reports-second-quarter-2026-results/"
+    },
+    {
+      "label": "eBay Q2 2026 8-K Ex. 99.1 (SEC)",
+      "url": "https://www.sec.gov/Archives/edgar/data/0001065088/000106508826000174/exhibit991erebayq22026.htm"
+    },
+    {
+      "label": "Yahoo/Zacks: EBAY Q2 earnings beat on higher GMV and ad growth",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/ebay-q2-earnings-beat-estimates-135500085.html"
+    },
+    {
+      "label": "Yahoo: eBay Q2 2026 earnings call highlights",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/ebay-inc-ebay-q2-2026-051149469.html"
+    },
+    {
+      "label": "Value Added Resource: eBay Q2 2026 earnings",
+      "url": "https://www.valueaddedresource.net/ebay-q2-2026-earnings/"
+    },
+    {
+      "label": "Teleborsa: eBay Q2 guidance raised",
+      "url": "https://www.teleborsa.it/AMP/News/2026/08/06/ebay-secondo-trimestre-in-crescita-oltre-le-attese-guidance-in-rialzo-51.html"
+    },
+    {
+      "label": "MarketBeat: eBay Q3 2026 guidance",
+      "url": "https://www.marketbeat.com/instant-alerts/ebay-nasdaqebay-issues-q3-2026-earnings-guidance-2026-08-05/"
+    }
+  ]
+}

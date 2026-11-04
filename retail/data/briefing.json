@@ -53,11 +53,13 @@
     },
     {
       "title": "Discretionary is selective, not broken",
-      "body": "Best Buy domestic comps rose 4.5% on PC replacement and new gadgets, and it raised its outlook. HomeGoods comps rose 7% while T.J. Maxx and Marshalls slowed to 1%, and Target home and apparel still lag.",
+      "body": "Best Buy domestic comps rose 4.5% on PC replacement and new gadgets, and it raised its outlook. HomeGoods comps rose 7% while T.J. Maxx and Marshalls slowed to 1%, and Target home and apparel still lag. Online, Q3 eBay merchandise volume grew 16% (about 3 points from Depop) and Etsy marketplace sales 8.8%, both raising their outlooks.",
       "tickers": [
         "BBY",
         "TJX",
-        "TGT"
+        "TGT",
+        "EBAY",
+        "ETSY"
       ]
     },
     {

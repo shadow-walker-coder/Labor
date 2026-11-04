@@ -122,9 +122,11 @@ Caveats about a single quarter are kept in that report's `notes` field and shown
    `one_offs_undisclosed` is true; the card marks EPS with * and the pulse tile counts those beats
    separately. TJX and Ross adjusted EPS already exclude refunds. Amazon EPS is GAAP and in Q1 and Q2 2026
    included large Anthropic investment gains, so no consensus comparison is shown.
-6. **Amazon is not a like-for-like comp.** It reports total online-stores growth, so it is marked † in the
-   heatmap and left out of the median comp (`comp_is_growth` in `config.py`). Q3 2026 growth of 2% was
-   held down by Prime Day moving into June, about 4 points by Amazon's estimate.
+6. **E-commerce figures are growth, not comps.** Amazon reports total online-stores growth, eBay gross
+   merchandise volume (GMV) and Etsy gross merchandise sales (GMS), so they have a dashed outline in the
+   heatmap and are left out of the median comp (`comp_is_growth` in `config.py`). Amazon's Q3 2026 growth
+   of 2% was held down by Prime Day moving into June (about 4 points); eBay's Q3 GMV includes about 3
+   points from buying Depop.
 7. **Comps are defined differently.** Walmart U.S. ex fuel; Costco U.S. ex gas and FX; Home Depot U.S.;
    Kroger identical sales ex fuel; Best Buy Domestic; Dollar Tree segment; others total comparable sales.
    Treat small gaps between retailers as approximate.

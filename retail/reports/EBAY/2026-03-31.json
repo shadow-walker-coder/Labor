@@ -1,0 +1,79 @@
+{
+  "ticker": "EBAY",
+  "fiscal_period": "Q1 2026",
+  "period_end": "2026-03-31",
+  "report_date": "2026-04-29",
+  "headline": "eBay's Q1 GMV jumped 14% FX-neutral on sports cards and a bullion bump; eBay raised its 2026 GMV outlook.",
+  "metrics": {
+    "revenue_bn": 3.09,
+    "revenue_yoy_pct": 19,
+    "revenue_consensus_bn": 3.03,
+    "comp_pct": 14,
+    "comp_label": "GMV growth, FX-neutral",
+    "traffic_pct": null,
+    "ticket_pct": null,
+    "ecom_yoy_pct": null,
+    "gross_margin_bps": null,
+    "eps_adj": 1.66,
+    "eps_consensus": 1.58,
+    "eps_ex_one_offs": null,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null
+  },
+  "guidance": "raised",
+  "guidance_note": "FY26 FX-neutral GMV growth raised to 7-7.5% (ex-Depop); Q2 GMV $21.3-21.7bn (+8-10%), rev $2.97-3.03bn, EPS $1.46-1.51.",
+  "key_messages": [
+    "GMV $22.2bn, +18% reported / +14% FX-neutral; revenue +19% reported / +17% FX-neutral.",
+    "US GMV up ~27% per call summaries; international grew just over 2% organic FX-neutral, so the gap with the US is wide.",
+    "Active buyers 136M, +1% YoY (135M ex-Tise); US active buyers +6%, enthusiast buyers +8%.",
+    "Sports trading cards outpaced the Pokemon 30th anniversary as a driver; gold/silver bullion gave a transitory boost.",
+    "Management guided Q2 slower as bullion volume reverts to normal."
+  ],
+  "consumer": {
+    "verdict": "steady",
+    "income_split": null,
+    "big_ticket": "Collectibles/hobby spend accelerated; precious-metals buying (bullion) temporarily lifted GMV.",
+    "pricing": null,
+    "quote": null
+  },
+  "themes": [
+    "discretionary_ok",
+    "digital_strength"
+  ],
+  "macro_read": "Hobbyist and precious-metals buying lifted eBay's results, which reflects asset-price and enthusiast demand more than broad consumer health. Buyer growth stayed near flat.",
+  "one_offs_undisclosed": false,
+  "notes": [
+    "Bullion boost was flagged as transitory; it drives most of the guided Q1-to-Q2 slowdown.",
+    "Big FX tailwind: reported GMV growth (18%) well above FX-neutral (14%).",
+    "US GMV +27% figure comes from call summaries; its exact definition is unconfirmed.",
+    "EPS consensus is Zacks ($1.66 beat by 5.06%); some auto-generated sites cite $1.61. Revenue consensus is Zacks' post-report figure; its pre-report figure was $3.02bn.",
+    "Stock reaction: sources conflict (+3.36% vs -1.24%), so left null.",
+    "No tariff/de minimis commentary found for this call."
+  ],
+  "sources": [
+    {
+      "label": "eBay Q1 2026 release (investor site)",
+      "url": "https://investors.ebayinc.com/investor-news/press-release-details/2026/eBay-Inc--Reports-First-Quarter-2026-Results/default.aspx"
+    },
+    {
+      "label": "eBay Q1 2026 8-K Ex. 99.1 (SEC)",
+      "url": "https://www.sec.gov/Archives/edgar/data/0001065088/000106508826000092/exhibit991erebayq12026.htm"
+    },
+    {
+      "label": "Zacks: eBay Q1 earnings & revenues surpass estimates",
+      "url": "https://www.zacks.com/stock/news/2912258/ebay-q1-earnings-revenues-surpass-estimates-both-increase-yy"
+    },
+    {
+      "label": "Yahoo: eBay Q1 2026 earnings call summary",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/ebay-inc-q1-2026-earnings-001646209.html"
+    },
+    {
+      "label": "Motley Fool Q1 2026 call transcript",
+      "url": "https://www.fool.com/earnings/call-transcripts/2026/04/29/ebay-ebay-q1-2026-earnings-call-transcript/"
+    },
+    {
+      "label": "Investing.com Q1 2026 call transcript",
+      "url": "https://uk.investing.com/news/stock-market-news/earnings-call-transcript-ebay-q1-2026-earnings-beat-expectations-stock-rises-93CH-4639233"
+    }
+  ]
+}
