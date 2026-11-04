@@ -6,19 +6,19 @@ CIK numbers are SEC company identifiers: https://www.sec.gov/cgi-bin/browse-edga
 """
 
 CATEGORIES = [
-    dict(key="mass", name="Mass merchants & clubs",
+    dict(key="mass", short="Mass & clubs", name="Mass merchants & clubs",
          reads="The broadest read on the middle of the market: groceries, household basics and general merchandise."),
-    dict(key="ecom", name="E-commerce",
+    dict(key="ecom", short="E-commerce", name="E-commerce",
          reads="Online share gains, delivery speed and the advertising flywheel. Retail only; cloud is excluded."),
-    dict(key="home", name="Home improvement",
+    dict(key="home", short="Home", name="Home improvement",
          reads="The housing proxy: turnover, mortgage rates, big-ticket projects and contractor demand."),
-    dict(key="offprice", name="Off-price apparel & home",
+    dict(key="offprice", short="Off-price", name="Off-price apparel & home",
          reads="Treasure-hunt value shopping across incomes; a gauge of trade-down from department stores."),
-    dict(key="value", name="Dollar & value",
+    dict(key="value", short="Dollar & value", name="Dollar & value",
          reads="The clearest window on lower-income households: paycheck timing, benefits and trade-down."),
-    dict(key="electronics", name="Electronics",
+    dict(key="electronics", short="Electronics", name="Electronics",
          reads="Pure discretionary, big-ticket demand and replacement cycles."),
-    dict(key="grocery", name="Grocery",
+    dict(key="grocery", short="Grocery", name="Grocery",
          reads="Food inflation, private label and pharmacy: the non-negotiable part of the budget."),
 ]
 

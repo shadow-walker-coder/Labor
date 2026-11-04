@@ -35,8 +35,7 @@
   }
   Object.values(hist).forEach((a) => a.sort((p, q) => q.report_date.localeCompare(p.report_date)));
   const latest = D.retailers.map((r) => hist[r.ticker]?.[0]).filter(Boolean);
-  let filter = "all";
-  try { const f = localStorage.getItem("rem-filter"); if (f && (f === "all" || cats[f])) filter = f; } catch (e) { /* storage blocked */ }
+  let page = 0;  // index into PAGES
 
   // ---------- masthead + briefing
   function mast() {
@@ -107,12 +106,11 @@
     </section>`;
   }
 
-  // ---------- filter bar
-  function bar() {
-    const btn = (k, label) => `<button type="button" data-f="${k}" aria-pressed="${filter === k}">${esc(label)}</button>`;
-    return `<nav class="bar" aria-label="Filter by category"><div class="wrap">
-      ${btn("all", "All retailers")}${D.categories.map((c) => btn(c.key, c.name)).join("")}
-      <button type="button" data-jump="calendar">Calendar ↓</button>
+  // ---------- page strip (sticky): one tab per page, plus previous / next
+  function nav() {
+    return `<nav class="bar" aria-label="Pages"><div class="wrap">
+      <div class="tabs">${PAGES.map((pg, i) => `<a href="#${pg.key}" data-page="${i}"><span class="pn">${i + 1}</span>${esc(pg.short || pg.label)}</a>`).join("")}</div>
+      <div class="arrows"><button type="button" data-step="-1" aria-label="Previous page">←</button><button type="button" data-step="1" aria-label="Next page">→</button></div>
     </div></nav>`;
   }
 
@@ -210,12 +208,17 @@
     </article>`;
   }
 
-  function categories() {
-    return D.categories.filter((c) => filter === "all" || filter === c.key).map((c) => {
-      const ts = D.retailers.filter((r) => r.category === c.key);
-      return `<section class="wrap cat" id="cat-${c.key}"><div class="cat-head"><h2>${esc(c.name)}</h2><p>${esc(c.reads)}</p></div>
-        <div class="cards">${ts.map(card).join("")}</div></section>`;
-    }).join("");
+  function glance(ts) {
+    return `<div class="glance">${ts.map((t) => {
+      const r = hist[t.ticker]?.[0];
+      if (!r) return "";
+      return `<a class="g" href="#r-${t.ticker}"><span class="gn">${esc(t.name)}</span><span class="gv num">${pct(r.metrics.comp_pct)}${t.comp_is_growth ? "†" : ""}</span>
+        <span class="verd ${r.consumer.verdict}">${VERD[r.consumer.verdict]}</span></a>`;
+    }).join("")}</div>`;
+  }
+  function categoryPage(c) {
+    const ts = D.retailers.filter((r) => r.category === c.key);
+    return `<section class="wrap cat"><div class="cards">${ts.map(card).join("")}</div></section>`;
   }
 
   // ---------- comp heatmap: retailers x calendar quarter
@@ -236,7 +239,7 @@
       return `<tr><th class="rowh" scope="row">${esc(t.name)}${t.comp_is_growth ? "†" : ""}<span>${t.ticker}</span></th>${cells}</tr>`;
     }).join("");
     const sw = [["n3", "≤ −5"], ["n2", "−5 to −2"], ["n1", "−2 to −0.5"], ["", "flat"], ["p1", "0.5 to 2"], ["p2", "2 to 5"], ["p3", "≥ 5"]];
-    return `<section class="wrap sec heat-sec" id="heatmap"><div class="sec-head"><div class="eyebrow">Comp sales, quarter by quarter</div>
+    return `<section class="wrap sec heat-sec"><div class="sec-head"><div class="eyebrow">Comp sales, quarter by quarter</div>
       <p>Each retailer's headline comparable-sales growth, lined up by the calendar quarter it covers so different fiscal years compare. Blue is growth, red is decline. Hover a cell for the fiscal quarter. Each retailer defines comps a little differently, so treat small gaps as approximate.</p></div>
       <div class="panel scroll"><table class="heat"><thead><tr><th></th>${qs.map((q) => `<th scope="col">${lab(q)}</th>`).join("")}</tr></thead><tbody>${body}</tbody></table>
       <div class="scale">${sw.map(([c, l]) => `<span><i style="background:var(--div-${c ? (c[0] === "p" ? "pos-" : "neg-") + c[1] : "mid"})"></i> ${l}</span>`).join("")} <span>% comp</span></div>
@@ -246,10 +249,9 @@
   // ---------- calendar
   function calendar() {
     const evs = Object.entries(D.calendar || {}).map(([tk, c]) => ({ tk, ...c })).filter((e) => retailers[e.tk])
-      .filter((e) => filter === "all" || retailers[e.tk].category === filter).sort((a, b) => a.date.localeCompare(b.date));
+      .sort((a, b) => a.date.localeCompare(b.date));
     if (!evs.length) return "";
-    return `<section class="wrap sec" id="calendar"><div class="sec-head"><h2>Earnings calendar</h2>
-      <p>Next scheduled reports. Dates marked estimated have not been confirmed by the company.</p></div>
+    return `<section class="wrap sec">
       <div class="cal">${evs.map((e) => {
         const [, m, d] = e.date.split("-").map(Number);
         return `<div class="ev ${e.date < today ? "past-ev" : ""}"><div class="date"><span>${MONTHS[m - 1]}</span><b>${d}</b></div>
@@ -259,34 +261,103 @@
   }
 
   function foot() {
-    return `<footer class="wrap foot">
+    return `<section class="wrap foot">
       <p><b>How to read it.</b> Each card is the retailer's latest quarter. The yellow tag is its headline comparable-sales growth (stores open a year or more, plus digital where the company counts it). The consumer verdict is a judgement from what management said: <b>strong</b> (${VERD_NOTE.strong}), <b>steady</b> (${VERD_NOTE.steady}), <b>choosy</b> (${VERD_NOTE.choosy}), <b>strained</b> (${VERD_NOTE.strained}).</p>
-      ${D.data_notes?.length ? `<h2 id="notes">Notes on the data</h2><dl class="datanotes">${D.data_notes.map((n) => `<dt>${esc(n.title)}</dt><dd>${esc(n.body)}</dd>`).join("")}</dl>` : ""}
-    </footer>`;
+      ${D.data_notes?.length ? `<dl class="datanotes">${D.data_notes.map((n) => `<dt>${esc(n.title)}</dt><dd>${esc(n.body)}</dd>`).join("")}</dl>` : ""}
+    </section>`;
   }
 
-  // ---------- render + interaction
-  function render() {
-    app.innerHTML = mast() + briefing() + heatmap() + bar() + `<div id="cards">${categories()}</div>` + calendar() + foot();
+  // ---------- pages
+  const PAGES = [
+    { key: "summary", label: "Executive summary", short: "Summary",
+      lead: "What the latest reports say together, and every retailer's comps quarter by quarter.",
+      body: () => briefing() + heatmap() },
+    ...D.categories.map((c) => ({
+      key: c.key, label: c.name, short: c.short, lead: c.reads,
+      head: () => glance(D.retailers.filter((r) => r.category === c.key)),
+      body: () => categoryPage(c),
+    })),
+    { key: "calendar", label: "Earnings calendar", short: "Calendar",
+      lead: "Next scheduled reports. Dates marked estimated have not been confirmed by the company.",
+      body: () => calendar() },
+    { key: "notes", label: "Notes on the data", short: "Notes",
+      lead: "How to read the dashboard, where the numbers come from, and what to keep in mind.",
+      body: () => foot() },
+  ];
+  const indexOf = (key) => PAGES.findIndex((pg) => pg.key === key);
+
+  function pager() {
+    const prev = PAGES[page - 1], next = PAGES[page + 1];
+    return `<nav class="wrap pager" aria-label="Previous and next page">
+      ${prev ? `<a class="pg prev" href="#${prev.key}"><span>← Previous</span><b>${esc(prev.label)}</b></a>` : "<span></span>"}
+      <span class="count num">${page + 1} / ${PAGES.length}</span>
+      ${next ? `<a class="pg next" href="#${next.key}"><span>Next →</span><b>${esc(next.label)}</b></a>` : "<span></span>"}
+    </nav>`;
   }
-  function rerenderFiltered() {
-    document.getElementById("cards").innerHTML = categories();
-    const cal = document.getElementById("calendar");
-    if (cal) cal.outerHTML = calendar() || "<span id=\"calendar\"></span>";
-    document.querySelectorAll(".bar [data-f]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.f === filter)));
+
+  function showPage(i, { scroll = true } = {}) {
+    page = Math.max(0, Math.min(PAGES.length - 1, i));
+    const pg = PAGES[page];
+    const main = document.getElementById("page");
+    main.innerHTML = `<header class="wrap page-head">
+        <div class="eyebrow">Page ${page + 1} of ${PAGES.length}</div>
+        <h2>${esc(pg.label)}</h2>${pg.lead ? `<p>${esc(pg.lead)}</p>` : ""}${pg.head ? pg.head() : ""}
+      </header>${pg.body()}${pager()}`;
+    main.classList.remove("enter"); void main.offsetWidth; main.classList.add("enter");
+    document.querySelectorAll(".tabs a").forEach((a) => {
+      const on = Number(a.dataset.page) === page;
+      if (on) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
+      if (on) a.scrollIntoView({ block: "nearest", inline: "nearest" });
+    });
+    document.querySelector('.arrows [data-step="-1"]').disabled = page === 0;
+    document.querySelector('.arrows [data-step="1"]').disabled = page === PAGES.length - 1;
+    document.title = page ? `${pg.label} · Retail Earnings Monitor` : "Retail Earnings Monitor";
+    if (scroll) {
+      const bar = document.querySelector(".bar");
+      const top = page ? bar.offsetTop : 0;
+      if (scrollY > top) window.scrollTo({ top });
+    }
   }
-  render();
+  const go = (i) => {
+    if (i < 0 || i >= PAGES.length || i === page) return;
+    location.hash = PAGES[i].key;  // hashchange shows it, and Back flips back
+  };
+
+  app.innerHTML = mast() + nav() + `<main id="page"></main>`;
+  showPage(Math.max(0, indexOf(location.hash.slice(1))), { scroll: false });
+  window.addEventListener("hashchange", () => {
+    const key = location.hash.slice(1);
+    const i = indexOf(key);
+    if (i >= 0) { showPage(i); return; }
+    if (key.startsWith("r-")) {  // jump to a retailer card from the at-a-glance strip
+      const el = document.getElementById(key);
+      if (el) el.scrollIntoView({ block: "start" });
+    }
+  });
 
   app.addEventListener("click", (e) => {
-    const b = e.target.closest(".bar button");
-    if (!b) return;
-    if (b.dataset.jump) { document.getElementById(b.dataset.jump)?.scrollIntoView(); return; }
-    filter = b.dataset.f;
-    try { localStorage.setItem("rem-filter", filter); } catch (err) { /* storage blocked */ }
-    rerenderFiltered();
-    const barEl = document.querySelector(".bar");
-    if (barEl.getBoundingClientRect().top <= 1) window.scrollTo({ top: barEl.offsetTop - 1 });
+    const step = e.target.closest("[data-step]");
+    if (step) go(page + Number(step.dataset.step));
+    const g = e.target.closest("a.g");
+    if (g) { e.preventDefault(); document.querySelector(g.getAttribute("href"))?.scrollIntoView({ block: "start" }); }
   });
+  document.addEventListener("keydown", (e) => {
+    if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+    if (e.target.closest("input, textarea, select, [contenteditable]")) return;
+    if (e.key === "ArrowRight") go(page + 1);
+    if (e.key === "ArrowLeft") go(page - 1);
+  });
+  // swipe left / right to flip on touch screens (not when swiping inside a scrolling table)
+  let touch = null;
+  app.addEventListener("touchstart", (e) => {
+    touch = e.target.closest(".scroll, .tabs") ? null : { x: e.touches[0].clientX, y: e.touches[0].clientY };
+  }, { passive: true });
+  app.addEventListener("touchend", (e) => {
+    if (!touch) return;
+    const dx = e.changedTouches[0].clientX - touch.x, dy = e.changedTouches[0].clientY - touch.y;
+    touch = null;
+    if (Math.abs(dx) > 70 && Math.abs(dx) > 2 * Math.abs(dy)) go(page + (dx < 0 ? 1 : -1));
+  }, { passive: true });
 
   // one floating tooltip for every [data-tip] mark
   const tip = document.createElement("div");

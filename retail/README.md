@@ -10,15 +10,20 @@ To share or email it, use `retail/retail-earnings-monitor.html`: the whole dashb
 
 ## What's on the page
 
-- **The read on the consumer**: a headline verdict and 5 to 7 cross-retailer takeaways (`data/briefing.json`).
-- **Consumer pulse**: how many retailers' latest reports read strong / steady / choosy / strained, median
-  comp sales, EPS beats, guidance raised vs cut, median stock reaction, and the themes management keeps raising.
-- **One card per retailer, grouped by category**: "What it says" in one line, comp sales on the yellow tag,
-  traffic, ticket, digital, margin, EPS vs consensus, guidance, stock move, 3 to 5 key messages, what
-  management said about income groups / discretionary / pricing, a comp chart by quarter, the read for the
-  economy, earlier quarters, and source links.
-- **Comp sales heatmap**: every retailer's comps lined up by calendar quarter, so different fiscal years compare.
-- **Earnings calendar**: next report dates, confirmed or estimated.
+A report you flip through page by page: use the numbered page strip at the top, the arrows next to it,
+Previous / Next at the bottom of each page, the left and right arrow keys, or swipe on a phone. Each page
+has its own link (`#summary`, `#home`, `#calendar`...), and the browser's Back button goes to the previous page.
+
+1. **Executive summary**: the read on the consumer (headline verdict and takeaways), the consumer pulse
+   (verdict mix, median comp, EPS beats, guidance, stock reaction, recurring themes) and the comp sales
+   heatmap, every retailer by calendar quarter.
+2. **One page per category** (7 pages): each retailer's comp and verdict at a glance, then a card per
+   retailer with "What it says" in one line, comp sales on the yellow tag, traffic, ticket, digital,
+   margin, EPS vs consensus, guidance, stock move, 3 to 5 key messages, what management said about income
+   groups / discretionary / pricing, a comp chart by quarter, the read for the economy, data notes,
+   earlier quarters and source links.
+3. **Earnings calendar**: next report dates, confirmed or estimated.
+4. **Notes on the data**: how to read the dashboard and every caveat on the numbers.
 
 ## Categories
 
