@@ -1,0 +1,64 @@
+{
+  "ticker": "DLTR",
+  "fiscal_period": "Q4 2025",
+  "period_end": "2026-01-31",
+  "report_date": "2026-03-16",
+  "headline": "Dollar Tree comps rose 5% on higher tickets as traffic fell; its 2026 EPS outlook came in a bit below consensus.",
+  "metrics": {
+    "revenue_bn": 5.45,
+    "revenue_yoy_pct": 9.0,
+    "revenue_consensus_bn": 5.46,
+    "comp_pct": 5.0,
+    "comp_label": "Dollar Tree comparable store net sales (continuing ops)",
+    "traffic_pct": -1.2,
+    "ticket_pct": 6.3,
+    "ecom_yoy_pct": null,
+    "gross_margin_bps": 150,
+    "eps_adj": 2.56,
+    "eps_consensus": 2.53,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null
+  },
+  "guidance": "initiated",
+  "guidance_note": "FY26: sales $20.5-20.7bn, comps +3-4%, adj. EPS $6.50-6.90 (midpoint below ~$6.74 consensus); Q1 EPS $1.45-1.60.",
+  "key_messages": [
+    "Comps +5.0%: ticket +6.3%, traffic -1.2%; January weather closures cost ~40 bps.",
+    "Discretionary comps +6.2% vs consumables +3.6%; Christmas, party, paper and toys strong.",
+    "Gross margin +150 bps to 39.1% on pricing mark-on and lower freight, despite tariff costs and markdowns.",
+    "Multi-price items ($3-5) driving demand; about 16% of Q4 sales.",
+    "Creedon: pack sizes help lower-income shoppers manage budgets."
+  ],
+  "consumer": {
+    "verdict": "choosy",
+    "income_split": "Management highlighted smaller pack sizes to help lower-income shoppers manage tight budgets.",
+    "big_ticket": "Discretionary comps of 6.2% led by holiday, party and toys.",
+    "pricing": "Pricing initiatives and multi-price mark-on lifted margin; tariff costs partly offset; managing tariff volatility.",
+    "quote": null
+  },
+  "themes": [
+    "value_seeking",
+    "discretionary_ok",
+    "traffic_down",
+    "tariff_pricing",
+    "weather_calendar"
+  ],
+  "macro_read": "Holiday discretionary spending at the low end held up, but fewer trips and higher tickets point to price-driven rather than volume-driven growth.",
+  "sources": [
+    {
+      "label": "Dollar Tree Q4/FY2025 release",
+      "url": "https://corporate.dollartree.com/news-media/press-releases/detail/303"
+    },
+    {
+      "label": "Dollar Tree Q4/FY2025 release (Business Wire)",
+      "url": "https://www.businesswire.com/news/home/20260316378072/en/Dollar-Tree-Inc-Reports-Fourth-Quarter-and-Full-Year-2025-Results"
+    },
+    {
+      "label": "Yahoo Finance: DLTR shares rise on Q4 beat despite soft outlook",
+      "url": "https://finance.yahoo.com/news/dollar-tree-shares-rise-q4-142200179.html"
+    },
+    {
+      "label": "Motley Fool: DLTR Q4 2025 call transcript",
+      "url": "https://www.fool.com/earnings/call-transcripts/2026/03/24/dollar-tree-dltr-q4-2025-earnings-transcript/"
+    }
+  ]
+}

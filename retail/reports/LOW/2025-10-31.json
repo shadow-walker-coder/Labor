@@ -1,0 +1,65 @@
+{
+  "ticker": "LOW",
+  "fiscal_period": "Q3 FY2025",
+  "period_end": "2025-10-31",
+  "report_date": "2025-11-19",
+  "headline": "Lowe's beat estimates with comps +0.4% as higher tickets offset a 3% drop in transactions; trimmed FY2025 comp outlook to flat.",
+  "metrics": {
+    "revenue_bn": 20.81,
+    "revenue_yoy_pct": 3.2,
+    "revenue_consensus_bn": null,
+    "comp_pct": 0.4,
+    "comp_label": "Total comparable sales",
+    "traffic_pct": -3.0,
+    "ticket_pct": 3.4,
+    "ecom_yoy_pct": 11.4,
+    "gross_margin_bps": null,
+    "eps_adj": 3.06,
+    "eps_consensus": 2.97,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null
+  },
+  "guidance": "mixed",
+  "guidance_note": "FY2025 sales raised to ~$86.0bn (FBM), comps now flat, adj EPS ~$12.25 (was $12.20-12.45).",
+  "key_messages": [
+    "Comps +0.4% beat expectations: ticket +3.4% (Pro, appliances, mix, modest price increases), transactions -3.0%.",
+    "Online sales +11.4%, double-digit home services growth and continued Pro gains.",
+    "Larger discretionary purchases pressured by elevated borrowing costs; DIY big-ticket soft.",
+    "Adj EPS $3.06 (+5.9%) beat ~$2.97; closed the $8.8bn FBM acquisition.",
+    "Shares rebounded ~3-5% early after a sell-off tied to Home Depot's miss."
+  ],
+  "consumer": {
+    "verdict": "choosy",
+    "income_split": null,
+    "big_ticket": "DIY big-ticket discretionary demand remained soft due to elevated borrowing costs; smaller outdoor projects held up.",
+    "pricing": "Modest price increases contributed to ticket growth.",
+    "quote": null
+  },
+  "themes": [
+    "traffic_down",
+    "pro_contractor",
+    "digital_strength",
+    "housing_drag",
+    "big_ticket_weak",
+    "weather_calendar"
+  ],
+  "macro_read": "Rates are the binding constraint on home-related durables; spending shifts to Pro and smaller projects while DIY traffic falls.",
+  "sources": [
+    {
+      "label": "Lowe's Q3 2025 release (Barchart)",
+      "url": "https://www.barchart.com/story/news/36201744/lowe-s-reports-third-quarter-2025-sales-and-earnings-results"
+    },
+    {
+      "label": "LOW Q3 2025 10-Q (SEC)",
+      "url": "https://www.sec.gov/Archives/edgar/data/60667/000006066725000210/low-20251031.htm"
+    },
+    {
+      "label": "Benzinga: Lowe's Q3 2025 call transcript",
+      "url": "https://www.benzinga.com/markets/earnings/25/11/48953839/lowes-q3-2025-earnings-call-transcript"
+    },
+    {
+      "label": "Reuters via Tiger: Lowe's trims forecasts, profit beat lifts shares",
+      "url": "https://www.itiger.com/news/2584571948"
+    }
+  ]
+}

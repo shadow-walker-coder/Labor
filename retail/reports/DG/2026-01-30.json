@@ -1,0 +1,63 @@
+{
+  "ticker": "DG",
+  "fiscal_period": "Q4 2025",
+  "period_end": "2026-01-30",
+  "report_date": "2026-03-12",
+  "headline": "Dollar General posted a strong 4.3% Q4 comp but guided 2026 comps lower to 2.2-2.7%, and shares slipped.",
+  "metrics": {
+    "revenue_bn": 10.9,
+    "revenue_yoy_pct": 5.9,
+    "revenue_consensus_bn": null,
+    "comp_pct": 4.3,
+    "comp_label": "Dollar General same-store sales",
+    "traffic_pct": 2.6,
+    "ticket_pct": 1.7,
+    "ecom_yoy_pct": null,
+    "gross_margin_bps": 105,
+    "eps_adj": 1.93,
+    "eps_consensus": 1.66,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null
+  },
+  "guidance": "initiated",
+  "guidance_note": "FY26: net sales +3.7-4.2%, same-store sales +2.2-2.7%, EPS $7.10-7.35 incl. ~$0.13 hit from expired Work Opportunity Tax Credit.",
+  "key_messages": [
+    "Q4 same-store sales +4.3% on traffic +2.6% and ticket +1.7%; FY25 comps +3.0%, EPS $6.85.",
+    "Gross margin +105 bps to 30.4%, helped by lower shrink; further gains expected in 2026 but to a much lesser extent.",
+    "January boosted by stock-up ahead of winter storms; February storms closed some stores.",
+    "Vasos: consumer sentiment remains cautious and stagnant, and inflation remains sticky.",
+    "Guidance does not assume significant tariff-driven demand impact or share buybacks."
+  ],
+  "consumer": {
+    "verdict": "choosy",
+    "income_split": null,
+    "big_ticket": null,
+    "pricing": "Management called inflation sticky; guidance excludes any significant tariff-driven demand impact.",
+    "quote": "Consumer sentiment does remain cautious and stagnant, and inflation remains sticky."
+  },
+  "themes": [
+    "value_seeking",
+    "traffic_up",
+    "weather_calendar",
+    "tariff_pricing"
+  ],
+  "macro_read": "Solid traffic shows lower-income shoppers still leaning on dollar stores for essentials, but management expects 2026 growth to slow amid sticky inflation.",
+  "sources": [
+    {
+      "label": "Dollar General Q4/FY2025 release (Business Wire)",
+      "url": "https://www.businesswire.com/news/home/20260312957701/en/Dollar-General-Corporation-Reports-Strong-Fourth-Quarter-and-Fiscal-Year-2025-Results"
+    },
+    {
+      "label": "Dollar General Q4 2025 8-K exhibit 99",
+      "url": "https://www.sec.gov/Archives/edgar/data/29534/000110465926026697/tm268519d1_ex99.htm"
+    },
+    {
+      "label": "Motley Fool: DG Q4 2025 call transcript",
+      "url": "https://www.fool.com/earnings/call-transcripts/2026/03/12/dollar-general-dg-q4-2025-earnings-transcript/"
+    },
+    {
+      "label": "Nasdaq/Zacks: DG Q4 beats, comps +4.3%",
+      "url": "https://www.nasdaq.com/articles/dollar-generals-q4-earnings-beat-mark-same-store-sales-rise-43"
+    }
+  ]
+}

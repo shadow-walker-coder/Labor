@@ -1,0 +1,67 @@
+{
+  "ticker": "KR",
+  "fiscal_period": "Q2 2026",
+  "period_end": "2026-08-15",
+  "report_date": "2026-09-11",
+  "headline": "Kroger's identical sales barely grow (+0.2%) as pharmacy drug-price cuts and cautious shoppers bite; sales outlook cut.",
+  "metrics": {
+    "revenue_bn": 34.62,
+    "revenue_yoy_pct": 2.0,
+    "revenue_consensus_bn": 34.64,
+    "comp_pct": 0.2,
+    "comp_label": "Identical sales without fuel",
+    "traffic_pct": null,
+    "ticket_pct": null,
+    "ecom_yoy_pct": 20,
+    "gross_margin_bps": -10,
+    "eps_adj": 1.09,
+    "eps_consensus": null,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null
+  },
+  "guidance": "mixed",
+  "guidance_note": "Cut FY26 identical sales ex fuel to 0.2-0.8% (from 1-2%), incl. ~140bps IRA headwind; kept adj EPS $5.10-5.30 and FIFO op profit $5.0-5.2B.",
+  "key_messages": [
+    "Identical sales ex fuel +0.2% (vs +3.4%), below ~0.9% expected; IRA Medicare drug price cuts cost ~138bps.",
+    "CFO cited ~265bps of combined drag: pharmacy, a Cyclospora produce outbreak, egg deflation and cautious spending.",
+    "Adjusted eCommerce sales +20%; retail media up 24%; Private Selection sales up more than 14%.",
+    "Gross margin 22.4% (vs 22.5%): fuel mix, shrink, freight and price investment offset by pharmacy mix and tariff refunds.",
+    "Adj EPS $1.09 (+5%); profit outlook held via cost savings."
+  ],
+  "consumer": {
+    "verdict": "strained",
+    "income_split": null,
+    "big_ticket": null,
+    "pricing": "Investing in lower prices; egg deflation hurt sales; tariff refunds aided margin; IRA cut pharmacy drug prices.",
+    "quote": null
+  },
+  "themes": [
+    "value_seeking",
+    "price_deflation",
+    "digital_strength",
+    "low_income_stress"
+  ],
+  "macro_read": "Even grocery volumes are barely growing as households stay cautious on essentials; low food inflation and pharmacy price cuts hold nominal sales down.",
+  "sources": [
+    {
+      "label": "Kroger Q2 2026 release (SEC 8-K Ex. 99.1)",
+      "url": "https://www.sec.gov/Archives/edgar/data/0000056873/000110465926106890/tm2625060d1_ex99-1.htm"
+    },
+    {
+      "label": "Kroger Q2 2026 10-Q",
+      "url": "https://www.sec.gov/Archives/edgar/data/0000056873/000110465926108926/kr-20260815x10q.htm"
+    },
+    {
+      "label": "Reuters via WSAU: Kroger lowers annual identical sales forecast",
+      "url": "https://wsau.com/?p=1015596"
+    },
+    {
+      "label": "MarketBeat: Kroger Q2 earnings call highlights",
+      "url": "https://www.marketbeat.com/instant-alerts/transcript-kroger-q2-earnings-call-highlights-2026-09-11/"
+    },
+    {
+      "label": "Pulse 2.0: Kroger Q2",
+      "url": "https://pulse2.com/kroger-q2-sales-rise-to-34-6-billion-as-adjusted-eps-reaches-1-09-and-ecommerce-sales-grow-20/"
+    }
+  ]
+}

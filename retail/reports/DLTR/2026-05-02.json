@@ -1,0 +1,64 @@
+{
+  "ticker": "DLTR",
+  "fiscal_period": "Q1 2026",
+  "period_end": "2026-05-02",
+  "report_date": "2026-05-28",
+  "headline": "Dollar Tree beat with 3.5% comps on bigger tickets despite lower traffic and raised its EPS outlook; shares jumped.",
+  "metrics": {
+    "revenue_bn": 5.0,
+    "revenue_yoy_pct": 7.2,
+    "revenue_consensus_bn": null,
+    "comp_pct": 3.5,
+    "comp_label": "Dollar Tree comparable store net sales (continuing ops)",
+    "traffic_pct": -1.0,
+    "ticket_pct": 4.5,
+    "ecom_yoy_pct": null,
+    "gross_margin_bps": 120,
+    "eps_adj": 1.74,
+    "eps_consensus": null,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null
+  },
+  "guidance": "raised",
+  "guidance_note": "FY26 adj. EPS raised to $6.70-7.10 (from $6.50-6.90); sales $20.5-20.7bn and comps 3-4% unchanged; Q2 comps 2.5-3.5%.",
+  "key_messages": [
+    "Comps +3.5%: ticket +4.5%, traffic -1.0%.",
+    "Discretionary comps +3.9% outpaced consumables +3.2%; toys and personal care strong.",
+    "Gross margin +120 bps on mark-on, lower freight and shrink, partly offset by higher tariff costs and markdowns.",
+    "Adjusted EPS $1.74, up 38%; ~630 stores added to multi-price format, ~5,900 total.",
+    "Management called the environment dynamic, especially for lower-income households facing higher fuel costs."
+  ],
+  "consumer": {
+    "verdict": "choosy",
+    "income_split": "Lower-income households pressured by higher fuel costs and macro uncertainty.",
+    "big_ticket": "Discretionary comps (+3.9%) held up, led by toys and personal care.",
+    "pricing": "Higher tariff costs partly offset margin gains; lower tariffs for part of the year and fuel costs factored into raised guidance.",
+    "quote": null
+  },
+  "themes": [
+    "value_seeking",
+    "low_income_stress",
+    "discretionary_ok",
+    "traffic_down",
+    "tariff_pricing"
+  ],
+  "macro_read": "Higher tickets and multi-price items carried comps while traffic fell, with fuel costs straining lower-income households.",
+  "sources": [
+    {
+      "label": "Dollar Tree Q1 FY2026 release",
+      "url": "https://corporate.dollartree.com/news-media/press-releases/detail/306/dollar-tree-inc-reports-first-quarter-results"
+    },
+    {
+      "label": "Dollar Tree Q1 FY2026 release (Business Wire)",
+      "url": "https://www.businesswire.com/news/home/20260528789333/en/Dollar-Tree-Inc-Reports-First-Quarter-Results"
+    },
+    {
+      "label": "MarketBeat: DLTR Q1 earnings call highlights",
+      "url": "https://www.marketbeat.com/instant-alerts/dollar-tree-q1-earnings-call-highlights-2026-05-28/"
+    },
+    {
+      "label": "Quartz: Dollar Tree beats, raises guidance",
+      "url": "https://qz.com/dollar-tree-earnings-beat-full-year-guidance-raised-052826"
+    }
+  ]
+}

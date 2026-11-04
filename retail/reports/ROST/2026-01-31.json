@@ -1,0 +1,65 @@
+{
+  "ticker": "ROST",
+  "fiscal_period": "Q4 FY2025",
+  "period_end": "2026-01-31",
+  "report_date": "2026-03-03",
+  "headline": "Ross holiday-quarter comps rose 9%, far above its 3-4% plan, with customer counts growing; FY26 guide initiated.",
+  "metrics": {
+    "revenue_bn": 6.64,
+    "revenue_yoy_pct": 12,
+    "revenue_consensus_bn": 6.42,
+    "comp_pct": 9,
+    "comp_label": "Ross Stores comparable store sales",
+    "traffic_pct": null,
+    "ticket_pct": null,
+    "ecom_yoy_pct": null,
+    "gross_margin_bps": null,
+    "eps_adj": 2.0,
+    "eps_consensus": 1.9,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null
+  },
+  "guidance": "initiated",
+  "guidance_note": "FY26 guide: comp +3-4%, EPS $7.02-7.36 (vs ~$7.22 consensus). Q1 comp +7-8%, EPS $1.60-1.67.",
+  "key_messages": [
+    "Comp +9% vs 3-4% plan and ~5.1% analyst view; operating margin 12.3% vs 11.5-11.8% plan.",
+    "Conroy: 'nice customer count growth,' notably among 18-34 year olds, helped by more brands in assortments.",
+    "Home was the business 'most under attack with tariffs' early in 2025 but recovered; FY25 tariff cost ~$0.16/share.",
+    "FY25 sales a record $22.8bn; new two-year $2.55bn buyback authorized."
+  ],
+  "consumer": {
+    "verdict": "strong",
+    "income_split": null,
+    "big_ticket": "Home business recovered after early-2025 tariff disruption.",
+    "pricing": "Tariff-related costs ~$0.16/share for FY25; home most affected.",
+    "quote": "We're very encouraged that we are seeing nice customer count growth"
+  },
+  "themes": [
+    "value_seeking",
+    "traffic_up",
+    "tariff_pricing"
+  ],
+  "macro_read": "Traffic-led holiday strength at Ross, especially among younger shoppers, shows value retail gaining share despite tariff costs.",
+  "sources": [
+    {
+      "label": "Ross Q4 FY25 press release (8-K)",
+      "url": "https://www.sec.gov/Archives/edgar/data/745732/000074573226000003/q4fy25exhibit991.htm"
+    },
+    {
+      "label": "Ross investor relations release",
+      "url": "https://investors.rossstores.com/node/22901"
+    },
+    {
+      "label": "Dow Jones: Ross 4Q sales rise as traffic picks up",
+      "url": "https://www.itiger.com/news/2616308867"
+    },
+    {
+      "label": "HomePage News: Ross home vs tariffs",
+      "url": "https://www.homepagenews.com/retail-articles/ross-rides-home-department-gains-against-tariffs-in-q4"
+    },
+    {
+      "label": "FashionUnited: Ross Q4",
+      "url": "https://fashionunited.com/news/business/ross-stores-q4-2025-sales-up-12-percent-exceeding-projections/2026030470926"
+    }
+  ]
+}

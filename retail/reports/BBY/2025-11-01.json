@@ -1,0 +1,63 @@
+{
+  "ticker": "BBY",
+  "fiscal_period": "Q3 FY2026",
+  "period_end": "2025-11-01",
+  "report_date": "2025-11-25",
+  "headline": "Best Buy posts strongest comps in about three years on computing, Switch 2 and phones; raises full-year outlook.",
+  "metrics": {
+    "revenue_bn": 9.67,
+    "revenue_yoy_pct": 2.4,
+    "revenue_consensus_bn": null,
+    "comp_pct": 2.4,
+    "comp_label": "Domestic comparable sales",
+    "traffic_pct": null,
+    "ticket_pct": null,
+    "ecom_yoy_pct": 3.5,
+    "gross_margin_bps": -30,
+    "eps_adj": 1.4,
+    "eps_consensus": 1.3,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null
+  },
+  "guidance": "raised",
+  "guidance_note": "FY26 comps raised to +0.5% to +1.2% (from -1% to +1%); adj EPS $6.25-6.35 (from $6.15-6.30); Q4 comp -1% to +1%.",
+  "key_messages": [
+    "Domestic comp +2.4%, enterprise +2.7%; adj EPS $1.40 beat ~$1.30 consensus.",
+    "Computing posted a 7th straight positive quarter; Nintendo Switch 2 drove gaming; mobile phones also grew.",
+    "Home theater and appliances declined, showing weakness outside upgrade-cycle categories.",
+    "Domestic gross rate fell to 23.3% from 23.6% on lower product margins amid tariff-related costs.",
+    "GAAP EPS of $0.66 hit by Best Buy Health impairment."
+  ],
+  "consumer": {
+    "verdict": "choosy",
+    "income_split": null,
+    "big_ticket": "Upgrade-driven categories (PCs, gaming, phones) strong; home theater and appliances down.",
+    "pricing": "Tariffs weighed on electronics; Best Buy absorbed some costs and diversified sourcing, with shoppers often buying on discount.",
+    "quote": null
+  },
+  "themes": [
+    "discretionary_ok",
+    "big_ticket_weak",
+    "tariff_pricing",
+    "value_seeking"
+  ],
+  "macro_read": "Consumers will spend on new devices and replacement cycles, but housing-linked durables stay weak and buyers wait for deals.",
+  "sources": [
+    {
+      "label": "Best Buy Q3 FY26 release (PDF)",
+      "url": "https://s204.q4cdn.com/864376893/files/doc_earnings/2026/q3/earnings-result/Best-Buy-Reports-Fiscal-Third-Quarter-2026-Results.pdf"
+    },
+    {
+      "label": "Barchart: Best Buy Reports Third Quarter Results",
+      "url": "https://www.barchart.com/story/news/36301575/best-buy-reports-third-quarter-results"
+    },
+    {
+      "label": "News Tribune (AP): Best Buy ups sales outlook",
+      "url": "https://www.newstribune.com/news/2025/nov/26/best-buy-ups-sales-outlook-heading-into-holiday/"
+    },
+    {
+      "label": "Best Buy Q3 FY26 10-Q",
+      "url": "https://www.sec.gov/Archives/edgar/data/764478/000076447825000057/bby-20251101.htm"
+    }
+  ]
+}

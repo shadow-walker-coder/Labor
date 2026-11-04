@@ -1,0 +1,67 @@
+{
+  "ticker": "KR",
+  "fiscal_period": "Q3 2025",
+  "period_end": "2025-11-08",
+  "report_date": "2025-12-04",
+  "headline": "Kroger misses sales estimates as middle-income shoppers join lower-income ones in pulling back; outlook narrowed.",
+  "metrics": {
+    "revenue_bn": 33.9,
+    "revenue_yoy_pct": 0.9,
+    "revenue_consensus_bn": 34.28,
+    "comp_pct": 2.6,
+    "comp_label": "Identical sales without fuel",
+    "traffic_pct": null,
+    "ticket_pct": null,
+    "ecom_yoy_pct": 17,
+    "gross_margin_bps": null,
+    "eps_adj": 1.05,
+    "eps_consensus": 1.03,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null
+  },
+  "guidance": "mixed",
+  "guidance_note": "Narrowed FY25 identical sales ex fuel to 2.8-3.0% (toward low end); raised low end of adj EPS to $4.75-4.80.",
+  "key_messages": [
+    "Identical sales ex fuel +2.6% vs ~2.9% expected; revenue $33.9B missed; adj EPS $1.05 beat.",
+    "Interim CEO Ron Sargent: middle-income shoppers now under the same strain as lower-income families.",
+    "Shoppers making smaller, more frequent trips and cutting discretionary items; SNAP lapse in Nov. weighed.",
+    "Kroger cut prices on ~3,500 items as Walmart and Target also lowered prices; eCommerce +17%.",
+    "$2.6B impairment on automated fulfillment network drove a GAAP loss."
+  ],
+  "consumer": {
+    "verdict": "strained",
+    "income_split": "Middle-income households now as stretched as lower-income ones; SNAP disruption hit low-income shoppers.",
+    "big_ticket": "Shoppers trimming discretionary purchases within grocery.",
+    "pricing": "Price cuts on ~3,500 items amid competitive price investment by Walmart and Target.",
+    "quote": null
+  },
+  "themes": [
+    "low_income_stress",
+    "value_seeking",
+    "price_deflation",
+    "digital_strength"
+  ],
+  "macro_read": "Financial strain is spreading up the income ladder into the middle class, with even grocery baskets shrinking - a sign of weakening real consumption.",
+  "sources": [
+    {
+      "label": "Kroger Q3 2025 release (Kroger IR)",
+      "url": "https://ir.kroger.com/news/news-details/2025/Kroger-Reports-Third-Quarter-2025-Results-and-Updates-Guidance-for-2025/default.aspx"
+    },
+    {
+      "label": "Kroger Q3 2025 release (SEC 8-K Ex. 99.1)",
+      "url": "https://www.sec.gov/Archives/edgar/data/56873/000110465925118315/tm2532524d1_ex99-1.htm"
+    },
+    {
+      "label": "Reuters via MarketScreener: Kroger misses Q3 sales estimates",
+      "url": "https://ca.marketscreener.com/news/kroger-misses-third-quarter-sales-estimates-as-shoppers-pull-back-spending-ce7d51dfdf89ff27"
+    },
+    {
+      "label": "BNN Bloomberg: Kroger misses Q3 sales estimates",
+      "url": "https://www.bnnbloomberg.ca/business/company-news/2025/12/04/kroger-misses-third-quarter-sales-estimates-as-shoppers-pull-back-spending/"
+    },
+    {
+      "label": "FMP: Kroger shares slip as revenue misses",
+      "url": "https://site.financialmodelingprep.com/market-news/kroger-shares-slip--as-revenue-misses-expectations-"
+    }
+  ]
+}

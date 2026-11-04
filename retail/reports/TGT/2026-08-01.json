@@ -1,0 +1,69 @@
+{
+  "ticker": "TGT",
+  "fiscal_period": "Q2 2026",
+  "period_end": "2026-08-01",
+  "report_date": "2026-08-19",
+  "headline": "Target comps up 3.8% on 3.6% traffic gain; $994M tariff refund lifts EPS to $4.11 and FY outlook raised again.",
+  "metrics": {
+    "revenue_bn": 26.5,
+    "revenue_yoy_pct": 5.3,
+    "revenue_consensus_bn": 26.1,
+    "comp_pct": 3.8,
+    "comp_label": "Target total comparable sales",
+    "traffic_pct": 3.6,
+    "ticket_pct": null,
+    "ecom_yoy_pct": 8.7,
+    "gross_margin_bps": 470,
+    "eps_adj": 4.11,
+    "eps_consensus": 2.3,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null
+  },
+  "guidance": "raised",
+  "guidance_note": "FY26 net sales growth raised to ~5% (from ~4%); GAAP/adj EPS $9.90-10.90 incl. ~$1.65 of Q2 tariff refunds; op margin ~6% incl. ~90bps refund benefit.",
+  "key_messages": [
+    "Comparable sales +3.8% (stores +2.7%, digital +8.7%), driven almost entirely by a 3.6% rise in comparable traffic.",
+    "Gross margin 33.7% vs 29.0%: 3.7pts came from $994M IEEPA tariff refunds; underlying rate up ~100bps on lower markdowns, ads and non-merch growth.",
+    "EPS $4.11 vs $2.05 includes $1.65 from refunds; underlying EPS growth roughly 20%.",
+    "Target is reinvesting refunds in price: CFO Jim Lee said 'We have and will continue to invest in price'; >10,000 items already cut.",
+    "Food & beverage, beauty and toys lead; management says home and apparel still lag expectations, with home a multiyear fix."
+  ],
+  "consumer": {
+    "verdict": "steady",
+    "income_split": null,
+    "big_ticket": "Home and apparel, Target's highest-margin discretionary categories, still lagging the rest of the business per management.",
+    "pricing": "Booked ~$994M of IEEPA tariff refunds; plans to keep investing in lower prices rather than refund shoppers directly.",
+    "quote": "We have and will continue to invest in price. (CFO Jim Lee)"
+  },
+  "themes": [
+    "traffic_up",
+    "digital_strength",
+    "tariff_pricing",
+    "price_deflation",
+    "essentials_strong",
+    "big_ticket_weak"
+  ],
+  "macro_read": "Traffic-led growth at a mid-tier discretionary retailer shows shoppers still spending, but strength skews to food and consumables while home lags. Tariff refunds give retailers room to cut prices, a mild disinflationary impulse for goods.",
+  "sources": [
+    {
+      "label": "Target Q2 2026 release (PR Newswire/Target)",
+      "url": "https://corporate.target.com/press/release/2026/08/target-corporation-reports-second-quarter-earnings"
+    },
+    {
+      "label": "Target Q2 2026 8-K exhibit 99",
+      "url": "https://www.sec.gov/Archives/edgar/data/0000027419/000002741926000034/a2026q2ex-99.htm"
+    },
+    {
+      "label": "Modern Retail: Target tariff refunds, plans to lower prices",
+      "url": "https://www.modernretail.co/operations/target-receives-almost-1-billion-in-tariff-refunds-plans-to-lower-prices/"
+    },
+    {
+      "label": "TIKR: Q2 call food vs home gap",
+      "url": "https://www.tikr.com/blog/targets-q2-earnings-call-exposed-a-widening-gap-between-food-and-home-heres-the-fuller-picture"
+    },
+    {
+      "label": "MarketBeat Q2 call highlights",
+      "url": "https://www.marketbeat.com/instant-alerts/target-q2-earnings-call-highlights-2026-08-19/"
+    }
+  ]
+}

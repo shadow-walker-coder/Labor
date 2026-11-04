@@ -1,0 +1,50 @@
+name: Retail earnings watch
+
+# Checks SEC EDGAR for new retailer earnings releases, drafts a report for each one with
+# Claude, rebuilds retail/data/earnings.js and commits it. Independent of the Macro Monitor.
+on:
+  schedule:
+    - cron: "17 13 * * 1-5"   # weekdays ~9:17am ET, after pre-market releases
+    - cron: "43 21 * * 1-5"   # weekdays ~5:43pm ET, after post-close releases (Amazon)
+  push:
+    branches: [main]
+    paths: ["retail/**", ".github/workflows/retail-earnings.yml"]
+  workflow_dispatch:
+    inputs:
+      rebrief:
+        description: "Rewrite the briefing even if no new report arrived"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: retail-earnings
+  cancel-in-progress: false
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install the Anthropic SDK
+        run: pip install anthropic
+      - name: Look for new earnings filings
+        if: github.event_name != 'push'
+        env:
+          SEC_USER_AGENT: ${{ vars.SEC_USER_AGENT }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python retail/scripts/watch.py --brief ${{ inputs.rebrief && '--force' || '' }}
+      - name: Build the dashboard data
+        run: python retail/scripts/build.py
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add retail/
+          git diff --cached --quiet || { git commit -m "Retail earnings: new reports"; git push; }

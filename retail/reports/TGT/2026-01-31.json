@@ -1,0 +1,66 @@
+{
+  "ticker": "TGT",
+  "fiscal_period": "Q4 2025",
+  "period_end": "2026-01-31",
+  "report_date": "2026-03-03",
+  "headline": "Target holiday comps fall 2.5% as transactions drop 2.9%, but trends improved late; new CEO guides to ~2% sales growth in 2026.",
+  "metrics": {
+    "revenue_bn": 30.5,
+    "revenue_yoy_pct": -1.5,
+    "revenue_consensus_bn": 30.47,
+    "comp_pct": -2.5,
+    "comp_label": "Target total comparable sales",
+    "traffic_pct": -2.9,
+    "ticket_pct": 0.4,
+    "ecom_yoy_pct": 1.9,
+    "gross_margin_bps": 40,
+    "eps_adj": 2.44,
+    "eps_consensus": 2.16,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null
+  },
+  "guidance": "initiated",
+  "guidance_note": "FY26: net sales growth ~2% with small comp increase, GAAP/adj EPS $7.50-8.50, op margin ~20bps above 2025's 4.6% adjusted rate; sales growth expected every quarter.",
+  "key_messages": [
+    "Q4 comps -2.5% (stores -3.9%, digital +1.9%); transactions -2.9% partly offset by +0.4% average ticket.",
+    "Management said sales and traffic trends accelerated in the last two months of the quarter and February sales rose.",
+    "Gross margin 26.6% vs 26.2% on lower shrink and fulfillment costs, partly offset by markdowns.",
+    "FY2025 net sales -1.7% to $104.8B with comps -2.6%; adjusted EPS $7.57 vs $8.86.",
+    "Adjusted EPS $2.44 beat ~$2.16 consensus; GAAP EPS $2.30 includes transformation costs."
+  ],
+  "consumer": {
+    "verdict": "choosy",
+    "income_split": null,
+    "big_ticket": "Discretionary categories such as apparel and home remained soft through the holiday quarter.",
+    "pricing": "Markdowns partly offset margin gains.",
+    "quote": null
+  },
+  "themes": [
+    "traffic_down",
+    "weather_calendar",
+    "big_ticket_weak"
+  ],
+  "macro_read": "Holiday 2025 was weak for Target's discretionary mix, with fewer transactions, but a late-quarter pickup hinted at stabilizing goods demand going into 2026.",
+  "sources": [
+    {
+      "label": "Target Q4/FY2025 release",
+      "url": "https://corporate.target.com/press/release/2026/03/target-corporation-reports-fourth-quarter-and-full-year-2025-earnings"
+    },
+    {
+      "label": "Target Q4 2025 8-K exhibit 99",
+      "url": "https://www.sec.gov/Archives/edgar/data/27419/000002741926000012/a2025q4ex-99.htm"
+    },
+    {
+      "label": "SGB: Q4 comps decline 2.5%",
+      "url": "https://sgbonline.com/targets-q4-comps-decline-2-5-percent-eyes-return-to-growth-in-2026/"
+    },
+    {
+      "label": "Finviz/Zacks: Target beats Q4 estimates",
+      "url": "https://finviz.com/news/328504/target-beats-q4-earnings-estimates-eyes-sales-growth-in-fy2026"
+    },
+    {
+      "label": "Nasdaq: Target FY26 outlook",
+      "url": "https://www.nasdaq.com/articles/target-sees-earnings-net-sales-growth-fy26-update"
+    }
+  ]
+}

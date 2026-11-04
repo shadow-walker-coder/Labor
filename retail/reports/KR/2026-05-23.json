@@ -1,0 +1,61 @@
+{
+  "ticker": "KR",
+  "fiscal_period": "Q1 2026",
+  "period_end": "2026-05-23",
+  "report_date": "2026-06-18",
+  "headline": "Kroger's identical sales slow to +1.0% and margins slip; Foran's first quarter shows costs outrunning sales.",
+  "metrics": {
+    "revenue_bn": 46.12,
+    "revenue_yoy_pct": 2.2,
+    "revenue_consensus_bn": null,
+    "comp_pct": 1.0,
+    "comp_label": "Identical sales without fuel",
+    "traffic_pct": null,
+    "ticket_pct": null,
+    "ecom_yoy_pct": 19,
+    "gross_margin_bps": -30,
+    "eps_adj": 1.58,
+    "eps_consensus": 1.59,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null
+  },
+  "guidance": "maintained",
+  "guidance_note": "Reaffirmed FY26 identical sales ex fuel 1.0-2.0% and adj EPS $5.10-5.30; Q2 identical sales expected roughly in line with Q1.",
+  "key_messages": [
+    "Identical sales ex fuel +1.0% (vs +3.2%); revenue $46.1B beat but adj EPS $1.58 missed by a penny.",
+    "Gross margin 22.7% vs 23.0%: higher fuel mix, transportation costs and egg deflation.",
+    "Our Brands, eCommerce (+19%) and fresh drove sales; generic pharmacy shift and budget constraints were headwinds.",
+    "Foran is pacing 'surgical' price investments funded by supplier renegotiation and cost cuts."
+  ],
+  "consumer": {
+    "verdict": "strained",
+    "income_split": null,
+    "big_ticket": null,
+    "pricing": "Selective price cuts funded by sourcing savings; egg deflation weighed on sales.",
+    "quote": null
+  },
+  "themes": [
+    "value_seeking",
+    "price_deflation",
+    "digital_strength"
+  ],
+  "macro_read": "Grocery demand is decelerating as budget-constrained shoppers lean on private label; food inflation is too low to flatter sales.",
+  "sources": [
+    {
+      "label": "Kroger Q1 2026 release (SEC 8-K Ex. 99.1)",
+      "url": "https://www.sec.gov/Archives/edgar/data/0000056873/000110465926075395/tm2618219d1_ex99-1.htm"
+    },
+    {
+      "label": "Kroger IR: First Quarter 2026 Results",
+      "url": "https://www.thekrogerco.com/ir-feed-item/kroger-reports-first-quarter-2026-results/"
+    },
+    {
+      "label": "Chartmill: Kroger Q1 call focuses on cost, price and e-commerce",
+      "url": "https://www.chartmill.com/news/external/52665/kroger-q1-earnings-call-focuses-on-cost-price-and-e-commerce"
+    },
+    {
+      "label": "Food Trade News: margin pressures drag shares",
+      "url": "https://foodtradenews.com/2026/06/18/kroger-earnings-beat-sales-expectations-but-margin-pressures-drag-shares-lower/"
+    }
+  ]
+}

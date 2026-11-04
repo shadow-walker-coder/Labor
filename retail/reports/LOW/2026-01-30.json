@@ -1,0 +1,65 @@
+{
+  "ticker": "LOW",
+  "fiscal_period": "Q4 FY2025",
+  "period_end": "2026-01-30",
+  "report_date": "2026-02-25",
+  "headline": "Lowe's comps rose 1.3% on Pro, online and home services despite pressured housing; set FY2026 comps flat to +2%.",
+  "metrics": {
+    "revenue_bn": 20.6,
+    "revenue_yoy_pct": 10.8,
+    "revenue_consensus_bn": 20.3,
+    "comp_pct": 1.3,
+    "comp_label": "Total comparable sales",
+    "traffic_pct": -2.3,
+    "ticket_pct": 3.6,
+    "ecom_yoy_pct": null,
+    "gross_margin_bps": null,
+    "eps_adj": 1.98,
+    "eps_consensus": 1.94,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null
+  },
+  "guidance": "initiated",
+  "guidance_note": "FY2026: sales $92-94bn (+7-9%), comps flat to +2%, adj op margin 11.6-11.8%, adj EPS ~$12.25-12.75.",
+  "key_messages": [
+    "Comps +1.3%: ticket +3.6% (price increases, mix toward Pro and appliances), transactions -2.3%.",
+    "Growth driven by Pro, online and home services; big-ticket discretionary DIY still pressured.",
+    "Ellison: the housing macro remains pressured; company focused on what it can control.",
+    "Sales +10.8% to $20.6bn, largely from FBM and ADG; adj EPS $1.98 (+2.6%) beat ~$1.94.",
+    "Awarded $125m in discretionary frontline associate bonuses."
+  ],
+  "consumer": {
+    "verdict": "choosy",
+    "income_split": null,
+    "big_ticket": "Continued pressure on big-ticket, discretionary DIY projects amid housing volatility.",
+    "pricing": "Price increases contributed to the 3.6% comparable ticket gain.",
+    "quote": "The housing macro remains pressured."
+  },
+  "themes": [
+    "traffic_down",
+    "pro_contractor",
+    "digital_strength",
+    "housing_drag",
+    "big_ticket_weak",
+    "tariff_pricing"
+  ],
+  "macro_read": "Comps are being propped up by price and Pro mix while DIY traffic falls, consistent with a stagnant housing market and cautious homeowners.",
+  "sources": [
+    {
+      "label": "Lowe's Q4 2025 release",
+      "url": "https://corporate.lowes.com/newsroom/press-releases/lowes-reports-fourth-quarter-2025-sales-and-earnings-results-02-25-26"
+    },
+    {
+      "label": "Lowe's Q4 2025 press release PDF",
+      "url": "https://corporate.lowes.com/sites/lowes-corp/files/Lowes-Q4-2025-Press-Release-Final.pdf"
+    },
+    {
+      "label": "Zacks: Lowe's Q4 beat on Pro strength",
+      "url": "https://www.zacks.com/stock/news/2875058/lowes-q4-earnings-beat-on-pro-strength-and-holiday-performance"
+    },
+    {
+      "label": "MarketBeat: Lowe's Q4 call highlights",
+      "url": "https://www.marketbeat.com/instant-alerts/lowes-companies-q4-earnings-call-highlights-2026-02-28/"
+    }
+  ]
+}

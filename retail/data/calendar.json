@@ -1,0 +1,62 @@
+{
+  "AMZN": {
+    "date": "2027-02-04",
+    "confirmed": false,
+    "label": "Q4 2026"
+  },
+  "BBY": {
+    "date": "2026-11-24",
+    "confirmed": false,
+    "label": "Q3 FY2027"
+  },
+  "COST": {
+    "date": "2026-12-10",
+    "confirmed": false,
+    "label": "Q1 FY2027"
+  },
+  "DG": {
+    "date": "2026-12-03",
+    "confirmed": false,
+    "label": "Q3 2026"
+  },
+  "DLTR": {
+    "date": "2026-11-24",
+    "confirmed": true,
+    "label": "Q3 2026"
+  },
+  "HD": {
+    "date": "2026-11-17",
+    "confirmed": false,
+    "label": "Q3 FY2026"
+  },
+  "KR": {
+    "date": "2026-12-03",
+    "confirmed": false,
+    "label": "Q3 2026"
+  },
+  "LOW": {
+    "date": "2026-11-18",
+    "confirmed": false,
+    "label": "Q3 FY2026"
+  },
+  "ROST": {
+    "date": "2026-11-19",
+    "confirmed": false,
+    "label": "Q3 FY2026"
+  },
+  "TGT": {
+    "date": "2026-11-18",
+    "confirmed": false,
+    "label": "Q3 2026"
+  },
+  "TJX": {
+    "date": "2026-11-18",
+    "confirmed": false,
+    "label": "Q3 FY2027"
+  },
+  "WMT": {
+    "date": "2026-11-19",
+    "confirmed": false,
+    "label": "Q3 FY2027"
+  }
+}

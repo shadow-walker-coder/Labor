@@ -1,0 +1,65 @@
+{
+  "ticker": "AMZN",
+  "fiscal_period": "Q1 2026",
+  "period_end": "2026-03-31",
+  "report_date": "2026-04-29",
+  "headline": "Amazon online store sales grow 12% and North America profit jumps; Jassy says average prices on Amazon.com fell YoY.",
+  "metrics": {
+    "revenue_bn": 181.5,
+    "revenue_yoy_pct": 17,
+    "revenue_consensus_bn": 177.2,
+    "comp_pct": 12,
+    "comp_label": "Online stores sales growth (ex-FX if available)",
+    "traffic_pct": null,
+    "ticket_pct": null,
+    "ecom_yoy_pct": 12,
+    "gross_margin_bps": null,
+    "eps_adj": 2.78,
+    "eps_consensus": null,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null
+  },
+  "guidance": "none",
+  "guidance_note": "Q2 2026: net sales $194-199B (+16-19%), operating income $20-24B, assuming Prime Day in Q2. EPS shown is GAAP, incl. $16.8B pre-tax Anthropic gains.",
+  "key_messages": [
+    "Online stores sales $64.3B, +12%; physical stores +5% to $5.8B.",
+    "North America sales $104.1B (+12%); segment operating income $8.3B vs $5.8B, margin ~8.0%.",
+    "Third-party seller services ~$41.6B (+14%); advertising $17.2B (+24%); subscriptions ~$13.4B (+15%).",
+    "Jassy said average prices on Amazon.com decreased versus the prior year.",
+    "Guidance assumes higher transportation costs tied to fuel inflation."
+  ],
+  "consumer": {
+    "verdict": "steady",
+    "income_split": null,
+    "big_ticket": null,
+    "pricing": "Average selling prices on Amazon.com lower YoY; fuel inflation raising transport costs.",
+    "quote": null
+  },
+  "themes": [
+    "digital_strength",
+    "price_deflation"
+  ],
+  "macro_read": "Double-digit online goods growth with lower average prices points to healthy US e-commerce unit demand in early 2026; fuel costs were the main inflation flag.",
+  "sources": [
+    {
+      "label": "Amazon Q1 2026 8-K exhibit 99.1",
+      "url": "https://www.sec.gov/Archives/edgar/data/0001018724/000101872426000012/amzn-20260331xex991.htm"
+    },
+    {
+      "label": "Amazon Q1 2026 release (Business Wire via Seeking Alpha)",
+      "url": "https://seekingalpha.com/pr/20493420"
+    },
+    {
+      "label": "EcomCrew: ads +24%, online stores +12%",
+      "url": "https://www.ecomcrew.com/amazon-q1-2026-earnings-results/"
+    },
+    {
+      "label": "Motley Fool Q1 2026 call transcript",
+      "url": "https://www.fool.com/earnings/call-transcripts/2026/04/29/amazon-amzn-q1-2026-earnings-call-transcript/"
+    },
+    {
+      "label": "Fortune: Q1 earnings, capex",
+      "url": "https://fortune.com/2026/04/30/amazon-earnings-cloud-sales-ai-capex-stock-falls/"
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "ticker": "TJX",
+  "fiscal_period": "Q2 FY2027",
+  "period_end": "2026-08-01",
+  "report_date": "2026-08-19",
+  "headline": "TJX beat on profit and raised EPS outlook, but T.J. Maxx/Marshalls comps slowed to 1% on self-inflicted mix errors.",
+  "metrics": {
+    "revenue_bn": 15.18,
+    "revenue_yoy_pct": 5,
+    "revenue_consensus_bn": 15.16,
+    "comp_pct": 4,
+    "comp_label": "TJX consolidated comparable sales",
+    "traffic_pct": null,
+    "ticket_pct": null,
+    "ecom_yoy_pct": null,
+    "gross_margin_bps": null,
+    "eps_adj": 1.22,
+    "eps_consensus": 1.19,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null
+  },
+  "guidance": "raised",
+  "guidance_note": "FY27 comp held at +3-4%; FY EPS raised to $5.31-5.36 reported (incl. tariff refunds) from $5.08-5.15. Q3 comp guided +2-3%.",
+  "key_messages": [
+    "Consolidated comp +4%; Marmaxx US comp only +1% (vs +3% LY), all from higher basket with a small decline in Marmaxx transactions.",
+    "HomeGoods and TJX International comps +7%, TJX Canada +6% offset the Marmaxx shortfall.",
+    "CEO Herrman called the Marmaxx miss 'self-inflicted' store-mix execution, not demand or competition; expects improvement by holiday.",
+    "Reported EPS $1.36 included a $0.14 net benefit from IEEPA tariff refunds; adjusted EPS $1.22, up 11%.",
+    "Merchandise availability 'continues to be outstanding'; TJX plans to lift store growth, citing rural markets where department stores close."
+  ],
+  "consumer": {
+    "verdict": "choosy",
+    "income_split": null,
+    "big_ticket": "Home strong: HomeGoods comp +7%, while US apparel (Marmaxx) lagged on internal execution.",
+    "pricing": "Quarter benefited from tariff refunds; growth at Marmaxx came from higher average basket rather than traffic.",
+    "quote": "And availability of merchandise continues to be outstanding."
+  },
+  "themes": [
+    "value_seeking",
+    "tariff_pricing",
+    "discretionary_ok"
+  ],
+  "macro_read": "Off-price demand broadly healthy, especially home, but TJX's flagship US apparel slowdown shows shoppers are selective; management blames execution, not a weaker consumer.",
+  "sources": [
+    {
+      "label": "TJX Q2 FY27 press release (8-K)",
+      "url": "https://www.sec.gov/Archives/edgar/data/0000109198/000010919826000045/tjxq2fy27earningspressrele.htm"
+    },
+    {
+      "label": "TJX Q2 FY27 release (finviz/Business Wire)",
+      "url": "https://finviz.com/news/383612/tjx-reports-q2-fy27-results-above-plan-comp-sales-growth-of-4-pretax-profit-margin-and-diluted-eps-both-well-above-plan-increases-full-year-fy27-pretax-profit-margin-and-eps-guidance"
+    },
+    {
+      "label": "Reuters via Lufkin Daily News",
+      "url": "https://lufkindailynews.com/news_reuters/business/off-price-retailer-tjx-raises-annual-profit-forecasts/article_28e917d6-560e-531c-95eb-13212948f205.html"
+    },
+    {
+      "label": "Boston Globe/Bloomberg: Marmaxx slowdown",
+      "url": "https://www.bostonglobe.com/2026/08/19/business/tj-maxx-marshalls-slowdown-clouds-tjx-earnings-beat/"
+    },
+    {
+      "label": "Modern Retail: TJX store openings",
+      "url": "https://www.modernretail.co/operations/tjx-to-accelerate-store-openings-as-off-price-continues-its-hot-streak/"
+    }
+  ]
+}

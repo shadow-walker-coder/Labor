@@ -1,0 +1,71 @@
+{
+  "ticker": "AMZN",
+  "fiscal_period": "Q2 2026",
+  "period_end": "2026-06-30",
+  "report_date": "2026-07-30",
+  "headline": "Amazon online store sales jump 15% with Prime Day pulled into June; grocery and essentials outgrow the rest of retail.",
+  "metrics": {
+    "revenue_bn": 200.6,
+    "revenue_yoy_pct": 20,
+    "revenue_consensus_bn": 197.11,
+    "comp_pct": 15,
+    "comp_label": "Online stores sales growth (ex-FX if available)",
+    "traffic_pct": null,
+    "ticket_pct": null,
+    "ecom_yoy_pct": 16,
+    "gross_margin_bps": null,
+    "eps_adj": 5.75,
+    "eps_consensus": null,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null
+  },
+  "guidance": "none",
+  "guidance_note": "Q3 2026: net sales $197-202B (+9-12%), below ~$203.9B consensus; operating income $22.5-26.5B. EPS shown is GAAP, inflated by ~$53B Anthropic-related gains.",
+  "key_messages": [
+    "Online stores sales $70.4B vs $61.5B (~+15%), boosted by Prime Day moving to June 23-26 from July.",
+    "North America sales $116.2B (+16%); segment operating income $9.1B vs $7.5B, margin ~7.8%.",
+    "Third-party seller services $46.8B (+16% ex-FX); advertising $19.8B, +26%; subscriptions $13.7B, +12%.",
+    "Jassy: grocery and everyday essentials growing meaningfully faster than the rest of stores, helped by record delivery speeds.",
+    "Numerator estimated average Prime Day household spend fell to $143.45 from $156.37: more items, smaller baskets."
+  ],
+  "consumer": {
+    "verdict": "choosy",
+    "income_split": null,
+    "big_ticket": null,
+    "pricing": null,
+    "quote": null
+  },
+  "themes": [
+    "essentials_strong",
+    "digital_strength",
+    "value_seeking",
+    "weather_calendar"
+  ],
+  "macro_read": "Strong headline growth is partly calendar; the mix toward grocery and essentials and smaller Prime Day baskets point to a consumer who keeps spending but stays price-conscious.",
+  "sources": [
+    {
+      "label": "Amazon Q2 2026 10-Q",
+      "url": "https://www.sec.gov/Archives/edgar/data/0001018724/000101872426000026/amzn-20260630.htm"
+    },
+    {
+      "label": "Pulse 2.0: Q2 2026 net sales +20%",
+      "url": "https://pulse2.com/amazon-reveals-net-sales-up-20-to-200-6-billion-for-q2-2026/"
+    },
+    {
+      "label": "EcomCrew: Q2 2026 earnings detail",
+      "url": "https://www.ecomcrew.com/amazon-q2-2026-earnings/"
+    },
+    {
+      "label": "Modern Retail: groceries and essentials growing faster",
+      "url": "https://www.modernretail.co/operations/amazon-says-groceries-and-essentials-are-growing-meaningfully-faster-than-the-rest-of-its-stores-business/"
+    },
+    {
+      "label": "Digital Commerce 360: Q2 FY26",
+      "url": "https://www.digitalcommerce360.com/2026/07/31/amazon-sales-revenue-aws-ai-q2-fy26/"
+    },
+    {
+      "label": "Zacks: Q2 key metrics",
+      "url": "https://www.zacks.com/stock/news/2965237/amazon-amzn-reports-q2-earnings-what-key-metrics-have-to-say"
+    }
+  ]
+}

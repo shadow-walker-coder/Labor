@@ -1,0 +1,71 @@
+{
+  "ticker": "BBY",
+  "fiscal_period": "Q2 FY2027",
+  "period_end": "2026-08-01",
+  "report_date": "2026-08-27",
+  "headline": "Best Buy's domestic comps jump 4.5% on computing and AI glasses; full-year sales and EPS outlook raised sharply.",
+  "metrics": {
+    "revenue_bn": 9.779,
+    "revenue_yoy_pct": 3.6,
+    "revenue_consensus_bn": null,
+    "comp_pct": 4.5,
+    "comp_label": "Domestic comparable sales",
+    "traffic_pct": null,
+    "ticket_pct": null,
+    "ecom_yoy_pct": 5.1,
+    "gross_margin_bps": 70,
+    "eps_adj": 1.47,
+    "eps_consensus": 1.37,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": -4.4
+  },
+  "guidance": "raised",
+  "guidance_note": "FY27 revenue raised to $42.3-42.8B (from $41.2-42.1B), comps 1.9-3.0% (from -1% to +1%), adj EPS $6.70-6.90 (from $6.30-6.60); Q3 comp guide +1-3%.",
+  "key_messages": [
+    "Domestic comp +4.5% (vs +1.1% a year ago); enterprise comp +4.1%, the strongest in years, beating expectations.",
+    "Computing was the biggest driver, its 10th straight quarter of positive comps; home theater, AI glasses and trading cards also grew.",
+    "Memory-cost inflation pushed computing ASPs up mid-teens while units fell high single digits; traditional gaming declined.",
+    "Gross margin rose ~70bps to 23.9%, helped by Marketplace, Best Buy Ads and ~$34M of IEEPA tariff refunds.",
+    "August comps tracking near the top of the Q3 guide; Barry's last call before Jason Bonfig becomes CEO on Nov. 1."
+  ],
+  "consumer": {
+    "verdict": "choosy",
+    "income_split": null,
+    "big_ticket": "Customers still buy higher-priced tech when replacing devices or when innovation is compelling; computing replacement cycle continues, gaming down.",
+    "pricing": "Memory component costs are raising computing prices (ASP up mid-teens, units down); one-time IEEPA tariff refunds aided margin.",
+    "quote": "We are very pleased to report we outperformed expectations in the second quarter with comparable sales growth of 4.1% and a higher-than-expected adjusted operating income rate."
+  },
+  "themes": [
+    "discretionary_ok",
+    "value_seeking",
+    "tariff_pricing",
+    "digital_strength"
+  ],
+  "macro_read": "Tech spending is recovering on replacement needs and new gadgets, but higher memory costs mean consumers buy fewer, pricier PCs; the shopper is selective, not retrenching.",
+  "sources": [
+    {
+      "label": "Best Buy Q2 FY27 release (PDF)",
+      "url": "https://s204.q4cdn.com/864376893/files/doc_earnings/2027/q2/earnings-result/Best-Buy-Reports-Fiscal-Second-Quarter-2027-Results.pdf"
+    },
+    {
+      "label": "Best Buy corporate news: Q2 FY27",
+      "url": "https://corporate.bestbuy.com/?p=32724"
+    },
+    {
+      "label": "Barchart: Best Buy Reports Second Quarter Results",
+      "url": "https://www.barchart.com/story/news/4198306/best-buy-reports-second-quarter-results"
+    },
+    {
+      "label": "MarketBeat: Q2 earnings call highlights",
+      "url": "https://www.marketbeat.com/instant-alerts/transcript-best-buy-q2-earnings-call-highlights-2026-08-27/"
+    },
+    {
+      "label": "Pulse 2.0: Best Buy raises outlook",
+      "url": "https://pulse2.com/best-buy-comparable-sales-rise-4-1-as-company-sharply-raises-full-year-sales-and-eps-outlook/"
+    },
+    {
+      "label": "TS2: Best Buy stock falls 4.4%",
+      "url": "https://ts2.tech/en/best-buy-stock-falls-4-4-as-margin-spending-blunts-q2-beat/"
+    }
+  ]
+}

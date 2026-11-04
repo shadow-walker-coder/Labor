@@ -1,0 +1,70 @@
+{
+  "ticker": "ROST",
+  "fiscal_period": "Q2 FY2026",
+  "period_end": "2026-08-01",
+  "report_date": "2026-08-20",
+  "headline": "Ross comps jumped 10% on traffic, a second straight double-digit quarter; EPS and full-year outlook raised.",
+  "metrics": {
+    "revenue_bn": 6.27,
+    "revenue_yoy_pct": 13.3,
+    "revenue_consensus_bn": 6.15,
+    "comp_pct": 10,
+    "comp_label": "Ross Stores comparable store sales",
+    "traffic_pct": null,
+    "ticket_pct": null,
+    "ecom_yoy_pct": null,
+    "gross_margin_bps": null,
+    "eps_adj": 2.06,
+    "eps_consensus": 1.94,
+    "inventory_yoy_pct": 18,
+    "stock_reaction_pct": null
+  },
+  "guidance": "raised",
+  "guidance_note": "FY26 EPS raised to $8.61-8.77 incl. ~$0.60 tariff refunds. Q3 comp +6-7%, EPS $1.75-1.83; Q4 comp +4-5%.",
+  "key_messages": [
+    "Comp +10%, driven mainly by more customer traffic: new shoppers, lapsed customers returning, and more frequent trips; July strongest month.",
+    "Reported EPS $2.66 includes ~$0.60 from ~$253m IEEPA tariff refunds; ex-refunds op margin still +205 bps.",
+    "Merchandise margin +110 bps; inventories +18% with packaway 36% of total vs 38% LY.",
+    "CEO Conroy: Ross has outgrown its two major rivals for four quarters, 'mathematically we've captured more share'.",
+    "Department store weakness and retail order cancellations are feeding off-price supply; higher fuel-driven freight a Q3 headwind."
+  ],
+  "consumer": {
+    "verdict": "strong",
+    "income_split": "Traffic gains broad across demographics, per management.",
+    "big_ticket": null,
+    "pricing": "Expects modest low-single-digit average unit retail increases in 2H; tariff refunds boosted Q2 profit.",
+    "quote": "We achieved stellar sales and earnings growth in the second quarter."
+  },
+  "themes": [
+    "value_seeking",
+    "traffic_up",
+    "tariff_pricing"
+  ],
+  "macro_read": "Double-digit, traffic-led comps at a low-price apparel chain show strong demand for value and share shift from department stores.",
+  "sources": [
+    {
+      "label": "Ross Q2 2026 press release (8-K)",
+      "url": "https://www.sec.gov/Archives/edgar/data/0000745732/000074573226000038/q226exhibit991.htm"
+    },
+    {
+      "label": "Ross investor relations release",
+      "url": "https://investors.rossstores.com/node/23266"
+    },
+    {
+      "label": "Nasdaq: Ross Q2 call highlights",
+      "url": "https://www.nasdaq.com/articles/ross-stores-q2-earnings-call-highlights"
+    },
+    {
+      "label": "Chain Store Age: Ross Q2",
+      "url": "https://chainstoreage.com/ross-stores-earnings-sales-soar-q2-115-new-stores-planned-2026"
+    },
+    {
+      "label": "Zacks: Ross Q2 beat",
+      "url": "https://www.zacks.com/stock/news/2978610/ross-stores-q2-earnings-top-estimates-on-strong-sales-growth-momentum"
+    },
+    {
+      "label": "247 Wall St: Ross, TJX, Macy's",
+      "url": "https://247wallst.com/investing/2026/08/21/ross-jumps-8-on-10-comp-growth-tjx-ticks-up-macys-edges-higher/"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "ticker": "COST",
+  "fiscal_period": "Q2 FY2026",
+  "period_end": "2026-02-15",
+  "report_date": "2026-03-05",
+  "headline": "Costco beat estimates with U.S. comps up 6.4% ex gas, and its CEO pledged any tariff refunds back to members.",
+  "metrics": {
+    "revenue_bn": 69.6,
+    "revenue_yoy_pct": 9.2,
+    "revenue_consensus_bn": 69.32,
+    "comp_pct": 6.4,
+    "comp_label": "Costco U.S. comp ex gas & FX",
+    "traffic_pct": 3.1,
+    "ticket_pct": 4.2,
+    "ecom_yoy_pct": null,
+    "gross_margin_bps": null,
+    "eps_adj": 4.58,
+    "eps_consensus": 4.54,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null
+  },
+  "guidance": "none",
+  "guidance_note": "Costco does not give earnings guidance.",
+  "key_messages": [
+    "U.S. comps +5.9% reported, +6.4% ex gas and FX; total company +7.4% / +6.7% adjusted.",
+    "Worldwide traffic +3.1%, ticket +4.2% (+3.5% ex gas/FX); site traffic +32%, app +45%.",
+    "Membership fee income $1.355B (+13.6%); paid executive members +9.5% to 40.4M.",
+    "CEO said any IEEPA tariff refunds would go back to members via lower prices; Costco hadn't passed full tariffs through.",
+    "Management flagged Middle East tensions raising fuel and shipping costs."
+  ],
+  "consumer": {
+    "verdict": "steady",
+    "income_split": null,
+    "big_ticket": null,
+    "pricing": "Tariffs only partly passed on; any refunds pledged to lower prices. Gas prices deflationary in the quarter.",
+    "quote": null
+  },
+  "themes": [
+    "membership_strength",
+    "digital_strength",
+    "traffic_up",
+    "tariff_pricing",
+    "value_seeking"
+  ],
+  "macro_read": "Steady traffic and membership growth through winter 2026 point to a resilient core consumer, with tariffs and energy costs the main watch items.",
+  "sources": [
+    {
+      "label": "Costco Q2 FY26 release",
+      "url": "https://investor.costco.com/news/news-details/2026/Costco-Wholesale-Corporation-Reports-Second-Quarter-and-Year-to-Date-Operating-Results-for-Fiscal-2026-and-February-Sales-Results/default.aspx"
+    },
+    {
+      "label": "Alpha Spread: Costco beats in fiscal Q2, CEO pledges tariff refunds",
+      "url": "https://www.alphaspread.com/market-news/earnings/costco-beats-estimates-in-fiscal-q2-as-profit-comparable-sales-rise-ceo-pledges-tariff-refunds-to-members"
+    },
+    {
+      "label": "Costco Q2 2026 call transcript (Webull)",
+      "url": "https://www.webull.com/news/14486626702861312"
+    }
+  ]
+}

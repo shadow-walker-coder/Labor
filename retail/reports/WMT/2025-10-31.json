@@ -1,0 +1,64 @@
+{
+  "ticker": "WMT",
+  "fiscal_period": "Q3 FY2026",
+  "period_end": "2025-10-31",
+  "report_date": "2025-11-20",
+  "headline": "Walmart beat and raised again as U.S. comps rose 4.5%, with higher-income households driving most share gains.",
+  "metrics": {
+    "revenue_bn": 179.5,
+    "revenue_yoy_pct": 5.8,
+    "revenue_consensus_bn": null,
+    "comp_pct": 4.5,
+    "comp_label": "Walmart U.S. comp ex fuel",
+    "traffic_pct": 1.8,
+    "ticket_pct": 2.7,
+    "ecom_yoy_pct": 27,
+    "gross_margin_bps": null,
+    "eps_adj": 0.62,
+    "eps_consensus": null,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null
+  },
+  "guidance": "raised",
+  "guidance_note": "FY26 sales growth raised to 4.8-5.1% cc (from 3.75-4.75%); adj. EPS to $2.58-2.63 (from $2.52-2.62).",
+  "key_messages": [
+    "Walmart U.S. comp ex fuel +4.5% (transactions +1.8%, ticket +2.7%); U.S. eCommerce +28%, global +27%.",
+    "Sam's Club U.S. comp ex fuel +3.8%.",
+    "Households earning over $100K accounted for ~75% of share gains; lower-income families under added pressure.",
+    "Advertising up ~28%; eCommerce growth topped 20% for a 7th straight quarter.",
+    "Raised full-year sales and EPS outlook heading into the holidays."
+  ],
+  "consumer": {
+    "verdict": "choosy",
+    "income_split": "Upper- and middle-income households drove growth; lower-income families under additional pressure.",
+    "big_ticket": null,
+    "pricing": null,
+    "quote": "\"Households earning more than $100,000 made up 75% of our share gains.\" - CEO Doug McMillon"
+  },
+  "themes": [
+    "high_income_gains",
+    "low_income_stress",
+    "value_seeking",
+    "digital_strength",
+    "traffic_up"
+  ],
+  "macro_read": "A K-shaped consumer: affluent shoppers trading into Walmart kept spending solid in late 2025 while lower-income households showed strain.",
+  "sources": [
+    {
+      "label": "Walmart Q3 FY26 release",
+      "url": "https://corporate.walmart.com/news/2025/11/20/walmart-releases-q3-fy26-earnings"
+    },
+    {
+      "label": "Walmart Q3 FY26 press release (stock.walmart.com)",
+      "url": "https://stock.walmart.com/sec-filings/all-sec-filings/content/0000104169-25-000177/earningsreleasefy26q3.htm"
+    },
+    {
+      "label": "Zacks: Walmart lifts FY26 outlook on Q3 beat",
+      "url": "https://www.zacks.com/stock/news/2793874/walmart-lifts-fy26-outlook-on-q3-earnings-&-revenue-beat"
+    },
+    {
+      "label": "Benzinga Q3 FY26 call transcript",
+      "url": "https://www.benzinga.com/markets/earnings/25/11/48984101/walmart-q3-fy26-earnings-call-transcript"
+    }
+  ]
+}

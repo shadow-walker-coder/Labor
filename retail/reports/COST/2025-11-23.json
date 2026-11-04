@@ -1,0 +1,63 @@
+{
+  "ticker": "COST",
+  "fiscal_period": "Q1 FY2026",
+  "period_end": "2025-11-23",
+  "report_date": "2025-12-11",
+  "headline": "Costco beat estimates with U.S. comps up 5.9% ex gas and 20%+ digital growth; renewal rates dipped slightly.",
+  "metrics": {
+    "revenue_bn": 67.31,
+    "revenue_yoy_pct": 8.3,
+    "revenue_consensus_bn": null,
+    "comp_pct": 5.9,
+    "comp_label": "Costco U.S. comp ex gas & FX",
+    "traffic_pct": 3.1,
+    "ticket_pct": 3.2,
+    "ecom_yoy_pct": 20.5,
+    "gross_margin_bps": 4,
+    "eps_adj": 4.5,
+    "eps_consensus": null,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null
+  },
+  "guidance": "none",
+  "guidance_note": "Costco does not give earnings guidance. EPS of $4.50 includes a $0.16 tax benefit ($4.34 excluding it).",
+  "key_messages": [
+    "U.S. comps +5.9% (same ex gas and FX); total company +6.4%; digitally enabled comps +20.5%.",
+    "Worldwide traffic +3.1%, average ticket +3.2%.",
+    "Membership fees ~$1.33B (up from $1.17B) on the Sept 2024 fee hike; paid members ~81.4M.",
+    "U.S./Canada renewal rate slipped 10 bps to 92.2% (worldwide 89.7%) on weaker renewal by digitally signed members.",
+    "Gross margin ~11.32% vs 11.28% a year earlier."
+  ],
+  "consumer": {
+    "verdict": "steady",
+    "income_split": null,
+    "big_ticket": null,
+    "pricing": "Costco sources globally and monitors tariff costs closely.",
+    "quote": null
+  },
+  "themes": [
+    "membership_strength",
+    "digital_strength",
+    "traffic_up",
+    "value_seeking"
+  ],
+  "macro_read": "Solid traffic and comps into the 2025 holidays showed Costco's members still spending steadily, with value-seeking supporting the warehouse model.",
+  "sources": [
+    {
+      "label": "Costco Q1 FY26 release",
+      "url": "https://investor.costco.com/news/news-details/2025/Costco-Wholesale-Corporation-Reports-First-Quarter-Fiscal-Year-2026-Operating-Results/default.aspx"
+    },
+    {
+      "label": "Costco Q1 FY26 release (SEC)",
+      "url": "https://www.sec.gov/Archives/edgar/data/909832/000090983225000164/costex9918-k121125.htm"
+    },
+    {
+      "label": "Motley Fool Q1 2026 call transcript",
+      "url": "https://www.fool.com/earnings/call-transcripts/2025/12/11/costco-cost-q1-2026-earnings-call-transcript/"
+    },
+    {
+      "label": "Yahoo/Zacks: Costco beats Q1 estimates",
+      "url": "https://finance.yahoo.com/news/costco-beats-q1-earnings-estimates-123600993.html"
+    }
+  ]
+}

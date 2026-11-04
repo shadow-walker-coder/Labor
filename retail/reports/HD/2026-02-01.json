@@ -1,0 +1,68 @@
+{
+  "ticker": "HD",
+  "fiscal_period": "Q4 FY2025",
+  "period_end": "2026-02-01",
+  "report_date": "2026-02-24",
+  "headline": "Home Depot beat lowered Q4 EPS estimates with US comps +0.3%; guided FY2026 comps flat to +2% amid soft housing.",
+  "metrics": {
+    "revenue_bn": 38.2,
+    "revenue_yoy_pct": -3.8,
+    "revenue_consensus_bn": 38.11,
+    "comp_pct": 0.3,
+    "comp_label": "U.S. comparable sales (total company comps +0.4%)",
+    "traffic_pct": null,
+    "ticket_pct": null,
+    "ecom_yoy_pct": null,
+    "gross_margin_bps": null,
+    "eps_adj": 2.72,
+    "eps_consensus": 2.53,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null
+  },
+  "guidance": "initiated",
+  "guidance_note": "FY2026: sales +2.5-4.5%, comps ~flat to +2%, gross margin ~33.1%, ~15 new stores, adj EPS ~flat to +4% vs $14.69.",
+  "key_messages": [
+    "US comps +0.3% (total +0.4%); sales fell 3.8% only because the prior-year quarter had a 14th week (~$2.5bn).",
+    "Big-ticket (>$1,000) transactions +1.3%, led by plumbing, electrical and power rather than appliances and remodels.",
+    "Decker: adjusting for storms, underlying demand was relatively stable through the year amid ongoing softness.",
+    "Pro outpaced DIY in Q4; company cites share gains from Pro investments.",
+    "Adj EPS $2.72 vs $3.13 a year earlier, but above consensus (~$2.53)."
+  ],
+  "consumer": {
+    "verdict": "steady",
+    "income_split": null,
+    "big_ticket": "Transactions over $1,000 +1.3%, driven by repair-type categories (plumbing, electrical, power) rather than appliances and discretionary remodeling.",
+    "pricing": "Management discussed tariff exposure in Q&A, citing roughly ~3% SKU-level price impact; average ticket up modestly.",
+    "quote": null
+  },
+  "themes": [
+    "housing_drag",
+    "big_ticket_weak",
+    "pro_contractor",
+    "weather_calendar",
+    "tariff_pricing"
+  ],
+  "macro_read": "Home improvement spending is flat in real terms: needs-based repairs continue, but a frozen housing market keeps discretionary projects deferred.",
+  "sources": [
+    {
+      "label": "Home Depot Q4 FY2025 release",
+      "url": "https://corporate.homedepot.com/news/earnings/home-depot-announces-fourth-quarter-2025-earnings"
+    },
+    {
+      "label": "HD Q4 2025 earnings release PDF",
+      "url": "https://ir.homedepot.com/~/media/Files/H/HomeDepot-IR/press-release/q4-2025-earnings-release.pdf"
+    },
+    {
+      "label": "Newsquawk: HD Q4 adj EPS $2.72 vs exp $2.53",
+      "url": "https://www.newsquawk.com/headlines/home-depot-inc-hd-q4-2025-usd-adj-eps-272-exp-253-revenue-382bln-exp-3811bln-boosts-dividend-13"
+    },
+    {
+      "label": "MarketBeat: HD Q4 call highlights",
+      "url": "https://www.marketbeat.com/instant-alerts/home-depot-q4-earnings-call-highlights-2026-02-24/"
+    },
+    {
+      "label": "HD Q4'25 call transcript",
+      "url": "https://ir.homedepot.com/~/media/Files/H/HomeDepot-IR/reports-and-presentations/quarterly-earnings/hd-4q25-transcript.pdf"
+    }
+  ]
+}

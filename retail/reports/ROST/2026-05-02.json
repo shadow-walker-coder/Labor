@@ -1,0 +1,65 @@
+{
+  "ticker": "ROST",
+  "fiscal_period": "Q1 FY2026",
+  "period_end": "2026-05-02",
+  "report_date": "2026-05-21",
+  "headline": "Ross sales rose 21% on a 17% comp, crushing guidance as traffic surged; full-year outlook raised.",
+  "metrics": {
+    "revenue_bn": 6.01,
+    "revenue_yoy_pct": 21,
+    "revenue_consensus_bn": null,
+    "comp_pct": 17,
+    "comp_label": "Ross Stores comparable store sales",
+    "traffic_pct": null,
+    "ticket_pct": null,
+    "ecom_yoy_pct": null,
+    "gross_margin_bps": null,
+    "eps_adj": 2.02,
+    "eps_consensus": 1.7,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": 8.1
+  },
+  "guidance": "raised",
+  "guidance_note": "FY26 comp raised to +6-7%, EPS $7.50-7.74 (excl. potential tariff refunds). Q2 comp +6-7%, EPS $1.85-1.93.",
+  "key_messages": [
+    "Comp +17% vs flat LY, driven by transactions rather than basket; customer counts up across income levels, ages and ethnicities.",
+    "Conroy credited assortments, marketing and store experience, and said larger tax refunds helped and may not be sustainable.",
+    "Operating margin 13.4%, up 120 bps and above 11.8-12.1% plan; EPS $2.02 vs $1.60-1.67 guidance.",
+    "Packaway 36% of inventory vs 41% LY; tariff refund claims filed but excluded from guidance."
+  ],
+  "consumer": {
+    "verdict": "strong",
+    "income_split": "Customer count gains across all income levels, per management.",
+    "big_ticket": null,
+    "pricing": "Tariff refund claims filed; timing and amounts uncertain so excluded from guidance.",
+    "quote": null
+  },
+  "themes": [
+    "value_seeking",
+    "traffic_up",
+    "tariff_pricing"
+  ],
+  "macro_read": "Larger 2026 tax refunds plus value-seeking drove an exceptional spring for off-price, with traffic gains across all income groups.",
+  "sources": [
+    {
+      "label": "Ross Q1 2026 press release (8-K)",
+      "url": "https://www.sec.gov/Archives/edgar/data/0000745732/000074573226000025/q126exhibit991.htm"
+    },
+    {
+      "label": "Ross investor relations release",
+      "url": "https://investors.rossstores.com/node/23161"
+    },
+    {
+      "label": "Motley Fool Q1 2026 call transcript",
+      "url": "https://www.fool.com/earnings/call-transcripts/2026/05/21/ross-stores-rost-q1-2026-earnings-transcript/"
+    },
+    {
+      "label": "Motley Fool: why Ross stock is up",
+      "url": "https://www.fool.com/investing/2026/05/22/why-ross-stores-stock-is-up-today/"
+    },
+    {
+      "label": "FashionUnited: Ross Q1",
+      "url": "https://fashionunited.com/news/business/ross-stores-beats-expectations-with-21-percent-sales-increase-in-first-quarter/2026052272511"
+    }
+  ]
+}

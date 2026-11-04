@@ -1,0 +1,63 @@
+{
+  "ticker": "DG",
+  "fiscal_period": "Q1 2026",
+  "period_end": "2026-05-01",
+  "report_date": "2026-06-02",
+  "headline": "Dollar General comps rose 2% and it raised EPS guidance, but its core shoppers are squeezed by gas prices and SNAP cuts.",
+  "metrics": {
+    "revenue_bn": 10.79,
+    "revenue_yoy_pct": 3.4,
+    "revenue_consensus_bn": 10.82,
+    "comp_pct": 2.0,
+    "comp_label": "Dollar General same-store sales",
+    "traffic_pct": 1.4,
+    "ticket_pct": 0.5,
+    "ecom_yoy_pct": null,
+    "gross_margin_bps": 65,
+    "eps_adj": 2.0,
+    "eps_consensus": 1.89,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null
+  },
+  "guidance": "raised",
+  "guidance_note": "FY26 EPS raised to $7.20-7.45 (from $7.10-7.35); same-store sales 2.2-2.7% unchanged.",
+  "key_messages": [
+    "Same-store sales +2.0% (traffic +1.4%, ticket +0.5%); revenue slightly below consensus, EPS $2.00 beat.",
+    "Tax-refund lift largely offset by higher fuel prices and reductions in SNAP benefit payments.",
+    "Core customers reported cutting back on other spending, including food, because of rising gas prices; worse in rural areas.",
+    "Higher gas prices historically bring trade-in from higher-income customers, and DG says it is seeing it again; biggest gain from $100K+ households.",
+    "Gross margin +65 bps to 31.6% on higher markups and lower shrink, partly offset by markdowns and transportation costs."
+  ],
+  "consumer": {
+    "verdict": "strained",
+    "income_split": "Core low-income customer financially constrained; largest increase in customer penetration came from households earning over $100,000.",
+    "big_ticket": null,
+    "pricing": "Adding more $1 private-label and $1 frozen items; fuel prices and SNAP cuts eating into budgets.",
+    "quote": "Elevated gas prices have historically led to increased trade-in from higher-income customers, and we are seeing this again."
+  },
+  "themes": [
+    "value_seeking",
+    "high_income_gains",
+    "low_income_stress",
+    "traffic_up"
+  ],
+  "macro_read": "Higher gasoline prices and reduced SNAP payments are pinching rural, lower-income households even as better-off shoppers trade down to dollar stores.",
+  "sources": [
+    {
+      "label": "Dollar General Q1 2026 release (Business Wire)",
+      "url": "https://www.businesswire.com/news/home/20260602751270/en/Dollar-General-Corporation-Reports-First-Quarter-2026-Results"
+    },
+    {
+      "label": "Transport Topics: Dollar General shoppers cut back on food as gas prices rise",
+      "url": "https://www.ttnews.com/articles/dollar-general-earnings-q1-2026"
+    },
+    {
+      "label": "MarketBeat: DG Q1 earnings call highlights",
+      "url": "https://www.marketbeat.com/instant-alerts/dollar-general-q1-earnings-call-highlights-2026-06-02/"
+    },
+    {
+      "label": "Nasdaq/Zacks: DG beats Q1 estimates, raises FY26 view",
+      "url": "https://www.nasdaq.com/articles/dollar-general-beats-q1-earnings-estimates-raises-fy26-view"
+    }
+  ]
+}

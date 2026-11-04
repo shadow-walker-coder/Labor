@@ -1,0 +1,62 @@
+{
+  "ticker": "TJX",
+  "fiscal_period": "Q1 FY2027",
+  "period_end": "2026-05-02",
+  "report_date": "2026-05-20",
+  "headline": "TJX posted a 6% comp with sales up 9% and EPS up 29%, well above plan, and raised its full-year outlook.",
+  "metrics": {
+    "revenue_bn": 14.32,
+    "revenue_yoy_pct": 9,
+    "revenue_consensus_bn": 14.0,
+    "comp_pct": 6,
+    "comp_label": "TJX consolidated comparable sales",
+    "traffic_pct": null,
+    "ticket_pct": null,
+    "ecom_yoy_pct": null,
+    "gross_margin_bps": 180,
+    "eps_adj": 1.19,
+    "eps_consensus": 1.01,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null
+  },
+  "guidance": "raised",
+  "guidance_note": "FY27 comp raised to +3-4% (from 2-3%); EPS raised to $5.08-5.15 (from $4.93-5.02), assuming current fuel prices persist. Q2 comp +2-3%.",
+  "key_messages": [
+    "Consolidated comp +6% (vs plan of 2-3%), driven equally by higher average basket and more customer transactions.",
+    "Marmaxx US comp +6%, HomeGoods +9%, TJX Canada +7%, TJX International +4%.",
+    "Gross margin +180 bps to 31.3% on merchandise margin, inventory/fuel hedges and expense leverage.",
+    "Herrman saw no change in customer behavior from macro factors; continues to attract disproportionate Gen Z and millennial shoppers.",
+    "Merchandise availability 'off the charts'; outlook held back partly on higher fuel cost assumptions."
+  ],
+  "consumer": {
+    "verdict": "strong",
+    "income_split": "Customer income mix balanced but somewhat higher than the general population, per management.",
+    "big_ticket": "Home strong: HomeGoods comp +9%.",
+    "pricing": "Higher fuel prices flagged as a margin headwind for the rest of the year.",
+    "quote": null
+  },
+  "themes": [
+    "value_seeking",
+    "traffic_up",
+    "discretionary_ok"
+  ],
+  "macro_read": "Broad comp and traffic gains in spring 2026 suggest value-oriented discretionary spending was solid; management reported no macro-driven change in behavior.",
+  "sources": [
+    {
+      "label": "TJX Q1 FY27 press release (8-K)",
+      "url": "https://www.sec.gov/Archives/edgar/data/0000109198/000010919826000023/tjxq1fy27earningspressrele.htm"
+    },
+    {
+      "label": "AP earnings snapshot (WTOP)",
+      "url": "https://wtop.com/news/2026/05/tjx-fiscal-q1-earnings-snapshot/"
+    },
+    {
+      "label": "Barchart: TJX Q1 call highlights",
+      "url": "https://www.barchart.com/story/news/2070175/tjx-companies-q1-earnings-call-highlights"
+    },
+    {
+      "label": "Fibre2Fashion: TJX Q1 FY27",
+      "url": "https://www.fibre2fashion.com/news/retail-results/us-tjx-q1-sales-rise-9-fy27-guidance-lifted-310454-newsdetails.htm"
+    }
+  ]
+}

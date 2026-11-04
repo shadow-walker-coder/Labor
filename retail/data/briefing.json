@@ -1,0 +1,78 @@
+{
+  "as_of": "2026-11-04",
+  "headline": "A choosy consumer: still spending, steered toward value, with housing stuck",
+  "summary": "The latest reports, mostly covering May to July and released in August and September, show sales still growing almost everywhere and nearly every retailer beating profit estimates. Underneath, shoppers are trading down, traffic is flowing to value and off-price chains, and anything tied to housing is flat. One-time tariff refunds flattered many of the profit beats.",
+  "points": [
+    {
+      "title": "Value chains are winning the traffic",
+      "body": "Ross comps rose 10% on traffic, its second double-digit quarter. Target traffic rose 3.6%, Costco 3.3%, Dollar General 2.0% and Walmart U.S. 1.5%. The traffic gains are concentrated at the cheapest formats.",
+      "tickers": [
+        "ROST",
+        "TGT",
+        "COST",
+        "DG",
+        "WMT"
+      ]
+    },
+    {
+      "title": "Trade-down is moving up the income ladder",
+      "body": "Dollar General and Dollar Tree both credit middle- and higher-income households for their gains, while lower-income shoppers buy smaller packs and opening price points. Walmart says fuel prices forced more trade-offs, especially in June.",
+      "tickers": [
+        "DG",
+        "DLTR",
+        "WMT"
+      ]
+    },
+    {
+      "title": "Housing is still the drag",
+      "body": "Home Depot U.S. comps rose 1.3% with transactions down 1.0%. Lowe's managed +0.2% with traffic down 2.1% and cut its year to flat comps. Pros and must-do repairs carry demand; big remodels stay on hold while home sales are frozen.",
+      "tickers": [
+        "HD",
+        "LOW"
+      ]
+    },
+    {
+      "title": "Tariff refunds flattered the profit beats",
+      "body": "IEEPA tariff refunds lifted Q2 margins at Target ($994M), Home Depot (about $730M), Dollar Tree ($1.31 of its $2.70 EPS), Costco and Walmart. Much of the money is being put into price cuts, a modest disinflationary push for goods.",
+      "tickers": [
+        "TGT",
+        "HD",
+        "DLTR",
+        "COST",
+        "WMT"
+      ]
+    },
+    {
+      "title": "Essentials are slowing at the margin",
+      "body": "Kroger identical sales rose only 0.2% and it cut its sales outlook. Walmart U.S. comps slowed to 2.6%, about 125bp of that from drug-price rules. Amazon online stores grew 2%, though moving Prime Day into June cost about 4 points.",
+      "tickers": [
+        "KR",
+        "WMT",
+        "AMZN"
+      ]
+    },
+    {
+      "title": "Discretionary is selective, not broken",
+      "body": "Best Buy domestic comps rose 4.5% on PC replacement and new gadgets, and it raised its outlook. HomeGoods comps rose 7% while T.J. Maxx and Marshalls slowed to 1%, and Target home and apparel still lag.",
+      "tickers": [
+        "BBY",
+        "TJX",
+        "TGT"
+      ]
+    },
+    {
+      "title": "Next: the holiday read, Nov 17 to 24",
+      "body": "Home Depot, Lowe's, Target, TJX, Walmart, Ross, Best Buy and Dollar Tree report in one week. Watch traffic, holiday guidance, and whether retailers keep passing tariff refunds through as lower prices.",
+      "tickers": [
+        "HD",
+        "LOW",
+        "TGT",
+        "TJX",
+        "WMT",
+        "ROST",
+        "BBY",
+        "DLTR"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "ticker": "WMT",
+  "fiscal_period": "Q1 FY2027",
+  "period_end": "2026-04-30",
+  "report_date": "2026-05-21",
+  "headline": "Walmart grew U.S. comps 4.1% on traffic but held its outlook as gas prices loom; shares dropped about 7%.",
+  "metrics": {
+    "revenue_bn": 177.8,
+    "revenue_yoy_pct": 7.3,
+    "revenue_consensus_bn": null,
+    "comp_pct": 4.1,
+    "comp_label": "Walmart U.S. comp ex fuel",
+    "traffic_pct": 3.0,
+    "ticket_pct": 1.1,
+    "ecom_yoy_pct": 26,
+    "gross_margin_bps": null,
+    "eps_adj": 0.66,
+    "eps_consensus": 0.66,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": -7.3
+  },
+  "guidance": "maintained",
+  "guidance_note": "FY27 kept at 3.5-4.5% sales growth and adj. EPS $2.75-2.85 despite fuel headwind; Q2 guide seen as soft.",
+  "key_messages": [
+    "Walmart U.S. comp ex fuel +4.1%, led by 3.0% transaction growth; average ticket +1.1%.",
+    "Sam's Club U.S. comp ex fuel +3.9% with transactions +6.2% but ticket -2.2%.",
+    "Global and Walmart U.S. eCommerce both +26%; eCommerce ~23% of net sales.",
+    "Higher fuel costs cost ~$175M (about 250 bps of operating income growth); CFO said impact likely larger in Q2.",
+    "General merchandise mix helped U.S. margin for first time in 18 quarters, partly thanks to larger tax refunds."
+  ],
+  "consumer": {
+    "verdict": "choosy",
+    "income_split": "Higher-income shoppers spending with confidence; lower-income consumers more budget conscious and showing financial stress.",
+    "big_ticket": "General merchandise improved, but management said bigger tax refunds likely gave it a temporary lift.",
+    "pricing": "Absorbing higher fuel costs rather than passing them on while keeping guidance.",
+    "quote": "\"We're absorbing those prices and still maintaining our guidance, and I feel really good about that.\" - CFO John David Rainey on fuel costs"
+  },
+  "themes": [
+    "high_income_gains",
+    "low_income_stress",
+    "traffic_up",
+    "digital_strength",
+    "weather_calendar"
+  ],
+  "macro_read": "Spending held up in spring 2026 helped by tax refunds, but a widening income split and rising gas prices signaled pressure building for lower-income households.",
+  "sources": [
+    {
+      "label": "Walmart Q1 FY27 release (SEC)",
+      "url": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000095/earningsreleasefy27q1.htm"
+    },
+    {
+      "label": "CNBC: Walmart issues worse-than-expected outlook as gas prices hit shoppers",
+      "url": "https://www.cnbc.com/2026/05/21/walmart-wmt-earnings-q1-2027.html"
+    },
+    {
+      "label": "Barchart: Walmart Q1 earnings call highlights",
+      "url": "https://www.barchart.com/story/news/2086137/walmart-q1-earnings-call-highlights"
+    },
+    {
+      "label": "Retail Insight Network: Walmart Q1 revenue rises 7.3%",
+      "url": "https://www.retail-insight-network.com/newsletters/walmart-q1-revenue-rises-7-3"
+    }
+  ]
+}

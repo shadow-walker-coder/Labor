@@ -1,0 +1,74 @@
+{
+  "ticker": "AMZN",
+  "fiscal_period": "Q3 2026",
+  "period_end": "2026-09-30",
+  "report_date": "2026-10-29",
+  "headline": "Amazon online store sales up just 2% as Prime Day shifts to Q2; North America margin improves but EPS misses.",
+  "metrics": {
+    "revenue_bn": 201.9,
+    "revenue_yoy_pct": 12,
+    "revenue_consensus_bn": 202.31,
+    "comp_pct": 2,
+    "comp_label": "Online stores sales growth (ex-FX if available)",
+    "traffic_pct": null,
+    "ticket_pct": null,
+    "ecom_yoy_pct": 6,
+    "gross_margin_bps": null,
+    "eps_adj": 1.89,
+    "eps_consensus": 1.96,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null
+  },
+  "guidance": "none",
+  "guidance_note": "Q4 2026: net sales $240-247B (+12-16%), midpoint below ~$244.5B consensus; operating income $28.5-33.5B; ad growth seen back to high teens.",
+  "key_messages": [
+    "Online stores sales ~$68.5B, +2%; Prime Day moved into Q2, which Amazon says cut Q3 growth by ~400bps.",
+    "North America sales $112.9B (+6%); segment operating income $8.7B vs $4.8B, margin ~7.7%.",
+    "Third-party seller services $46.5B, +9% (+10% ex-FX); advertising ~$19.6B, +11% (12% ex-FX), down from 26% in Q2.",
+    "Subscription services about $14.0B, up ~11%.",
+    "Amazon cites fastest Q3 deliveries ever: 1.5B+ items same-day/overnight; grocery gross sales near $250B over trailing 12 months."
+  ],
+  "consumer": {
+    "verdict": "steady",
+    "income_split": null,
+    "big_ticket": null,
+    "pricing": null,
+    "quote": null
+  },
+  "themes": [
+    "essentials_strong",
+    "digital_strength",
+    "weather_calendar"
+  ],
+  "macro_read": "After stripping out the Prime Day timing shift, US online goods demand looks steady, not weak; growth leaning on grocery and essentials fits a cautious consumer. The holiday outlook was guided conservatively.",
+  "sources": [
+    {
+      "label": "Amazon Q3 2026 release (IR)",
+      "url": "https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Third-Quarter-Results/"
+    },
+    {
+      "label": "Amazon Q3 2026 8-K exhibit 99.1",
+      "url": "https://www.sec.gov/Archives/edgar/data/0001018724/000101872426000038/amzn-20260930xex991.htm"
+    },
+    {
+      "label": "Amazon Q3 2026 10-Q",
+      "url": "https://www.sec.gov/Archives/edgar/data/0001018724/000101872426000040/amzn-20260930.htm"
+    },
+    {
+      "label": "About Amazon: stores growth Q3 2026",
+      "url": "https://www.aboutamazon.com/md/news/company-news/amazon-stores-growth-q3-2026-earnings"
+    },
+    {
+      "label": "XTB: record operating margin vs capex",
+      "url": "https://www.xtb.com/int/market-analysis/news-and-research/amazon-record-breaking-operating-margin-outshined-by-capex-growth"
+    },
+    {
+      "label": "Exchange4media: ad revenue +12% misses",
+      "url": "https://www.exchange4media.com/digital-news/amazon-ad-revenue-rises-12-to-196-billion-in-q3-misses-estimates-159654.html"
+    },
+    {
+      "label": "AJC/AP: Q3 results miss, cautious Q4 outlook",
+      "url": "https://www.ajc.com/news/2026/10/amazons-3q-results-miss-analysts-estimates-but-posts-solid-sales-gains-in-cloud-computing-unit/"
+    }
+  ]
+}

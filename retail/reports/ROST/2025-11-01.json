@@ -1,0 +1,61 @@
+{
+  "ticker": "ROST",
+  "fiscal_period": "Q3 FY2025",
+  "period_end": "2025-11-01",
+  "report_date": "2025-11-20",
+  "headline": "Ross comps accelerated to 7% on traffic and bigger baskets, beating estimates; full-year outlook raised.",
+  "metrics": {
+    "revenue_bn": 5.6,
+    "revenue_yoy_pct": 10,
+    "revenue_consensus_bn": 5.42,
+    "comp_pct": 7,
+    "comp_label": "Ross Stores comparable store sales",
+    "traffic_pct": null,
+    "ticket_pct": null,
+    "ecom_yoy_pct": null,
+    "gross_margin_bps": null,
+    "eps_adj": 1.58,
+    "eps_consensus": 1.41,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null
+  },
+  "guidance": "raised",
+  "guidance_note": "Q4 comp raised to +3-4%, EPS $1.77-1.85; FY25 EPS raised to $6.38-6.46.",
+  "key_messages": [
+    "Comp +7%, accelerating from Q2, driven by both more transactions and a larger average basket.",
+    "Conroy credited 'compelling brand name values' and a new marketing campaign for higher traffic.",
+    "Tariffs cost ~$0.05/share; operating margin 11.6%, down 35 bps on tariff-related costs.",
+    "Q3 benefited from favorable packaway-related expense timing that reverses (~$0.03/share) in Q4."
+  ],
+  "consumer": {
+    "verdict": "steady",
+    "income_split": null,
+    "big_ticket": null,
+    "pricing": "Tariff-related costs weighed ~$0.05/share and 35 bps of margin.",
+    "quote": "We are pleased with our third quarter sales results, which accelerated from the prior quarter"
+  },
+  "themes": [
+    "value_seeking",
+    "traffic_up",
+    "tariff_pricing"
+  ],
+  "macro_read": "Accelerating comps into holiday 2025 showed shoppers leaning into branded bargains even as tariffs squeezed retailer margins.",
+  "sources": [
+    {
+      "label": "Ross Q3 2025 press release (8-K)",
+      "url": "https://www.sec.gov/Archives/edgar/data/745732/000074573225000055/q325exhibit991.htm"
+    },
+    {
+      "label": "Ross Q3 release (Seeking Alpha PR)",
+      "url": "https://seekingalpha.com/pr/20316427"
+    },
+    {
+      "label": "Benzinga: analysts after Ross Q3",
+      "url": "https://benzinga.com/analyst-stock-ratings/price-target/25/11/49012301/ross-stores-analysts-boost-their-forecasts-after-better-than-expected-earnings"
+    },
+    {
+      "label": "HomePage News: Ross Q3",
+      "url": "https://www.homepagenews.com/retail-articles/ross-says-holiday-outlook-bright-after-q3-exceeds-expectations/"
+    }
+  ]
+}

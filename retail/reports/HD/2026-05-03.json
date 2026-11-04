@@ -1,0 +1,65 @@
+{
+  "ticker": "HD",
+  "fiscal_period": "Q1 FY2026",
+  "period_end": "2026-05-03",
+  "report_date": "2026-05-19",
+  "headline": "Home Depot's US comps rose just 0.4% as fewer transactions and muted big projects offset higher tickets; outlook reaffirmed.",
+  "metrics": {
+    "revenue_bn": 41.8,
+    "revenue_yoy_pct": 4.8,
+    "revenue_consensus_bn": 41.63,
+    "comp_pct": 0.4,
+    "comp_label": "U.S. comparable sales (total company comps +0.6%)",
+    "traffic_pct": -1.3,
+    "ticket_pct": 2.2,
+    "ecom_yoy_pct": 10.5,
+    "gross_margin_bps": null,
+    "eps_adj": 3.43,
+    "eps_consensus": null,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null
+  },
+  "guidance": "maintained",
+  "guidance_note": "Reaffirmed FY2026: total sales +2.5-4.5%, comps ~flat to +2%, adj EPS ~flat to +4%; flagged rate, tariff and energy-price volatility.",
+  "key_messages": [
+    "US comps +0.4% (total +0.6%, incl. ~55bps FX): ticket +2.2%, comparable transactions -1.3%.",
+    "Big-ticket (>$1,000) comparable transactions +0.8%; large cross-category projects remain muted.",
+    "Adj EPS $3.43 vs $3.56 a year earlier; sales +4.8% driven mostly by GMS.",
+    "Decker: underlying demand similar to FY2025 despite greater consumer uncertainty and housing affordability pressure.",
+    "Online sales +10.5%; Pro growth and spring categories (record Q1 in power) supported results."
+  ],
+  "consumer": {
+    "verdict": "choosy",
+    "income_split": null,
+    "big_ticket": "Big-ticket transactions +0.8%, but uncertainty is holding customers back from large projects while housing turnover stays low.",
+    "pricing": "Ticket gains reflect mix and modest price increases; management cited tariffs, energy prices and interest rates as sources of volatility.",
+    "quote": null
+  },
+  "themes": [
+    "traffic_down",
+    "housing_drag",
+    "big_ticket_weak",
+    "pro_contractor",
+    "digital_strength",
+    "tariff_pricing"
+  ],
+  "macro_read": "Flat-ish real demand: households keep up maintenance but defer big projects given elevated mortgage rates, low turnover and fuel costs weighing on confidence.",
+  "sources": [
+    {
+      "label": "HD Q1 FY2026 10-Q (SEC)",
+      "url": "https://www.sec.gov/Archives/edgar/data/0000354950/000162828026038247/hd-20260503.htm"
+    },
+    {
+      "label": "Nasdaq: Home Depot Q1 earnings call highlights",
+      "url": "https://www.nasdaq.com/articles/home-depot-q1-earnings-call-highlights"
+    },
+    {
+      "label": "MarketBeat: HD Q1 call highlights (May 19, 2026)",
+      "url": "https://www.marketbeat.com/instant-alerts/home-depot-q1-earnings-call-highlights-2026-05-19/"
+    },
+    {
+      "label": "Barchart/StockStory: HD Q1 CY2026 results",
+      "url": "https://www.barchart.com/story/news/2011930/home-depots-nysehd-q1-cy2026-earnings-results-revenue-in-line-with-expectations"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "ticker": "BBY",
+  "fiscal_period": "Q1 FY2027",
+  "period_end": "2026-05-02",
+  "report_date": "2026-05-28",
+  "headline": "Best Buy beats on gaming, computing and phones; domestic comps +1.8% while appliances slump; guidance held.",
+  "metrics": {
+    "revenue_bn": 8.936,
+    "revenue_yoy_pct": 1.9,
+    "revenue_consensus_bn": 8.82,
+    "comp_pct": 1.8,
+    "comp_label": "Domestic comparable sales",
+    "traffic_pct": null,
+    "ticket_pct": null,
+    "ecom_yoy_pct": 1.4,
+    "gross_margin_bps": 10,
+    "eps_adj": 1.28,
+    "eps_consensus": 1.22,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null
+  },
+  "guidance": "maintained",
+  "guidance_note": "Reiterated FY27 revenue $41.2-42.1B, comps -1% to +1%, adj EPS $6.30-6.60; Q2 comp guided ~+1% while lapping last June's gaming launch.",
+  "key_messages": [
+    "Domestic comp +1.8% (vs -0.7% a year ago); enterprise comp +2.0%, revenue $8.94B, adj EPS $1.28 up 11%.",
+    "Gaming, computing, mobile phones and services led; major appliances fell sharply (appliance comps reported down ~13.6%).",
+    "May month-to-date comps ran up high single digits, but Q2 guided ~+1% against a ~$200M gaming-launch comparison.",
+    "Management sees no material memory-related inventory supply constraints for the rest of FY27.",
+    "CEO Corie Barry to step down; Jason Bonfig takes over Nov. 1, 2026."
+  ],
+  "consumer": {
+    "verdict": "choosy",
+    "income_split": null,
+    "big_ticket": "Tech categories (gaming, computing, phones) grew, but big-ticket major appliances declined sharply.",
+    "pricing": null,
+    "quote": null
+  },
+  "themes": [
+    "discretionary_ok",
+    "value_seeking",
+    "big_ticket_weak",
+    "housing_drag"
+  ],
+  "macro_read": "Consumer-tech demand is stabilizing on product cycles, but appliance weakness points to a still-sluggish housing market; shoppers remain deal-driven.",
+  "sources": [
+    {
+      "label": "Best Buy Q1 FY27 release (PDF)",
+      "url": "https://s204.q4cdn.com/864376893/files/doc_earnings/2027/q1/earnings-result/Best-Buy-Reports-Fiscal-First-Quarter-2027-Results.pdf"
+    },
+    {
+      "label": "Business Wire: Best Buy Reports First Quarter Results",
+      "url": "https://www.businesswire.com/news/home/20260527133893/en/Best-Buy-Reports-First-Quarter-Results"
+    },
+    {
+      "label": "Barchart: Best Buy Q1 earnings call highlights",
+      "url": "https://www.barchart.com/story/news/2203572/best-buy-q1-earnings-call-highlights"
+    },
+    {
+      "label": "Retail Insight Network: Best Buy reiterates FY27 guidance",
+      "url": "https://www.retail-insight-network.com/news/best-buy-reiterates-fy27-guidance-after-q1-revenue-and-earnings-rise/"
+    },
+    {
+      "label": "Yahoo Finance: Best Buy Q1 FY2027 beat",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/best-buy-q1-fy2027-earnings-114523811.html"
+    }
+  ]
+}

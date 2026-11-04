@@ -1,0 +1,62 @@
+{
+  "ticker": "TJX",
+  "fiscal_period": "Q4 FY2026",
+  "period_end": "2026-01-31",
+  "report_date": "2026-02-25",
+  "headline": "TJX closed FY26 with a 5% holiday-quarter comp and 9% sales growth, topping estimates; guided FY27 comps +2-3%.",
+  "metrics": {
+    "revenue_bn": 17.7,
+    "revenue_yoy_pct": 9,
+    "revenue_consensus_bn": 17.38,
+    "comp_pct": 5,
+    "comp_label": "TJX consolidated comparable sales",
+    "traffic_pct": null,
+    "ticket_pct": null,
+    "ecom_yoy_pct": null,
+    "gross_margin_bps": 60,
+    "eps_adj": 1.43,
+    "eps_consensus": 1.39,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null
+  },
+  "guidance": "initiated",
+  "guidance_note": "FY27 guide: comp +2-3%, pretax margin 11.7-11.8%, EPS $4.93-5.02. Q1 comp +2-3%, EPS $0.97-0.99.",
+  "key_messages": [
+    "Consolidated comp +5% and Marmaxx US comp +5%; comp driven by higher basket (larger driver) and more transactions.",
+    "Transactions rose in every division except HomeGoods, where they were essentially flat.",
+    "Adjusted gross margin +60 bps to 31.1% on merchandise margin and shrink back at pre-COVID levels.",
+    "Herrman: customer value perception improved over the last six months; new shoppers attracted in every country.",
+    "Annual sales topped $60bn; management monitoring changing tariffs and expects episodic vendor pricing responses."
+  ],
+  "consumer": {
+    "verdict": "steady",
+    "income_split": null,
+    "big_ticket": null,
+    "pricing": "Tariffs monitored; no negative customer reaction to pricing, and value perception improved per surveys.",
+    "quote": null
+  },
+  "themes": [
+    "value_seeking",
+    "traffic_up",
+    "tariff_pricing"
+  ],
+  "macro_read": "Solid holiday-quarter results with rising transactions show value-focused shoppers kept spending, though FY27 guidance assumed a slower 2-3% comp pace.",
+  "sources": [
+    {
+      "label": "TJX Q4 FY26 press release (8-K)",
+      "url": "https://www.sec.gov/Archives/edgar/data/109198/000010919826000004/tjxq4fy26earningspressrele.htm"
+    },
+    {
+      "label": "TJX Q4 FY26 release (TradingView)",
+      "url": "https://www.tradingview.com/news/tradingview:b22cb4de7743c:0-tjx-companies-inc-reports-q4-and-full-year-fy26-results/"
+    },
+    {
+      "label": "Motley Fool Q4 FY26 call transcript",
+      "url": "https://www.fool.com/earnings/call-transcripts/2026/02/25/tjx-tjx-q4-2026-earnings-call-transcript"
+    },
+    {
+      "label": "Just Style: TJX Q4",
+      "url": "https://www.just-style.com/news/tjx-q4-tops-expectations-as-profit-and-sales-climb/"
+    }
+  ]
+}

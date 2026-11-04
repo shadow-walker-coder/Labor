@@ -1,0 +1,69 @@
+{
+  "ticker": "LOW",
+  "fiscal_period": "Q1 FY2026",
+  "period_end": "2026-05-01",
+  "report_date": "2026-05-20",
+  "headline": "Lowe's comps rose 0.6% on spring, Pro and online strength while DIY big-ticket stayed weak; FY2026 outlook affirmed.",
+  "metrics": {
+    "revenue_bn": 23.1,
+    "revenue_yoy_pct": 10.5,
+    "revenue_consensus_bn": null,
+    "comp_pct": 0.6,
+    "comp_label": "Total comparable sales",
+    "traffic_pct": -0.9,
+    "ticket_pct": 1.5,
+    "ecom_yoy_pct": 15.5,
+    "gross_margin_bps": null,
+    "eps_adj": 3.03,
+    "eps_consensus": 2.96,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null
+  },
+  "guidance": "maintained",
+  "guidance_note": "Affirmed FY2026: sales $92-94bn, comps flat to +2%, adj EPS ~$12.25-12.75; outlook assumes higher rates and a flat home improvement market.",
+  "key_messages": [
+    "Comps +0.6%: ticket +1.5% (modest inflation, Pro, appliances), transactions -0.9%.",
+    "Strong spring execution, appliances, home services and Pro offset continued weakness in discretionary DIY.",
+    "Online sales +15.5%; adj EPS $3.03 (+3.8%) beat ~$2.96.",
+    "Ellison described a 'K-shaped' economy; guidance bakes in higher rates and a muted, flat home improvement market.",
+    "Sales +10.5% to $23.1bn largely from FBM and ADG acquisitions."
+  ],
+  "consumer": {
+    "verdict": "choosy",
+    "income_split": "Management described a K-shaped economy with divergent spending patterns across households.",
+    "big_ticket": "Big-ticket and discretionary DIY purchases remain weak as DIY customers face economic pressure; appliances a bright spot.",
+    "pricing": "Modest price inflation contributed to ticket growth.",
+    "quote": null
+  },
+  "themes": [
+    "pro_contractor",
+    "digital_strength",
+    "housing_drag",
+    "big_ticket_weak",
+    "weather_calendar",
+    "traffic_down"
+  ],
+  "macro_read": "A K-shaped consumer: Pro and seasonal demand hold up while rate-sensitive DIY big-ticket spending lags with mortgage rates in the 6s.",
+  "sources": [
+    {
+      "label": "Lowe's Q1 2026 release",
+      "url": "https://corporate.lowes.com/newsroom/press-releases/lowes-reports-first-quarter-2026-sales-and-earnings-results-05-20-26"
+    },
+    {
+      "label": "Lowe's Q1 2026 press release PDF",
+      "url": "https://corporate.lowes.com/sites/lowes-corp/files/q1-2026-earnings/lowes-q1-2026-press-release-final.pdf"
+    },
+    {
+      "label": "Zacks/MetaTrader: Lowe's Q1 beat on Pro momentum",
+      "url": "https://www.metatrader.com/en/news/1662743-lowes-q1-earnings-beat-on-pro-momentum--strong-spring-execution"
+    },
+    {
+      "label": "Pulse: Lowe's flags slowdown on big projects",
+      "url": "https://www.pulse.bot/earnings-calls/news/lowes-flags-consumer-spending-slowdown-on-big-homeimprovement-projects-in-q1-earnings-call-5864d1ef-4f6d-41f2-90c0-66740364afe9/"
+    },
+    {
+      "label": "Stocktwits: Lowe's maintains FY26 outlook",
+      "url": "https://stocktwits.com/news-articles/markets/equity/lowes-q1-results-pro-online-growth-diy-demand-fy26-outlook/cZXxTxRRenQ"
+    }
+  ]
+}

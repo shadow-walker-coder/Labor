@@ -1,0 +1,62 @@
+{
+  "ticker": "TJX",
+  "fiscal_period": "Q3 FY2026",
+  "period_end": "2025-11-01",
+  "report_date": "2025-11-19",
+  "headline": "TJX comps rose 5% with Marmaxx up 6%, beating plan; the retailer raised its full-year sales and profit outlook.",
+  "metrics": {
+    "revenue_bn": 15.1,
+    "revenue_yoy_pct": 7,
+    "revenue_consensus_bn": null,
+    "comp_pct": 5,
+    "comp_label": "TJX consolidated comparable sales",
+    "traffic_pct": null,
+    "ticket_pct": null,
+    "ecom_yoy_pct": null,
+    "gross_margin_bps": null,
+    "eps_adj": 1.28,
+    "eps_consensus": 1.22,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null
+  },
+  "guidance": "raised",
+  "guidance_note": "FY26 comp raised to +4% (from 3%); EPS $4.63-4.66 (from $4.52-4.57). Q4 comp +2-3%. Assumes current US tariffs stay in place.",
+  "key_messages": [
+    "Consolidated comp +5%, driven by higher average basket and more customer transactions; transactions up at Marmaxx.",
+    "Marmaxx US comp +6%, HomeGoods +5%, TJX Canada +8%, TJX International +3%.",
+    "Pretax margin 12.7% and EPS $1.28 (+12%), both well above plan.",
+    "Gross margin gains offset all of the tariff pressure in the quarter, per management.",
+    "Guidance assumes existing US import tariffs remain in place through year-end."
+  ],
+  "consumer": {
+    "verdict": "steady",
+    "income_split": null,
+    "big_ticket": null,
+    "pricing": "Tariff costs absorbed via merchandise margin gains; guidance assumes tariffs stay in place.",
+    "quote": "This was driven by a combination of a higher average basket and an increase in customer transactions."
+  },
+  "themes": [
+    "value_seeking",
+    "traffic_up",
+    "tariff_pricing"
+  ],
+  "macro_read": "Accelerating US apparel comps and rising transactions into holiday 2025 pointed to resilient value-driven spending despite tariff cost pressure.",
+  "sources": [
+    {
+      "label": "TJX Q3 FY26 release (Business Wire)",
+      "url": "https://www.businesswire.com/news/home/20251118448991/en/The-TJX-Companies-Inc.-Reports-Q3-FY26-Results-Comp-Sales-Growth-of-5-Pretax-Profit-Margin-of-12.7-and-Diluted-EPS-of-%25241.28-All-Well-Above-Plan-Increases-FY26-Comp-Sales-Growth-Pretax-Profit-Margin-and-EPS-Guidance"
+    },
+    {
+      "label": "Chain Store Age: TJX beats Street",
+      "url": "https://chainstoreage.com/tjx-beats-street-strong-q3"
+    },
+    {
+      "label": "Zacks: TJX Q3 beat, guidance raised",
+      "url": "https://www.zacks.com/stock/news/2793172/tjx-q3-earnings-and-sales-beat-estimates,-fiscal-2026-guidance-raised"
+    },
+    {
+      "label": "Insider Monkey Q3 FY26 call transcript",
+      "url": "https://www.insidermonkey.com/blog/the-tjx-companies-inc-nysetjx-q3-2026-earnings-call-transcript-1648385/"
+    }
+  ]
+}

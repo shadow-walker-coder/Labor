@@ -1,0 +1,297 @@
+/* Retail Earnings Monitor: renders window.RETAIL_DATA (built by scripts/build.py).
+   No framework, no build step. Charts are small hand-written SVG / HTML. */
+(function () {
+  "use strict";
+  const D = window.RETAIL_DATA;
+  const app = document.getElementById("app");
+  if (!D) { app.innerHTML = '<p class="wrap">No data yet. Run <code>python retail/scripts/build.py</code>.</p>'; return; }
+
+  // ---------- helpers
+  const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const isNum = (v) => typeof v === "number" && isFinite(v);
+  const pct = (v, d = 1) => (isNum(v) ? (v > 0 ? "+" : v < 0 ? "−" : "") + Math.abs(v).toFixed(d) + "%" : "—");
+  const cls = (v) => (isNum(v) ? (v > 0 ? "up" : v < 0 ? "dn" : "") : "");
+  const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const fmtDate = (iso) => { const [y, m, d] = iso.split("-").map(Number); return `${MONTHS[m - 1]} ${d}, ${y}`; };
+  const median = (xs) => { const a = xs.filter(isNum).sort((p, q) => p - q); if (!a.length) return null; const m = a.length >> 1; return a.length % 2 ? a[m] : (a[m - 1] + a[m]) / 2; };
+  const today = new Date().toISOString().slice(0, 10);
+
+  const retailers = Object.fromEntries(D.retailers.map((r) => [r.ticker, r]));
+  const cats = Object.fromEntries(D.categories.map((c) => [c.key, c]));
+  const VERD = { strong: "Strong", steady: "Steady", choosy: "Choosy", strained: "Strained" };
+  const VERD_NOTE = {
+    strong: "broad demand, accelerating",
+    steady: "healthy, little change",
+    choosy: "spending, but picky and deal-driven",
+    strained: "pulling back, stress showing",
+  };
+  const GUIDE = { raised: "Raised", maintained: "Held", lowered: "Cut", initiated: "Initiated", mixed: "Mixed", none: "—" };
+
+  const hist = {};          // ticker -> reviewed/draft reports, newest first
+  const pending = {};       // ticker -> newest pending stub (results filed, not yet summarised)
+  for (const r of D.reports) {
+    if (r.status === "pending") { if (!pending[r.ticker] || r.report_date > pending[r.ticker].report_date) pending[r.ticker] = r; continue; }
+    (hist[r.ticker] = hist[r.ticker] || []).push(r);
+  }
+  Object.values(hist).forEach((a) => a.sort((p, q) => q.report_date.localeCompare(p.report_date)));
+  const latest = D.retailers.map((r) => hist[r.ticker]?.[0]).filter(Boolean);
+  let filter = "all";
+  try { const f = localStorage.getItem("rem-filter"); if (f && (f === "all" || cats[f])) filter = f; } catch (e) { /* storage blocked */ }
+
+  // ---------- masthead + briefing
+  function mast() {
+    const newest = [...D.reports].sort((a, b) => b.report_date.localeCompare(a.report_date))[0];
+    const next = Object.entries(D.calendar || {}).filter(([, c]) => c.date >= today).sort((a, b) => a[1].date.localeCompare(b[1].date))[0];
+    return `<header class="wrap mast">
+      <div><h1>Retail <span>Earnings</span> Monitor</h1>
+      <p>Each quarterly report from the biggest U.S. retailers, read for what it says about the consumer and the economy: who is spending, on what, and how it is changing.</p></div>
+      <div class="stamp">
+        ${newest ? `Latest report <b>${esc(retailers[newest.ticker].name)}</b> · ${fmtDate(newest.report_date)}<br>` : ""}
+        ${next ? `Next up <b>${esc(retailers[next[0]].name)}</b> · ${fmtDate(next[1].date)}${next[1].confirmed ? "" : " (est.)"}<br>` : ""}
+        ${D.reports.length} reports · ${D.retailers.length} retailers · built ${fmtDate(D.built)}
+      </div></header>`;
+  }
+
+  function briefing() {
+    const b = D.briefing;
+    const verdicts = latest.map((r) => r.consumer.verdict);
+    const count = (v) => verdicts.filter((x) => x === v).length;
+    const comps = latest.map((r) => r.metrics.comp_pct);
+    const withEst = latest.filter((r) => isNum(r.eps_surprise_pct));
+    const beats = withEst.filter((r) => r.eps_surprise_pct > 0).length;
+    const raised = latest.filter((r) => r.guidance === "raised").length;
+    const cut = latest.filter((r) => r.guidance === "lowered").length;
+    const moves = latest.map((r) => r.metrics.stock_reaction_pct);
+
+    const mix = D.verdicts.filter(count).map((v) =>
+      `<div class="${v}" style="flex:${count(v)}" title="${VERD[v]}: ${count(v)}">${count(v)}</div>`).join("");
+    const key = D.verdicts.map((v) => `<span><i style="background:var(--${v})"></i>${VERD[v]} ${count(v)}</span>`).join("");
+
+    const tally = {};
+    latest.forEach((r) => (r.themes || []).forEach((t) => (tally[t] = (tally[t] || 0) + 1)));
+    const top = Object.entries(tally).sort((a, b) => b[1] - a[1]).slice(0, 8);
+    const themeRows = top.map(([t, n]) => `<div class="theme"><span class="lab" title="${esc(D.themes[t])}">${esc(D.themes[t])}</span>
+      <span class="track"><span class="fill" style="width:${(n / latest.length) * 100}%"></span></span><span class="n">${n}</span></div>`).join("");
+
+    const points = (b?.points || []).map((p) => `<li><b>${esc(p.title)}</b><p>${esc(p.body)}</p>
+      ${p.tickers?.length ? `<div class="chips">${p.tickers.map((t) => `<span class="tick">${esc(t)}</span>`).join("")}</div>` : ""}</li>`).join("");
+
+    return `<section class="wrap brief" aria-label="Briefing">
+      <div class="verdict">
+        <div class="eyebrow">The read on the consumer${b?.as_of ? ` · as of ${fmtDate(b.as_of)}` : ""}</div>
+        <h2>${esc(b?.headline || "Latest reports by retailer")}</h2>
+        ${b?.summary ? `<p class="sum">${esc(b.summary)}</p>` : ""}
+        ${points ? `<ul class="points">${points}</ul>` : ""}
+        ${b?.auto ? `<div class="autonote">Briefing drafted automatically from the latest reports.</div>` : ""}
+      </div>
+      <div class="pulse">
+        <div>
+          <div class="eyebrow">Consumer pulse · latest report from each retailer</div>
+          <div class="mix" role="img" aria-label="${D.verdicts.map((v) => `${VERD[v]} ${count(v)}`).join(", ")}" style="margin-top:8px">${mix}</div>
+          <div class="mixkey">${key}</div>
+        </div>
+        <div class="tiles">
+          <div class="tile"><div class="k">Median comp sales</div><div class="v">${pct(median(comps))}</div><div class="s">across ${comps.filter(isNum).length} retailers</div></div>
+          <div class="tile"><div class="k">Beat EPS estimates</div><div class="v">${beats}/${withEst.length}</div><div class="s">adjusted EPS vs consensus</div></div>
+          <div class="tile"><div class="k">Guidance</div><div class="v">${raised}<span style="font-size:15px;color:var(--muted)"> up</span> ${cut}<span style="font-size:15px;color:var(--muted)"> down</span></div><div class="s">${latest.length - raised - cut} held, mixed or none</div></div>
+          <div class="tile"><div class="k">Median stock reaction</div><div class="v ${cls(median(moves))}">${pct(median(moves))}</div><div class="s">on report day</div></div>
+        </div>
+        <div>
+          <div class="eyebrow" style="margin-bottom:8px">What management keeps talking about · retailers citing it</div>
+          <div class="themes">${themeRows}</div>
+        </div>
+      </div>
+    </section>`;
+  }
+
+  // ---------- filter bar
+  function bar() {
+    const btn = (k, label) => `<button type="button" data-f="${k}" aria-pressed="${filter === k}">${esc(label)}</button>`;
+    return `<nav class="bar" aria-label="Filter by category"><div class="wrap">
+      ${btn("all", "All retailers")}${D.categories.map((c) => btn(c.key, c.name)).join("")}
+      <button type="button" data-jump="heatmap">Comp heatmap ↓</button><button type="button" data-jump="calendar">Calendar ↓</button>
+    </div></nav>`;
+  }
+
+  // ---------- retailer cards
+  function spark(reports) {
+    const pts = reports.slice(0, 6).reverse().filter((r) => isNum(r.metrics.comp_pct));
+    if (pts.length < 2) return "";
+    const W = 320, H = 92, top = 16, bottom = 18, left = 4, right = 4;
+    const vals = pts.map((r) => r.metrics.comp_pct);
+    const hi = Math.max(0, ...vals), lo = Math.min(0, ...vals), span = hi - lo || 1;
+    const y = (v) => top + ((hi - v) / span) * (H - top - bottom);
+    const bw = (W - left - right) / pts.length;
+    const bars = pts.map((r, i) => {
+      const v = r.metrics.comp_pct, x = left + i * bw + bw * 0.2, w = bw * 0.6;
+      const y0 = y(0), y1 = y(v), last = i === pts.length - 1;
+      const yTop = Math.min(y0, y1), h = Math.max(Math.abs(y1 - y0), 1.5);
+      const rr = Math.min(4, w / 2, h);
+      // 4px rounded data end, square at the baseline
+      const path = v >= 0
+        ? `M${x},${y0}V${yTop + rr}Q${x},${yTop} ${x + rr},${yTop}H${x + w - rr}Q${x + w},${yTop} ${x + w},${yTop + rr}V${y0}Z`
+        : `M${x},${y0}V${yTop + h - rr}Q${x},${yTop + h} ${x + rr},${yTop + h}H${x + w - rr}Q${x + w},${yTop + h} ${x + w},${yTop + h - rr}V${y0}Z`;
+      const tip = `${r.fiscal_period}\n${pct(v)} ${r.metrics.comp_label || ""}\nreported ${fmtDate(r.report_date)}`;
+      return `<g data-tip="${esc(tip)}"><rect x="${left + i * bw}" y="0" width="${bw}" height="${H}" fill="transparent"/>
+        <path d="${path}" fill="var(--bar)" opacity="${last ? 1 : 0.55}"/>
+        ${last ? `<text class="lbl" x="${x + w / 2}" y="${v >= 0 ? yTop - 4 : yTop + h + 11}" text-anchor="middle">${pct(v)}</text>` : ""}
+        <text x="${x + w / 2}" y="${H - 4}" text-anchor="middle">${esc(shortQ(r))}</text></g>`;
+    }).join("");
+    return `<div class="spark"><div class="spark-head"><span>Comp sales by calendar quarter</span><span>hover for detail</span></div>
+      <svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Comparable sales, last ${pts.length} quarters: ${pts.map((r) => `${r.fiscal_period} ${pct(r.metrics.comp_pct)}`).join(", ")}">
+      <line x1="0" x2="${W}" y1="${y(0)}" y2="${y(0)}" stroke="var(--rule)" stroke-width="1"/>${bars}</svg></div>`;
+  }
+  const shortQ = (r) => (r.cal_quarter ? r.cal_quarter.replace(/^\d{2}(\d{2}) (Q\d)$/, "$2 '$1") : r.fiscal_period);
+
+  function kv(r) {
+    const m = r.metrics;
+    const eps = isNum(m.eps_adj) ? `$${m.eps_adj.toFixed(2)}${isNum(m.eps_consensus) ? ` vs ${m.eps_consensus.toFixed(2)}` : ""}` : "—";
+    const rows = [
+      ["Revenue", isNum(m.revenue_bn) ? `$${m.revenue_bn.toFixed(1)}bn` : "—", ""],
+      ["Rev. YoY", pct(m.revenue_yoy_pct), cls(m.revenue_yoy_pct)],
+      ["Traffic", pct(m.traffic_pct), cls(m.traffic_pct)],
+      ["Ticket", pct(m.ticket_pct), cls(m.ticket_pct)],
+      ["Digital", pct(m.ecom_yoy_pct, 0), cls(m.ecom_yoy_pct)],
+      ["Gross margin", isNum(m.gross_margin_bps) ? `${m.gross_margin_bps > 0 ? "+" : m.gross_margin_bps < 0 ? "−" : ""}${Math.abs(m.gross_margin_bps)}bp` : "—", cls(m.gross_margin_bps)],
+      ["EPS", eps, cls(r.eps_surprise_pct)],
+      ["Guidance", GUIDE[r.guidance] || "—", r.guidance === "raised" ? "up" : r.guidance === "lowered" ? "dn" : ""],
+      ["Stock, day", pct(m.stock_reaction_pct), cls(m.stock_reaction_pct)],
+      ["Inventory", pct(m.inventory_yoy_pct), ""],
+    ].filter(([, v]) => v !== "—");
+    return rows.map(([k, v, c]) => `<div><span>${k}</span><b class="${c}">${esc(v)}</b></div>`).join("");
+  }
+
+  function card(t) {
+    const rs = hist[t.ticker];
+    const pend = pending[t.ticker];
+    if (!rs) {
+      return `<article class="rc"><div class="rc-top"><div class="rc-name"><h3>${esc(t.name)}</h3><span class="tk">${t.ticker}</span></div></div>
+        <p class="autonote">No reports yet.</p></article>`;
+    }
+    const r = rs[0], c = r.consumer || {}, m = r.metrics;
+    const newer = pend && pend.report_date > r.report_date;
+    const consumerBits = [
+      c.income_split && `<div><b>By income:</b> ${esc(c.income_split)}</div>`,
+      c.big_ticket && `<div><b>Discretionary:</b> ${esc(c.big_ticket)}</div>`,
+      c.pricing && `<div><b>Pricing:</b> ${esc(c.pricing)}</div>`,
+    ].filter(Boolean).join("");
+    const past = rs.slice(1).map((p) => `<div><div class="ph"><b>${esc(p.fiscal_period)}</b><span class="verd ${p.consumer.verdict}">${VERD[p.consumer.verdict]}</span>
+      <span class="when">comp ${pct(p.metrics.comp_pct)} · ${fmtDate(p.report_date)}</span></div><p>${esc(p.headline)}</p></div>`).join("");
+    const srcs = (r.sources || []).map((s) => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label)}</a>`).join("");
+    return `<article class="rc" id="r-${t.ticker}">
+      <div class="rc-top">
+        <div><div class="rc-name"><h3>${esc(t.name)}</h3><span class="tk">${t.ticker}</span></div>
+        <div class="when">${esc(r.fiscal_period)} · reported ${fmtDate(r.report_date)}</div></div>
+        <span class="verd ${c.verdict}" title="Consumer: ${VERD_NOTE[c.verdict]}">${VERD[c.verdict]}</span>
+      </div>
+      ${newer ? `<div><span class="badge">New results filed ${fmtDate(pend.report_date)} · summary pending</span>
+        ${pend.sources?.[0] ? ` <a class="srcs" href="${esc(pend.sources[0].url)}" target="_blank" rel="noopener">filing</a>` : ""}</div>` : ""}
+      ${r.status === "draft" ? `<div><span class="badge">Auto-drafted from the press release · not yet reviewed</span></div>` : ""}
+      <p class="says">${esc(r.headline)}</p>
+      <div class="strip">
+        <div class="pricetag"><span class="v">${pct(m.comp_pct)}</span><span class="l">${esc(m.comp_label || t.comp_label)}</span></div>
+        <div class="kv">${kv(r)}</div>
+      </div>
+      <ul class="msgs">${(r.key_messages || []).map((k) => `<li>${esc(k)}</li>`).join("")}</ul>
+      ${consumerBits ? `<div class="consumer">${consumerBits}</div>` : ""}
+      ${c.quote ? `<blockquote class="quote">“${esc(c.quote.replace(/^["“]|["”]$/g, ""))}”</blockquote>` : ""}
+      ${spark(rs)}
+      ${r.themes?.length ? `<div class="themes-row">${r.themes.map((th) => `<span class="pill">${esc(D.themes[th])}</span>`).join("")}</div>` : ""}
+      ${r.macro_read ? `<div class="macro"><b>Economy</b>${esc(r.macro_read)}</div>` : ""}
+      ${r.guidance_note ? `<div class="consumer"><div><b>Outlook:</b> ${esc(r.guidance_note)}</div></div>` : ""}
+      ${past ? `<details class="hist"><summary>Earlier quarters (${rs.length - 1})</summary><div class="past">${past}</div></details>` : ""}
+      ${srcs ? `<div class="srcs">Sources: ${srcs}</div>` : ""}
+    </article>`;
+  }
+
+  function categories() {
+    return D.categories.filter((c) => filter === "all" || filter === c.key).map((c) => {
+      const ts = D.retailers.filter((r) => r.category === c.key);
+      return `<section class="wrap cat" id="cat-${c.key}"><div class="cat-head"><h2>${esc(c.name)}</h2><p>${esc(c.reads)}</p></div>
+        <div class="cards">${ts.map(card).join("")}</div></section>`;
+    }).join("");
+  }
+
+  // ---------- comp heatmap: retailers x calendar quarter
+  function heatmap() {
+    const qs = [...new Set(D.reports.filter((r) => r.cal_quarter).map((r) => r.cal_quarter))].sort().slice(-6);
+    const rows = D.retailers.filter((t) => filter === "all" || t.category === filter);
+    const bucket = (v) => (v >= 5 ? "p3" : v >= 2 ? "p2" : v >= 0.5 ? "p1" : v > -0.5 ? "" : v > -2 ? "n1" : v > -5 ? "n2" : "n3");
+    const lab = (q) => q.replace(/^(\d{4}) (Q\d)$/, "$2 $1");
+    const body = rows.map((t) => {
+      const cells = qs.map((q) => {
+        const r = (hist[t.ticker] || []).find((x) => x.cal_quarter === q);
+        if (!r || !isNum(r.metrics.comp_pct)) return `<td class="na">·</td>`;
+        const v = r.metrics.comp_pct;
+        const tip = `${t.name} ${r.fiscal_period}\n${pct(v)} ${r.metrics.comp_label || t.comp_label}\nconsumer: ${VERD[r.consumer.verdict]}`;
+        return `<td class="${bucket(v)}" data-tip="${esc(tip)}" tabindex="0">${pct(v)}</td>`;
+      }).join("");
+      return `<tr><th class="rowh" scope="row">${esc(t.name)}<span>${t.ticker}</span></th>${cells}</tr>`;
+    }).join("");
+    const sw = [["n3", "≤ −5"], ["n2", "−5 to −2"], ["n1", "−2 to −0.5"], ["", "flat"], ["p1", "0.5 to 2"], ["p2", "2 to 5"], ["p3", "≥ 5"]];
+    return `<section class="wrap sec" id="heatmap"><div class="sec-head"><h2>Comp sales heatmap</h2>
+      <p>Each retailer's headline comparable-sales growth, lined up by the calendar quarter it covers so different fiscal years compare. Blue is growth, red is decline.</p></div>
+      <div class="panel scroll"><table class="heat"><thead><tr><th></th>${qs.map((q) => `<th scope="col">${lab(q)}</th>`).join("")}</tr></thead><tbody>${body}</tbody></table>
+      <div class="scale">${sw.map(([c, l]) => `<span><i style="background:var(--div-${c ? (c[0] === "p" ? "pos-" : "neg-") + c[1] : "mid"})"></i> ${l}</span>`).join("")} <span>% comp</span></div></div></section>`;
+  }
+
+  // ---------- calendar
+  function calendar() {
+    const evs = Object.entries(D.calendar || {}).map(([tk, c]) => ({ tk, ...c })).filter((e) => retailers[e.tk])
+      .filter((e) => filter === "all" || retailers[e.tk].category === filter).sort((a, b) => a.date.localeCompare(b.date));
+    if (!evs.length) return "";
+    return `<section class="wrap sec" id="calendar"><div class="sec-head"><h2>Earnings calendar</h2>
+      <p>Next scheduled reports. Dates marked estimated have not been confirmed by the company.</p></div>
+      <div class="cal">${evs.map((e) => {
+        const [, m, d] = e.date.split("-").map(Number);
+        return `<div class="ev ${e.date < today ? "past-ev" : ""}"><div class="date"><span>${MONTHS[m - 1]}</span><b>${d}</b></div>
+        <div class="who">${esc(retailers[e.tk].name)} <span class="tk" style="font:12px var(--mono);color:var(--muted)">${e.tk}</span></div>
+        <div class="what">${esc(e.label || "")}${e.confirmed ? " · confirmed" : " · estimated"}${e.date < today ? " · awaiting data" : ""}</div></div>`;
+      }).join("")}</div></section>`;
+  }
+
+  function foot() {
+    return `<footer class="wrap foot">
+      <p><b>How to read it.</b> Each card is the retailer's latest quarter. The yellow tag is its headline comparable-sales growth (stores open a year or more, plus digital where the company counts it). The consumer verdict is a judgement from what management said: <b>strong</b> (${VERD_NOTE.strong}), <b>steady</b> (${VERD_NOTE.steady}), <b>choosy</b> (${VERD_NOTE.choosy}), <b>strained</b> (${VERD_NOTE.strained}).</p>
+      <p>Figures come from company earnings releases and calls, with consensus estimates and stock moves from financial press; each card links its sources. Amazon is shown for its retail business only. New releases are picked up from SEC filings and drafted automatically; drafts are labeled until reviewed.</p>
+    </footer>`;
+  }
+
+  // ---------- render + interaction
+  function render() {
+    app.innerHTML = mast() + briefing() + bar() + `<div id="cards">${categories()}</div>` + heatmap() + calendar() + foot();
+  }
+  function rerenderFiltered() {
+    document.getElementById("cards").innerHTML = categories();
+    document.getElementById("heatmap").outerHTML = heatmap();
+    const cal = document.getElementById("calendar");
+    if (cal) cal.outerHTML = calendar() || "<span id=\"calendar\"></span>";
+    document.querySelectorAll(".bar [data-f]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.f === filter)));
+  }
+  render();
+
+  app.addEventListener("click", (e) => {
+    const b = e.target.closest(".bar button");
+    if (!b) return;
+    if (b.dataset.jump) { document.getElementById(b.dataset.jump)?.scrollIntoView(); return; }
+    filter = b.dataset.f;
+    try { localStorage.setItem("rem-filter", filter); } catch (err) { /* storage blocked */ }
+    rerenderFiltered();
+    const barEl = document.querySelector(".bar");
+    if (barEl.getBoundingClientRect().top <= 1) window.scrollTo({ top: barEl.offsetTop - 1 });
+  });
+
+  // one floating tooltip for every [data-tip] mark
+  const tip = document.createElement("div");
+  tip.className = "tip"; tip.hidden = true; document.body.appendChild(tip);
+  const show = (el) => {
+    const r = el.getBoundingClientRect();
+    tip.textContent = el.dataset.tip; tip.hidden = false;
+    tip.style.left = Math.min(Math.max(r.left + r.width / 2 + scrollX, 90), document.documentElement.clientWidth - 90 + scrollX) + "px";
+    tip.style.top = r.top + scrollY + "px";
+  };
+  app.addEventListener("pointerover", (e) => { const el = e.target.closest("[data-tip]"); if (el) show(el); });
+  app.addEventListener("pointerout", (e) => { if (e.target.closest("[data-tip]")) tip.hidden = true; });
+  app.addEventListener("focusin", (e) => { const el = e.target.closest("[data-tip]"); if (el) show(el); });
+  app.addEventListener("focusout", () => { tip.hidden = true; });
+})();

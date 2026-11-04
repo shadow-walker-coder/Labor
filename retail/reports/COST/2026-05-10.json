@@ -1,0 +1,64 @@
+{
+  "ticker": "COST",
+  "fiscal_period": "Q3 FY2026",
+  "period_end": "2026-05-10",
+  "report_date": "2026-05-28",
+  "headline": "Costco posted 11.6% sales growth on record gas sales and solid comps, while investing in lower food prices.",
+  "metrics": {
+    "revenue_bn": 70.53,
+    "revenue_yoy_pct": 11.6,
+    "revenue_consensus_bn": 69.68,
+    "comp_pct": 6.8,
+    "comp_label": "Costco U.S. comp ex gas & FX",
+    "traffic_pct": 2.4,
+    "ticket_pct": 7.3,
+    "ecom_yoy_pct": 21.5,
+    "gross_margin_bps": null,
+    "eps_adj": 4.93,
+    "eps_consensus": null,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null
+  },
+  "guidance": "none",
+  "guidance_note": "Costco does not give earnings guidance.",
+  "key_messages": [
+    "U.S. comps +9.4% reported, +6.8% ex gas and FX; gas inflation added ~2.2 pts to total comps.",
+    "Worldwide traffic +2.4% (slowing from 3.1% in Q2), ticket +7.3% (+4.2% ex gas/FX).",
+    "Digitally enabled comps +21.5%; paid executive members +9.6% to 41.2M.",
+    "Core margins pressured by price investments in eggs, beef and other fresh staples; ex-gas gross margin up 1 bp.",
+    "Record gas volumes as members sought value amid rising pump prices."
+  ],
+  "consumer": {
+    "verdict": "steady",
+    "income_split": null,
+    "big_ticket": null,
+    "pricing": "Higher gas prices and transportation costs; Costco invested in lower prices on everyday food items.",
+    "quote": null
+  },
+  "themes": [
+    "value_seeking",
+    "membership_strength",
+    "digital_strength",
+    "traffic_up",
+    "price_deflation"
+  ],
+  "macro_read": "Rising gas prices pushed members toward value, but traffic and core comps stayed solid, suggesting middle/upper-income shoppers were still spending in spring 2026.",
+  "sources": [
+    {
+      "label": "Costco Q3 FY26 release",
+      "url": "https://s201.q4cdn.com/287523651/files/doc_news/Costco-Wholesale-Corporation-Reports-Third-Quarter-and-Year-To-Date-Operating-Results-For-Fiscal-2026-2026.pdf"
+    },
+    {
+      "label": "Motley Fool Q3 2026 call transcript",
+      "url": "https://www.fool.com/earnings/call-transcripts/2026/05/28/costco-cost-q3-2026-earnings-transcript/"
+    },
+    {
+      "label": "MarketBeat: Costco Q3 call highlights",
+      "url": "https://www.marketbeat.com/instant-alerts/costco-wholesale-q3-earnings-call-highlights-2026-05-28/"
+    },
+    {
+      "label": "247 Wall St: Costco Q3 2026",
+      "url": "https://247wallst.com/companies/cost/earnings/2026/Q3"
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "ticker": "HD",
+  "fiscal_period": "Q2 FY2026",
+  "period_end": "2026-08-02",
+  "report_date": "2026-08-18",
+  "headline": "Home Depot beat on EPS as bigger tickets offset fewer transactions; US comps +1.3% and FY2026 guidance reaffirmed.",
+  "metrics": {
+    "revenue_bn": 47.9,
+    "revenue_yoy_pct": 5.7,
+    "revenue_consensus_bn": 47.24,
+    "comp_pct": 1.3,
+    "comp_label": "U.S. comparable sales (total company comps +1.7%)",
+    "traffic_pct": -1.0,
+    "ticket_pct": 2.8,
+    "ecom_yoy_pct": null,
+    "gross_margin_bps": null,
+    "eps_adj": 4.92,
+    "eps_consensus": 4.71,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null
+  },
+  "guidance": "maintained",
+  "guidance_note": "Reaffirmed FY2026: comps ~flat to +2%, adj EPS ~flat to +4% vs $14.69; guide now includes IEEPA tariff refunds offsetting fuel/energy/input cost increases.",
+  "key_messages": [
+    "Comps +1.7% (US +1.3%): average ticket +2.8% offset a 1.0% drop in comparable transactions.",
+    "Sales +5.7% to $47.9bn, lifted mainly by the GMS acquisition rather than organic demand.",
+    "Customers favored smaller repair/maintenance projects; larger discretionary remodels remain pressured amid housing affordability strain.",
+    "Recognized ~$730m of IEEPA tariff refunds in COGS/inventory; management sees rising fuel, energy and input costs offsetting them over the year.",
+    "Pro posted positive comps and outperformed DIY; CEO Ted Decker on temporary medical leave, CFO McPhail led the call."
+  ],
+  "consumer": {
+    "verdict": "choosy",
+    "income_split": null,
+    "big_ticket": "Transactions over $1,000 reportedly rose ~2.4% (refrigeration, patio), but larger discretionary home improvement projects remained pressured.",
+    "pricing": "Ticket up on mix and modest inflation; IEEPA tariff refunds (~$730m) recognized, expected to be offset by higher fuel, energy and product input costs.",
+    "quote": null
+  },
+  "themes": [
+    "traffic_down",
+    "housing_drag",
+    "tariff_pricing",
+    "pro_contractor",
+    "big_ticket_weak"
+  ],
+  "macro_read": "Home improvement demand is stable but skewed to small maintenance jobs; frozen housing turnover and affordability keep big remodels on hold, so housing remains a drag on durable spending.",
+  "sources": [
+    {
+      "label": "Home Depot Q2 FY2026 release",
+      "url": "https://corporate.homedepot.com/news/earnings/home-depot-announces-second-quarter-2026-earnings"
+    },
+    {
+      "label": "HD Q2 FY2026 8-K Ex.99.1 (SEC)",
+      "url": "https://www.sec.gov/Archives/edgar/data/0000354950/000035495026000145/hd_exhibit991x08022026.htm"
+    },
+    {
+      "label": "Zacks: HD Q2 earnings beat as sales, ticket rise",
+      "url": "https://www.zacks.com/stock/news/2976362/home-depot-q2-earnings-beat-estimates-as-sales-ticket-rise"
+    },
+    {
+      "label": "MarketBeat: HD issues FY2026 guidance (Aug 18, 2026)",
+      "url": "https://www.marketbeat.com/instant-alerts/home-depot-nysehd-issues-fy-2026-earnings-guidance-2026-08-18/"
+    },
+    {
+      "label": "Q2 FY2026 call summary (bullfincher)",
+      "url": "https://bullfincher.io/companies/home-depot/earnings-call/fy2026-q2"
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "ticker": "LOW",
+  "fiscal_period": "Q2 FY2026",
+  "period_end": "2026-07-31",
+  "report_date": "2026-08-19",
+  "headline": "Lowe's comps edged up 0.2% as Pro and online offset weak DIY; FY2026 outlook cut to flat comps and low end of EPS range.",
+  "metrics": {
+    "revenue_bn": 26.0,
+    "revenue_yoy_pct": 8.3,
+    "revenue_consensus_bn": 26.2,
+    "comp_pct": 0.2,
+    "comp_label": "Total comparable sales",
+    "traffic_pct": -2.1,
+    "ticket_pct": 2.3,
+    "ecom_yoy_pct": 15.7,
+    "gross_margin_bps": -77,
+    "eps_adj": 4.4,
+    "eps_consensus": 4.22,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null
+  },
+  "guidance": "lowered",
+  "guidance_note": "FY2026 sales ~$92.0bn (was $92-94bn), comps ~flat (was flat to +2%), adj EPS ~$12.25 (was $12.25-12.75); includes tariff refund benefits.",
+  "key_messages": [
+    "Comps +0.2% (5th straight positive): ticket +2.3% on modest inflation and Pro, transactions -2.1%.",
+    "Pro, online (+15.7%) and Home Services carried the quarter; discretionary DIY spending remained under pressure.",
+    "Monthly comps weakened through the quarter (July -1.2%), prompting a cut to flat full-year comps.",
+    "Gross margin fell 77bps; Lowe's declined to match competitors using tariff-refund dollars to cut seasonal prices.",
+    "Sales +8.3% to $26.0bn, boosted by FBM and ADG acquisitions; adj EPS $4.40 beat ~$4.22."
+  ],
+  "consumer": {
+    "verdict": "choosy",
+    "income_split": null,
+    "big_ticket": "Cautious homeowners are holding back on discretionary DIY projects; growth came from Pro, home services and smaller repair categories (rough plumbing, electrical).",
+    "pricing": "Modest price inflation lifted ticket; competitors used tariff refunds to price seasonal aggressively, which Lowe's chose not to match.",
+    "quote": null
+  },
+  "themes": [
+    "traffic_down",
+    "pro_contractor",
+    "digital_strength",
+    "housing_drag",
+    "tariff_pricing",
+    "price_deflation"
+  ],
+  "macro_read": "DIY homeowners are pulling back as the year progresses, with demand concentrated in Pro and must-do repairs; promotional pricing signals softer consumer demand in the category.",
+  "sources": [
+    {
+      "label": "Lowe's Q2 2026 release (via Finviz)",
+      "url": "https://finviz.com/news/383543/lowes-reports-second-quarter-2026-sales-and-earnings-results"
+    },
+    {
+      "label": "LOW Q2 2026 8-K Ex.99.1 (SEC)",
+      "url": "https://www.sec.gov/Archives/edgar/data/0000060667/000006066726000113/exhibit991-07312026.htm"
+    },
+    {
+      "label": "LOW Q2 2026 10-Q (SEC)",
+      "url": "https://www.sec.gov/Archives/edgar/data/0000060667/000006066726000117/low-20260731.htm"
+    },
+    {
+      "label": "Chain Store Age: Pro, online sales drive Lowe's Q2",
+      "url": "https://chainstoreage.com/pro-online-sales-drive-lowes-q2-revenue-increase"
+    },
+    {
+      "label": "Trefis: Shrinking store sales and Lowe's stock",
+      "url": "https://www.trefis.com/articles/619417/how-bad-would-shrinking-store-sales-be-for-lowes-stock/2026-10-20"
+    }
+  ]
+}

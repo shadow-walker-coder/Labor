@@ -1,0 +1,64 @@
+{
+  "ticker": "AMZN",
+  "fiscal_period": "Q4 2025",
+  "period_end": "2025-12-31",
+  "report_date": "2026-02-05",
+  "headline": "Amazon holiday quarter: online stores up ~10%, North America margin ~9%, but $200B capex plan sinks shares.",
+  "metrics": {
+    "revenue_bn": 213.4,
+    "revenue_yoy_pct": 14,
+    "revenue_consensus_bn": null,
+    "comp_pct": 10,
+    "comp_label": "Online stores sales growth (ex-FX if available)",
+    "traffic_pct": null,
+    "ticket_pct": null,
+    "ecom_yoy_pct": 10,
+    "gross_margin_bps": null,
+    "eps_adj": 1.95,
+    "eps_consensus": 1.97,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null
+  },
+  "guidance": "none",
+  "guidance_note": "Q1 2026: net sales $173.5-178.5B (+11-15%), operating income $16.5-21.5B incl. ~$1B higher Amazon Leo costs; ~$200B 2026 capex.",
+  "key_messages": [
+    "Online stores sales ~$83B, up ~10%, through the holiday quarter.",
+    "North America sales $127.1B (+10%); segment operating income $11.5B vs $9.3B, margin ~9.0%.",
+    "Third-party seller services ~$52.8B (+11%); advertising $21.3B (~+23%); subscriptions ~$13.1B (+14%).",
+    "Q4 included ~$2.4B of special charges (tax/litigation, severance, physical-store impairments).",
+    "Jassy described stores growing briskly across North America and International."
+  ],
+  "consumer": {
+    "verdict": "steady",
+    "income_split": null,
+    "big_ticket": null,
+    "pricing": null,
+    "quote": null
+  },
+  "themes": [
+    "digital_strength"
+  ],
+  "macro_read": "Solid ~10% online goods growth over the 2025 holidays signals resilient US e-commerce demand; investor focus was on AI capex, not the consumer.",
+  "sources": [
+    {
+      "label": "Amazon Q4 2025 release (Business Wire)",
+      "url": "https://www.businesswire.com/news/home/20260204777163/en/Amazon.com-Announces-Fourth-Quarter-Results"
+    },
+    {
+      "label": "About Amazon: Q4 2025 earnings",
+      "url": "https://aboutamazon.com/news/company-news/amazon-earnings-q4-2025-report"
+    },
+    {
+      "label": "Futurum: Q4 FY2025 revenue beat, $200B capex",
+      "url": "https://futurumgroup.com/insights/amazon-q4-fy-2025-revenue-beat-aws-24-amid-200b-capex-plan"
+    },
+    {
+      "label": "Mediaweek: ad business +23%",
+      "url": "https://www.mediaweek.com.au/amazons-ad-business-jumps-23-as-aws-grows-fast"
+    },
+    {
+      "label": "The Star/Reuters: shares tumble on capex",
+      "url": "https://www.thestar.com.my/tech/tech-news/2026/02/06/amazon-sees-50-boost-to-capital-spending-this-year-shares-tumble"
+    }
+  ]
+}

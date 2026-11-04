@@ -1,0 +1,63 @@
+{
+  "ticker": "TGT",
+  "fiscal_period": "Q3 2025",
+  "period_end": "2025-11-01",
+  "report_date": "2025-11-19",
+  "headline": "Target comps fall 2.7% as traffic drops 2.2%; discretionary stays pressured and FY profit outlook trimmed.",
+  "metrics": {
+    "revenue_bn": 25.3,
+    "revenue_yoy_pct": -1.5,
+    "revenue_consensus_bn": 25.32,
+    "comp_pct": -2.7,
+    "comp_label": "Target total comparable sales",
+    "traffic_pct": -2.2,
+    "ticket_pct": -0.5,
+    "ecom_yoy_pct": 2.4,
+    "gross_margin_bps": -10,
+    "eps_adj": 1.78,
+    "eps_consensus": 1.72,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null
+  },
+  "guidance": "lowered",
+  "guidance_note": "FY25 adj EPS narrowed to ~$7.00-8.00 (GAAP ~$7.70-8.70), lowering the midpoint; Q4 low-single-digit sales decline maintained.",
+  "key_messages": [
+    "Comps -2.7% (stores -3.8%, digital +2.4%); transactions -2.2% and average ticket -0.5%.",
+    "Food & beverage and hardlines comped positive while discretionary categories stayed under pressure.",
+    "Gross margin 28.2% vs 28.3% on higher markdowns, offset by ads, lower shrink and supply-chain efficiency.",
+    "Adjusted EPS $1.78 vs $1.85, modestly above consensus; GAAP $1.51 after severance and asset charges."
+  ],
+  "consumer": {
+    "verdict": "choosy",
+    "income_split": null,
+    "big_ticket": "Discretionary categories remained pressured as consumers prioritized value and necessity.",
+    "pricing": "Increased markdowns weighed on margin.",
+    "quote": null
+  },
+  "themes": [
+    "value_seeking",
+    "traffic_down",
+    "big_ticket_weak",
+    "essentials_strong",
+    "price_deflation"
+  ],
+  "macro_read": "Late-2025 shoppers at Target bought essentials but held back on discretionary goods, consistent with a value-focused, selective consumer rather than a broad pullback.",
+  "sources": [
+    {
+      "label": "Target Q3 2025 release",
+      "url": "https://corporate.target.com/press/release/2025/11/target-corporation-reports-third-quarter-earnings"
+    },
+    {
+      "label": "Target Q3 2025 8-K exhibit 99",
+      "url": "https://www.sec.gov/Archives/edgar/data/27419/000002741925000123/a2025q3ex-99.htm"
+    },
+    {
+      "label": "Nasdaq/Zacks: Q3 sales decline amid soft traffic",
+      "url": "https://www.nasdaq.com/articles/target-q3-earnings-beat-estimates-sales-decline-amid-soft-traffic"
+    },
+    {
+      "label": "Barchart/StockStory: Q3 CY2025 results",
+      "url": "https://www.barchart.com/story/news/36204217/targets-nysetgt-q3-cy2025-earnings-results-revenue-in-line-with-expectations"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "ticker": "BBY",
+  "fiscal_period": "Q4 FY2026",
+  "period_end": "2026-01-31",
+  "report_date": "2026-03-03",
+  "headline": "Best Buy's holiday comps slip 0.8% on soft industry demand; memory-chip costs cloud a flat FY27 outlook.",
+  "metrics": {
+    "revenue_bn": 13.81,
+    "revenue_yoy_pct": -1.0,
+    "revenue_consensus_bn": 13.88,
+    "comp_pct": -0.8,
+    "comp_label": "Domestic comparable sales",
+    "traffic_pct": null,
+    "ticket_pct": null,
+    "ecom_yoy_pct": null,
+    "gross_margin_bps": null,
+    "eps_adj": 2.61,
+    "eps_consensus": 2.47,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null
+  },
+  "guidance": "initiated",
+  "guidance_note": "FY27: revenue $41.2-42.1B, comps -1% to +1%, adj op margin 4.3-4.4%, adj EPS $6.30-6.60; Q1 comp ~+1%.",
+  "key_messages": [
+    "Domestic comp -0.8% (vs +0.2%); revenue $13.81B missed, but adj EPS $2.61 beat.",
+    "Barry cited slightly softer industry demand in the holiday quarter; weak Nov-Dec, then stronger late Dec-early Jan.",
+    "Computing posted an 8th straight positive quarter (laptops, desktops); gaming grew but much slower than prior two quarters.",
+    "Memory-component demand is creating cost inflation and supply uncertainty, especially in computing - the main FY27 risk.",
+    "Domestic gross profit rate ~flat at 20.9% as Ads/Marketplace offset lower product margins."
+  ],
+  "consumer": {
+    "verdict": "choosy",
+    "income_split": null,
+    "big_ticket": "Holiday demand for consumer electronics was slightly soft; shoppers concentrated on promotional periods.",
+    "pricing": "Memory-chip cost inflation expected to lift computing prices and constrain supply in FY27.",
+    "quote": null
+  },
+  "themes": [
+    "big_ticket_weak",
+    "value_seeking",
+    "tariff_pricing",
+    "weather_calendar"
+  ],
+  "macro_read": "Holiday tech spending was lackluster and event-driven, and component inflation threatens to raise device prices; discretionary demand is flat at best.",
+  "sources": [
+    {
+      "label": "Best Buy Q4 FY26 release (SEC 8-K Ex. 99)",
+      "url": "https://www.sec.gov/Archives/edgar/data/764478/000076447826000005/bby-fy26q4xexx99.htm"
+    },
+    {
+      "label": "Best Buy corporate news: Q4 FY26",
+      "url": "https://corporate.bestbuy.com/2026/best-buy-reports-q4-fy26-results/"
+    },
+    {
+      "label": "Retail Insight Network: Best Buy Q4 revenue edges down",
+      "url": "https://www.retail-insight-network.com/newsletters/best-buy-q4-revenue-edges-down"
+    },
+    {
+      "label": "Yahoo Finance: Best Buy Q4 2026",
+      "url": "https://finance.yahoo.com/news/best-buy-bby-q4-2026-144532545.html"
+    }
+  ]
+}

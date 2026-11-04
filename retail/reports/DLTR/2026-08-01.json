@@ -1,0 +1,69 @@
+{
+  "ticker": "DLTR",
+  "fiscal_period": "Q2 2026",
+  "period_end": "2026-08-01",
+  "report_date": "2026-08-27",
+  "headline": "Dollar Tree comps rose 3.7% as traffic turned positive; tariff refunds inflated EPS, and a soft Q3 outlook hit the stock.",
+  "metrics": {
+    "revenue_bn": 4.89,
+    "revenue_yoy_pct": 7.0,
+    "revenue_consensus_bn": 4.86,
+    "comp_pct": 3.7,
+    "comp_label": "Dollar Tree comparable store net sales (continuing ops)",
+    "traffic_pct": 0.4,
+    "ticket_pct": 3.3,
+    "ecom_yoy_pct": null,
+    "gross_margin_bps": 850,
+    "eps_adj": 2.7,
+    "eps_consensus": 1.15,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null
+  },
+  "guidance": "raised",
+  "guidance_note": "FY26 adj. EPS raised to $7.70-8.05 incl. ~$0.60 net tariff-refund benefit; comps 3-4% kept; Q3 EPS $0.80-0.95 incl. ~$0.50 refund reinvestment.",
+  "key_messages": [
+    "Comps +3.7%: ticket +3.3%, traffic +0.4%, the first positive traffic in recent quarters; helium shortage cost ~30 bps.",
+    "Consumables comps +5.8% vs discretionary +1.6%; H2 sales expected to skew to consumables.",
+    "EPS $2.70 includes $1.31 from net tariff refunds; ex-tariff EPS ~$1.39 vs $1.00-1.15 outlook.",
+    "Gross margin +850 bps to 42.9% (680 bps from tariff refunds), plus better shrink and freight.",
+    "Gains across income cohorts, skewed to middle- and higher-income households."
+  ],
+  "consumer": {
+    "verdict": "choosy",
+    "income_split": "Sales up across all income cohorts, strongest among middle- and higher-income households; lower-income shoppers buying essentials at opening price points and smaller packs.",
+    "big_ticket": "Discretionary comps lagged at +1.6% vs consumables +5.8%; toys and personal care notable.",
+    "pricing": "Net tariff refunds added $1.31 to EPS; part being reinvested in Q3. Multi-price expanding.",
+    "quote": "Inflationary backdrop continues to pressure all household budgets, particularly for lower income consumers."
+  },
+  "themes": [
+    "value_seeking",
+    "high_income_gains",
+    "low_income_stress",
+    "essentials_strong",
+    "traffic_up",
+    "tariff_pricing"
+  ],
+  "macro_read": "Spending is tilting to essentials and wealthier households are trading down, while inflation keeps low-income budgets tight; tariff refunds are flattering margins for now.",
+  "sources": [
+    {
+      "label": "Dollar Tree Q2 FY2026 release",
+      "url": "https://corporate.dollartree.com/news-media/press-releases/detail/310"
+    },
+    {
+      "label": "Dollar Tree Q2 FY2026 8-K exhibit 99.1",
+      "url": "https://www.sec.gov/Archives/edgar/data/0000935703/000093570326000108/ex991q2-26earningspressrel.htm"
+    },
+    {
+      "label": "PYMNTS: Dollar Tree attracts higher-income customers",
+      "url": "https://www.pymnts.com/earnings/2026/dollar-tree-attracts-higher-income-customers-as-sales-climb-7percent/"
+    },
+    {
+      "label": "Proactive Investors: DLTR beats as tariff refunds boost earnings",
+      "url": "https://www.proactiveinvestors.com/companies/news/1097728/dollar-tree-beats-second-quarter-estimates-as-tariff-refunds-boost-earnings-1097728.html"
+    },
+    {
+      "label": "Retail TouchPoints: DLTR Q2 traffic gain",
+      "url": "https://www.retailtouchpoints.com/news/dollar-trees-q2-traffic-gain-signals-its-strategy-is-starting-to-register/621215"
+    }
+  ]
+}

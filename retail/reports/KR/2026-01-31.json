@@ -1,0 +1,61 @@
+{
+  "ticker": "KR",
+  "fiscal_period": "Q4 2025",
+  "period_end": "2026-01-31",
+  "report_date": "2026-03-05",
+  "headline": "Kroger beats on EPS with +2.4% identical sales and 20% eCommerce growth; new CEO Foran guides softer 2026 sales.",
+  "metrics": {
+    "revenue_bn": 34.73,
+    "revenue_yoy_pct": 1.3,
+    "revenue_consensus_bn": 34.99,
+    "comp_pct": 2.4,
+    "comp_label": "Identical sales without fuel",
+    "traffic_pct": null,
+    "ticket_pct": null,
+    "ecom_yoy_pct": 20,
+    "gross_margin_bps": null,
+    "eps_adj": 1.28,
+    "eps_consensus": 1.2,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": 5.3
+  },
+  "guidance": "initiated",
+  "guidance_note": "FY26: identical sales ex fuel 1.0-2.0% (incl. ~130bps IRA headwind), adj FIFO op profit $5.0-5.2B, adj EPS $5.10-5.30; $2B buyback.",
+  "key_messages": [
+    "Identical sales ex fuel +2.4%; adj EPS $1.28 vs $1.20 expected; revenue $34.7B slightly missed.",
+    "Adjusted eCommerce sales +20%; FY25 eCommerce sales topped $16B.",
+    "Greg Foran named CEO, prioritizing store experience, lower prices, cost cuts and eCommerce.",
+    "2026 sales outlook absorbs ~130bps hit from Medicare drug-price negotiation (IRA) in pharmacy."
+  ],
+  "consumer": {
+    "verdict": "choosy",
+    "income_split": null,
+    "big_ticket": null,
+    "pricing": "New CEO plans to lower prices funded by cost cuts.",
+    "quote": null
+  },
+  "themes": [
+    "value_seeking",
+    "digital_strength",
+    "essentials_strong"
+  ],
+  "macro_read": "Food-at-home spending is steady but slowing, with consumers favoring value and convenience; pharmacy price controls will damp grocer sales in 2026.",
+  "sources": [
+    {
+      "label": "Kroger Q4 2025 release (SEC 8-K Ex. 99.1)",
+      "url": "https://www.sec.gov/Archives/edgar/data/56873/000110465926023800/tm267907d1_ex99-1.htm"
+    },
+    {
+      "label": "Grocery Dive: Kroger Q4 2025",
+      "url": "https://www.grocerydive.com/news/kroger-earnings-fourth-quarter-2025-greg-foran-ecommerce/813881/"
+    },
+    {
+      "label": "Newsquawk: KR Q4 vs expectations",
+      "url": "https://www.newsquawk.com/headlines/kroger-co-kr-q4-2025-usd-adj-eps-128-exp-120-revenue-347bln-exp-3499bln-to-buyback-shares-for-usd-2bln"
+    },
+    {
+      "label": "Yahoo Finance: Kroger stock pops on Q4",
+      "url": "https://finance.yahoo.com/news/kroger-stock-pops-solid-q4-154511381.html"
+    }
+  ]
+}

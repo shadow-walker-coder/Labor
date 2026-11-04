@@ -1,0 +1,64 @@
+{
+  "ticker": "DLTR",
+  "fiscal_period": "Q3 2025",
+  "period_end": "2025-11-01",
+  "report_date": "2025-12-03",
+  "headline": "Dollar Tree beat with 4.2% comps from bigger tickets; higher-income households drove much of its new-customer growth.",
+  "metrics": {
+    "revenue_bn": 4.75,
+    "revenue_yoy_pct": 9.4,
+    "revenue_consensus_bn": null,
+    "comp_pct": 4.2,
+    "comp_label": "Dollar Tree comparable store net sales (continuing ops)",
+    "traffic_pct": -0.3,
+    "ticket_pct": 4.5,
+    "ecom_yoy_pct": null,
+    "gross_margin_bps": 40,
+    "eps_adj": 1.21,
+    "eps_consensus": 1.08,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null
+  },
+  "guidance": "raised",
+  "guidance_note": "FY25 adj. EPS raised to $5.60-5.80; Q4 comps guided +4-6%, adj. EPS $2.40-2.60.",
+  "key_messages": [
+    "Comps +4.2%: ticket +4.5%, traffic -0.3% (first traffic decline since FY2022).",
+    "Discretionary comps +4.8% vs consumables +3.5%; discretionary mix up 40 bps to 50.5%; record Halloween.",
+    "Gross margin +40 bps to 35.8% on mark-on and freight, offset by tariffs, markdowns and shrink.",
+    "About 3 million new households added, roughly 60% from middle- and higher-income consumers.",
+    "Family Dollar now reported as discontinued operations."
+  ],
+  "consumer": {
+    "verdict": "choosy",
+    "income_split": "Roughly 60% of ~3 million new households came from middle- and higher-income consumers; higher earners shop less often, weighing on traffic.",
+    "big_ticket": "Discretionary outperformed with a record Halloween and the first positive discretionary mix shift since Q1 2022.",
+    "pricing": "Multi-price initiatives lifted mark-on; higher tariff costs partly offset.",
+    "quote": null
+  },
+  "themes": [
+    "value_seeking",
+    "high_income_gains",
+    "discretionary_ok",
+    "traffic_down",
+    "tariff_pricing"
+  ],
+  "macro_read": "Higher-income households trading down are reshaping dollar-store growth, consistent with a K-shaped consumer and broad affordability strain.",
+  "sources": [
+    {
+      "label": "Dollar Tree Q3 FY2025 release",
+      "url": "https://corporate.dollartree.com/news-media/press-releases/detail/300/dollar-tree-inc-reports-results-for-the-third-quarter"
+    },
+    {
+      "label": "Dollar Tree Q3 FY2025 release (Business Wire)",
+      "url": "https://www.businesswire.com/news/home/20251203151508/en"
+    },
+    {
+      "label": "Fortune: Rich people flooding dollar stores",
+      "url": "https://fortune.com/2025/12/04/rich-people-flooding-dollar-stores-us-affordability-crisis/"
+    },
+    {
+      "label": "Barchart: DLTR Q3 deep dive",
+      "url": "https://www.barchart.com/story/news/36449508/dltr-q3-deep-dive-multi-price-strategy-drives-margin-gains-amid-mixed-traffic-trends"
+    }
+  ]
+}

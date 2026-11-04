@@ -1,0 +1,65 @@
+{
+  "ticker": "DG",
+  "fiscal_period": "Q2 2026",
+  "period_end": "2026-07-31",
+  "report_date": "2026-08-27",
+  "headline": "Dollar General beat with 3.5% comps on higher traffic, got a tariff-refund boost and raised its full-year outlook.",
+  "metrics": {
+    "revenue_bn": 11.3,
+    "revenue_yoy_pct": 5.2,
+    "revenue_consensus_bn": 11.19,
+    "comp_pct": 3.5,
+    "comp_label": "Dollar General same-store sales",
+    "traffic_pct": 2.0,
+    "ticket_pct": 1.5,
+    "ecom_yoy_pct": null,
+    "gross_margin_bps": 127,
+    "eps_adj": 2.48,
+    "eps_consensus": 2.0,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null
+  },
+  "guidance": "raised",
+  "guidance_note": "FY26 same-store sales raised to 2.5-2.9% (from 2.2-2.7%); EPS $7.80-8.00 incl. ~$0.25 Q2 tariff-refund benefit (was $7.20-7.45).",
+  "key_messages": [
+    "Same-store sales +3.5%: traffic +2.0%, average ticket +1.5%; growth in consumables, seasonal, home and apparel.",
+    "Gross margin +127 bps to 32.6%, of which ~81 bps came from tariff refunds net of reinvestment; diluted EPS $2.48 incl. ~$0.25 refund benefit.",
+    "CEO Vasos: results beat expectations even before the tariff-refund benefit; no material refund impact expected in H2.",
+    "Inventory roughly flat at $6.6bn, down 2.7% per store; management flagged elevated fuel costs persisting.",
+    "Continued trade-in from middle- and higher-income shoppers while core lower-income customer stays constrained."
+  ],
+  "consumer": {
+    "verdict": "choosy",
+    "income_split": "Management cited continued trade-in from middle- and higher-income customers; core lower-income customer remains financially constrained.",
+    "big_ticket": "Non-consumable categories (seasonal, home, apparel) all grew, partly on trade-in from higher-income shoppers.",
+    "pricing": "Tariff refunds lifted Q2 margin (~81 bps net of reinvestment); elevated fuel costs pressuring customers and expected to persist.",
+    "quote": "Results exceeded our expectations even before considering the benefit from tariff refunds after related reinvestments."
+  },
+  "themes": [
+    "value_seeking",
+    "high_income_gains",
+    "low_income_stress",
+    "traffic_up",
+    "tariff_pricing",
+    "inventory_clean"
+  ],
+  "macro_read": "Traffic-led comps and trade-in from wealthier shoppers show value-seeking spreading up the income ladder, while fuel costs keep the core low-income shopper stretched.",
+  "sources": [
+    {
+      "label": "Dollar General Q2 2026 release (Business Wire)",
+      "url": "https://secure.businesswire.com/news/home/20260827695594/en/Dollar-General-Corporation-Reports-Second-Quarter-2026-Results"
+    },
+    {
+      "label": "Dollar General Q2 2026 8-K exhibit 99",
+      "url": "https://www.sec.gov/Archives/edgar/data/0000029534/000110465926101918/tm2623914d1_ex99.htm"
+    },
+    {
+      "label": "PYMNTS: Dollar General and Dollar Tree gain as shoppers trade down",
+      "url": "https://www.pymnts.com/economy/2026/dollar-stores-see-high-income-shoppers-hunting-value/"
+    },
+    {
+      "label": "RTTNews: DG boosts FY26 outlook",
+      "url": "https://www.rttnews.com/3685573/dollar-general-boosts-fy26-outlook-as-q2-profit-grows-stock-up-10.aspx"
+    }
+  ]
+}

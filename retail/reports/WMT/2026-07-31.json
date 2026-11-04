@@ -1,0 +1,65 @@
+{
+  "ticker": "WMT",
+  "fiscal_period": "Q2 FY2027",
+  "period_end": "2026-07-31",
+  "report_date": "2026-08-20",
+  "headline": "Walmart beat on revenue and EPS and raised its sales outlook, but U.S. comps slowed to 2.6% and shares fell ~9%.",
+  "metrics": {
+    "revenue_bn": 187.9,
+    "revenue_yoy_pct": 5.9,
+    "revenue_consensus_bn": 186.8,
+    "comp_pct": 2.6,
+    "comp_label": "Walmart U.S. comp ex fuel",
+    "traffic_pct": 1.5,
+    "ticket_pct": 1.1,
+    "ecom_yoy_pct": 23,
+    "gross_margin_bps": 96,
+    "eps_adj": 0.81,
+    "eps_consensus": 0.74,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": -9.2
+  },
+  "guidance": "mixed",
+  "guidance_note": "FY27 net sales growth raised to 4-5% (from 3.5-4.5%), adj. EPS $2.80-2.87; Q3 guide of 3-3.75% sales and $0.62-0.64 EPS disappointed.",
+  "key_messages": [
+    "Walmart U.S. comp ex fuel slowed to +2.6% (transactions +1.5%, ticket +1.1%) vs ~3.5-3.8% expected; pharmacy drug-pricing law cut ~125 bps.",
+    "Sam's Club U.S. comp ex fuel +4.4% with transactions up ~7%; Sam's eCommerce +26%.",
+    "Global eCommerce +23%, Walmart U.S. eCommerce +24%; U.S. marketplace sales +52%.",
+    "Tariff (IEEPA) refunds lifted gross margin; Walmart is plowing them into prices (>11,000 rollbacks vs 7,200 at end of Q1).",
+    "Fuel costs expected to exceed $2B for the year; Walmart U.S. inventory up ~6.3% partly on cost inflation."
+  ],
+  "consumer": {
+    "verdict": "choosy",
+    "income_split": "Share gains across the business; lower-income households managing trade-offs as fuel prices rose. CFO John David Rainey said higher fuel prices prompted more trade-offs, particularly in June.",
+    "big_ticket": null,
+    "pricing": "Tariff refunds reinvested into rollbacks, especially consumables; cost inflation and higher fuel costs noted.",
+    "quote": null
+  },
+  "themes": [
+    "value_seeking",
+    "price_deflation",
+    "tariff_pricing",
+    "traffic_up",
+    "digital_strength",
+    "membership_strength"
+  ],
+  "macro_read": "Even the share-gaining value leader saw U.S. comps decelerate as fuel costs squeezed budgets, pointing to a consumer making more trade-offs mid-2026.",
+  "sources": [
+    {
+      "label": "Walmart Q2 FY27 release",
+      "url": "https://corporate.walmart.com/news/2026/08/20/walmart-releases-q2-fy27-earnings"
+    },
+    {
+      "label": "Chain Store Age: Walmart beats Q2 EPS, misses U.S. comps",
+      "url": "https://chainstoreage.com/walmart-beats-street-q2-eps-revenues-misses-us-comp-sales"
+    },
+    {
+      "label": "Finviz: Walmart shares slide on slower U.S. comps",
+      "url": "https://finviz.com/news/384107/walmart-shares-slide-as-slower-us-comparable-sales-overshadow-earnings-beat"
+    },
+    {
+      "label": "Motley Fool Q2 FY27 call transcript",
+      "url": "https://www.fool.com/earnings/call-transcripts/2026/08/27/walmart-wmt-q2-2027-earnings-call-transcript/"
+    }
+  ]
+}

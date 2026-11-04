@@ -1,0 +1,63 @@
+{
+  "ticker": "DG",
+  "fiscal_period": "Q3 2025",
+  "period_end": "2025-10-31",
+  "report_date": "2025-12-04",
+  "headline": "Dollar General beat on traffic-led 2.5% comps and margin gains, raised its FY25 outlook, and drew more higher-income shoppers.",
+  "metrics": {
+    "revenue_bn": 10.6,
+    "revenue_yoy_pct": 4.6,
+    "revenue_consensus_bn": null,
+    "comp_pct": 2.5,
+    "comp_label": "Dollar General same-store sales",
+    "traffic_pct": 2.5,
+    "ticket_pct": 0.0,
+    "ecom_yoy_pct": null,
+    "gross_margin_bps": 107,
+    "eps_adj": 1.28,
+    "eps_consensus": 0.93,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null
+  },
+  "guidance": "raised",
+  "guidance_note": "FY25 raised: net sales +4.7-4.9%, same-store sales +2.5-2.7%, EPS $6.30-6.50 (from $5.80-6.30).",
+  "key_messages": [
+    "Same-store sales +2.5%, entirely traffic (+2.5%) with flat average ticket; all four categories grew.",
+    "Gross margin +107 bps to 29.9% on higher markups and lower shrink; EPS $1.28, up 43.8%.",
+    "Customer count grew with disproportionate growth from higher-income households.",
+    "Low- to middle-income core customer described as financially stretched.",
+    "Delayed SNAP payments in early November (shutdown) noted, but Q4 started strong."
+  ],
+  "consumer": {
+    "verdict": "choosy",
+    "income_split": "Disproportionate customer growth from higher-income households; low- to middle-income core customer remains stretched.",
+    "big_ticket": "Non-consumable categories (seasonal, home, apparel) posted positive comps alongside consumables.",
+    "pricing": null,
+    "quote": "We're pleased to see growth once again in our total customer count, with disproportionate growth coming from higher-income households."
+  },
+  "themes": [
+    "value_seeking",
+    "high_income_gains",
+    "low_income_stress",
+    "traffic_up"
+  ],
+  "macro_read": "Traffic gains led by higher-income households point to broad-based value-seeking, while SNAP disruptions show how fragile low-income budgets are.",
+  "sources": [
+    {
+      "label": "Dollar General Q3 2025 release (Business Wire)",
+      "url": "https://www.businesswire.com/news/home/20251204155133/en/Dollar-General-Corporation-Reports-Third-Quarter-2025-Results"
+    },
+    {
+      "label": "Dollar General Q3 2025 8-K exhibit 99",
+      "url": "https://www.sec.gov/Archives/edgar/data/29534/000110465925118286/tm2532496d1_ex99.htm"
+    },
+    {
+      "label": "Barchart: 5 analyst questions from DG Q3 call",
+      "url": "https://www.barchart.com/story/news/36566990/5-must-read-analyst-questions-from-dollar-generals-q3-earnings-call"
+    },
+    {
+      "label": "Chain Drug Review: DG strong fiscal Q3 2025",
+      "url": "https://chaindrugreview.com/dollar-general-delivers-a-strong-fiscal-q3-2025-performance"
+    }
+  ]
+}

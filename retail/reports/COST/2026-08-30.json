@@ -1,0 +1,70 @@
+{
+  "ticker": "COST",
+  "fiscal_period": "Q4 FY2026",
+  "period_end": "2026-08-30",
+  "report_date": "2026-09-24",
+  "headline": "Costco beat EPS estimates with sales up 11%, helped by gas inflation and a one-time tariff refund, and keeps reinvesting in price.",
+  "metrics": {
+    "revenue_bn": 95.7,
+    "revenue_yoy_pct": 11.1,
+    "revenue_consensus_bn": 94.97,
+    "comp_pct": 7.2,
+    "comp_label": "Costco U.S. comp ex gas & FX",
+    "traffic_pct": 3.3,
+    "ticket_pct": 5.9,
+    "ecom_yoy_pct": 19.5,
+    "gross_margin_bps": null,
+    "eps_adj": 6.75,
+    "eps_consensus": 6.53,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null
+  },
+  "guidance": "none",
+  "guidance_note": "Costco does not give earnings guidance. EPS of $6.75 includes a $0.15 nonrecurring IEEPA tariff-refund benefit (~$6.60 excluding it).",
+  "key_messages": [
+    "U.S. comps +10.7% reported, +7.2% ex gas and FX; total company +9.4% / +6.7% adjusted. Gas inflation added ~3 pts.",
+    "Worldwide traffic +3.3%, ticket +5.9% (+3.3% ex gas/FX); digitally enabled comps +19.5%.",
+    "Membership fee income $1.85B (+7.3%); U.S./Canada renewal 92.3%, worldwide 89.8%, both up 10 bps.",
+    "Received $184M in tariff refunds and is reinvesting most into lower prices (e.g., Kirkland coffee, walnuts).",
+    "LIFO charge of $152M tied to memory-chip costs in electronics and Middle East-related gas/resin inflation."
+  ],
+  "consumer": {
+    "verdict": "steady",
+    "income_split": null,
+    "big_ticket": "Growth spread across meat, bakery, majors, electronics and health & beauty.",
+    "pricing": "Inflation in gas, electronics (memory) and resins; tariff refunds reinvested in lower member prices.",
+    "quote": null
+  },
+  "themes": [
+    "value_seeking",
+    "membership_strength",
+    "digital_strength",
+    "traffic_up",
+    "tariff_pricing",
+    "price_deflation",
+    "weather_calendar"
+  ],
+  "macro_read": "Members kept shopping more often and spending more, though gas-price inflation inflates headline sales; demand at Costco remains healthy into fall 2026.",
+  "sources": [
+    {
+      "label": "Costco Q4 FY26 release",
+      "url": "https://s201.q4cdn.com/287523651/files/doc_news/Costco-Wholesale-Corporation-Reports-Fourth-Quarter-and-Fiscal-Year-2026-Operating-Results-2026.pdf"
+    },
+    {
+      "label": "Costco 8-K (SEC)",
+      "url": "https://www.sec.gov/Archives/edgar/data/0000909832/000090983226000084/costex9918-k92426.htm"
+    },
+    {
+      "label": "Progressive Grocer: Costco Q4 FY2026",
+      "url": "https://progressivegrocer.com/costco-delivers-top-line-sales-growth-q4-fy2026"
+    },
+    {
+      "label": "Fox Business: Costco receives $184M in tariff refunds",
+      "url": "https://www.foxbusiness.com/markets/costco-receives-184m-tariff-refunds-says-most-go-toward-lower-prices.amp"
+    },
+    {
+      "label": "Costco Q4 2026 call transcript (Webull)",
+      "url": "https://www.webull.com/news/15660435456459776"
+    }
+  ]
+}

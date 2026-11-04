@@ -1,0 +1,66 @@
+{
+  "ticker": "TGT",
+  "fiscal_period": "Q1 2026",
+  "period_end": "2026-05-02",
+  "report_date": "2026-05-20",
+  "headline": "Target comps turn positive (+5.6%) for first time in five quarters on 4.4% traffic gain; FY sales outlook doubled to ~4%.",
+  "metrics": {
+    "revenue_bn": 25.4,
+    "revenue_yoy_pct": 6.7,
+    "revenue_consensus_bn": 24.66,
+    "comp_pct": 5.6,
+    "comp_label": "Target total comparable sales",
+    "traffic_pct": 4.4,
+    "ticket_pct": 1.1,
+    "ecom_yoy_pct": 8.9,
+    "gross_margin_bps": 80,
+    "eps_adj": 1.71,
+    "eps_consensus": 1.46,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null
+  },
+  "guidance": "raised",
+  "guidance_note": "FY26 net sales growth raised to ~4% (from ~2%); GAAP/adj EPS now seen near high end of $7.50-8.50; guidance excludes any tariff refunds.",
+  "key_messages": [
+    "Comparable sales +5.6% (stores +4.7%, digital +8.9%), first positive comp in five quarters, led by 4.4% traffic growth.",
+    "Gross margin 29.0% vs 28.2%; adjusted EPS $1.71 vs $1.30 a year ago, well above ~$1.46 consensus.",
+    "Non-merchandise revenue (Roundel ads, Circle 360, Target+) up close to 25%.",
+    "CFO says bigger tax refunds likely propped up Q1 spending and that boost should fade; sentiment has dipped though shoppers stayed resilient.",
+    "Q2 flagged as toughest compare of the year (Nintendo Switch 2 launch anniversary); company plans conservatively and will chase inventory."
+  ],
+  "consumer": {
+    "verdict": "steady",
+    "income_split": null,
+    "big_ticket": null,
+    "pricing": null,
+    "quote": "While we have momentum, we're also being cautious about the near-term operating environment, with consumers weighing multiple headwinds and tailwinds."
+  },
+  "themes": [
+    "traffic_up",
+    "digital_strength",
+    "inventory_clean"
+  ],
+  "macro_read": "A sharp turn to positive traffic at Target suggests discretionary-leaning spending firmed in spring 2026, helped by larger tax refunds that management expects to fade. Softer sentiment remains a watch item.",
+  "sources": [
+    {
+      "label": "Target Q1 2026 release",
+      "url": "https://corporate.target.com/press/release/2026/05/target-corporation-reports-first-quarter-earnings"
+    },
+    {
+      "label": "Target Q1 2026 8-K exhibit 99",
+      "url": "https://www.sec.gov/Archives/edgar/data/0000027419/000002741926000020/a2026q1ex-99.htm"
+    },
+    {
+      "label": "SGB: Target boosts FY sales guidance",
+      "url": "https://sgbonline.com/target-boosts-fy-sales-guidance-as-q1-comps-returns-to-growth/"
+    },
+    {
+      "label": "MarketBeat Q1 call highlights",
+      "url": "https://www.marketbeat.com/instant-alerts/target-q1-earnings-call-highlights-2026-05-20/"
+    },
+    {
+      "label": "Stocktwits: traffic growth returns",
+      "url": "https://stocktwits.com/news-articles/markets/equity/target-doubles-fy26-sales-outlook-consumers-return-to-stores/cZXDHFWReVm"
+    }
+  ]
+}

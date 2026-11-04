@@ -1,0 +1,63 @@
+{
+  "ticker": "HD",
+  "fiscal_period": "Q3 FY2025",
+  "period_end": "2025-11-02",
+  "report_date": "2025-11-18",
+  "headline": "Home Depot missed EPS estimates and cut its FY2025 profit outlook, citing no storms, consumer uncertainty and housing pressure.",
+  "metrics": {
+    "revenue_bn": 41.4,
+    "revenue_yoy_pct": 2.8,
+    "revenue_consensus_bn": null,
+    "comp_pct": 0.1,
+    "comp_label": "U.S. comparable sales (total company comps +0.2%)",
+    "traffic_pct": -1.6,
+    "ticket_pct": 1.8,
+    "ecom_yoy_pct": null,
+    "gross_margin_bps": null,
+    "eps_adj": 3.74,
+    "eps_consensus": 3.84,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null
+  },
+  "guidance": "lowered",
+  "guidance_note": "Cut FY2025 adj EPS outlook on Q4 pressure from reduced storms, consumer uncertainty, housing softness and GMS inclusion; sales outlook nudged up with GMS.",
+  "key_messages": [
+    "US comps +0.1% (total +0.2%): comparable transactions -1.6%, average ticket +1.8%.",
+    "Adj EPS $3.74 missed (~$3.84 consensus); Decker blamed lack of storms plus consumer uncertainty and housing pressure.",
+    "Big-ticket (>$1,000) transactions +2.3% year over year.",
+    "Sales +2.8% to $41.4bn, including ~$900m from GMS (about eight weeks).",
+    "Shares fell roughly 4-6% intraday on the miss and outlook cut."
+  ],
+  "consumer": {
+    "verdict": "choosy",
+    "income_split": null,
+    "big_ticket": "Transactions over $1,000 +2.3%, but larger projects pressured by affordability and housing uncertainty.",
+    "pricing": "Ticket gains reflected mix and modest price increases.",
+    "quote": null
+  },
+  "themes": [
+    "traffic_down",
+    "housing_drag",
+    "weather_calendar",
+    "pro_contractor"
+  ],
+  "macro_read": "Weak housing turnover and elevated rates are capping home improvement; absent storm-repair demand, the category is essentially flat.",
+  "sources": [
+    {
+      "label": "HD Q3 FY2025 8-K Ex.99.1 (SEC)",
+      "url": "https://www.sec.gov/Archives/edgar/data/354950/000035495025000238/hd_exhibit991x11022025.htm"
+    },
+    {
+      "label": "HD Q3 FY2025 10-Q (SEC)",
+      "url": "https://www.sec.gov/Archives/edgar/data/354950/000162828025053868/hd-20251102.htm"
+    },
+    {
+      "label": "FMP: Home Depot shares slip as adjusted earnings miss",
+      "url": "https://site.financialmodelingprep.com/market-news/home-depot-shares-slip--as-adjusted-earnings-miss-despite-revenue-beat"
+    },
+    {
+      "label": "Finviz: Why Home Depot stock dropped today",
+      "url": "https://finviz.com/news/233084/why-home-depot-stock-dropped-today"
+    }
+  ]
+}
