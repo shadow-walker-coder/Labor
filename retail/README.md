@@ -6,6 +6,8 @@ for what it says about the consumer and the economy. It is separate from the Mac
 
 Open `retail/index.html` in a browser. Nothing else is needed, because the data ships as a script file.
 
+To share or email it, use `retail/retail-earnings-monitor.html`: the whole dashboard in one file that opens on its own. The build rewrites it on every refresh.
+
 ## What's on the page
 
 - **The read on the consumer**: a headline verdict and 5 to 7 cross-retailer takeaways (`data/briefing.json`).
@@ -40,6 +42,7 @@ Add a retailer or category in `scripts/config.py`.
 | `data/briefing.json` | The briefing at the top |
 | `data/calendar.json` | Next report date per retailer |
 | `data/earnings.js` | Built from the files above (generated, do not edit) |
+| `retail-earnings-monitor.html` | The whole dashboard in one file, for downloading or emailing (generated) |
 | `scripts/config.py` | Retailers, categories, theme vocabulary |
 | `scripts/build.py` | Validates every report and writes `data/earnings.js` |
 | `scripts/watch.py` | Finds new earnings filings on SEC EDGAR and drafts reports with Claude |

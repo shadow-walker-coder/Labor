@@ -5,6 +5,7 @@ Reads   retail/reports/<TICKER>/<period_end>.json   one file per quarterly relea
         retail/data/briefing.json                   the cross-retailer briefing at the top
         retail/data/notes.json                      caveats shown under "Notes on the data"
 Writes  retail/data/earnings.js                     window.RETAIL_DATA = {...}
+        retail/retail-earnings-monitor.html         the whole dashboard in one file
 
 Run: python retail/scripts/build.py   (stdlib only; fails on schema errors)
 """
@@ -101,6 +102,22 @@ def load_reports():
     return reports, errors
 
 
+def write_single_file() -> Path:
+    """Bundle the page, styles, code and data into one HTML file you can email or double-click."""
+    head = (ROOT / "index.html").read_text()
+    head = head[: head.index('<link rel="stylesheet" href="styles.css">')]
+    data = (DATA / "earnings.js").read_text().replace("</script", "<\\/script")
+    page = (
+        head
+        + "<style>\n" + (ROOT / "styles.css").read_text() + "</style>\n</head>\n<body>\n<div id=\"app\"></div>\n"
+        + "<script>\n" + data + "</script>\n"
+        + "<script>\n" + (ROOT / "app.js").read_text() + "</script>\n</body>\n</html>\n"
+    )
+    out = ROOT / "retail-earnings-monitor.html"
+    out.write_text(page)
+    return out
+
+
 def main():
     reports, errors = load_reports()
     assign_calendar_quarters(reports)
@@ -129,6 +146,8 @@ def main():
     by = {}
     for r in reports:
         by[r["ticker"]] = by.get(r["ticker"], 0) + 1
+    single = write_single_file()
+    print(f"Wrote {single.relative_to(ROOT.parent)} (single-file copy)")
     print(f"Wrote {out.relative_to(ROOT.parent)}: {len(reports)} reports " +
           ", ".join(f"{t}={n}" for t, n in sorted(by.items())))
 
