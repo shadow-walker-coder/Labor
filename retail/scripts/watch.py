@@ -104,7 +104,7 @@ REPORT_SCHEMA = {
     "type": "object",
     "additionalProperties": False,
     "required": ["fiscal_period", "period_end", "headline", "metrics", "guidance", "guidance_note",
-                 "key_messages", "consumer", "themes", "macro_read"],
+                 "key_messages", "consumer", "themes", "macro_read", "one_offs_undisclosed", "notes"],
     "properties": {
         "fiscal_period": {"type": "string"},
         "period_end": {"type": "string", "description": "YYYY-MM-DD, last day of the fiscal quarter"},
@@ -113,11 +113,11 @@ REPORT_SCHEMA = {
             "type": "object",
             "additionalProperties": False,
             "required": ["revenue_bn", "revenue_yoy_pct", "comp_pct", "comp_label", "traffic_pct", "ticket_pct",
-                         "ecom_yoy_pct", "gross_margin_bps", "eps_adj", "inventory_yoy_pct"],
+                         "ecom_yoy_pct", "gross_margin_bps", "eps_adj", "eps_ex_one_offs", "inventory_yoy_pct"],
             "properties": {
                 "revenue_bn": NUM, "revenue_yoy_pct": NUM, "comp_pct": NUM, "comp_label": STR,
                 "traffic_pct": NUM, "ticket_pct": NUM, "ecom_yoy_pct": NUM, "gross_margin_bps": NUM,
-                "eps_adj": NUM, "inventory_yoy_pct": NUM,
+                "eps_adj": NUM, "eps_ex_one_offs": NUM, "inventory_yoy_pct": NUM,
             },
         },
         "guidance": {"type": "string", "enum": GUIDANCE},
@@ -134,6 +134,8 @@ REPORT_SCHEMA = {
         },
         "themes": {"type": "array", "items": {"type": "string", "enum": list(THEMES)}},
         "macro_read": {"type": "string"},
+        "one_offs_undisclosed": {"type": "boolean"},
+        "notes": {"type": "array", "items": {"type": "string"}},
     },
 }
 
@@ -153,7 +155,13 @@ Rules:
 - consumer.quote: a short verbatim quote from management about the customer, or null.
 - themes: only tags the release clearly supports. Vocabulary: {json.dumps(THEMES)}
 - guidance: compare with the outlook the company gave before (the previous record shows it).
-- macro_read: one or two sentences on what the quarter implies for the U.S. economy."""
+- macro_read: one or two sentences on what the quarter implies for the U.S. economy.
+- eps_adj is the company's adjusted EPS (GAAP if it gives none). If it includes one-time items whose
+  per-share effect the release states (tariff refunds, tax benefits, investment gains), put EPS without
+  them in eps_ex_one_offs; otherwise null. Set one_offs_undisclosed to true when such items are mentioned
+  but their per-share effect is not given.
+- notes: short caveats a reader needs to compare this quarter fairly (one-time items, calendar shifts,
+  changed definitions, acquisitions). Empty if none."""
 
 
 def claude_json(system: str, user: str, schema: dict, effort: str = "high") -> dict:
@@ -203,6 +211,8 @@ def draft_report(retailer: dict, filing: dict, release: str, url: str, previous:
         "consumer": record["consumer"],
         "themes": record["themes"],
         "macro_read": record["macro_read"],
+        "one_offs_undisclosed": record["one_offs_undisclosed"],
+        "notes": record["notes"],
         "sources": [{"label": "SEC filing: Exhibit 99.1 press release", "url": url}],
     }
 

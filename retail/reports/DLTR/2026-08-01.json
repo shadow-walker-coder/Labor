@@ -17,7 +17,8 @@
     "eps_adj": 2.7,
     "eps_consensus": 1.15,
     "inventory_yoy_pct": null,
-    "stock_reaction_pct": null
+    "stock_reaction_pct": null,
+    "eps_ex_one_offs": 1.39
   },
   "guidance": "raised",
   "guidance_note": "FY26 adj. EPS raised to $7.70-8.05 incl. ~$0.60 net tariff-refund benefit; comps 3-4% kept; Q3 EPS $0.80-0.95 incl. ~$0.50 refund reinvestment.",
@@ -65,5 +66,8 @@
       "label": "Retail TouchPoints: DLTR Q2 traffic gain",
       "url": "https://www.retailtouchpoints.com/news/dollar-trees-q2-traffic-gain-signals-its-strategy-is-starting-to-register/621215"
     }
+  ],
+  "notes": [
+    "EPS of $2.70 includes $1.31 of net tariff refunds; about $1.39 without them. The beat is measured on $1.39."
   ]
 }

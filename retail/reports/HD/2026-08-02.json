@@ -64,5 +64,9 @@
       "label": "Q2 FY2026 call summary (bullfincher)",
       "url": "https://bullfincher.io/companies/home-depot/earnings-call/fy2026-q2"
     }
-  ]
+  ],
+  "notes": [
+    "About $730M of IEEPA tariff refunds were recognized this quarter; the per-share effect on adjusted EPS was not disclosed, so part of the beat may come from them."
+  ],
+  "one_offs_undisclosed": true
 }

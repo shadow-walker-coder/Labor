@@ -67,5 +67,9 @@
       "label": "TS2: Best Buy stock falls 4.4%",
       "url": "https://ts2.tech/en/best-buy-stock-falls-4-4-as-margin-spending-blunts-q2-beat/"
     }
-  ]
+  ],
+  "notes": [
+    "About $34M of IEEPA tariff refunds helped gross margin; the per-share effect was not disclosed and is likely small."
+  ],
+  "one_offs_undisclosed": true
 }

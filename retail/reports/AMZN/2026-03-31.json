@@ -61,5 +61,9 @@
       "label": "Fortune: Q1 earnings, capex",
       "url": "https://fortune.com/2026/04/30/amazon-earnings-cloud-sales-ai-capex-stock-falls/"
     }
+  ],
+  "notes": [
+    "EPS is GAAP and includes $16.8B of pre-tax gains on Amazon's Anthropic investment, so no consensus comparison is shown.",
+    "Online stores growth is total growth, not a like-for-like comp."
   ]
 }

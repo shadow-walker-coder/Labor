@@ -29,8 +29,10 @@ RETAILERS = [
          comp_label="U.S. comp ex gas & FX"),
     dict(ticker="TGT", name="Target", category="mass", cik=27419,
          comp_label="Comparable sales"),
+    # comp_is_growth: the headline figure is total growth, not a like-for-like comp,
+    # so it is marked in the heatmap and left out of the median comp.
     dict(ticker="AMZN", name="Amazon", category="ecom", cik=1018724,
-         comp_label="Online stores sales growth"),
+         comp_label="Online stores sales growth", comp_is_growth=True),
     dict(ticker="HD", name="Home Depot", category="home", cik=354950,
          comp_label="U.S. comparable sales"),
     dict(ticker="LOW", name="Lowe's", category="home", cik=60667,

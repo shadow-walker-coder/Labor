@@ -56,12 +56,16 @@
     const b = D.briefing;
     const verdicts = latest.map((r) => r.consumer.verdict);
     const count = (v) => verdicts.filter((x) => x === v).length;
-    const comps = latest.map((r) => r.metrics.comp_pct);
+    const growthOnly = latest.filter((r) => retailers[r.ticker].comp_is_growth);
+    const comps = latest.filter((r) => !retailers[r.ticker].comp_is_growth).map((r) => r.metrics.comp_pct);
     const withEst = latest.filter((r) => isNum(r.eps_surprise_pct));
-    const beats = withEst.filter((r) => r.eps_surprise_pct > 0).length;
+    const beatRs = withEst.filter((r) => r.eps_surprise_pct > 0);
+    const beats = beatRs.length;
+    const murky = beatRs.filter((r) => r.one_offs_undisclosed).length;
     const raised = latest.filter((r) => r.guidance === "raised").length;
     const cut = latest.filter((r) => r.guidance === "lowered").length;
-    const moves = latest.map((r) => r.metrics.stock_reaction_pct);
+    const moves = latest.map((r) => r.metrics.stock_reaction_pct).filter(isNum);
+    const enoughMoves = moves.length >= Math.ceil(latest.length / 2);
 
     const mix = D.verdicts.filter(count).map((v) =>
       `<div class="${v}" style="flex:${count(v)}" title="${VERD[v]}: ${count(v)}">${count(v)}</div>`).join("");
@@ -90,10 +94,10 @@
           <div class="mixkey">${key}</div>
         </div>
         <div class="tiles">
-          <div class="tile"><div class="k">Median comp sales</div><div class="v">${pct(median(comps))}</div><div class="s">across ${comps.filter(isNum).length} retailers</div></div>
-          <div class="tile"><div class="k">Beat EPS estimates</div><div class="v">${beats}/${withEst.length}</div><div class="s">adjusted EPS vs consensus</div></div>
+          <div class="tile"><div class="k">Median comp sales</div><div class="v">${pct(median(comps))}</div><div class="s">across ${comps.filter(isNum).length} retailers${growthOnly.length ? `; ${growthOnly.map((r) => retailers[r.ticker].name).join(", ")} left out (growth, not a comp)` : ""}</div></div>
+          <div class="tile"><div class="k">Beat EPS estimates</div><div class="v">${beats}/${withEst.length}</div><div class="s">one-time items removed where disclosed${murky ? `; ${murky} of the beats include tariff refunds of undisclosed size` : ""}</div></div>
           <div class="tile"><div class="k">Guidance</div><div class="v">${raised}<span style="font-size:15px;color:var(--muted)"> up</span> ${cut}<span style="font-size:15px;color:var(--muted)"> down</span></div><div class="s">${latest.length - raised - cut} held, mixed or none</div></div>
-          <div class="tile"><div class="k">Median stock reaction</div><div class="v ${cls(median(moves))}">${pct(median(moves))}</div><div class="s">on report day</div></div>
+          <div class="tile"><div class="k">Median stock reaction</div><div class="v ${enoughMoves ? cls(median(moves)) : ""}">${enoughMoves ? pct(median(moves)) : "—"}</div><div class="s">${enoughMoves ? `on report day, ${moves.length} of ${latest.length} retailers` : `only ${moves.length} of ${latest.length} retailers have a confirmed move`}</div></div>
         </div>
         <div>
           <div class="eyebrow" style="margin-bottom:8px">What management keeps talking about · retailers citing it</div>
@@ -144,7 +148,8 @@
 
   function kv(r) {
     const m = r.metrics;
-    const eps = isNum(m.eps_adj) ? `$${m.eps_adj.toFixed(2)}${isNum(m.eps_consensus) ? ` vs ${m.eps_consensus.toFixed(2)}` : ""}` : "—";
+    const base = isNum(m.eps_ex_one_offs) ? m.eps_ex_one_offs : m.eps_adj;
+    const eps = isNum(base) ? `$${base.toFixed(2)}${r.one_offs_undisclosed ? "*" : ""}${isNum(m.eps_consensus) ? ` vs ${m.eps_consensus.toFixed(2)}` : ""}` : "—";
     const rows = [
       ["Revenue", isNum(m.revenue_bn) ? `$${m.revenue_bn.toFixed(1)}bn` : "—", ""],
       ["Rev. YoY", pct(m.revenue_yoy_pct), cls(m.revenue_yoy_pct)],
@@ -152,12 +157,13 @@
       ["Ticket", pct(m.ticket_pct), cls(m.ticket_pct)],
       ["Digital", pct(m.ecom_yoy_pct, 0), cls(m.ecom_yoy_pct)],
       ["Gross margin", isNum(m.gross_margin_bps) ? `${m.gross_margin_bps > 0 ? "+" : m.gross_margin_bps < 0 ? "−" : ""}${Math.abs(m.gross_margin_bps)}bp` : "—", cls(m.gross_margin_bps)],
-      ["EPS", eps, cls(r.eps_surprise_pct)],
+      [isNum(m.eps_ex_one_offs) ? "EPS ex one-offs" : "EPS", eps, cls(r.eps_surprise_pct)],
+      ...(isNum(m.eps_ex_one_offs) ? [["EPS reported", `$${m.eps_adj.toFixed(2)}`, ""]] : []),
       ["Guidance", GUIDE[r.guidance] || "—", r.guidance === "raised" ? "up" : r.guidance === "lowered" ? "dn" : ""],
       ["Stock, day", pct(m.stock_reaction_pct), cls(m.stock_reaction_pct)],
       ["Inventory", pct(m.inventory_yoy_pct), ""],
     ].filter(([, v]) => v !== "—");
-    return rows.map(([k, v, c]) => `<div><span>${k}</span><b class="${c}">${esc(v)}</b></div>`).join("");
+    return rows.map(([k, v, c]) => `<div${k.startsWith("EPS") ? ' class="wide"' : ""}><span>${k}</span><b class="${c}">${esc(v)}</b></div>`).join("");
   }
 
   function card(t) {
@@ -175,7 +181,7 @@
       c.pricing && `<div><b>Pricing:</b> ${esc(c.pricing)}</div>`,
     ].filter(Boolean).join("");
     const past = rs.slice(1).map((p) => `<div><div class="ph"><b>${esc(p.fiscal_period)}</b><span class="verd ${p.consumer.verdict}">${VERD[p.consumer.verdict]}</span>
-      <span class="when">comp ${pct(p.metrics.comp_pct)} · ${fmtDate(p.report_date)}</span></div><p>${esc(p.headline)}</p></div>`).join("");
+      <span class="when">comp ${pct(p.metrics.comp_pct)} · ${fmtDate(p.report_date)}</span></div><p>${esc(p.headline)}</p>${p.notes?.length ? `<p class="pnote">Note: ${esc(p.notes.join(" "))}</p>` : ""}</div>`).join("");
     const srcs = (r.sources || []).map((s) => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label)}</a>`).join("");
     return `<article class="rc" id="r-${t.ticker}">
       <div class="rc-top">
@@ -198,6 +204,7 @@
       ${r.themes?.length ? `<div class="themes-row">${r.themes.map((th) => `<span class="pill">${esc(D.themes[th])}</span>`).join("")}</div>` : ""}
       ${r.macro_read ? `<div class="macro"><b>Economy</b>${esc(r.macro_read)}</div>` : ""}
       ${r.guidance_note ? `<div class="consumer"><div><b>Outlook:</b> ${esc(r.guidance_note)}</div></div>` : ""}
+      ${r.notes?.length ? `<div class="dnotes"><b>Data notes</b><ul>${r.notes.map((n) => `<li>${esc(n)}</li>`).join("")}</ul></div>` : ""}
       ${past ? `<details class="hist"><summary>Earlier quarters (${rs.length - 1})</summary><div class="past">${past}</div></details>` : ""}
       ${srcs ? `<div class="srcs">Sources: ${srcs}</div>` : ""}
     </article>`;
@@ -223,15 +230,17 @@
         if (!r || !isNum(r.metrics.comp_pct)) return `<td class="na">·</td>`;
         const v = r.metrics.comp_pct;
         const tip = `${t.name} ${r.fiscal_period}\n${pct(v)} ${r.metrics.comp_label || t.comp_label}\nconsumer: ${VERD[r.consumer.verdict]}`;
-        return `<td class="${bucket(v)}" data-tip="${esc(tip)}" tabindex="0">${pct(v)}</td>`;
+        const g = t.comp_is_growth;
+        return `<td class="${bucket(v)}${g ? " growth" : ""}" data-tip="${esc(tip + (g ? "\ntotal growth, not a like-for-like comp" : ""))}" tabindex="0">${pct(v)}${g ? "†" : ""}</td>`;
       }).join("");
-      return `<tr><th class="rowh" scope="row">${esc(t.name)}<span>${t.ticker}</span></th>${cells}</tr>`;
+      return `<tr><th class="rowh" scope="row">${esc(t.name)}${t.comp_is_growth ? "†" : ""}<span>${t.ticker}</span></th>${cells}</tr>`;
     }).join("");
     const sw = [["n3", "≤ −5"], ["n2", "−5 to −2"], ["n1", "−2 to −0.5"], ["", "flat"], ["p1", "0.5 to 2"], ["p2", "2 to 5"], ["p3", "≥ 5"]];
     return `<section class="wrap sec heat-sec" id="heatmap"><div class="sec-head"><div class="eyebrow">Comp sales, quarter by quarter</div>
-      <p>Each retailer's headline comparable-sales growth, lined up by the calendar quarter it covers so different fiscal years compare. Blue is growth, red is decline. Hover a cell for the fiscal quarter.</p></div>
+      <p>Each retailer's headline comparable-sales growth, lined up by the calendar quarter it covers so different fiscal years compare. Blue is growth, red is decline. Hover a cell for the fiscal quarter. Each retailer defines comps a little differently, so treat small gaps as approximate.</p></div>
       <div class="panel scroll"><table class="heat"><thead><tr><th></th>${qs.map((q) => `<th scope="col">${lab(q)}</th>`).join("")}</tr></thead><tbody>${body}</tbody></table>
-      <div class="scale">${sw.map(([c, l]) => `<span><i style="background:var(--div-${c ? (c[0] === "p" ? "pos-" : "neg-") + c[1] : "mid"})"></i> ${l}</span>`).join("")} <span>% comp</span></div></div></section>`;
+      <div class="scale">${sw.map(([c, l]) => `<span><i style="background:var(--div-${c ? (c[0] === "p" ? "pos-" : "neg-") + c[1] : "mid"})"></i> ${l}</span>`).join("")} <span>% comp</span></div>
+      ${D.retailers.some((t) => t.comp_is_growth) ? `<div class="scale">† ${esc(D.retailers.filter((t) => t.comp_is_growth).map((t) => t.name).join(", "))}: total online-stores growth, not a like-for-like comp.</div>` : ""}</div></section>`;
   }
 
   // ---------- calendar
@@ -252,7 +261,7 @@
   function foot() {
     return `<footer class="wrap foot">
       <p><b>How to read it.</b> Each card is the retailer's latest quarter. The yellow tag is its headline comparable-sales growth (stores open a year or more, plus digital where the company counts it). The consumer verdict is a judgement from what management said: <b>strong</b> (${VERD_NOTE.strong}), <b>steady</b> (${VERD_NOTE.steady}), <b>choosy</b> (${VERD_NOTE.choosy}), <b>strained</b> (${VERD_NOTE.strained}).</p>
-      <p>Figures come from company earnings releases and calls, with consensus estimates and stock moves from financial press; each card links its sources. Amazon is shown for its retail business only. New releases are picked up from SEC filings and drafted automatically; drafts are labeled until reviewed.</p>
+      ${D.data_notes?.length ? `<h2 id="notes">Notes on the data</h2><dl class="datanotes">${D.data_notes.map((n) => `<dt>${esc(n.title)}</dt><dd>${esc(n.body)}</dd>`).join("")}</dl>` : ""}
     </footer>`;
   }
 

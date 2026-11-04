@@ -17,7 +17,8 @@
     "eps_adj": 2.48,
     "eps_consensus": 2.0,
     "inventory_yoy_pct": null,
-    "stock_reaction_pct": null
+    "stock_reaction_pct": null,
+    "eps_ex_one_offs": 2.23
   },
   "guidance": "raised",
   "guidance_note": "FY26 same-store sales raised to 2.5-2.9% (from 2.2-2.7%); EPS $7.80-8.00 incl. ~$0.25 Q2 tariff-refund benefit (was $7.20-7.45).",
@@ -61,5 +62,8 @@
       "label": "RTTNews: DG boosts FY26 outlook",
       "url": "https://www.rttnews.com/3685573/dollar-general-boosts-fy26-outlook-as-q2-profit-grows-stock-up-10.aspx"
     }
+  ],
+  "notes": [
+    "EPS of $2.48 includes about $0.25 of tariff refunds; about $2.23 without them. The beat is measured on $2.23."
   ]
 }

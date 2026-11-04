@@ -43,7 +43,8 @@ Add a retailer or category in `scripts/config.py`.
 | `scripts/config.py` | Retailers, categories, theme vocabulary |
 | `scripts/build.py` | Validates every report and writes `data/earnings.js` |
 | `scripts/watch.py` | Finds new earnings filings on SEC EDGAR and drafts reports with Claude |
-| `../.github/workflows/retail-earnings.yml` | Runs the watcher twice each weekday and commits new reports |
+| `data/notes.json` | Caveats shown under "Notes on the data" |
+| `../.github/workflows/retail-earnings.yml` | Runs the watcher twice each weekday (about 8:15am and 4:45pm ET), hourly 7am-7pm ET in the second half of Feb, May, Aug and Nov, and commits new reports |
 
 ## How new earnings arrive
 
@@ -80,8 +81,10 @@ rejects unknown verdicts, guidance values or themes.
 ```
 ticker, fiscal_period, period_end, report_date, headline
 metrics: revenue_bn, revenue_yoy_pct, revenue_consensus_bn, comp_pct, comp_label, traffic_pct,
-         ticket_pct, ecom_yoy_pct, gross_margin_bps, eps_adj, eps_consensus, inventory_yoy_pct,
-         stock_reaction_pct            (null when not reported)
+         ticket_pct, ecom_yoy_pct, gross_margin_bps, eps_adj, eps_consensus, eps_ex_one_offs,
+         inventory_yoy_pct, stock_reaction_pct            (null when not reported)
+one_offs_undisclosed: true when EPS includes one-time items of unstated size
+notes: caveats for this quarter, shown on the card
 guidance: raised | maintained | lowered | initiated | mixed | none,  guidance_note
 key_messages: 3-5 strings
 consumer: verdict (strong | steady | choosy | strained), income_split, big_ticket, pricing, quote
@@ -89,14 +92,38 @@ themes: tags from THEMES in config.py
 macro_read, sources: [{label, url}]
 ```
 
-## About the starting data
+## Notes on the data
 
-The first 48 reports (the last four quarters for each retailer, through Amazon's Q3 2026 on Oct 29, 2026)
-were compiled from company releases as quoted in search results and financial press. Figures that could not
-be confirmed, or that sources disagreed on, were left empty. Spot-check against the linked releases before
-relying on a specific number. Two things to keep in mind when reading mid-2026 results:
+These caveats are kept in `data/notes.json` and shown at the bottom of the page under "Notes on the data".
+Caveats about a single quarter are kept in that report's `notes` field and shown on its card.
 
-- **IEEPA tariff refunds** lifted Q2 margins and EPS at several retailers (Target, Home Depot, Dollar Tree,
-  Dollar General, Costco, Walmart). The key messages say how much where it was disclosed.
-- **Amazon** comp is reported online stores growth (not ex-FX), and its EPS is GAAP, which includes gains
-  on investments in some quarters.
+1. **Starting data came from search summaries.** The 48 reports at launch (the last four quarters per
+   retailer, through Amazon's Oct 29, 2026 release) were compiled from web-search summaries of company
+   releases, SEC filings and financial press. The source pages themselves could not be opened, so each
+   figure is as quoted there. Check any number against the linked release before quoting it.
+2. **Blank figures.** A dash means not reported, not found, or sources disagreed (most often consensus and
+   stock reactions). Figures supplied from memory rather than a source were removed: Walmart Q3 FY2026
+   consensus and stock reaction, Costco Q1 FY2026 consensus.
+3. **Judgements, not data.** Consumer verdicts, theme tags, "What it says" headlines, Economy lines and
+   the briefing are written judgements based on what management said.
+4. **Stock reaction coverage is thin.** The pulse tile shows a median only when at least half the
+   retailers have a confirmed move, and says how many it covers.
+5. **One-time items in EPS.** Mid-2026 results include one-time IEEPA tariff refunds. Where the per-share
+   effect was disclosed (Target, Dollar Tree, Dollar General, Costco), `eps_ex_one_offs` holds EPS without
+   it and the beat is measured on that. Where it was not (Home Depot, Walmart, Best Buy),
+   `one_offs_undisclosed` is true; the card marks EPS with * and the pulse tile counts those beats
+   separately. TJX and Ross adjusted EPS already exclude refunds. Amazon EPS is GAAP and in Q1 and Q2 2026
+   included large Anthropic investment gains, so no consensus comparison is shown.
+6. **Amazon is not a like-for-like comp.** It reports total online-stores growth, so it is marked † in the
+   heatmap and left out of the median comp (`comp_is_growth` in `config.py`). Q3 2026 growth of 2% was
+   held down by Prime Day moving into June, about 4 points by Amazon's estimate.
+7. **Comps are defined differently.** Walmart U.S. ex fuel; Costco U.S. ex gas and FX; Home Depot U.S.;
+   Kroger identical sales ex fuel; Best Buy Domestic; Dollar Tree segment; others total comparable sales.
+   Treat small gaps between retailers as approximate.
+8. **Calendar-quarter alignment is approximate for Costco and Kroger,** whose 12- and 16-week quarters
+   don't line up with calendar quarters.
+9. **Report dates are estimates** unless marked confirmed.
+10. **Automatic drafts** come from the SEC-filed press release, have no consensus or stock move, and carry
+    an "auto-drafted" badge until reviewed.
+11. **The claude.ai page is a snapshot.** It changes only when it is republished; the repo copy is what the
+    workflow updates.

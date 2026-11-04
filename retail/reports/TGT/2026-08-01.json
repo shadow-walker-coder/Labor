@@ -17,7 +17,8 @@
     "eps_adj": 4.11,
     "eps_consensus": 2.3,
     "inventory_yoy_pct": null,
-    "stock_reaction_pct": null
+    "stock_reaction_pct": null,
+    "eps_ex_one_offs": 2.46
   },
   "guidance": "raised",
   "guidance_note": "FY26 net sales growth raised to ~5% (from ~4%); GAAP/adj EPS $9.90-10.90 incl. ~$1.65 of Q2 tariff refunds; op margin ~6% incl. ~90bps refund benefit.",
@@ -65,5 +66,8 @@
       "label": "MarketBeat Q2 call highlights",
       "url": "https://www.marketbeat.com/instant-alerts/target-q2-earnings-call-highlights-2026-08-19/"
     }
+  ],
+  "notes": [
+    "EPS of $4.11 includes $1.65 of one-time IEEPA tariff refunds; $2.46 without them. The beat is measured on $2.46."
   ]
 }

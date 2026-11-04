@@ -1,0 +1,42 @@
+[
+  {
+    "title": "Where the starting data came from",
+    "body": "The 48 reports in place at launch (the last four quarters per retailer, through Amazon's Oct 29, 2026 release) were compiled from web-search summaries of company releases, SEC filings and financial press. The source pages themselves could not be opened, so each figure is as quoted in those summaries. Each card links its sources; check any number against the linked release before quoting it."
+  },
+  {
+    "title": "Blank figures",
+    "body": "A dash means the figure was not reported, could not be found, or sources disagreed. Analyst consensus and stock reactions are blank most often. A few figures supplied from memory rather than a source were removed: Walmart Q3 FY2026 consensus and stock reaction, and Costco Q1 FY2026 consensus."
+  },
+  {
+    "title": "Judgements, not data",
+    "body": "The consumer verdict (strong, steady, choosy, strained), the theme tags, the one-line \"What it says\" headline, the Economy line and the briefing at the top are written judgements based on what management said."
+  },
+  {
+    "title": "Stock reaction on report day",
+    "body": "Only a few reports have a confirmed close-to-close move. The pulse tile shows a median only when at least half the retailers have one, and always says how many it covers."
+  },
+  {
+    "title": "Tariff refunds and other one-time items in EPS",
+    "body": "In mid-2026 many retailers booked one-time IEEPA tariff refunds. Where the per-share effect was disclosed (Target, Dollar Tree, Dollar General, Costco), the EPS beat is measured without it. Where it was not (Home Depot, Walmart, Best Buy), the card says part of the beat may come from refunds, and the pulse tile counts those separately. TJX and Ross adjusted EPS already exclude refunds. Amazon's EPS is GAAP and in Q1 and Q2 2026 included large gains on its Anthropic investment, so no consensus comparison is shown."
+  },
+  {
+    "title": "Amazon is not a like-for-like comp",
+    "body": "Amazon reports total online-stores growth, not comparable sales, so its figure is marked in the heatmap and left out of the median comp. Its Q3 2026 growth of 2% was held down by Prime Day moving into June, which Amazon put at about 4 points."
+  },
+  {
+    "title": "Comps are measured differently by each retailer",
+    "body": "Walmart: Walmart U.S. ex fuel. Costco: U.S. ex gas and FX. Home Depot: U.S. comps. Kroger: identical sales ex fuel. Best Buy: Domestic. Dollar Tree: Dollar Tree segment. Others: total comparable sales. Treat small gaps between retailers as approximate."
+  },
+  {
+    "title": "Calendar-quarter alignment",
+    "body": "Fiscal quarters are placed in the calendar quarter they mostly cover. Costco (12- and 16-week quarters) and Kroger (a 16-week first quarter) do not line up exactly, so their columns are approximate."
+  },
+  {
+    "title": "Report dates",
+    "body": "Upcoming dates are estimates from past schedules and earnings calendars unless marked confirmed."
+  },
+  {
+    "title": "Automatic drafts",
+    "body": "New reports are drafted from the press release each company files with the SEC, checked twice every weekday and hourly in the second half of February, May, August and November. Press releases carry no consensus estimates or stock moves, so drafts leave those blank. Drafts carry an \"auto-drafted\" badge until reviewed."
+  }
+]

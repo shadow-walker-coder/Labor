@@ -17,7 +17,8 @@
     "eps_adj": 6.75,
     "eps_consensus": 6.53,
     "inventory_yoy_pct": null,
-    "stock_reaction_pct": null
+    "stock_reaction_pct": null,
+    "eps_ex_one_offs": 6.6
   },
   "guidance": "none",
   "guidance_note": "Costco does not give earnings guidance. EPS of $6.75 includes a $0.15 nonrecurring IEEPA tariff-refund benefit (~$6.60 excluding it).",
@@ -66,5 +67,8 @@
       "label": "Costco Q4 2026 call transcript (Webull)",
       "url": "https://www.webull.com/news/15660435456459776"
     }
+  ],
+  "notes": [
+    "EPS of $6.75 includes a $0.15 one-time tariff-refund benefit; about $6.60 without it. The beat is measured on $6.60."
   ]
 }

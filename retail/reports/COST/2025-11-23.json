@@ -17,7 +17,8 @@
     "eps_adj": 4.5,
     "eps_consensus": null,
     "inventory_yoy_pct": null,
-    "stock_reaction_pct": null
+    "stock_reaction_pct": null,
+    "eps_ex_one_offs": 4.34
   },
   "guidance": "none",
   "guidance_note": "Costco does not give earnings guidance. EPS of $4.50 includes a $0.16 tax benefit ($4.34 excluding it).",
@@ -59,5 +60,8 @@
       "label": "Yahoo/Zacks: Costco beats Q1 estimates",
       "url": "https://finance.yahoo.com/news/costco-beats-q1-earnings-estimates-123600993.html"
     }
+  ],
+  "notes": [
+    "EPS of $4.50 includes a $0.16 tax benefit; $4.34 without it. Consensus for this quarter was removed because it could not be confirmed from a source."
   ]
 }

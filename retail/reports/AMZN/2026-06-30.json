@@ -67,5 +67,9 @@
       "label": "Zacks: Q2 key metrics",
       "url": "https://www.zacks.com/stock/news/2965237/amazon-amzn-reports-q2-earnings-what-key-metrics-have-to-say"
     }
+  ],
+  "notes": [
+    "EPS is GAAP and includes about $53B of Anthropic-related gains, so no consensus comparison is shown.",
+    "Online stores growth is total growth, not a like-for-like comp."
   ]
 }

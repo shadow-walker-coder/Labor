@@ -61,5 +61,9 @@
       "label": "Motley Fool Q2 FY27 call transcript",
       "url": "https://www.fool.com/earnings/call-transcripts/2026/08/27/walmart-wmt-q2-2027-earnings-call-transcript/"
     }
-  ]
+  ],
+  "notes": [
+    "IEEPA tariff refunds lifted gross margin (+96bp, from a summary of the release); the per-share effect was not disclosed, so part of the beat may come from them."
+  ],
+  "one_offs_undisclosed": true
 }

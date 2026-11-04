@@ -3,6 +3,7 @@
 Reads   retail/reports/<TICKER>/<period_end>.json   one file per quarterly release
         retail/data/calendar.json                   next report date per ticker
         retail/data/briefing.json                   the cross-retailer briefing at the top
+        retail/data/notes.json                      caveats shown under "Notes on the data"
 Writes  retail/data/earnings.js                     window.RETAIL_DATA = {...}
 
 Run: python retail/scripts/build.py   (stdlib only; fails on schema errors)
@@ -22,7 +23,7 @@ DATA = ROOT / "data"
 METRIC_KEYS = [
     "revenue_bn", "revenue_yoy_pct", "revenue_consensus_bn", "comp_pct", "comp_label",
     "traffic_pct", "ticket_pct", "ecom_yoy_pct", "gross_margin_bps", "eps_adj",
-    "eps_consensus", "inventory_yoy_pct", "stock_reaction_pct",
+    "eps_consensus", "eps_ex_one_offs", "inventory_yoy_pct", "stock_reaction_pct",
 ]
 
 
@@ -86,11 +87,15 @@ def load_reports():
         metrics = report.setdefault("metrics", {})
         for key in METRIC_KEYS:
             metrics.setdefault(key, None)
-        eps, est = metrics.get("eps_adj"), metrics.get("eps_consensus")
+        # measure the beat on EPS without one-time items (e.g. tariff refunds) when disclosed
+        eps = metrics.get("eps_ex_one_offs") if metrics.get("eps_ex_one_offs") is not None else metrics.get("eps_adj")
+        est = metrics.get("eps_consensus")
         report["eps_surprise_pct"] = round((eps - est) / abs(est) * 100, 1) if eps is not None and est else None
         rev, rest = metrics.get("revenue_bn"), metrics.get("revenue_consensus_bn")
         report["rev_surprise_pct"] = round((rev - rest) / rest * 100, 1) if rev is not None and rest else None
         report.setdefault("status", "reviewed")
+        report.setdefault("notes", [])
+        report.setdefault("one_offs_undisclosed", False)
         report["file"] = str(path.relative_to(ROOT))
         reports.append(report)
     return reports, errors
@@ -116,6 +121,7 @@ def main():
         verdicts=VERDICTS,
         reports=reports,
         calendar=read("calendar.json", {}),
+        data_notes=read("notes.json", []),
         briefing=read("briefing.json", None),
     )
     out = DATA / "earnings.js"
