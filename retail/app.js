@@ -256,7 +256,9 @@
         const [, m, d] = e.date.split("-").map(Number);
         return `<div class="ev ${e.date < today ? "past-ev" : ""}"><div class="date"><span>${MONTHS[m - 1]}</span><b>${d}</b></div>
         <div class="who">${esc(retailers[e.tk].name)} <span class="tk" style="font:12px var(--mono);color:var(--muted)">${e.tk}</span></div>
-        <div class="what">${esc(e.label || "")}${e.confirmed ? " · confirmed" : " · estimated"}${e.date < today ? " · awaiting data" : ""}</div></div>`;
+        <div class="what">${esc(e.label || "")}${e.confirmed
+          ? `${e.time ? ` · ${esc(e.time)}` : ""} · <b class="conf">confirmed</b>`
+          : ` · estimated${e.basis ? `<span class="basis">${esc(e.basis)}</span>` : ""}`}${e.date < today ? " · awaiting data" : ""}</div></div>`;
       }).join("")}</div></section>`;
   }
 

@@ -271,3 +271,5 @@ table.heat { border-collapse: separate; border-spacing: 3px; width: 100%; min-wi
 .datanotes dd { margin: 0; }
 @media (max-width: 640px) { .datanotes { grid-template-columns: minmax(0, 1fr); gap: 2px; } .datanotes dd { margin-bottom: 8px; } }
 .kv div.wide { grid-column: 1 / -1; }
+.cal .conf { color: var(--strong); font-weight: 600; }
+.cal .basis { display: block; margin-top: 2px; font-size: 11.5px; color: var(--muted); }
