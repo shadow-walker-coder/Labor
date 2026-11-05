@@ -275,3 +275,46 @@ table.heat { border-collapse: separate; border-spacing: 3px; width: 100%; min-wi
 .cal .basis { display: block; margin-top: 2px; font-size: 11.5px; color: var(--muted); }
 .glance .gtag { font: 600 10px var(--mono); text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); border: 1px dashed var(--muted); border-radius: 4px; padding: 1px 5px; }
 .scale .growth-key { width: 26px; height: 12px; border: 2px dashed var(--ink-2); border-radius: 2px; background: transparent; }
+
+/* Executive summary */
+.exec { display: grid; gap: 22px; padding-block: 12px 0; }
+.bottom { background: var(--ink); color: var(--paper); border-radius: 12px; padding: 22px 24px; display: grid; gap: 10px; }
+.bottom .eyebrow { color: var(--paper); opacity: 0.65; }
+.bl-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
+.bottom h2 { margin: 0; font: 700 clamp(26px, 3.6vw, 40px)/1.08 var(--display); letter-spacing: 0.005em; max-width: 30ch; }
+.bottom .sum { margin: 0; opacity: 0.85; max-width: 80ch; }
+.verd.big { font-size: 13px; padding: 5px 12px; background: var(--paper); }
+.sowhat { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 12px; margin-top: 4px; display: grid; gap: 6px; }
+.sowhat ul { margin: 0; padding-left: 18px; display: grid; gap: 4px; }
+.sowhat li::marker { color: var(--tag); }
+.bottom .autonote { color: var(--paper); opacity: 0.6; }
+.block { display: grid; gap: 10px; min-width: 0; }
+.score { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+@media (max-width: 1000px) { .score { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .score { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.score .tile { background: var(--card); border: 1px solid var(--rule); border-radius: 10px; padding: 14px; display: grid; gap: 4px; align-content: start; min-width: 0; }
+.score .mix { height: 22px; margin-block: 6px 2px; }
+.score .v .up { color: var(--strong); } .score .v .dn { color: var(--strained); }
+table.seg { width: 100%; min-width: 720px; border-collapse: collapse; background: var(--card); border: 1px solid var(--rule); border-radius: 10px; overflow: hidden; font-size: 14px; }
+.seg th, .seg td { padding: 11px 14px; border-bottom: 1px solid var(--rule); text-align: left; vertical-align: top; }
+.seg thead th { font: 600 11px var(--mono); text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); background: var(--paper); }
+.seg tbody tr:last-child th, .seg tbody tr:last-child td { border-bottom: 0; }
+.seg tbody tr:hover { background: var(--accent-soft); }
+.seg th[scope="row"] { min-width: 12rem; }
+.seg th[scope="row"] a { color: var(--ink); font-weight: 700; text-decoration: none; display: block; }
+.seg th[scope="row"] a:hover { color: var(--accent); text-decoration: underline; }
+.seg th[scope="row"] span { display: block; font: 400 12px var(--body); color: var(--muted); margin-top: 2px; }
+.seg td.num { font-weight: 600; white-space: nowrap; }
+.seg .gnote { display: block; font: 600 10px var(--mono); text-transform: uppercase; color: var(--muted); letter-spacing: 0.05em; }
+.seg .delta.up { color: var(--strong); } .seg .delta.dn { color: var(--strained); }
+.seg td.read { color: var(--ink-2); min-width: 18rem; }
+.cols3 { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 900px) { .cols3 { grid-template-columns: minmax(0, 1fr); } }
+.col { background: var(--card); border: 1px solid var(--rule); border-top: 4px solid var(--steady); border-radius: 10px; padding: 14px 16px; min-width: 0; }
+.col.pos { border-top-color: var(--strong); } .col.neg { border-top-color: var(--strained); } .col.watch { border-top-color: var(--choosy); }
+.col h3 { margin: 0 0 8px; font: 700 20px/1 var(--display); text-transform: uppercase; letter-spacing: 0.02em; }
+.col ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.col li { display: grid; gap: 2px; font-size: 13.5px; }
+.col li span { color: var(--ink-2); }
+.panel.themes { display: grid; gap: 6px; }
+@media (max-width: 600px) { .score .tile:first-child { grid-column: 1 / -1; } }

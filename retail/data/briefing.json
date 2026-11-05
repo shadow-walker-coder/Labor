@@ -1,80 +1,36 @@
 {
-  "as_of": "2026-11-04",
-  "headline": "A choosy consumer: still spending, steered toward value, with housing stuck",
-  "summary": "The latest reports, mostly covering May to July and released in August and September, show sales still growing almost everywhere and nearly every retailer beating profit estimates. Underneath, shoppers are trading down, traffic is flowing to value and off-price chains, and anything tied to housing is flat. One-time tariff refunds flattered many of the profit beats.",
-  "points": [
-    {
-      "title": "Value chains are winning the traffic",
-      "body": "Ross comps rose 10% on traffic, its second double-digit quarter. Target traffic rose 3.6%, Costco 3.3%, Dollar General 2.0% and Walmart U.S. 1.5%. The traffic gains are concentrated at the cheapest formats.",
-      "tickers": [
-        "ROST",
-        "TGT",
-        "COST",
-        "DG",
-        "WMT"
-      ]
-    },
-    {
-      "title": "Trade-down is moving up the income ladder",
-      "body": "Dollar General and Dollar Tree both credit middle- and higher-income households for their gains, while lower-income shoppers buy smaller packs and opening price points. Walmart says fuel prices forced more trade-offs, especially in June.",
-      "tickers": [
-        "DG",
-        "DLTR",
-        "WMT"
-      ]
-    },
-    {
-      "title": "Housing is still the drag",
-      "body": "Home Depot U.S. comps rose 1.3% with transactions down 1.0%. Lowe's managed +0.2% with traffic down 2.1% and cut its year to flat comps. Pros and must-do repairs carry demand; big remodels stay on hold while home sales are frozen.",
-      "tickers": [
-        "HD",
-        "LOW"
-      ]
-    },
-    {
-      "title": "Tariff refunds flattered the profit beats",
-      "body": "IEEPA tariff refunds lifted Q2 margins at Target ($994M), Home Depot (about $730M), Dollar Tree ($1.31 of its $2.70 EPS), Costco and Walmart. Much of the money is being put into price cuts, a modest disinflationary push for goods.",
-      "tickers": [
-        "TGT",
-        "HD",
-        "DLTR",
-        "COST",
-        "WMT"
-      ]
-    },
-    {
-      "title": "Essentials are slowing at the margin",
-      "body": "Kroger identical sales rose only 0.2% and it cut its sales outlook. Walmart U.S. comps slowed to 2.6%, about 125bp of that from drug-price rules. Amazon online stores grew 2%, though moving Prime Day into June cost about 4 points.",
-      "tickers": [
-        "KR",
-        "WMT",
-        "AMZN"
-      ]
-    },
-    {
-      "title": "Discretionary is selective, not broken",
-      "body": "Best Buy domestic comps rose 4.5% on PC replacement and new gadgets, and it raised its outlook. HomeGoods comps rose 7% while T.J. Maxx and Marshalls slowed to 1%, and Target home and apparel still lag. Online, Q3 eBay merchandise volume grew 16% (about 3 points from Depop) and Etsy marketplace sales 8.8%, both raising their outlooks.",
-      "tickers": [
-        "BBY",
-        "TJX",
-        "TGT",
-        "EBAY",
-        "ETSY"
-      ]
-    },
-    {
-      "title": "Next: the holiday read, Nov 17 to 24",
-      "body": "Home Depot, Lowe's, Target, TJX, Walmart, Ross, Best Buy and Dollar Tree report in one week. Watch traffic, holiday guidance, and whether retailers keep passing tariff refunds through as lower prices.",
-      "tickers": [
-        "HD",
-        "LOW",
-        "TGT",
-        "TJX",
-        "WMT",
-        "ROST",
-        "BBY",
-        "DLTR"
-      ]
-    }
+  "as_of": "2026-11-05",
+  "verdict": "choosy",
+  "headline": "Still spending, but choosy: value wins, housing stalls",
+  "summary": "Sales are still growing at almost every big retailer and most beat profit estimates, but shoppers are trading down, traffic is moving to the cheapest formats, and housing-linked spending is flat. One-time tariff refunds flattered many of the profit beats.",
+  "implications": [
+    "Consumption is slowing, not contracting: median comps near +3.7%, driven by more shoppers at value chains rather than bigger baskets.",
+    "Lower- and middle-income budgets are stretched by fuel and food; higher earners are the swing shoppers at discounters.",
+    "Goods prices should ease: retailers say they are passing tariff refunds through as price cuts."
+  ],
+  "segments": {
+    "mass": "Traffic up at Walmart, Costco and Target; Walmart U.S. comps slowed to +2.6% as fuel squeezed budgets.",
+    "ecom": "Amazon's +2% is a Prime Day timing quirk; eBay (+16%) and Etsy (+8.8%) sped up and raised outlooks.",
+    "home": "Flat: Home Depot +1.3%, Lowe's +0.2%, fewer transactions; big remodels wait for housing turnover.",
+    "offprice": "Strongest segment: Ross +10% on traffic; TJX +4%, with HomeGoods +7%.",
+    "value": "Traffic-led gains (+3.5% to +3.7%) as higher earners trade in; core low-income shoppers still stretched.",
+    "electronics": "Best Buy +4.5% on PC replacement and new gadgets: fewer, pricier items.",
+    "luxury": "Luxury results are being added.",
+    "grocery": "Kroger barely growing (+0.2%) on drug-price rules and cautious shoppers; sales outlook cut."
+  },
+  "working": [
+    {"title": "Traffic at value formats", "body": "Ross, Target, Costco, Dollar General and Walmart all grew customer counts."},
+    {"title": "Replacement-cycle tech", "body": "Best Buy comps +4.5% on PCs and new gadgets; outlook raised."},
+    {"title": "Online marketplaces", "body": "eBay merchandise volume +16% and Etsy +8.8% in Q3; both raised outlooks."}
+  ],
+  "pressure": [
+    {"title": "Housing-linked spending", "body": "Home Depot +1.3% and Lowe's +0.2% with fewer transactions; Lowe's cut its outlook."},
+    {"title": "Lower-income budgets", "body": "Fuel and food costs pinch; dollar stores gain as higher earners trade down."},
+    {"title": "Grocery volumes", "body": "Kroger identical sales +0.2% and a lower sales outlook."}
+  ],
+  "watch": [
+    {"title": "Holiday guidance, Nov 17–24", "body": "Home Depot, Target, TJX, Walmart, Best Buy and Dollar Tree report within one week."},
+    {"title": "Tariff refunds", "body": "Whether refunds keep turning into price cuts, and how much of the profit beats they were."},
+    {"title": "Amazon Q4", "body": "The clean read on online demand once the Prime Day shift washes out."}
   ]
 }

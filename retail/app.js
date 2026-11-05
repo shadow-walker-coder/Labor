@@ -13,6 +13,10 @@
   const cls = (v) => (isNum(v) ? (v > 0 ? "up" : v < 0 ? "dn" : "") : "");
   const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   const fmtDate = (iso) => { const [y, m, d] = iso.split("-").map(Number); return `${MONTHS[m - 1]} ${d}, ${y}`; };
+  const money = (bn, currency) => {
+    const cur = { EUR: "€", GBP: "£" }[currency] || "$";
+    return bn < 1 ? `${cur}${Math.round(bn * 1000)}m` : `${cur}${bn.toFixed(1)}bn`;
+  };
   const median = (xs) => { const a = xs.filter(isNum).sort((p, q) => p - q); if (!a.length) return null; const m = a.length >> 1; return a.length % 2 ? a[m] : (a[m - 1] + a[m]) / 2; };
   const today = new Date().toISOString().slice(0, 10);
 
@@ -51,59 +55,116 @@
       </div></header>`;
   }
 
-  function briefing() {
-    const b = D.briefing;
-    const verdicts = latest.map((r) => r.consumer.verdict);
-    const count = (v) => verdicts.filter((x) => x === v).length;
+  // ---------- executive summary
+  const SEVERITY = { strong: 0, steady: 1, choosy: 2, strained: 3 };
+  function modeVerdict(rs) {
+    const n = {};
+    rs.forEach((r) => (n[r.consumer.verdict] = (n[r.consumer.verdict] || 0) + 1));
+    // most common; a tie goes to the weaker reading
+    return Object.keys(n).sort((x, y) => n[y] - n[x] || SEVERITY[y] - SEVERITY[x])[0];
+  }
+  function stats() {
     const growthOnly = latest.filter((r) => retailers[r.ticker].comp_is_growth);
     const comps = latest.filter((r) => !retailers[r.ticker].comp_is_growth).map((r) => r.metrics.comp_pct);
     const withEst = latest.filter((r) => isNum(r.eps_surprise_pct));
     const beatRs = withEst.filter((r) => r.eps_surprise_pct > 0);
-    const beats = beatRs.length;
-    const murky = beatRs.filter((r) => r.one_offs_undisclosed).length;
-    const raised = latest.filter((r) => r.guidance === "raised").length;
-    const cut = latest.filter((r) => r.guidance === "lowered").length;
     const moves = latest.map((r) => r.metrics.stock_reaction_pct).filter(isNum);
-    const enoughMoves = moves.length >= Math.ceil(latest.length / 2);
+    return {
+      growthOnly, comps, withEst, beats: beatRs.length,
+      murky: beatRs.filter((r) => r.one_offs_undisclosed).length,
+      raised: latest.filter((r) => r.guidance === "raised").length,
+      cut: latest.filter((r) => r.guidance === "lowered").length,
+      moves, enoughMoves: moves.length >= Math.ceil(latest.length / 2),
+    };
+  }
+
+  function briefing() {
+    const b = D.briefing || {};
+    const st = stats();
+    const verdicts = latest.map((r) => r.consumer.verdict);
+    const count = (v) => verdicts.filter((x) => x === v).length;
+    const overall = b.verdict || modeVerdict(latest);
 
     const mix = D.verdicts.filter(count).map((v) =>
       `<div class="${v}" style="flex:${count(v)}" title="${VERD[v]}: ${count(v)}">${count(v)}</div>`).join("");
-    const key = D.verdicts.map((v) => `<span><i style="background:var(--${v})"></i>${VERD[v]} ${count(v)}</span>`).join("");
 
+    // segment rows: verdict, median latest growth, change vs the quarter before
+    const segRows = D.categories.map((c) => {
+      const ts = D.retailers.filter((t) => t.category === c.key);
+      const now = ts.map((t) => hist[t.ticker]?.[0]).filter(Boolean);
+      const prev = ts.map((t) => hist[t.ticker]?.[1]).filter(Boolean);
+      if (!now.length) return "";
+      const v = modeVerdict(now);
+      const m = median(now.map((r) => r.metrics.comp_pct));
+      const mp = median(prev.map((r) => r.metrics.comp_pct));
+      const d = isNum(m) && isNum(mp) ? m - mp : null;
+      const growth = ts.every((t) => t.comp_is_growth);
+      const arrow = !isNum(d) ? "—" : d > 0.25 ? `▲ ${Math.abs(d).toFixed(1)} pts` : d < -0.25 ? `▼ ${Math.abs(d).toFixed(1)} pts` : "≈ flat";
+      return `<tr>
+        <th scope="row"><a href="#${c.key}">${esc(c.name)}</a><span>${ts.map((t) => esc(t.name)).join(", ")}</span></th>
+        <td><span class="verd ${v}">${VERD[v]}</span></td>
+        <td class="num">${pct(m)}${growth ? '<span class="gnote">growth</span>' : ""}</td>
+        <td class="num delta ${isNum(d) ? (d > 0.25 ? "up" : d < -0.25 ? "dn" : "") : ""}">${arrow}</td>
+        <td class="read">${esc(b.segments?.[c.key] || cats[c.key].reads)}</td>
+      </tr>`;
+    }).join("");
+
+    const col = (title, cls, items) => items?.length ? `<div class="col ${cls}"><h3>${title}</h3><ul>${items.map((i) =>
+      `<li><b>${esc(i.title)}</b><span>${esc(i.body)}</span></li>`).join("")}</ul></div>` : "";
+
+    return `<section class="wrap exec" aria-label="Executive summary">
+      <div class="bottom">
+        <div class="bl-top">
+          <div class="eyebrow">Bottom line${b.as_of ? ` · as of ${fmtDate(b.as_of)}` : ""}</div>
+          <span class="verd big ${overall}" title="${VERD_NOTE[overall]}">Consumer: ${VERD[overall]}</span>
+        </div>
+        <h2>${esc(b.headline || "Latest reports by retailer")}</h2>
+        ${b.summary ? `<p class="sum">${esc(b.summary)}</p>` : ""}
+        ${b.implications?.length ? `<div class="sowhat"><div class="eyebrow">What it means</div><ul>${b.implications.map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>` : ""}
+        ${b.auto ? `<div class="autonote">Drafted automatically from the latest reports.</div>` : ""}
+      </div>
+
+      <div class="block">
+        <div class="eyebrow">Scorecard · latest report from each of ${latest.length} retailers</div>
+        <div class="score">
+          <div class="tile"><div class="k">Consumer signal</div>
+            <div class="mix" role="img" aria-label="${D.verdicts.map((v) => `${VERD[v]} ${count(v)}`).join(", ")}">${mix}</div>
+            <div class="s">${D.verdicts.filter(count).map((v) => `${VERD[v]} ${count(v)}`).join(" · ")}</div></div>
+          <div class="tile"><div class="k">Median comp sales</div><div class="v">${pct(median(st.comps))}</div>
+            <div class="s">${st.comps.filter(isNum).length} retailers; ${st.growthOnly.length} growth-only reporters left out</div></div>
+          <div class="tile"><div class="k">Beat EPS estimates</div><div class="v">${st.beats}/${st.withEst.length}</div>
+            <div class="s">one-offs removed where disclosed${st.murky ? `; ${st.murky} include refunds of unknown size` : ""}</div></div>
+          <div class="tile"><div class="k">Guidance</div><div class="v"><span class="up">${st.raised}▲</span> <span class="dn">${st.cut}▼</span></div>
+            <div class="s">raised vs cut; ${latest.length - st.raised - st.cut} held, mixed or none</div></div>
+          <div class="tile"><div class="k">Stock reaction</div><div class="v ${st.enoughMoves ? cls(median(st.moves)) : ""}">${st.enoughMoves ? pct(median(st.moves)) : "—"}</div>
+            <div class="s">${st.enoughMoves ? `median on report day, ${st.moves.length} retailers` : `only ${st.moves.length} of ${latest.length} have a confirmed move`}</div></div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="eyebrow">By segment · click a segment for its page</div>
+        <div class="scroll"><table class="seg">
+          <thead><tr><th scope="col">Segment</th><th scope="col">Consumer</th><th scope="col">Latest growth</th><th scope="col">vs prior quarter</th><th scope="col">The read</th></tr></thead>
+          <tbody>${segRows}</tbody>
+        </table></div>
+        <div class="scale">Latest growth is the median of each segment's latest comp (or growth, where marked). "vs prior quarter" compares it with the same retailers' previous quarter.</div>
+      </div>
+
+      <div class="block cols3">
+        ${col("What's working", "pos", b.working)}
+        ${col("Under pressure", "neg", b.pressure)}
+        ${col("What to watch", "watch", b.watch)}
+      </div>
+    </section>`;
+  }
+
+  function themesPanel() {
     const tally = {};
     latest.forEach((r) => (r.themes || []).forEach((t) => (tally[t] = (tally[t] || 0) + 1)));
     const top = Object.entries(tally).sort((a, b) => b[1] - a[1]).slice(0, 8);
-    const themeRows = top.map(([t, n]) => `<div class="theme"><span class="lab" title="${esc(D.themes[t])}">${esc(D.themes[t])}</span>
-      <span class="track"><span class="fill" style="width:${(n / latest.length) * 100}%"></span></span><span class="n">${n}</span></div>`).join("");
-
-    const points = (b?.points || []).map((p) => `<li><b>${esc(p.title)}</b><p>${esc(p.body)}</p></li>`).join("");
-
-    return `<section class="wrap brief" aria-label="Briefing">
-      <div class="verdict">
-        <div class="eyebrow">The read on the consumer${b?.as_of ? ` · as of ${fmtDate(b.as_of)}` : ""}</div>
-        <h2>${esc(b?.headline || "Latest reports by retailer")}</h2>
-        ${b?.summary ? `<p class="sum">${esc(b.summary)}</p>` : ""}
-        ${points ? `<ul class="points">${points}</ul>` : ""}
-        ${b?.auto ? `<div class="autonote">Briefing drafted automatically from the latest reports.</div>` : ""}
-      </div>
-      <div class="pulse">
-        <div>
-          <div class="eyebrow">Consumer pulse · latest report from each retailer</div>
-          <div class="mix" role="img" aria-label="${D.verdicts.map((v) => `${VERD[v]} ${count(v)}`).join(", ")}" style="margin-top:8px">${mix}</div>
-          <div class="mixkey">${key}</div>
-        </div>
-        <div class="tiles">
-          <div class="tile"><div class="k">Median comp sales</div><div class="v">${pct(median(comps))}</div><div class="s">across ${comps.filter(isNum).length} retailers${growthOnly.length ? `; ${growthOnly.map((r) => retailers[r.ticker].name).join(", ")} left out (growth, not a comp)` : ""}</div></div>
-          <div class="tile"><div class="k">Beat EPS estimates</div><div class="v">${beats}/${withEst.length}</div><div class="s">one-time items removed where disclosed${murky ? `; ${murky} of the beats include tariff refunds of undisclosed size` : ""}</div></div>
-          <div class="tile"><div class="k">Guidance</div><div class="v">${raised}<span style="font-size:15px;color:var(--muted)"> up</span> ${cut}<span style="font-size:15px;color:var(--muted)"> down</span></div><div class="s">${latest.length - raised - cut} held, mixed or none</div></div>
-          <div class="tile"><div class="k">Median stock reaction</div><div class="v ${enoughMoves ? cls(median(moves)) : ""}">${enoughMoves ? pct(median(moves)) : "—"}</div><div class="s">${enoughMoves ? `on report day, ${moves.length} of ${latest.length} retailers` : `only ${moves.length} of ${latest.length} retailers have a confirmed move`}</div></div>
-        </div>
-        <div>
-          <div class="eyebrow" style="margin-bottom:8px">What management keeps talking about · retailers citing it</div>
-          <div class="themes">${themeRows}</div>
-        </div>
-      </div>
-    </section>`;
+    return `<section class="wrap sec heat-sec"><div class="sec-head"><div class="eyebrow">What management keeps raising · retailers citing it in their latest report</div></div>
+      <div class="panel themes">${top.map(([t, n]) => `<div class="theme"><span class="lab" title="${esc(D.themes[t])}">${esc(D.themes[t])}</span>
+      <span class="track"><span class="fill" style="width:${(n / latest.length) * 100}%"></span></span><span class="n">${n}</span></div>`).join("")}</div></section>`;
   }
 
   // ---------- page strip (sticky): one tab per page, plus previous / next
@@ -149,7 +210,7 @@
     const base = isNum(m.eps_ex_one_offs) ? m.eps_ex_one_offs : m.eps_adj;
     const eps = isNum(base) ? `$${base.toFixed(2)}${r.one_offs_undisclosed ? "*" : ""}${isNum(m.eps_consensus) ? ` vs ${m.eps_consensus.toFixed(2)}` : ""}` : "—";
     const rows = [
-      ["Revenue", isNum(m.revenue_bn) ? (m.revenue_bn < 1 ? `$${Math.round(m.revenue_bn * 1000)}m` : `$${m.revenue_bn.toFixed(1)}bn`) : "—", ""],
+      ["Revenue", isNum(m.revenue_bn) ? money(m.revenue_bn, m.currency) : "—", ""],
       ["Rev. YoY", pct(m.revenue_yoy_pct), cls(m.revenue_yoy_pct)],
       ["Traffic", pct(m.traffic_pct), cls(m.traffic_pct)],
       ["Ticket", pct(m.ticket_pct), cls(m.ticket_pct)],
@@ -272,8 +333,8 @@
   // ---------- pages
   const PAGES = [
     { key: "summary", label: "Executive summary", short: "Summary",
-      lead: "What the latest reports say together, and every retailer's comps quarter by quarter.",
-      body: () => briefing() + heatmap() },
+      lead: "What the latest earnings say about the U.S. consumer, on one page.",
+      body: () => briefing() + heatmap() + themesPanel() },
     ...D.categories.map((c) => ({
       key: c.key, label: c.name, short: c.short, lead: c.reads,
       head: () => glance(D.retailers.filter((r) => r.category === c.key)),

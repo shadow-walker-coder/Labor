@@ -18,6 +18,8 @@ CATEGORIES = [
          reads="The clearest window on lower-income households: paycheck timing, benefits and trade-down."),
     dict(key="electronics", short="Electronics", name="Electronics",
          reads="Pure discretionary, big-ticket demand and replacement cycles."),
+    dict(key="luxury", short="Luxury", name="Luxury",
+         reads="The top of the income ladder: aspirational and high-end shoppers, pricing power and the wealth effect."),
     dict(key="grocery", short="Grocery", name="Grocery",
          reads="Food inflation, private label and pharmacy: the non-negotiable part of the budget."),
 ]
@@ -51,6 +53,16 @@ RETAILERS = [
          comp_label="Dollar Tree comparable sales"),
     dict(ticker="BBY", name="Best Buy", category="electronics", cik=764478,
          comp_label="Domestic comparable sales"),
+    # Luxury companies report revenue growth (constant currency), not like-for-like comps.
+    dict(ticker="TPR", name="Tapestry", category="luxury", cik=1116132,
+         comp_label="North America revenue growth", comp_is_growth=True),
+    dict(ticker="RL", name="Ralph Lauren", category="luxury", cik=1037038,
+         comp_label="North America revenue growth", comp_is_growth=True),
+    dict(ticker="CPRI", name="Capri", category="luxury", cik=1530721,
+         comp_label="Michael Kors revenue growth", comp_is_growth=True),
+    # LVMH is listed in Paris and files nothing with the SEC (cik=None): refreshed on request, not by watch.py.
+    dict(ticker="LVMH", name="LVMH", category="luxury", cik=None,
+         comp_label="Organic revenue growth", comp_is_growth=True),
     dict(ticker="KR", name="Kroger", category="grocery", cik=56873,
          comp_label="Identical sales ex fuel"),
 ]

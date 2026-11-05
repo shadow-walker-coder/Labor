@@ -217,31 +217,41 @@ def draft_report(retailer: dict, filing: dict, release: str, url: str, previous:
     }
 
 
+ITEM = {
+    "type": "object", "additionalProperties": False, "required": ["title", "body"],
+    "properties": {"title": {"type": "string"}, "body": {"type": "string"}},
+}
 BRIEF_SCHEMA = {
     "type": "object",
     "additionalProperties": False,
-    "required": ["headline", "summary", "points"],
+    "required": ["verdict", "headline", "summary", "implications", "segments", "working", "pressure", "watch"],
     "properties": {
+        "verdict": {"type": "string", "enum": VERDICTS},
         "headline": {"type": "string"},
         "summary": {"type": "string"},
-        "points": {"type": "array", "items": {
+        "implications": {"type": "array", "items": {"type": "string"}},
+        "segments": {
             "type": "object", "additionalProperties": False,
-            "required": ["title", "body", "tickers"],
-            "properties": {"title": {"type": "string"}, "body": {"type": "string"},
-                           "tickers": {"type": "array", "items": {"type": "string"}}},
-        }},
+            "required": [c["key"] for c in CATEGORIES],
+            "properties": {c["key"]: {"type": "string"} for c in CATEGORIES},
+        },
+        "working": {"type": "array", "items": ITEM},
+        "pressure": {"type": "array", "items": ITEM},
+        "watch": {"type": "array", "items": ITEM},
     },
 }
 
-BRIEF_SYSTEM = """You write the briefing at the top of a dashboard tracking big-box retailer earnings.
-From each retailer's latest quarterly record, say what the reports together say about the U.S.
-consumer and economy.
-- headline: one sentence, at most 110 characters, the verdict on the consumer.
-- summary: two or three sentences.
-- points: 4 to 6 cross-retailer takeaways (e.g. who is spending, trade-down, big-ticket and housing,
-  pricing and tariffs, what to watch next). Each title at most 60 characters, each body at most 260,
-  and tickers lists the retailers that support the point. Cite numbers from the records only.
-Write plainly for an economist; no hype."""
+BRIEF_SYSTEM = """You write the executive summary at the top of a dashboard tracking big U.S. retailer earnings,
+for senior readers who want the conclusion first. From each retailer's latest quarterly record, say what the
+reports together say about the U.S. consumer and economy.
+- verdict: the overall consumer reading (strong, steady, choosy, strained).
+- headline: one sentence, at most 90 characters, the verdict on the consumer.
+- summary: two sentences at most.
+- implications: exactly 3 short "what it means" points for the economy, each at most 140 characters.
+- segments: one line per category key, at most 120 characters, the read for that segment with its key number.
+- working, pressure, watch: 2 or 3 items each (what is going well, where it is weak, what to watch next).
+  Each title at most 40 characters, each body at most 140 characters.
+Cite numbers from the records only. Write plainly; no hype."""
 
 
 def write_briefing():
@@ -254,7 +264,7 @@ def write_briefing():
             latest[r["ticker"]] = r
     names = {r["ticker"]: (r["name"], r["category"]) for r in RETAILERS}
     cats = {c["key"]: c["name"] for c in CATEGORIES}
-    lines = [json.dumps({"retailer": names[t][0], "category": cats[names[t][1]], **r}, ensure_ascii=False)
+    lines = [json.dumps({"retailer": names[t][0], "category_key": names[t][1], "category": cats[names[t][1]], **r}, ensure_ascii=False)
              for t, r in sorted(latest.items())]
     brief = claude_json(BRIEF_SYSTEM, "Latest record per retailer, one per line:\n" + "\n".join(lines), BRIEF_SCHEMA)
     brief["as_of"] = dt.date.today().isoformat()
@@ -282,6 +292,9 @@ def main():
     new = 0
     for retailer in RETAILERS:
         if only and retailer["ticker"] not in only:
+            continue
+        if not retailer.get("cik"):
+            print(f"{retailer['ticker']}: not an SEC filer; update its reports by hand")
             continue
         have = existing(retailer["ticker"])
         done = [r for r in have if r.get("status") != "pending"]
