@@ -115,12 +115,11 @@
     return `<section class="wrap exec" aria-label="Executive summary">
       <div class="bottom">
         <div class="bl-top">
-          <div class="eyebrow">Bottom line${b.as_of ? ` · as of ${fmtDate(b.as_of)}` : ""}</div>
+          <div class="eyebrow">Executive summary${b.as_of ? ` · as of ${fmtDate(b.as_of)}` : ""}</div>
           <span class="verd big ${overall}" title="${VERD_NOTE[overall]}">Consumer: ${VERD[overall]}</span>
         </div>
         <h2>${esc(b.headline || "Latest reports by retailer")}</h2>
         ${b.summary ? `<p class="sum">${esc(b.summary)}</p>` : ""}
-        ${b.implications?.length ? `<div class="sowhat"><div class="eyebrow">What it means</div><ul>${b.implications.map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>` : ""}
         ${b.auto ? `<div class="autonote">Drafted automatically from the latest reports.</div>` : ""}
       </div>
 

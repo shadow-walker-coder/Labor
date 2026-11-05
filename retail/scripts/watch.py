@@ -224,12 +224,11 @@ ITEM = {
 BRIEF_SCHEMA = {
     "type": "object",
     "additionalProperties": False,
-    "required": ["verdict", "headline", "summary", "implications", "segments", "working", "pressure", "watch"],
+    "required": ["verdict", "headline", "summary", "segments", "working", "pressure", "watch"],
     "properties": {
         "verdict": {"type": "string", "enum": VERDICTS},
         "headline": {"type": "string"},
         "summary": {"type": "string"},
-        "implications": {"type": "array", "items": {"type": "string"}},
         "segments": {
             "type": "object", "additionalProperties": False,
             "required": [c["key"] for c in CATEGORIES],
@@ -247,7 +246,6 @@ reports together say about the U.S. consumer and economy.
 - verdict: the overall consumer reading (strong, steady, choosy, strained).
 - headline: one sentence, at most 90 characters, the verdict on the consumer.
 - summary: two sentences at most.
-- implications: exactly 3 short "what it means" points for the economy, each at most 140 characters.
 - segments: one line per category key, at most 120 characters, the read for that segment with its key number.
 - working, pressure, watch: 2 or 3 items each (what is going well, where it is weak, what to watch next).
   Each title at most 40 characters, each body at most 140 characters.
