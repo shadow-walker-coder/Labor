@@ -99,12 +99,14 @@
       const mp = median(prev.map((r) => r.metrics.comp_pct));
       const d = isNum(m) && isNum(mp) ? m - mp : null;
       const growth = ts.every((t) => t.comp_is_growth);
-      const arrow = !isNum(d) ? "—" : d > 0.25 ? `▲ ${Math.abs(d).toFixed(1)} pts` : d < -0.25 ? `▼ ${Math.abs(d).toFixed(1)} pts` : "≈ flat";
+      // growth within a quarter-point of last quarter counts as the same pace
+      const trend = !isNum(d) ? ["", "—"] : d > 0.25 ? ["up", "▲ Faster"] : d < -0.25 ? ["dn", "▼ Slower"] : ["", "■ Same"];
       return `<tr>
         <th scope="row"><a href="#${c.key}">${esc(c.name)}</a><span>${ts.map((t) => esc(t.name)).join(", ")}</span></th>
         <td><span class="verd ${v}">${VERD[v]}</span></td>
         <td class="num">${pct(m)}${growth ? '<span class="gnote">growth</span>' : ""}</td>
-        <td class="num delta ${isNum(d) ? (d > 0.25 ? "up" : d < -0.25 ? "dn" : "") : ""}">${arrow}</td>
+        <td class="num prior">${pct(mp)}</td>
+        <td class="delta ${trend[0]}">${trend[1]}</td>
         <td class="read">${esc(b.segments?.[c.key] || cats[c.key].reads)}</td>
       </tr>`;
     }).join("");
@@ -143,10 +145,10 @@
       <div class="block">
         <div class="eyebrow">By segment · click a segment for its page</div>
         <div class="scroll"><table class="seg">
-          <thead><tr><th scope="col">Segment</th><th scope="col">Consumer</th><th scope="col">Latest growth</th><th scope="col">vs prior quarter</th><th scope="col">The read</th></tr></thead>
+          <thead><tr><th scope="col">Segment</th><th scope="col">Consumer</th><th scope="col">Latest growth</th><th scope="col">Prior quarter</th><th scope="col">Trend</th><th scope="col">The read</th></tr></thead>
           <tbody>${segRows}</tbody>
         </table></div>
-        <div class="scale">Latest growth is the median of each segment's latest comp (or growth, where marked). "vs prior quarter" compares it with the same retailers' previous quarter.</div>
+        <div class="scale">Growth is the median of each segment's comp sales (or total growth, where marked). Prior quarter is the same retailers one quarter earlier; Trend says whether growth sped up or slowed.</div>
       </div>
 
       <div class="block cols3">

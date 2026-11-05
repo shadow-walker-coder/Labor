@@ -315,3 +315,5 @@ table.seg { width: 100%; min-width: 720px; border-collapse: collapse; background
 .col li span { color: var(--ink-2); }
 .panel.themes { display: grid; gap: 6px; }
 @media (max-width: 600px) { .score .tile:first-child { grid-column: 1 / -1; } }
+.seg td.prior { color: var(--muted); font-weight: 400; }
+.seg td.delta { font-weight: 600; white-space: nowrap; }
