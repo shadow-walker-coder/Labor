@@ -1,0 +1,73 @@
+{
+  "ticker": "RL",
+  "fiscal_period": "Q4 FY2026",
+  "period_end": "2026-03-28",
+  "report_date": "2026-05-21",
+  "headline": "Revenue +17% (+12% cc) as NA retail comps rose 16% and Asia 31%; adj. EPS $2.80; initial FY27 guide of 4-5% cc growth.",
+  "metrics": {
+    "revenue_bn": 2.0,
+    "revenue_yoy_pct": 17,
+    "revenue_consensus_bn": null,
+    "comp_pct": 8,
+    "comp_label": "North America revenue",
+    "traffic_pct": null,
+    "ticket_pct": null,
+    "ecom_yoy_pct": 21,
+    "gross_margin_bps": null,
+    "eps_adj": 2.8,
+    "eps_consensus": null,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null,
+    "eps_ex_one_offs": null,
+    "currency": "USD"
+  },
+  "guidance": "initiated",
+  "guidance_note": "FY27 cc revenue growth ~4-5% (52-week basis; 53rd week adds ~1 pt) with ~40-60 bps cc operating margin expansion.",
+  "key_messages": [
+    "North America revenue +8% to $763M; NA retail comps +16% (stores +14%, digital +21%); NA wholesale flat as lower-tier doors cut.",
+    "Asia +31% reported (+28% cc) to $564M, comps +25%, on exceptional Lunar New Year sales in China.",
+    "Europe +18% reported but +6% cc; Europe operating margin 28.7% (+380 bps).",
+    "Global DTC comps +17% on mid-teens AUR growth and strong full-price selling; FY26 revenue $8.1B, adj. EPS $16.59."
+  ],
+  "consumer": {
+    "verdict": "strong",
+    "income_split": "Bloomberg framed it as luxury shoppers globally buying at full price.",
+    "big_ticket": "Full-price channels led a 16% North America retail comp.",
+    "pricing": "AUR up mid-teens on full-price selling and fewer promotions.",
+    "quote": null
+  },
+  "themes": [
+    "discretionary_ok",
+    "high_income_gains",
+    "weather_calendar",
+    "digital_strength"
+  ],
+  "macro_read": "Premium US consumers spent strongly at full price in early 2026, a sign upper-income discretionary demand was robust despite tariffs.",
+  "one_offs_undisclosed": false,
+  "notes": [
+    "Growth is as reported; a constant-currency North America figure was not found. North America retail comps are in the key messages.",
+    "Revenue $2.0B as rounded by the company; sources cite $1.97-1.98B.",
+    "EPS consensus null: sources cite ~$2.48 and $2.54 (one outlier $4.16).",
+    "Stock jumped ~10-12% intraday on 2026-05-21; close not confirmed, so null.",
+    "Gross margin 69.7% reported; YoY bps change not confirmed (one summary: adjusted +40 bps).",
+    "The digital figure is the North America digital comp. NA comp detail partly from call summaries."
+  ],
+  "sources": [
+    {
+      "label": "RL Q4 FY26 press release (Business Wire)",
+      "url": "https://www.businesswire.com/news/home/20260520026230/en/Ralph-Lauren-Reports-Fourth-Quarter-and-Full-Year-Fiscal-2026-Results-Ahead-of-Expectations-Provides-Initial-Outlook-for-Fiscal-2027"
+    },
+    {
+      "label": "RL Q4 FY26 8-K Ex. 99.1",
+      "url": "https://www.sec.gov/Archives/edgar/data/0001037038/000162828026037053/rl-20260328xex991xpressrel.htm"
+    },
+    {
+      "label": "Bloomberg Law: Ralph Lauren jumps as luxury shoppers spend at full price",
+      "url": "https://news.bloomberglaw.com/international-trade/ralph-lauren-jumps-as-luxury-shoppers-globally-buy-at-full-price"
+    },
+    {
+      "label": "Retail Insight Network: RL Q4 revenue +17%",
+      "url": "https://www.retail-insight-network.com/news/ralph-lauren-posts-17-revenue-rise-q4/"
+    }
+  ]
+}

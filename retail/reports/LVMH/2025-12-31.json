@@ -1,0 +1,74 @@
+{
+  "ticker": "LVMH",
+  "fiscal_period": "Q4 / FY2025",
+  "period_end": "2025-12-31",
+  "report_date": "2026-01-27",
+  "headline": "Q4 organic growth of 1% slightly beat forecasts, but FY sales fell and Arnault warned 2026 'won't be simple'; shares -7.9%.",
+  "metrics": {
+    "revenue_bn": 22.7,
+    "revenue_yoy_pct": null,
+    "revenue_consensus_bn": 22.2,
+    "comp_pct": 1,
+    "comp_label": "Group organic revenue",
+    "traffic_pct": null,
+    "ticket_pct": null,
+    "ecom_yoy_pct": null,
+    "gross_margin_bps": null,
+    "eps_adj": null,
+    "eps_consensus": null,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": -7.9,
+    "eps_ex_one_offs": null,
+    "currency": "EUR"
+  },
+  "guidance": "none",
+  "guidance_note": "No numeric guidance; Arnault cautious, calling the 2026 environment disrupted and unforeseeable.",
+  "key_messages": [
+    "Fashion & Leather Goods -3% organic in Q4, -5% for 2025.",
+    "Wines & Spirits -5% organic for 2025, profit -25% on weak cognac and US-China trade tensions; no Q4 figure found.",
+    "Selective Retailing +4% organic for 2025 with profit +28% led by Sephora.",
+    "FY2025 revenue EUR 80.8B (-1% organic, -5% reported); US 26% of revenue, grew on solid local demand."
+  ],
+  "consumer": {
+    "verdict": "choosy",
+    "income_split": null,
+    "big_ticket": "US saw growth on solid local demand; Europe declined in H2.",
+    "pricing": "Trade tensions between the US and China hurt cognac.",
+    "quote": "2026 won't be simple"
+  },
+  "themes": [
+    "tariff_pricing"
+  ],
+  "macro_read": "Global luxury was flat-to-weak into 2026; the US was a relative bright spot but not a strong engine.",
+  "one_offs_undisclosed": false,
+  "notes": [
+    "Group organic growth is shown because sources disagree on the U.S. figure for this quarter (flat vs +1%).",
+    "LVMH is listed in Paris and reports in euros. It does not file with the SEC, so this card is refreshed on request, not automatically.",
+    "Revenue shown is Q4 2025; FY2025 revenue EUR 80.8B.",
+    "The stock move shown is for 2026-01-28 (first Paris session after the after-close release), per CNBC.",
+    "Q4 reported YoY change not confirmed.",
+    "No quarterly EPS for LVMH."
+  ],
+  "sources": [
+    {
+      "label": "LVMH 2025 results release",
+      "url": "https://www.lvmh.com/en/publications/solid-performance-in-a-disrupted-global-economic-and-geopolitical-environment"
+    },
+    {
+      "label": "CNBC: LVMH shares plummet nearly 8%",
+      "url": "https://www.cnbc.com/2026/01/28/lvmh-earnings-shares-fall-luxury.html"
+    },
+    {
+      "label": "CNBC: LVMH beats forecasts in Q4 2025",
+      "url": "https://www.cnbc.com/2026/01/27/lvmh-q4-2025-earnings-report-sales-luxury.html"
+    },
+    {
+      "label": "Investing.com: LVMH tumbles as Arnault strikes cautious tone",
+      "url": "https://www.investing.com/news/stock-market-news/lvmh-2025-revenue-declines-as-economic-and-geopolitical-climate-weighs-4468204"
+    },
+    {
+      "label": "Investing.com: LVMH 2025 annual results slides",
+      "url": "https://www.investing.com/news/company-news/lvmh-2025-annual-results-slides-revenue-stabilizes-in-h2-despite-yearly-decline-93CH-4468305"
+    }
+  ]
+}

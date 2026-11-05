@@ -1,0 +1,65 @@
+{
+  "ticker": "CPRI",
+  "fiscal_period": "Q4 FY2026",
+  "period_end": "2026-03-28",
+  "report_date": "2026-05-27",
+  "headline": "Revenue -3.7% (-7% cc) as MK Americas falls 12%; adjusted EPS $0.22 beats; Capri guides FY27 to growth and ~$2.15 EPS.",
+  "metrics": {
+    "revenue_bn": 0.796,
+    "revenue_yoy_pct": -3.7,
+    "revenue_consensus_bn": null,
+    "comp_pct": -12,
+    "comp_label": "Michael Kors Americas revenue",
+    "traffic_pct": null,
+    "ticket_pct": null,
+    "ecom_yoy_pct": null,
+    "gross_margin_bps": null,
+    "eps_adj": 0.22,
+    "eps_consensus": 0.11,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null,
+    "eps_ex_one_offs": null,
+    "currency": "USD"
+  },
+  "guidance": "initiated",
+  "guidance_note": "Initiated FY27: revenue ~ $3.525B (low-single-digit growth), adjusted EPS ~ $2.15 (~+40%); Q1 outlook softer than expected.",
+  "key_messages": [
+    "Michael Kors revenue -5.5% (-8.4% cc) to $656M; Americas -12%, mainly from quality-of-sale initiatives (less discounting).",
+    "MK gross margin 64.6% vs 58.6%, helped by a $38M IEEPA tariff-refund receivable booked against cost of goods sold.",
+    "Jimmy Choo +5.3% reported, flat in constant currency, to $140M.",
+    "Adjusted operating margin -0.1% (GAAP -3.4%); GAAP loss of $0.01 per share."
+  ],
+  "consumer": {
+    "verdict": "choosy",
+    "income_split": null,
+    "big_ticket": "MK demand in the Americas down double digits as the brand cuts promotions.",
+    "pricing": "Reduced promotions; expected refund of IEEPA tariffs boosted margins.",
+    "quote": null
+  },
+  "themes": [
+    "tariff_pricing"
+  ],
+  "macro_read": "The mid-priced handbag brand keeps shrinking in the US as it cuts discounts. The tariff refund is a one-time margin boost, not a sign of better demand.",
+  "one_offs_undisclosed": false,
+  "notes": [
+    "Growth is as reported; Capri gives no constant-currency figure for the Americas. Versace was sold to Prada in December 2025; Jimmy Choo is still part of Capri.",
+    "$38M IEEPA tariff-refund receivable reduced MK cost of goods sold; whether adjusted EPS excludes it was not confirmed, so no EPS excluding them is shown.",
+    "Continuing operations exclude Versace (sold Dec 2025); Jimmy Choo still included.",
+    "Revenue missed consensus (Zacks) but the figure was not found; shares fell >6% intraday, close not confirmed, so null.",
+    "Company-wide gross margin change not found (MK-only +600 bps incl. tariff refund)."
+  ],
+  "sources": [
+    {
+      "label": "Capri Q4 FY26 release (Business Wire)",
+      "url": "https://www.businesswire.com/news/home/20260527231585/en/Capri-Holdings-Limited-Announces-Fourth-Quarter-and-Full-Year-Fiscal-2026-Results"
+    },
+    {
+      "label": "Yahoo Finance: mixed Q4 results",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/capri-holdings-reports-mixed-financial-163600156.html"
+    },
+    {
+      "label": "FashionNetwork: Q4 revenue -3.7%",
+      "url": "https://us.fashionnetwork.com/news/-michael-kors-parent-capri-holdings-sees-revenue-drop-3-7-in-fy26-q4-revenue-totals-3-47-billion-in-fy26,1835510.html"
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "ticker": "TPR",
+  "fiscal_period": "Q4 FY2026",
+  "period_end": "2026-06-27",
+  "report_date": "2026-08-13",
+  "headline": "Coach +15% and a beat on Q4, but a cautious FY27 outlook (mid-single-digit growth) sent Tapestry shares sharply lower.",
+  "metrics": {
+    "revenue_bn": 1.88,
+    "revenue_yoy_pct": 9,
+    "revenue_consensus_bn": 1.86,
+    "comp_pct": 7,
+    "comp_label": "North America revenue (constant currency)",
+    "traffic_pct": null,
+    "ticket_pct": null,
+    "ecom_yoy_pct": null,
+    "gross_margin_bps": 180,
+    "eps_adj": 1.32,
+    "eps_consensus": 1.25,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null,
+    "eps_ex_one_offs": null,
+    "currency": "USD"
+  },
+  "guidance": "initiated",
+  "guidance_note": "Initiated FY27: revenue $8.4-8.5B (midpoint just below ~$8.47B consensus), non-GAAP EPS $7.80-7.90; H1 high-single-digit growth, H2 mid-single.",
+  "key_messages": [
+    "Revenue +9% reported, +11% pro forma cc; Coach +15% (+14% cc); North America +7%, Europe +19% (pro forma cc).",
+    "Handbag AUR up mid-teens with units roughly flat, a deliberate move to fewer promotions.",
+    "FY26: ~11M new customers across brands (about 9M Coach), led by Gen Z; FY26 non-GAAP EPS $7.05 (+38%).",
+    "Non-GAAP gross margin 78.1% (+180 bps), helped by operations and the Stuart Weitzman exit.",
+    "Tariffs seen as a net benefit in H1 FY27 and a headwind in H2, roughly neutral for the year."
+  ],
+  "consumer": {
+    "verdict": "strong",
+    "income_split": null,
+    "big_ticket": "Handbag demand solid at much higher prices; units flat.",
+    "pricing": "Strong pricing power: AUR up mid-teens on reduced discounting; tariffs expected to swing from tailwind to headwind during FY27.",
+    "quote": null
+  },
+  "themes": [
+    "discretionary_ok",
+    "tariff_pricing"
+  ],
+  "macro_read": "Shoppers kept paying more for Coach bags, but management's guide for slower FY27 growth signals it expects the pace of aspirational-luxury spending to cool.",
+  "one_offs_undisclosed": false,
+  "notes": [
+    "Growth excludes Stuart Weitzman (sold) and is in constant currency. It is revenue growth, not a like-for-like comp.",
+    "GAAP EPS $1.68 exceeded non-GAAP $1.32: certain items added $0.36 per share (a gain); non-GAAP excludes them.",
+    "Stock fell sharply on report day, but sources disagree on the size (premarket -8.9%, intraday -14%, -16% cited); no confirmed close, so null.",
+    "Revenue growth 9% reported; pro forma growth excludes Stuart Weitzman, sold in 2025.",
+    "One transcript summary cited Q4 North America +10%; the release says +7%, used here."
+  ],
+  "sources": [
+    {
+      "label": "Tapestry Q4 FY26 release (investor site)",
+      "url": "https://investors.tapestry.com/news-releases/news-release-details/tapestry-inc-reports-fiscal-2026-fourth-quarter-and-full-year"
+    },
+    {
+      "label": "Yahoo Finance: shares slide on softer FY27 outlook",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/tapestry-shares-slide-softer-fy27-114813144.html"
+    },
+    {
+      "label": "Investing.com Q4 FY26 call transcript summary",
+      "url": "https://www.investing.com/news/transcripts/earnings-call-transcript-tapestry-beats-q4-estimates-but-shares-slide-on-outlook-93CH-4858192"
+    },
+    {
+      "label": "MarketScreener: FY27 revenue vs FactSet",
+      "url": "https://www.marketscreener.com/news/tpr-tapestry-expects-fiscal-2027-revenue-range-8-5b-to-8-6b-vs-factset-est-of-8-54b-ce785fdcde8bf320"
+    }
+  ]
+}

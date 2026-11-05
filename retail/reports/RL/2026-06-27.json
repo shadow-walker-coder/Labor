@@ -1,0 +1,71 @@
+{
+  "ticker": "RL",
+  "fiscal_period": "Q1 FY2027",
+  "period_end": "2026-06-27",
+  "report_date": "2026-08-06",
+  "headline": "Revenue +14% (+13% cc) with North America +13% and Asia +24%; adjusted EPS $4.59 beat and FY27 outlook raised.",
+  "metrics": {
+    "revenue_bn": 1.96,
+    "revenue_yoy_pct": 14,
+    "revenue_consensus_bn": null,
+    "comp_pct": 13,
+    "comp_label": "North America revenue",
+    "traffic_pct": null,
+    "ticket_pct": null,
+    "ecom_yoy_pct": null,
+    "gross_margin_bps": 140,
+    "eps_adj": 4.59,
+    "eps_consensus": null,
+    "inventory_yoy_pct": -5,
+    "stock_reaction_pct": null,
+    "eps_ex_one_offs": null,
+    "currency": "USD"
+  },
+  "guidance": "raised",
+  "guidance_note": "FY27 cc revenue growth raised to ~5-6% (52-week basis) with higher adj. operating margin expansion; Q2 guided +5-6% cc, margin +80-100 bps.",
+  "key_messages": [
+    "North America revenue +13% to $740M; NA retail comps +9%; NA operating margin 23.1% (+240 bps).",
+    "Asia revenue +24% reported (+25% cc) to $589M, comps +23%; China reportedly up more than 40%.",
+    "Europe revenue +7% reported (+5% cc) to $594M; Europe operating margin flat at 26.4%.",
+    "Gross margin 73.7% (+140 bps); adjusted EPS $4.59, up 22% from $3.77; inventory down ~5%."
+  ],
+  "consumer": {
+    "verdict": "strong",
+    "income_split": null,
+    "big_ticket": "Double-digit North America growth with 9% retail comps signals firm demand for full-price premium apparel.",
+    "pricing": "Outlook raised while navigating tariffs and macro uncertainty; no tariff cost figure found.",
+    "quote": null
+  },
+  "themes": [
+    "discretionary_ok",
+    "inventory_clean",
+    "tariff_pricing"
+  ],
+  "macro_read": "Affluent US shoppers kept buying premium apparel at full price through spring 2026, pointing to resilient upper-income discretionary spending.",
+  "one_offs_undisclosed": false,
+  "notes": [
+    "Growth is as reported; a constant-currency North America figure was not found. North America retail comps are in the key messages.",
+    "EPS consensus null: sources cite $4.30, $4.32 and $4.45; revenue consensus also unconfirmed (one source $1.923B).",
+    "Stock move on 2026-08-06 not found.",
+    "AUR figure for the quarter not found.",
+    "The gross-margin change shown is the reported change; adjusted change not confirmed. Reported diluted EPS was $4.28."
+  ],
+  "sources": [
+    {
+      "label": "RL Q1 FY27 press release",
+      "url": "https://corporate.ralphlauren.com/pr_260806_Q1FY27_EarningsResults.html"
+    },
+    {
+      "label": "RL Q1 FY27 8-K Ex. 99.1",
+      "url": "https://www.sec.gov/Archives/edgar/data/0001037038/000162828026053896/rl-20260627ex991xpressrele.htm"
+    },
+    {
+      "label": "TradingView: RL Q1 FY27",
+      "url": "https://www.tradingview.com/news/tradingview:ab7b109962db0:0-ralph-lauren-reports-q1-fiscal-2027-revenue-2-0b-adjusted-diluted-eps-4-59-margins-expand/"
+    },
+    {
+      "label": "FashionNetwork: RL revenue +14% in FY27 Q1",
+      "url": "https://us.fashionnetwork.com/news/Ralph-lauren-sees-revenue-rise-14-in-fy27-q1-beating-analysts-expectations,1858505.html"
+    }
+  ]
+}

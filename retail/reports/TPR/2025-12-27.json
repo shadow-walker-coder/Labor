@@ -1,0 +1,69 @@
+{
+  "ticker": "TPR",
+  "fiscal_period": "Q2 FY2026",
+  "period_end": "2025-12-27",
+  "report_date": "2026-02-05",
+  "headline": "Record $2.5B holiday quarter: Coach +25%, North America +17%; Tapestry raises FY26 EPS outlook to $6.40-6.45.",
+  "metrics": {
+    "revenue_bn": 2.5,
+    "revenue_yoy_pct": 14,
+    "revenue_consensus_bn": 2.32,
+    "comp_pct": 17,
+    "comp_label": "North America revenue (constant currency)",
+    "traffic_pct": null,
+    "ticket_pct": null,
+    "ecom_yoy_pct": null,
+    "gross_margin_bps": 110,
+    "eps_adj": 2.69,
+    "eps_consensus": 2.22,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null,
+    "eps_ex_one_offs": null,
+    "currency": "USD"
+  },
+  "guidance": "raised",
+  "guidance_note": "FY26 revenue raised to >$7.75B (from ~$7.3B); non-GAAP EPS $6.40-6.45 from $5.45-5.60.",
+  "key_messages": [
+    "Revenue +14% reported, +18% pro forma; Coach +25% to $2.14B, Kate Spade -14%.",
+    "North America +17%, Europe +22%, Greater China +34% (cc); Coach North America +27% per one report.",
+    "Reported 3.7M+ new customers globally, with strong Gen Z engagement.",
+    "Gross margin 75.5% (+110 bps) despite ~190 bps tariff/duty hit (~140 bps Coach, ~520 bps Kate Spade)."
+  ],
+  "consumer": {
+    "verdict": "strong",
+    "income_split": null,
+    "big_ticket": "Holiday handbag demand very strong, led by Coach.",
+    "pricing": "Tariffs cut ~190 bps from gross margin, offset by operational gains and less discounting.",
+    "quote": null
+  },
+  "themes": [
+    "discretionary_ok",
+    "tariff_pricing"
+  ],
+  "macro_read": "Holiday 2025 spending on accessible luxury was strong in the US, with young shoppers buying full-price Coach bags despite tariff-driven costs.",
+  "one_offs_undisclosed": false,
+  "notes": [
+    "Growth excludes Stuart Weitzman (sold) and is in constant currency. It is revenue growth, not a like-for-like comp.",
+    "Stock hit a record intraday; reported moves range from +3.7% intraday to >+10% close (single source), so null.",
+    "EPS consensus $2.22 (FactSet/Benzinga); another source cited $2.19. Revenue consensus $2.32B is LSEG.",
+    "GAAP EPS $2.68 vs non-GAAP $2.69. Pro forma growth excludes Stuart Weitzman."
+  ],
+  "sources": [
+    {
+      "label": "Tapestry Q2 FY26 release (Business Wire)",
+      "url": "https://www.businesswire.com/news/home/20260205900512/en/Tapestry-Inc.-Reports-Fiscal-2026-Second-Quarter-Results-and-Raises-Full-Year-Outlook"
+    },
+    {
+      "label": "Reuters via Tiger: beats Q2 revenue estimates (LSEG)",
+      "url": "https://www.itiger.com/news/2609353374"
+    },
+    {
+      "label": "Schaeffer's: stock hits record highs",
+      "url": "https://www.schaeffersresearch.com/content/news/2026/02/05/tapestry-stock-hits-record-highs-as-coach-sales-surge"
+    },
+    {
+      "label": "Motley Fool Q2 FY26 call transcript",
+      "url": "https://www.fool.com/earnings/call-transcripts/2026/02/05/tapestry-tpr-q2-2026-earnings-call-transcript/"
+    }
+  ]
+}

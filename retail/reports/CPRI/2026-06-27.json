@@ -1,0 +1,69 @@
+{
+  "ticker": "CPRI",
+  "fiscal_period": "Q1 FY2027",
+  "period_end": "2026-06-27",
+  "report_date": "2026-08-05",
+  "headline": "EPS beat ($0.67 vs $0.40) but Capri cuts FY27 revenue to ~$3.4B on MK inventory delays, weak EMEA and FX; EPS view held.",
+  "metrics": {
+    "revenue_bn": 0.769,
+    "revenue_yoy_pct": -3.5,
+    "revenue_consensus_bn": 0.753,
+    "comp_pct": -10,
+    "comp_label": "Michael Kors Americas revenue",
+    "traffic_pct": null,
+    "ticket_pct": null,
+    "ecom_yoy_pct": null,
+    "gross_margin_bps": null,
+    "eps_adj": 0.67,
+    "eps_consensus": 0.4,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": -4.4,
+    "eps_ex_one_offs": null,
+    "currency": "USD"
+  },
+  "guidance": "mixed",
+  "guidance_note": "FY27 revenue cut to ~$3.4B from ~$3.525B (consensus ~$3.51B); EPS ~ $2.15 held via ~$70M opex cuts; Q2 revenue ~ $780M.",
+  "key_messages": [
+    "Michael Kors revenue -7.1% (-7.6% cc) to $590M; Americas -10%, a sequential improvement helped by early wholesale shipments.",
+    "MK gross margin 63.9% vs 61.1% on higher full-price sell-throughs and lower tariff rates.",
+    "Jimmy Choo revenue +10.5% to $179M.",
+    "Revenue cut reflects ~ $50M MK inventory delays, ~ $50M weaker EMEA (incl. Middle East), ~ $35M FX."
+  ],
+  "consumer": {
+    "verdict": "choosy",
+    "income_split": null,
+    "big_ticket": "MK sales still falling as promotions and markdown inventory are reduced; Jimmy Choo growing.",
+    "pricing": "Less promotional activity; lower tariff rates versus a year earlier helped margins.",
+    "quote": null
+  },
+  "themes": [
+    "tariff_pricing"
+  ],
+  "macro_read": "Capri's US decline is mostly self-inflicted (less discounting, supply delays), so it says more about the brand than about a weakening US consumer.",
+  "one_offs_undisclosed": false,
+  "notes": [
+    "Growth is as reported; Capri gives no constant-currency figure for the Americas. Versace was sold to Prada in December 2025; Jimmy Choo is still part of Capri.",
+    "Continuing operations exclude Versace (sold to Prada, Dec 2025); Jimmy Choo still included.",
+    "Company-wide gross margin change not confirmed (one source cites +200 bps, MK alone was +280 bps), so null.",
+    "Stock -4.4% (to $16.30) from a single source; revenue consensus $752.6M from a single source.",
+    "GAAP EPS $0.60 vs adjusted $0.67."
+  ],
+  "sources": [
+    {
+      "label": "Capri Q1 FY27 release",
+      "url": "https://www.capriholdings.com/news/news-details/2026/Capri-Holdings-Limited-Announces-First-Quarter-Fiscal-2027-Results/default.aspx"
+    },
+    {
+      "label": "WWD: Q1 beat, outlook disappoints",
+      "url": "https://wwd.com/business-news/financial/capri-q1-earnings-michael-kors-jimmy-choo-1239092511/"
+    },
+    {
+      "label": "Seeking Alpha: FY27 $3.4B revenue, $2.15 EPS",
+      "url": "https://seekingalpha.com/news/4626987-capri-anticipates-3_4b-fy2027-revenue-while-maintaining-2_15-eps-outlook-amid-michael-kors"
+    },
+    {
+      "label": "MarketBeat Q1 FY27 earnings report",
+      "url": "https://www.marketbeat.com/earnings/reports/2026-8-5-capri-holdings-limited-stock/"
+    }
+  ]
+}

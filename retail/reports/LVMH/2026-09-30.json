@@ -1,0 +1,70 @@
+{
+  "ticker": "LVMH",
+  "fiscal_period": "Q3 2026",
+  "period_end": "2026-09-30",
+  "report_date": "2026-10-12",
+  "headline": "Q3 organic growth slowed to 1% as China weighed; Fashion & Leather Goods -5% while US, Europe and Japan grew.",
+  "metrics": {
+    "revenue_bn": 18.504,
+    "revenue_yoy_pct": null,
+    "revenue_consensus_bn": 18.46,
+    "comp_pct": 5,
+    "comp_label": "U.S. organic revenue",
+    "traffic_pct": null,
+    "ticket_pct": null,
+    "ecom_yoy_pct": null,
+    "gross_margin_bps": null,
+    "eps_adj": null,
+    "eps_consensus": null,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null,
+    "eps_ex_one_offs": null,
+    "currency": "EUR"
+  },
+  "guidance": "none",
+  "guidance_note": "Revenue-only update; no numerical guidance.",
+  "key_messages": [
+    "Fashion & Leather Goods -5% organic (vs ~-1.8% expected): strong US demand offset by weaker China; LV hurt by China backlash.",
+    "Wines & Spirits +6% organic; Selective Retailing +8% led by Sephora market-share gains.",
+    "Watches & Jewelry +6%, Perfumes & Cosmetics +1%.",
+    "Group organic +1% (9M +2%); US about +5% in Q3 and +4% in 9M; China less buoyant."
+  ],
+  "consumer": {
+    "verdict": "choosy",
+    "income_split": null,
+    "big_ticket": "US luxury demand good, especially fashion and leather goods; China the main drag.",
+    "pricing": null,
+    "quote": null
+  },
+  "themes": [
+    "discretionary_ok"
+  ],
+  "macro_read": "Wealthy US consumers were among luxury's steadier buyers in Q3 2026 while China faltered, so US high-end spending is holding up better than global luxury.",
+  "one_offs_undisclosed": false,
+  "notes": [
+    "The U.S. figure comes from one secondary summary of LVMH's results slides.",
+    "LVMH is listed in Paris and reports in euros. It does not file with the SEC, so this card is refreshed on request, not automatically.",
+    "Released after Paris close; shares fell more than 1% on 2026-10-13 (one report -1.83% early), exact close not confirmed so no stock move is shown.",
+    "US +5% comes from a single secondary source (Investing.com summary of LVMH slides); LVMH's release text says only 'good growth'.",
+    "Reported Q3 YoY revenue change not confirmed; 9M reported revenue -2% to EUR 57.148B.",
+    "No quarterly EPS for LVMH."
+  ],
+  "sources": [
+    {
+      "label": "LVMH Q3 2026 revenue release (PDF)",
+      "url": "https://lvmh-com.cdn.prismic.io/lvmh-com/Y6AfTE0Y7WFnyftQ_LVMH2026ThirdQuarterRevenue.pdf"
+    },
+    {
+      "label": "Investing.com: LVMH Q3 2026 slides",
+      "url": "https://www.investing.com/news/company-news/lvmh-q3-2026-slides-1-growth-as-us-europe-offset-china-slump-93CH-4945011"
+    },
+    {
+      "label": "Reuters via Investing.com: LVMH Q3 sales dragged by China",
+      "url": "https://www.investing.com/news/stock-market-news/lvmh-thirdquarter-sales-below-expectations-as-fashion-and-leather-division-shrinks-4944915"
+    },
+    {
+      "label": "Bloomberg: LVMH sales at key unit fall",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-12/lvmh-sales-at-key-unit-fall-as-china-woes-hurt-louis-vuitton"
+    }
+  ]
+}

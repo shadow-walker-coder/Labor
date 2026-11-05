@@ -1,0 +1,73 @@
+{
+  "ticker": "TPR",
+  "fiscal_period": "Q1 FY2027",
+  "period_end": "2026-09-26",
+  "report_date": "2026-11-05",
+  "headline": "Coach +16% and Gen Z demand drive a big beat; Tapestry raises FY27 EPS guide to $8.25-8.35 as North America grows 4%.",
+  "metrics": {
+    "revenue_bn": 1.894,
+    "revenue_yoy_pct": 11,
+    "revenue_consensus_bn": 1.86,
+    "comp_pct": 4,
+    "comp_label": "North America revenue (constant currency)",
+    "traffic_pct": null,
+    "ticket_pct": null,
+    "ecom_yoy_pct": null,
+    "gross_margin_bps": 220,
+    "eps_adj": 1.82,
+    "eps_consensus": null,
+    "inventory_yoy_pct": 4,
+    "stock_reaction_pct": null,
+    "eps_ex_one_offs": null,
+    "currency": "USD"
+  },
+  "guidance": "raised",
+  "guidance_note": "FY27 revenue raised to $8.5-8.6B (~6-7% cc growth) from $8.4-8.5B; non-GAAP EPS $8.25-8.35 from $7.80-7.90; capital return ~ $2.0B.",
+  "key_messages": [
+    "Coach revenue +16% (North America +7%, international +30%); Kate Spade -10% to $233M with an adjusted operating loss.",
+    "Coach added 2.1M+ new customers, ~40% Gen Z; handbag AUR up low double digits with units up low single digits.",
+    "Regions (pro forma cc): North America +4%, Europe +22%, Greater China +39%; digital up mid-single digits, stores low double digits.",
+    "Non-GAAP gross margin 78.7% (+220 bps): ~130 bps operational, ~70 bps lower tariffs/duty, ~20 bps FX; inventory +4% YoY.",
+    "Tapestry keeps leaning on full-price $200-500 handbags and cutting promotional price points."
+  ],
+  "consumer": {
+    "verdict": "strong",
+    "income_split": null,
+    "big_ticket": "Coach handbags kept selling at higher prices (AUR up low double digits) with modest unit growth; Kate Spade still shrinking.",
+    "pricing": "Pricing power intact: higher AUR, less discounting; lower tariff rates added ~70 bps to gross margin and ~$0.05 to EPS.",
+    "quote": null
+  },
+  "themes": [
+    "discretionary_ok",
+    "tariff_pricing",
+    "inventory_clean"
+  ],
+  "macro_read": "Demand for accessible-luxury leather goods stayed firm into the fall, led by young shoppers paying full price; US growth (+4%) trailed China and Europe, so the US read is solid, not booming.",
+  "one_offs_undisclosed": false,
+  "notes": [
+    "Growth excludes Stuart Weitzman (sold) and is in constant currency. It is revenue growth, not a like-for-like comp.",
+    "Released the morning of 2026-11-05; closing stock move not yet known (shares opened ~$140 vs $125.31 prior close, intraday reports of +8% to +12%), so no stock move is shown.",
+    "Revenue growth 11% reported; 12% on a pro forma basis excluding Stuart Weitzman (sold 2025).",
+    "EPS consensus not set: sources put it between $1.55 and $1.57. Revenue consensus $1.86B is LSEG (MarketBeat showed $1.85B).",
+    "GAAP EPS $1.76; non-GAAP $1.82 excludes items including ~$15M distribution-network relocation charges.",
+    "Q1 benefited from lower tariff rates; management earlier said tariffs help H1 and hurt H2 of FY27."
+  ],
+  "sources": [
+    {
+      "label": "Tapestry Q1 FY27 release (investor site)",
+      "url": "https://investors.tapestry.com/news-releases/news-release-details/tapestry-inc-reports-fiscal-2027-first-quarter-results-and"
+    },
+    {
+      "label": "WWD: Tapestry Q1 2027 earnings",
+      "url": "https://wwd.com/business-news/financial/tapestry-q1-2027-earnings-coach-sales-1239399971/"
+    },
+    {
+      "label": "Motley Fool Q1 FY27 call transcript",
+      "url": "https://www.fool.com/earnings/call-transcripts/2026/11/05/tapestry-tpr-q1-2027-earnings-call-transcript/"
+    },
+    {
+      "label": "MarketBeat: TPR shares gap up (Nov 5, 2026)",
+      "url": "https://www.marketbeat.com/instant-alerts/price-tapestry-nyse-tpr-shares-gap-up-after-better-than-expected-earnings-2026-11-05/"
+    }
+  ]
+}

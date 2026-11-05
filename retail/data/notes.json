@@ -24,6 +24,10 @@
     "body": "Amazon reports total online-stores growth, eBay gross merchandise volume (GMV) and Etsy gross merchandise sales (GMS): what shoppers bought, including new business, not like-for-like comparable sales. They have a dashed outline in the heatmap and left out of the median comp. Amazon's Q3 2026 growth of 2% was held down by Prime Day moving into June (about 4 points); eBay's Q3 2026 GMV growth includes about 3 points from buying Depop."
   },
   {
+    "title": "Luxury figures are revenue growth",
+    "body": "Tapestry, Ralph Lauren and Capri report North America (or Americas) revenue growth, and LVMH reports organic growth by region, not like-for-like comps, so they are marked as growth and left out of the median comp. LVMH is listed in Paris, reports in euros and gives no quarterly EPS; it does not file with the SEC, so it is refreshed on request rather than automatically."
+  },
+  {
     "title": "Comps are measured differently by each retailer",
     "body": "Walmart: Walmart U.S. ex fuel. Costco: U.S. ex gas and FX. Home Depot: U.S. comps. Kroger: identical sales ex fuel. Best Buy: Domestic. Dollar Tree: Dollar Tree segment. Others: total comparable sales. Treat small gaps between retailers as approximate."
   },

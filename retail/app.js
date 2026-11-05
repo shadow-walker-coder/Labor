@@ -199,7 +199,7 @@
         ${last ? `<text class="lbl" x="${x + w / 2}" y="${v >= 0 ? yTop - 4 : yTop + h + 11}" text-anchor="middle">${pct(v)}</text>` : ""}
         <text x="${x + w / 2}" y="${H - 4}" text-anchor="middle">${esc(shortQ(r))}</text></g>`;
     }).join("");
-    return `<div class="spark"><div class="spark-head"><span>Comp sales by calendar quarter</span><span>hover for detail</span></div>
+    return `<div class="spark"><div class="spark-head"><span>${retailers[reports[0].ticker]?.comp_is_growth ? "Growth" : "Comp sales"} by calendar quarter</span><span>hover for detail</span></div>
       <svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Comparable sales, last ${pts.length} quarters: ${pts.map((r) => `${r.fiscal_period} ${pct(r.metrics.comp_pct)}`).join(", ")}">
       <line x1="0" x2="${W}" y1="${y(0)}" y2="${y(0)}" stroke="var(--rule)" stroke-width="1"/>${bars}</svg></div>`;
   }

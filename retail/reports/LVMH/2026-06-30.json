@@ -1,0 +1,69 @@
+{
+  "ticker": "LVMH",
+  "fiscal_period": "H1 2026 (Q2 2026)",
+  "period_end": "2026-06-30",
+  "report_date": "2026-07-27",
+  "headline": "Q2 organic growth accelerated to 3% (4% ex-Middle East) as the US sped up and Fashion & Leather Goods returned to growth.",
+  "metrics": {
+    "revenue_bn": 19.52,
+    "revenue_yoy_pct": 0,
+    "revenue_consensus_bn": null,
+    "comp_pct": 6,
+    "comp_label": "U.S. organic revenue",
+    "traffic_pct": null,
+    "ticket_pct": null,
+    "ecom_yoy_pct": null,
+    "gross_margin_bps": null,
+    "eps_adj": null,
+    "eps_consensus": null,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null,
+    "eps_ex_one_offs": null,
+    "currency": "EUR"
+  },
+  "guidance": "none",
+  "guidance_note": "Remains confident for 2026 in an uncertain environment; no numeric guidance.",
+  "key_messages": [
+    "Fashion & Leather Goods +1% organic in Q2 (first rise in two years) with rapid US acceleration; -1% for H1.",
+    "Wines & Spirits +5% organic in H1 (champagne +7%, cognac +3%); US cognac demand still soft.",
+    "Selective Retailing +6% organic in Q2 (+5% H1) led by Sephora; Watches & Jewelry +11% in Q2.",
+    "H1 revenue EUR 38.6B (-3% reported, +2% organic); recurring operating profit EUR 8.7B; US ~25% of revenue."
+  ],
+  "consumer": {
+    "verdict": "steady",
+    "income_split": null,
+    "big_ticket": "US growth accelerated across fashion and jewelry; Middle East conflict cost ~1 pt of growth.",
+    "pricing": null,
+    "quote": null
+  },
+  "themes": [
+    "discretionary_ok"
+  ],
+  "macro_read": "US luxury demand picked up in spring 2026, consistent with wealthy households benefiting from asset prices.",
+  "one_offs_undisclosed": false,
+  "notes": [
+    "LVMH is listed in Paris and reports in euros. It does not file with the SEC, so this card is refreshed on request, not automatically.",
+    "Revenue shown is Q2 2026 (EUR 19.52B); H1 was EUR 38.6B. Revenue growth of 0% reflects a secondary source calling reported revenue flat.",
+    "US +6% (Q2) from secondary sources only; not in LVMH's release text.",
+    "Released after Paris close; next-day share move not found.",
+    "No quarterly EPS for LVMH."
+  ],
+  "sources": [
+    {
+      "label": "LVMH H1 2026 release (GlobeNewswire)",
+      "url": "https://www.globenewswire.com/news-release/2026/07/27/3333733/0/en/lvmh-accelerating-growth-in-the-second-quarter-solid-first-half-results.html"
+    },
+    {
+      "label": "Luxury Tribune: LVMH accelerates in Q2, driven by US",
+      "url": "https://www.luxurytribune.com/en/lvmh-accelerates-in-the-second-quarter-of-2026-driven-by-the-united-states-and-jewellery"
+    },
+    {
+      "label": "WWD: LVMH fashion division first quarterly rise in two years",
+      "url": "https://wwd.com/business-news/financial/lvmh-fashion-leather-goods-q2-2026-increase-1239083331/"
+    },
+    {
+      "label": "Vino Joy: LVMH Wines and Spirits returns to growth",
+      "url": "https://vino-joy.com/2026/07/30/lvmh-wines-and-spirits-returns-to-growth/"
+    }
+  ]
+}

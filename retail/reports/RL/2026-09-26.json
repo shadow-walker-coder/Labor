@@ -1,0 +1,77 @@
+{
+  "ticker": "RL",
+  "fiscal_period": "Q2 FY2027",
+  "period_end": "2026-09-26",
+  "report_date": "2026-11-05",
+  "headline": "Revenue +9% (+10% cc) on Asia surge and 6% North America comps; FY27 outlook raised but Q3 guide of 3-4% disappointed.",
+  "metrics": {
+    "revenue_bn": 2.19,
+    "revenue_yoy_pct": 9,
+    "revenue_consensus_bn": 2.12,
+    "comp_pct": 6,
+    "comp_label": "North America revenue",
+    "traffic_pct": null,
+    "ticket_pct": null,
+    "ecom_yoy_pct": 5,
+    "gross_margin_bps": 250,
+    "eps_adj": 4.64,
+    "eps_consensus": null,
+    "inventory_yoy_pct": -9,
+    "stock_reaction_pct": null,
+    "eps_ex_one_offs": null,
+    "currency": "USD"
+  },
+  "guidance": "mixed",
+  "guidance_note": "FY27 cc revenue growth raised to ~6-7% (from 5-6%); Q3 cc revenue guided +3-4%, below ~4.2% expected; AUR growth to slow to mid-single digits.",
+  "key_messages": [
+    "North America revenue +6% to $885M; NA retail comps +6% (stores +6%, digital +5%); NA wholesale +8% incl. ~4 pts shipment timing pull-forward.",
+    "Asia revenue +28% to $571M; China up more than 35% reported and in constant currency.",
+    "Europe revenue +1% reported to $696M with comps -1%; coverage cites inflation-weary European shoppers pulling back.",
+    "AUR up ~9%; adjusted gross margin 70.5% (+250 bps) on AUR, mix and lower product costs; reported 74.2% lifted by tariff refunds.",
+    "Inventory down 9% YoY to $1.2B; ~$250M buyback completed FY27 repurchase plan."
+  ],
+  "consumer": {
+    "verdict": "steady",
+    "income_split": null,
+    "big_ticket": "Full-price demand held in North America (comps +6%) while Europe softened; Q3 guide implies deceleration.",
+    "pricing": "AUR +9% from full-price selling; reported margin boosted by tariff refunds received in the quarter, excluded from adjusted results.",
+    "quote": "We've got good momentum in North America. (CEO Patrice Louvet, interview)"
+  },
+  "themes": [
+    "discretionary_ok",
+    "tariff_pricing",
+    "inventory_clean"
+  ],
+  "macro_read": "US aspirational-to-affluent apparel demand stayed healthy at full price, but growth is slowing into holiday and Europe is weakening; tariff refunds flattered reported profit.",
+  "one_offs_undisclosed": false,
+  "notes": [
+    "Growth is as reported; a constant-currency North America figure was not found. North America retail comps are in the key messages.",
+    "Released 2026-11-05 (today); same-day closing move not confirmed - reports range from about -4% to -8% intraday, so no stock move is shown.",
+    "EPS consensus null: sources cite $4.17, $4.23 (implied), $4.25 and $4.26.",
+    "Reported diluted EPS $4.87 includes tariff refunds; adjusted $4.64 excludes them and restructuring/other charges.",
+    "The gross-margin change shown is the adjusted change; reported gross margin was +620 bps.",
+    "The digital figure is the North America digital comp, not total company digital growth."
+  ],
+  "sources": [
+    {
+      "label": "RL Q2 FY27 press release (SEC 8-K Ex. 99.1)",
+      "url": "https://www.sec.gov/Archives/edgar/data/0001037038/000162828026070619/rl-20260926ex991xpressrele.htm"
+    },
+    {
+      "label": "StockTitan: RL Q2 FY27 release",
+      "url": "https://www.stocktitan.net/news/RL/ralph-lauren-reports-second-quarter-fiscal-2027-results-ahead-of-deyz8imou8qe.html"
+    },
+    {
+      "label": "Yahoo Finance: Ralph Lauren tops forecasts in Q2",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/ralph-lauren-tops-forecasts-q2-141734375.html"
+    },
+    {
+      "label": "Benzinga: Ralph Lauren warns European shoppers pulling back",
+      "url": "https://www.benzinga.com/markets/earnings/26/11/62935850/ralph-lauren-warns-inflation-weary-european-shoppers-are-pulling-back"
+    },
+    {
+      "label": "WWD: RL Q2 2027 earnings",
+      "url": "https://wwd.com/business-news/financial/ralph-lauren-q2-2027-earnings-patrice-louvet-ceo-1239401510/"
+    }
+  ]
+}

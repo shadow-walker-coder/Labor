@@ -1,0 +1,72 @@
+{
+  "ticker": "CPRI",
+  "fiscal_period": "Q2 FY2027",
+  "period_end": "2026-09-26",
+  "report_date": "2026-10-30",
+  "headline": "Revenue -5.5% but adjusted EPS $0.42 doubles estimates on full-price selling; Capri lifts FY27 to ~$3.42B / ~$2.20 EPS.",
+  "metrics": {
+    "revenue_bn": 0.809,
+    "revenue_yoy_pct": -5.5,
+    "revenue_consensus_bn": null,
+    "comp_pct": -11,
+    "comp_label": "Michael Kors Americas revenue",
+    "traffic_pct": null,
+    "ticket_pct": null,
+    "ecom_yoy_pct": null,
+    "gross_margin_bps": 230,
+    "eps_adj": 0.42,
+    "eps_consensus": 0.21,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null,
+    "eps_ex_one_offs": null,
+    "currency": "USD"
+  },
+  "guidance": "raised",
+  "guidance_note": "FY27 revenue ~ $3.42B (from ~$3.40B), adj. EPS ~ $2.20 (from ~$2.15); Q3 revenue ~ $1.005B vs ~$1.02B consensus; MK to grow again in Q4.",
+  "key_messages": [
+    "Michael Kors revenue -8.6% (-8.0% cc) to $663M: Americas -11%, EMEA -5%, Asia -1%; inventory delays cost ~ $50M.",
+    "MK gross margin 61.5% (+220 bps) on higher full-price sell-throughs and lower tariff rates; markdowns and promotions cut deliberately.",
+    "Jimmy Choo +11.5% (+12.2% cc) to $146M, Americas up >20%; MK customer database +8%.",
+    "~$20M of wholesale shipments pulled forward from Q3 into Q2.",
+    "Idol cited the earlier price reset and possible small MK full-price increases."
+  ],
+  "consumer": {
+    "verdict": "choosy",
+    "income_split": null,
+    "big_ticket": "MK demand still shrinking in the Americas as Capri pulls back from discount channels; Jimmy Choo (higher-end) growing.",
+    "pricing": "Fewer promotions and markdowns; lower tariff rates helped margins; possible minor MK price increases.",
+    "quote": "\"We are encouraged by the consumer response to our new product introductions and the progress we are seeing across both Michael Kors and Jimmy Choo.\" (management, Q2 call)"
+  },
+  "themes": [
+    "tariff_pricing",
+    "digital_strength"
+  ],
+  "macro_read": "Lower-priced aspirational luxury (Michael Kors) is still losing US sales as it cuts discounting, while the pricier Jimmy Choo grows, consistent with stronger spending at the higher end.",
+  "one_offs_undisclosed": false,
+  "notes": [
+    "Growth is as reported; Capri gives no constant-currency figure for the Americas. Versace was sold to Prada in December 2025; Jimmy Choo is still part of Capri.",
+    "Continuing operations = Michael Kors + Jimmy Choo. Only Versace was sold to Prada (closed Dec 2025); Jimmy Choo remains in Capri's continuing operations.",
+    "Stock surged on report day but sources disagree (Reuters >19% intraday; ~15.5-16% elsewhere); close not confirmed, so null.",
+    "Revenue consensus null: sources disagree ($781.7M Zacks to $786.6M MarketBeat).",
+    "GAAP EPS $0.25 vs adjusted $0.42. Gross margin bps is company-wide (63.3% vs 61.0%).",
+    "The headline figure is Michael Kors Americas revenue, -11% as reported by management."
+  ],
+  "sources": [
+    {
+      "label": "Capri Q2 FY27 release",
+      "url": "https://www.capriholdings.com/news/news-details/2026/Capri-Holdings-Limited-Reports-Second-Quarter-Fiscal-2027-Results/default.aspx"
+    },
+    {
+      "label": "Reuters via Investing.com: Capri soars after raising forecasts",
+      "url": "https://www.investing.com/news/stock-market-news/michael-kors-owner-capri-soars-after-raising-annual-forecasts-4988285"
+    },
+    {
+      "label": "Motley Fool Q2 FY27 call transcript",
+      "url": "https://www.fool.com/earnings/call-transcripts/2026/10/31/capri-holdings-cpri-q2-2027-earnings-call-transcript/"
+    },
+    {
+      "label": "Fashionunited: Jimmy Choo grows, forecast raised",
+      "url": "https://fashionunited.com/news/business/capri-holdings-jimmy-choo-grows-as-group-raises-full-year-forecast/2026103075487"
+    }
+  ]
+}

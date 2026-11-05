@@ -1,0 +1,65 @@
+{
+  "ticker": "TPR",
+  "fiscal_period": "Q3 FY2026",
+  "period_end": "2026-03-28",
+  "report_date": "2026-05-07",
+  "headline": "Revenue +21% with North America +20% and Greater China +55%; Tapestry lifts FY26 EPS outlook to ~$6.95.",
+  "metrics": {
+    "revenue_bn": 1.92,
+    "revenue_yoy_pct": 21,
+    "revenue_consensus_bn": null,
+    "comp_pct": 20,
+    "comp_label": "North America revenue (constant currency)",
+    "traffic_pct": null,
+    "ticket_pct": null,
+    "ecom_yoy_pct": null,
+    "gross_margin_bps": 80,
+    "eps_adj": 1.66,
+    "eps_consensus": null,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null,
+    "eps_ex_one_offs": null,
+    "currency": "USD"
+  },
+  "guidance": "raised",
+  "guidance_note": "FY26 revenue raised to ~$7.95B from >$7.75B; non-GAAP EPS ~ $6.95 from $6.40-6.45; operating margin ~23%.",
+  "key_messages": [
+    "Revenue +21% reported (+19% cc; pro forma +25%, +23% cc); Coach +31% (+29% cc), Kate Spade -10%.",
+    "North America +20%, Europe +21%, Greater China +55% (pro forma cc); management cited strong Gen Z demand.",
+    "Core leather goods grew on both higher AUR and units.",
+    "Operating margin up 490 bps; EPS +62%; Investor Day targets expected two years early."
+  ],
+  "consumer": {
+    "verdict": "strong",
+    "income_split": null,
+    "big_ticket": "Handbag demand very strong in the US and China.",
+    "pricing": "Higher AUR alongside unit growth.",
+    "quote": null
+  },
+  "themes": [
+    "discretionary_ok"
+  ],
+  "macro_read": "US demand for accessible luxury was very strong in early 2026, with North America up about 20%, a sign that young and middle-to-upper-income shoppers kept spending on fashion.",
+  "one_offs_undisclosed": false,
+  "notes": [
+    "Growth excludes Stuart Weitzman (sold) and is in constant currency. It is revenue growth, not a like-for-like comp.",
+    "EPS consensus null: sources disagree ($1.28 Investing.com vs ~$1.30 TipRanks). Revenue consensus not found.",
+    "Shares fell despite the beat (Investing.com cited ~-9.7% intraday); close not confirmed, so null.",
+    "Gross margin +80 bps (76.9% vs 76.1%) per one summary; basis (GAAP vs non-GAAP) not confirmed.",
+    "GAAP EPS $1.65 vs non-GAAP $1.66. A transcript cited North America +27% (likely Coach North America); release says +20% total."
+  ],
+  "sources": [
+    {
+      "label": "Tapestry Q3 FY26 release (Business Wire)",
+      "url": "https://www.businesswire.com/news/home/20260507429868/en/Tapestry-Inc.-Reports-Fiscal-2026-Third-Quarter-Results-and-Raises-Full-Year-Outlook"
+    },
+    {
+      "label": "Investing.com Q3 FY26 call transcript summary",
+      "url": "https://www.investing.com/news/transcripts/earnings-call-transcript-tapestry-q3-2026-earnings-beat-forecasts-stock-dips-93CH-4668546"
+    },
+    {
+      "label": "WWD: Tapestry Q3 2026",
+      "url": "https://wwd.com/business-news/financial/tapestry-q3-2026-earnings-beat-estimates-1238945264/"
+    }
+  ]
+}

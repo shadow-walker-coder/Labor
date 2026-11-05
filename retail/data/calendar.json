@@ -17,6 +17,12 @@
     "label": "Q1 FY2027",
     "time": "after the close, call 5pm ET"
   },
+  "CPRI": {
+    "date": "2027-02-03",
+    "confirmed": false,
+    "label": "Q3 FY2027",
+    "basis": "Based on last year (Feb 3); not yet announced."
+  },
   "DG": {
     "date": "2026-12-03",
     "confirmed": false,
@@ -59,6 +65,18 @@
     "label": "Q3 FY2026",
     "basis": "Listed as tentative on Lowe's investor calendar; no announcement yet."
   },
+  "LVMH": {
+    "date": "2027-01-27",
+    "confirmed": false,
+    "label": "FY2026 results",
+    "basis": "From earnings calendars (one shows Jan 25); not yet announced. Usually after the Paris close."
+  },
+  "RL": {
+    "date": "2027-02-04",
+    "confirmed": false,
+    "label": "Q3 FY2027",
+    "basis": "Based on last year (Feb 5); not yet announced. A 53-week year may shift it."
+  },
   "ROST": {
     "date": "2026-11-19",
     "confirmed": false,
@@ -76,6 +94,12 @@
     "confirmed": true,
     "label": "Q3 FY2027",
     "time": "before the open, call 11am ET"
+  },
+  "TPR": {
+    "date": "2027-02-04",
+    "confirmed": false,
+    "label": "Q2 FY2027",
+    "basis": "Based on the last two years (early-February Thursday, before the open); not yet announced."
   },
   "WMT": {
     "date": "2026-11-19",

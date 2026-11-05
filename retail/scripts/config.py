@@ -59,7 +59,7 @@ RETAILERS = [
     dict(ticker="RL", name="Ralph Lauren", category="luxury", cik=1037038,
          comp_label="North America revenue growth", comp_is_growth=True),
     dict(ticker="CPRI", name="Capri", category="luxury", cik=1530721,
-         comp_label="Michael Kors revenue growth", comp_is_growth=True),
+         comp_label="Michael Kors Americas revenue", comp_is_growth=True),
     # LVMH is listed in Paris and files nothing with the SEC (cik=None): refreshed on request, not by watch.py.
     dict(ticker="LVMH", name="LVMH", category="luxury", cik=None,
          comp_label="Organic revenue growth", comp_is_growth=True),

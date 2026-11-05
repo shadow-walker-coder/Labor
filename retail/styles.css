@@ -281,7 +281,7 @@ table.heat { border-collapse: separate; border-spacing: 3px; width: 100%; min-wi
 .bottom { background: var(--ink); color: var(--paper); border-radius: 12px; padding: 22px 24px; display: grid; gap: 10px; }
 .bottom .eyebrow { color: var(--paper); opacity: 0.65; }
 .bl-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
-.bottom h2 { margin: 0; font: 700 clamp(26px, 3.6vw, 40px)/1.08 var(--display); letter-spacing: 0.005em; max-width: 30ch; }
+.bottom h2 { margin: 0; font: 700 clamp(26px, 3.6vw, 40px)/1.08 var(--display); letter-spacing: 0.005em; max-width: 44ch; }
 .bottom .sum { margin: 0; opacity: 0.85; max-width: 80ch; }
 .verd.big { font-size: 13px; padding: 5px 12px; background: var(--paper); }
 .sowhat { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 12px; margin-top: 4px; display: grid; gap: 6px; }

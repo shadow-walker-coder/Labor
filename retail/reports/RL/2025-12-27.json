@@ -1,0 +1,70 @@
+{
+  "ticker": "RL",
+  "fiscal_period": "Q3 FY2026",
+  "period_end": "2025-12-27",
+  "report_date": "2026-02-05",
+  "headline": "Holiday revenue +12% (+10% cc) with 18% AUR growth; adj. EPS $6.22; FY26 outlook raised but Q4 margin to dip on tariffs.",
+  "metrics": {
+    "revenue_bn": 2.41,
+    "revenue_yoy_pct": 12,
+    "revenue_consensus_bn": 2.31,
+    "comp_pct": 8,
+    "comp_label": "North America revenue",
+    "traffic_pct": null,
+    "ticket_pct": null,
+    "ecom_yoy_pct": 7,
+    "gross_margin_bps": 150,
+    "eps_adj": 6.22,
+    "eps_consensus": null,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null,
+    "eps_ex_one_offs": null,
+    "currency": "USD"
+  },
+  "guidance": "raised",
+  "guidance_note": "FY26 cc revenue growth raised to high-single to low-double digits (from 5-7%), op margin +100-140 bps; Q4 margin contraction expected on tariffs and marketing.",
+  "key_messages": [
+    "North America revenue +8% to $1.1B; NA comps +7% (stores +6%, digital +7%); NA wholesale +11%.",
+    "Asia +22%, China up more than 30%; Europe +12% reported but only +4% cc, Europe margin down 150 bps.",
+    "DTC AUR +18% on full-price selling and fewer promotions; gross margin 69.9% (+150 bps) as AUR and cotton offset tariffs.",
+    "Adjusted EPS $6.22 (+29%); reported $5.82."
+  ],
+  "consumer": {
+    "verdict": "strong",
+    "income_split": "Coverage attributed the beat partly to continued spending from higher-income consumers.",
+    "big_ticket": "Strong holiday demand across geographies and consumer segments.",
+    "pricing": "AUR +18% with lower promotions; higher tariffs offset by full-price sales and lower cotton costs.",
+    "quote": "This holiday season, our teams delivered strong, high-quality growth across geographies and consumer segments"
+  },
+  "themes": [
+    "high_income_gains",
+    "discretionary_ok",
+    "tariff_pricing"
+  ],
+  "macro_read": "Higher-income US shoppers spent freely at full price over holiday 2025 even as tariffs raised costs, supporting a K-shaped consumer picture.",
+  "one_offs_undisclosed": false,
+  "notes": [
+    "Growth is as reported; a constant-currency North America figure was not found. North America retail comps are in the key messages.",
+    "EPS consensus null: one source compares reported $5.82 with $5.80 estimate, another adjusted $6.22 with $5.81.",
+    "Shares fell nearly 7% early on Q4 margin outlook; close not confirmed, so null.",
+    "The digital figure is the North America digital comp."
+  ],
+  "sources": [
+    {
+      "label": "RL Q3 FY26 press release (Business Wire)",
+      "url": "https://www.businesswire.com/news/home/20260204227348/en/Ralph-Lauren-Reports-Strong-Third-Quarter-Fiscal-2026-Holiday-Results-Ahead-of-Expectations-and-Raises-Full-Year-Outlook"
+    },
+    {
+      "label": "RL Q3 FY26 8-K Ex. 99.1",
+      "url": "https://www.sec.gov/Archives/edgar/data/1037038/000162828026005615/rl-20251227ex991xpressrele.htm"
+    },
+    {
+      "label": "Yahoo Finance: RL Q3 beat, shares slide on tariff margin outlook",
+      "url": "https://finance.yahoo.com/news/ralph-lauren-q3-earnings-beat-155900780.html"
+    },
+    {
+      "label": "Seeking Alpha: RL raises FY26 revenue outlook",
+      "url": "https://seekingalpha.com/news/4548081-ralph-lauren-raises-fiscal-2026-revenue-growth-outlook-to-high-single-to-low-double-digits-as"
+    }
+  ]
+}

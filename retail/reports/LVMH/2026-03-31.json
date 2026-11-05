@@ -1,0 +1,63 @@
+{
+  "ticker": "LVMH",
+  "fiscal_period": "Q1 2026",
+  "period_end": "2026-03-31",
+  "report_date": "2026-04-13",
+  "headline": "Q1 organic growth of 1% (-6% reported) as Middle East conflict cost ~1 pt; US +3% and Asia ex-Japan +7%.",
+  "metrics": {
+    "revenue_bn": 19.1,
+    "revenue_yoy_pct": -6,
+    "revenue_consensus_bn": null,
+    "comp_pct": 3,
+    "comp_label": "U.S. organic revenue",
+    "traffic_pct": null,
+    "ticket_pct": null,
+    "ecom_yoy_pct": null,
+    "gross_margin_bps": null,
+    "eps_adj": null,
+    "eps_consensus": null,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null,
+    "eps_ex_one_offs": null,
+    "currency": "EUR"
+  },
+  "guidance": "none",
+  "guidance_note": "Revenue-only update; no numerical guidance.",
+  "key_messages": [
+    "Fashion & Leather Goods -2% organic; US and China demand improving, Middle East hit by conflict.",
+    "Wines & Spirits +5% organic on champagne in Europe and Lunar New Year timing for cognac.",
+    "Selective Retailing +4% organic; Sephora gained share in all regions. Watches & Jewelry +7%.",
+    "Regions: US +3%, Asia ex-Japan +7%, Europe and Japan -3%; FX cut reported growth by ~7 pts."
+  ],
+  "consumer": {
+    "verdict": "choosy",
+    "income_split": null,
+    "big_ticket": "Resilient US luxury spending; Middle East conflict disrupted travel and regional sales.",
+    "pricing": null,
+    "quote": null
+  },
+  "themes": [
+    "discretionary_ok"
+  ],
+  "macro_read": "US luxury demand was modestly positive in early 2026, a resilient but not booming read on high-income spending.",
+  "one_offs_undisclosed": false,
+  "notes": [
+    "LVMH is listed in Paris and reports in euros. It does not file with the SEC, so this card is refreshed on request, not automatically.",
+    "Share move on 2026-04-14 (first session after the after-close release) not found.",
+    "No quarterly EPS for LVMH."
+  ],
+  "sources": [
+    {
+      "label": "LVMH Q1 2026 revenue release (GlobeNewswire PDF)",
+      "url": "https://ml-eu.globenewswire.com/Resource/Download/f9e19980-9e57-4254-b178-c898d9f905eb"
+    },
+    {
+      "label": "Investing.com: LVMH Q1 2026 slides",
+      "url": "https://www.investing.com/news/company-news/lvmh-q1-2026-slides-organic-growth-holds-amid-currency-headwinds-93CH-4610985"
+    },
+    {
+      "label": "Retail Insight Network: LVMH modest organic growth",
+      "url": "https://www.retail-insight-network.com/news/lvmh-posts-modest-organic-growth/"
+    }
+  ]
+}

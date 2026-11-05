@@ -1,0 +1,65 @@
+{
+  "ticker": "CPRI",
+  "fiscal_period": "Q3 FY2026",
+  "period_end": "2025-12-27",
+  "report_date": "2026-02-03",
+  "headline": "First quarter after the Versace sale: revenue -4%, MK Americas -9%; adjusted EPS $0.81 tops estimates, but shares fell ~10%.",
+  "metrics": {
+    "revenue_bn": 1.025,
+    "revenue_yoy_pct": -4.0,
+    "revenue_consensus_bn": 1.0,
+    "comp_pct": -9,
+    "comp_label": "Michael Kors Americas revenue",
+    "traffic_pct": null,
+    "ticket_pct": null,
+    "ecom_yoy_pct": null,
+    "gross_margin_bps": null,
+    "eps_adj": 0.81,
+    "eps_consensus": 0.78,
+    "inventory_yoy_pct": null,
+    "stock_reaction_pct": null,
+    "eps_ex_one_offs": null,
+    "currency": "USD"
+  },
+  "guidance": "raised",
+  "guidance_note": "Reuters described a forecast bump; FY26 revenue ~ $3.45-3.475B. Prior range not confirmed.",
+  "key_messages": [
+    "Michael Kors revenue -5.6% (-7.3% cc) to $858M; Americas -9% on inventory clearing, lower daigou and less off-price selling.",
+    "Full-price sales improved sequentially with higher AUR and gross margin as promotions were cut.",
+    "MK operating margin fell to 13.9% from 16.2%.",
+    "Versace sale to Prada completed; net debt fell to ~$80M at quarter end per one summary."
+  ],
+  "consumer": {
+    "verdict": "choosy",
+    "income_split": null,
+    "big_ticket": "Holiday MK demand down in the Americas; full-price selling improved while markdown sales fell.",
+    "pricing": "Higher AUR from less promotional activity.",
+    "quote": null
+  },
+  "themes": [
+    "value_seeking"
+  ],
+  "macro_read": "Over the 2025 holidays, MK shoppers bought less once discounts were reduced, a sign that this aspirational customer is price sensitive.",
+  "one_offs_undisclosed": false,
+  "notes": [
+    "Growth is as reported; Capri gives no constant-currency figure for the Americas. Versace was sold to Prada in December 2025; Jimmy Choo is still part of Capri.",
+    "Versace sale to Prada closed in Dec 2025, and Versace is reported as a discontinued operation; Jimmy Choo stays in continuing operations.",
+    "Reuters said shares fell 10% on the day; final close not confirmed, so null.",
+    "Consensus figures (EPS $0.78, revenue ~$1.00B) are from MarketBeat only. GAAP EPS $0.47 vs adjusted $0.81.",
+    "Americas decline: the transcript says MK Americas -9%; another summary cites a 7% Americas retail decline (different measure)."
+  ],
+  "sources": [
+    {
+      "label": "Capri Q3 FY26 release (Business Wire)",
+      "url": "https://www.businesswire.com/news/home/20260203441722/en/Capri-Holdings-Limited-Announces-Third-Quarter-Fiscal-2026-Results"
+    },
+    {
+      "label": "Reuters via Investing.com: Michael Kors declines, shares fall",
+      "url": "https://www.investing.com/news/stock-market-news/michael-kors-parent-capri-hikes-annual-revenue-forecast-4481428"
+    },
+    {
+      "label": "Motley Fool Q3 FY26 call transcript",
+      "url": "https://www.fool.com/earnings/call-transcripts/2026/02/03/capri-holdings-cpri-q3-2026-earnings-transcript/"
+    }
+  ]
+}
