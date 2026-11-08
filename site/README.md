@@ -75,3 +75,36 @@ automatically.
 - State-level unemployment from BLS LAUS as a map
 - Compare mode: index two series to the same start date on one chart
 - Release calendar showing when each number next updates
+
+## Consumer Earnings Monitor (`earnings/`)
+
+A second page that reads the latest quarterly reports from 34 consumer companies (retail, restaurants,
+airlines, hotels, cruise lines and car rental) for what they say about the U.S. consumer. The data is a
+researched snapshot in `earnings/data/earnings.js`, not refreshed automatically. To add new quarters, put
+research files in the same shape as the existing entries and run:
+
+    python scripts/build_earnings.py new/*.json
+
+This merges them, recomputes derived fields and rewrites `data/earnings_summary.js`, which feeds the
+"What companies are saying" teaser on the main page.
+
+## Big questions
+
+Plain answers to four questions people ask most: when inflation gets back to 2%, whether AI is taking
+jobs, whether growth is holding up, and how healthy the consumer is. Like The latest, each answer is
+written in `app.js` from the newest data, so it updates with every refresh. The extra series these
+answers use (shelter and core goods CPI, unemployment for ages 20 to 24 and for college graduates,
+computer systems design and information jobs, productivity, and the core PCE price level) are listed
+in `EXTRAS` in `scripts/series_config.py` and saved under `extras` in `data/series.js`.
+
+The Fed's own projections (median of the FOMC Summary of Economic Projections) are in `data/fomc_sep.js`.
+They are not on FRED in a form the refresh can use, so update that file by hand after each projection
+meeting (March, June, September and December).
+
+## Latest news
+
+`scripts/fetch_news.py` reads free RSS feeds (WSJ, FT, New York Times, Economist, Washington Post,
+banking and housing trade press, Fed and budget research), keeps the past few days' items on U.S.
+economy topics, removes duplicate stories, tags each by topic and writes the top 40 to
+`data/news.js`. The workflow runs it with every data refresh. Summaries are the outlets' own RSS
+blurbs; nothing is rewritten.
