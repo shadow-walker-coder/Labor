@@ -470,46 +470,54 @@
   const lineCard = (key, title, unit, lines, opts) => Object.assign({ key, title, unit, decimals: 1, chart: "line", years: 5, lines }, opts || {});
   const moved = (x, unit) => (Math.abs(x) < 0.05 ? "about unchanged" : `${x > 0 ? "up" : "down"} ${Math.abs(x).toFixed(1)} ${unit}`);
 
+  // Pace of a price index over the last n months, at an annual rate.
+  const paceOf = (lv, n) => (lv.length > n ? (Math.pow(lv[lv.length - 1][1] / lv[lv.length - 1 - n][1], 12 / n) - 1) * 100 : null);
+
   function qInflation() {
-    const yo = obsOf("PCEPILFE"), lv = ex("CORE_PCE_LEVEL");
+    const yo = obsOf("PCEPI"), core = obsOf("PCEPILFE"), lv = ex("PCE_LEVEL"), clv = ex("CORE_PCE_LEVEL");
     if (!yo) return null;
-    const now = yo[yo.length - 1];
+    const now = yo[yo.length - 1], ago6 = monthsBack(yo, 6), ago12 = monthsBack(yo, 12);
     const ev = [];
-    let pace6 = null, pace3 = null, hit = null, proj = [];
-    if (lv.length >= 13) {
-      const n = lv.length, L = lv[n - 1][1];
-      pace6 = (Math.pow(L / lv[n - 7][1], 2) - 1) * 100;
-      pace3 = (Math.pow(L / lv[n - 4][1], 4) - 1) * 100;
-      // carry the last six months' pace forward and watch the 12-month rate converge to it
-      const g = Math.pow(L / lv[n - 7][1], 1 / 6);
-      const levels = lv.map((o) => o[1]);
-      proj = [[lv[n - 1][0], +(now[1]).toFixed(2)]];
+    const pace6 = paceOf(lv, 6), pace3 = paceOf(lv, 3);
+    // carry the last six months' pace forward and watch the 12-month rate converge to it
+    let hit = null, proj = [];
+    if (lv.length >= 13 && pace6 !== null) {
+      const n = lv.length, g = Math.pow(lv[n - 1][1] / lv[n - 7][1], 1 / 6), levels = lv.map((o) => o[1]);
+      proj = [[lv[n - 1][0], +now[1].toFixed(2)]];
       for (let k = 1; k <= 12; k++) {
         levels.push(levels[levels.length - 1] * g);
-        const yoy = (levels[levels.length - 1] / levels[levels.length - 13] - 1) * 100;
-        const d = addMonths(lv[n - 1][0], k);
+        const yoy = (levels[levels.length - 1] / levels[levels.length - 13] - 1) * 100, d = addMonths(lv[n - 1][0], k);
         proj.push([d, +yoy.toFixed(2)]);
         if (hit === null && yoy <= 2.2) hit = d;
       }
     }
+    const trend = ago6 ? (now[1] > ago6[1] + 0.2 ? "rising" : now[1] < ago6[1] - 0.2 ? "falling" : "flat") : null;
     let tone, answer;
-    if (now[1] <= 2.2) { tone = "good"; answer = "It's essentially there: core inflation is within a whisker of 2%."; }
-    else if (hit) { tone = "watch"; answer = `If prices keep rising at their pace of the past six months, core inflation would reach about 2% around ${monthLabel(hit)}.`; }
-    else if (pace6 !== null) { tone = now[1] >= 3 ? "concern" : "watch"; answer = `Not on the current pace. Prices rose at a ${pct(pace6)} annual rate over the past six months, so inflation would settle near ${pct(pace6)}, not 2%, unless that slows.`; }
-    else { tone = now[1] >= 3 ? "concern" : "watch"; answer = `Not yet: core inflation is ${pct(now[1])}, above the 2% goal.`; }
-    ev.push(`Core PCE prices, the Fed's target measure, are up <b>${pct(now[1])}</b> from a year earlier (${when("PCEPILFE", now)}).` +
-      (pace6 !== null ? ` Over the last six months they rose at a <b>${pct(pace6)}</b> annual rate, and ${pct(pace3)} over the last three.` : ""));
+    if (now[1] <= 2.2) { tone = "good"; answer = "It's essentially there: headline PCE inflation, the measure the Fed's 2% goal is written in, is within a whisker of 2%."; }
+    else if (trend === "rising") { tone = "concern"; answer = `Not soon. Headline PCE inflation, the measure the Fed's 2% goal is written in, is ${pct(now[1])} and moving away from target, up from ${pct(ago6[1])} six months ago.`; }
+    else if (hit) { tone = "watch"; answer = `Headline PCE inflation is ${pct(now[1])}. If prices keep rising at their pace of the past six months, it would reach about 2% around ${monthLabel(hit)}.`; }
+    else { tone = now[1] >= 3 ? "concern" : "watch"; answer = `Not on the current pace. Headline PCE inflation is ${pct(now[1])}${pace6 !== null ? `, and prices have risen at a ${pct(pace6)} annual rate over the past six months` : ""}.`; }
+    ev.push(`The Fed defines its 2% goal in terms of <b>headline PCE</b> prices, everything consumers buy including food and energy. That's up <b>${pct(now[1])}</b> from a year earlier (${when("PCEPI", now)})` +
+      (ago6 && ago12 ? `, ${trend === "flat" ? "about the same as" : trend === "rising" ? "up from" : "down from"} ${pct(ago6[1])} six months ago and ${pct(ago12[1])} a year ago.` : ".") +
+      (pace6 !== null ? ` Over the last six months prices rose at a <b>${pct(pace6)}</b> annual rate (${pct(pace3)} over the last three).` : ""));
+    if (core) {
+      const c = core[core.length - 1], cp6 = paceOf(clv, 6);
+      ev.push(`Core PCE, which leaves out food and energy and is the Fed's best guide to where headline inflation is heading, is up <b>${pct(c[1])}</b>` +
+        (cp6 !== null ? `, rising at a ${pct(cp6)} pace over six months.` : ".") +
+        (now[1] > c[1] + 0.3 ? " The gap between the two is energy." : ""));
+    }
+    const wti = lastOf("CRUDE"), wtiAgo = backOf("CRUDE", 12), gas = lastOf("GASREGCOVM");
+    if (wti && wtiAgo) { const oc = (wti[1] / wtiAgo[1] - 1) * 100; ev.push(`Oil averaged <b>$${wti[1].toFixed(0)}</b> a barrel in ${when("CRUDE", wti)}, ${oc >= 0 ? "up" : "down"} ${Math.abs(oc).toFixed(0)}% from a year earlier${gas ? `, with gasoline at $${gas[1].toFixed(2)} a gallon` : ""}.`); }
     const sh = exLast("SHELTER"), cg = exLast("CORE_GOODS");
     if (sh || cg) ev.push([sh ? `Housing costs (CPI shelter) are up <b>${pct(sh[1])}</b> from a year earlier` : "",
       cg ? `${sh ? "and" : ""} goods excluding food and energy are ${cg[1] >= 0 ? "up" : "down"} <b>${pct(Math.abs(cg[1]))}</b>` : ""].filter(Boolean).join(" ") + ` (${monthLabel((sh || cg)[0])}).`);
-    const cpi = lastOf("CPIAUCSL"), wti = lastOf("CRUDE");
-    if (cpi && wti) ev.push(`Headline CPI, which includes food and energy, is up <b>${pct(cpi[1])}</b>${cpi[1] > now[1] + 0.3 ? `, pushed above core by oil at $${wti[1].toFixed(0)} a barrel` : ""}.`);
-    const card = lineCard("Q_INFL", "Core PCE inflation", "% y/y", [
-      { label: "Core PCE, % y/y", id: "PCEPILFE", obs: yo },
-      ...(proj.length ? [{ label: "If the 6-month pace holds", id: "projection", obs: proj, dash: true }] : [])],
+    const card = lineCard("Q_INFL", "PCE inflation", "% y/y", [
+      { label: "Headline PCE", id: "PCEPI", obs: yo },
+      ...(core ? [{ label: "Core PCE", id: "PCEPILFE", obs: core }] : []),
+      ...(proj.length ? [{ label: "Headline, if the 6-month pace holds", id: "projection", obs: proj, dash: true }] : [])],
       { target: 2, target_label: "Fed target 2%" });
     return { q: "When will inflation get back to the Fed's 2% target?", tone, answer, ev, card, link: "prices",
-      change: "Sooner if oil prices fall back and housing costs keep cooling. Later if energy costs spread into other prices or tariffs keep pushing goods prices up." };
+      change: "Sooner if oil prices fall back, since energy is what's keeping headline above core. Later if high energy costs spread into other prices or tariffs keep pushing goods prices up." };
   }
 
   function qAI() {
@@ -590,35 +598,78 @@
       change: "A jump in layoffs or jobless claims, or consumers cutting spending as gasoline and borrowing costs bite." };
   }
 
+  // Savings above or below the 2015-2019 saving rate, added up month by month from March 2020 ($ trillions).
+  function excessSavings() {
+    const sav = obsOf("PSAVERT"), inc = ex("DSPI");
+    if (!sav || !inc.length) return null;
+    const base = avg(sav.filter((o) => o[0] >= "2015-01-01" && o[0] < "2020-01-01").map((o) => o[1]));
+    const income = new Map(inc.map((o) => [o[0], o[1]]));
+    let total = 0;
+    const out = [];
+    for (const [d, r] of sav) {
+      if (d < "2020-03-01" || !income.has(d)) continue;
+      total += ((r - base) / 100) * income.get(d) / 12 / 1000;
+      out.push([d, +total.toFixed(3)]);
+    }
+    if (!out.length) return null;
+    const peak = out.reduce((a, b) => (b[1] > a[1] ? b : a));
+    const gone = out.find((o) => o[0] > peak[0] && o[1] <= 0);
+    return { base, out, peak, last: out[out.length - 1], gone };
+  }
+
   function qConsumer() {
     const pce = lastOf("PCEC96"), inc = lastOf("DSPIC96"), sav = obsOf("PSAVERT");
     if (!pce) return null;
     const ev = [];
     const s = sav ? sav[sav.length - 1] : null;
-    const pre = sav ? sav.filter((o) => o[0] >= "2015-01-01" && o[0] < "2020-01-01").map((o) => o[1]) : [];
-    const preAvg = pre.length ? avg(pre) : null;
     const ahe = lastOf("CES0500000003"), cpi = obsOf("CPIAUCSL");
     let real = null;
     if (ahe && cpi) { const c = cpi.find((o) => o[0] === ahe[0]) || cpi[cpi.length - 1]; real = { v: ahe[1] - c[1], d: c[0] }; }
     const del = lastOf("DELINQUENCY"), delAgo = backOf("DELINQUENCY", 4);
-    const thin = s && preAvg !== null && s[1] < preAvg - 1;
+    const xs = excessSavings();
+    const depleted = xs && xs.last[1] <= 0;
+    // The 2025 tax law cut taxes retroactively for 2025, so it showed up in early-2026 income and saving.
+    const tax = sav ? sav.filter((o) => o[0] >= "2026-01-01" && o[0] <= "2026-05-01") : [];
+    const taxPeak = tax.length ? tax.reduce((a, b) => (b[1] > a[1] ? b : a)) : null;
+    const taxFaded = taxPeak && s && s[0] > taxPeak[0] && s[1] <= taxPeak[1] - 0.8;
+    const thin = s && xs && s[1] < xs.base - 1;
     let tone, answer;
     if (pce[1] < 1) { tone = "concern"; answer = "Pulling back: spending after inflation has nearly stopped growing."; }
-    else if ((real && real.v < 0) || (inc && inc[1] < pce[1] - 1 && thin)) { tone = "watch"; answer = "Still spending, but on a thinner cushion: spending is outpacing income, and households are saving less to keep it up."; }
+    else if (depleted && taxFaded && real && real.v < 0) { tone = "concern"; answer = "Still spending, but the cushions are running out: pandemic-era savings are gone, the boost from this year's tax cuts has largely been spent, and paychecks are trailing prices."; }
+    else if ((real && real.v < 0) || (inc && inc[1] < pce[1] - 1 && thin) || depleted) { tone = "watch"; answer = taxFaded
+      ? "Still spending, but on a thinner cushion: spending is outpacing income, the boost from this year's tax cuts has faded, and households are saving less to keep it up."
+      : "Still spending, but on a thinner cushion: spending is outpacing income, and households are saving less to keep it up."; }
     else if (pce[1] >= 2) { tone = "good"; answer = "Healthy: spending and income are both growing after inflation."; }
     else { tone = "watch"; answer = "Okay, but spending growth has slowed."; }
     ev.push(`Spending after inflation is up <b>${pct(pce[1])}</b> from a year earlier` +
-      (inc ? `; after-tax income after inflation is up <b>${pct(inc[1])}</b> (${when("DSPIC96", inc)}).` : "."));
-    if (real) ev.push(`Hourly pay is up ${pct(ahe[1])} against prices up ${pct(ahe[1] - real.v)}, so ${real.v >= 0 ? `real wages are rising by about <b>${pct(real.v)}</b>` : `paychecks are <b>falling behind</b> prices by ${pct(-real.v)}`} (${monthLabel(real.d)}).`);
-    if (s) ev.push(`Households save <b>${pct(s[1])}</b> of their income${preAvg !== null ? `, against ${pct(preAvg)} on average in 2015–2019` : ""}.` +
+      (inc ? `; after-tax income after inflation is up only <b>${pct(inc[1])}</b> (${when("DSPIC96", inc)}).` : "."));
+    if (xs) ev.push(`<b>Pandemic savings:</b> households built up about <b>$${xs.peak[1].toFixed(1)} trillion</b> more than usual by ${monthLabel(xs.peak[0])}. ` +
+      (xs.last[1] <= 0 ? `It's all been spent${xs.gone ? ` (gone by ${monthLabel(xs.gone[0])})` : ""}; measured against their 2015–2019 saving habit, households are now about <b>$${Math.abs(xs.last[1]).toFixed(1)} trillion</b> behind.`
+        : (() => {
+          const yr = monthsBack(xs.out, 12), burn = yr ? yr[1] - xs.last[1] : 0;
+          let t = `About <b>$${xs.last[1].toFixed(1)} trillion</b> of it is left by this measure`;
+          if (burn > 0.05) {
+            t += `, but households drew down <b>$${(burn * 1000).toFixed(0)} billion</b> of it over the past year`;
+            const yrs = xs.last[1] / burn;
+            t += yrs <= 4 ? `; at that pace it would be gone around ${toDate(addMonths(xs.last[0], Math.round(yrs * 12))).getUTCFullYear()}.` : ".";
+          } else t += ".";
+          return t;
+        })()));
+    if (taxPeak && s) ev.push(`<b>Tax cuts:</b> the 2025 tax law (the "One Big Beautiful Bill") cut taxes retroactively, so bigger refunds and lower withholding lifted income early this year. The saving rate rose to <b>${pct(taxPeak[1])}</b> in ${monthLabel(taxPeak[0])}` +
+      (taxFaded ? `, and has since fallen to <b>${pct(s[1])}</b> (${monthLabel(s[0])}), so that money has likely been spent.` : `; it's ${pct(s[1])} now.`));
+    if (real) ev.push(`Hourly pay is up ${pct(ahe[1])} against prices up ${pct(ahe[1] - real.v)}, so ${real.v >= 0 ? `real wages are rising by about <b>${pct(real.v)}</b>` : `paychecks are <b>falling behind</b> prices by ${pct(-real.v)}`} (${monthLabel(real.d)}).` +
       (del ? ` ${pct(del[1], 2)} of credit card balances are delinquent${delAgo ? `, ${del[1] >= delAgo[1] ? "up" : "down"} ${Math.abs(del[1] - delAgo[1]).toFixed(2)} points in a year` : ""}.` : ""));
     const E = window.EARNINGS_SUMMARY;
     if (E && E.verdict) ev.push(`Companies' read from their latest earnings: <b>${E.verdict}</b>. <a href="earnings/index.html">See what ${E.companies} companies are saying →</a>`);
-    const card = lineCard("Q_CONS", "Spending vs income, after inflation", "% y/y", [
-      { label: "Real consumer spending", id: "PCEC96", obs: obsOf("PCEC96") },
-      ...(obsOf("DSPIC96") ? [{ label: "Real disposable income", id: "DSPIC96", obs: obsOf("DSPIC96") }] : [])], { years: 3 });
+    const card = xs
+      ? { key: "Q_CONS", title: "Pandemic savings still unspent, $ trillions", unit: "$ trillions", decimals: 1, chart: "line", years: 7,
+          lines: [{ label: "Excess savings", id: "PSAVERT", obs: xs.out }] }
+      : lineCard("Q_CONS", "Spending vs income, after inflation", "% y/y", [
+          { label: "Real consumer spending", id: "PCEC96", obs: obsOf("PCEC96") },
+          ...(obsOf("DSPIC96") ? [{ label: "Real disposable income", id: "DSPIC96", obs: obsOf("DSPIC96") }] : [])], { years: 3 });
     return { q: "How healthy is the U.S. consumer?", tone, answer, ev, card, link: "consumer",
-      change: "Watch whether job growth keeps income rising. If hiring slows while savings are already low, spending is the next thing to give." };
+      note: xs ? "Excess savings: each month's saving above or below the 2015–2019 average saving rate, added up from March 2020. A common way to estimate it; the exact number depends on the baseline." : null,
+      change: "Watch whether job growth keeps income rising. With savings already drawn down, spending now depends on paychecks, so a hiring slowdown would hit it quickly." };
   }
 
   function questionsSection() {
