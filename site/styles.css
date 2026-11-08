@@ -160,3 +160,11 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 .how summary { cursor: pointer; color: var(--ink); font-weight: 600; }
 .how ul { padding-left: 18px; }
 .how li { margin: 4px 0; }
+
+/* Link out to the Consumer Earnings Monitor */
+.bar nav a.out { color: var(--accent); }
+.earn { display: block; margin-top: 16px; background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; padding: 16px; color: inherit; text-decoration: none; }
+.earn:hover { border-color: var(--accent); }
+.earn h3 { margin: 8px 0 6px; font: 700 18px/1.25 var(--display); }
+.earn p { margin: 0; font-size: 14px; color: var(--muted); }
+.earn .go { display: inline-block; margin-top: 10px; font-weight: 600; font-size: 14px; color: var(--accent); }

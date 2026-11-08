@@ -88,7 +88,8 @@
     const top = { latest: "The latest" };
     if (DATA.model) top.outlook = "GDP outlook";
     box.innerHTML = Object.entries(Object.assign(top, DATA.sections))
-      .map(([key, label]) => `<a href="#${key}">${label}</a>`).join("");
+      .map(([key, label]) => `<a href="#${key}">${label}</a>`).join("") +
+      `<a class="out" href="earnings/index.html">Company earnings →</a>`;
   }
 
   function readingHtml(c) {
@@ -422,6 +423,18 @@
     return list.sort((a, b) => order[a.tone] - order[b.tone]);
   }
 
+  // A pointer to the Consumer Earnings Monitor (earnings/), from data/earnings_summary.js
+  function earningsTeaser() {
+    const E = window.EARNINGS_SUMMARY;
+    if (!E || !E.headline) return "";
+    const V = { strong: "Strong", steady: "Steady", choosy: "Choosy", strained: "Strained" };
+    const tone = { strong: "good", steady: "good", choosy: "watch", strained: "concern" }[E.verdict] || "watch";
+    return `<a class="earn" href="earnings/index.html"><div class="punch-top"><span class="topic">What companies are saying${E.as_of ? ` · ${E.as_of}` : ""}</span>` +
+      `<span class="tag ${tone}">Consumer: ${V[E.verdict] || E.verdict}</span></div>` +
+      `<h3>${E.headline}</h3><p>${E.summary || ""}</p>` +
+      `<span class="go">Read the latest earnings from ${E.companies} companies across ${E.sectors.length} sectors →</span></a>`;
+  }
+
   function latestSection() {
     const sec = document.createElement("section");
     sec.className = "sec";
@@ -437,7 +450,8 @@
     sec.innerHTML =
       `<header class="sec-head"><h2>The latest</h2><p>Where the economy stands, in a sentence or two per topic. Written automatically from the newest numbers on this page.</p></header>` +
       `<div class="punches">${cards}</div>` +
-      `<div class="risks"><h3>Key risks to watch <span>${flagged} of ${rk.length} flashing</span></h3><ul>${rows}</ul></div>`;
+      `<div class="risks"><h3>Key risks to watch <span>${flagged} of ${rk.length} flashing</span></h3><ul>${rows}</ul></div>` +
+      earningsTeaser();
     return sec;
   }
 

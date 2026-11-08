@@ -75,3 +75,15 @@ automatically.
 - State-level unemployment from BLS LAUS as a map
 - Compare mode: index two series to the same start date on one chart
 - Release calendar showing when each number next updates
+
+## Consumer Earnings Monitor (`earnings/`)
+
+A second page that reads the latest quarterly reports from 34 consumer companies (retail, restaurants,
+airlines, hotels, cruise lines and car rental) for what they say about the U.S. consumer. The data is a
+researched snapshot in `earnings/data/earnings.js`, not refreshed automatically. To add new quarters, put
+research files in the same shape as the existing entries and run:
+
+    python scripts/build_earnings.py new/*.json
+
+This merges them, recomputes derived fields and rewrites `data/earnings_summary.js`, which feeds the
+"What companies are saying" teaser on the main page.
