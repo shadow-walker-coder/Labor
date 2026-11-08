@@ -87,3 +87,12 @@ research files in the same shape as the existing entries and run:
 
 This merges them, recomputes derived fields and rewrites `data/earnings_summary.js`, which feeds the
 "What companies are saying" teaser on the main page.
+
+## Big questions
+
+Plain answers to four questions people ask most: when inflation gets back to 2%, whether AI is taking
+jobs, whether growth is holding up, and how healthy the consumer is. Like The latest, each answer is
+written in `app.js` from the newest data, so it updates with every refresh. The extra series these
+answers use (shelter and core goods CPI, unemployment for ages 20 to 24 and for college graduates,
+computer systems design and information jobs, productivity, and the core PCE price level) are listed
+in `EXTRAS` in `scripts/series_config.py` and saved under `extras` in `data/series.js`.
