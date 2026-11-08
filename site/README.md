@@ -100,3 +100,11 @@ in `EXTRAS` in `scripts/series_config.py` and saved under `extras` in `data/seri
 The Fed's own projections (median of the FOMC Summary of Economic Projections) are in `data/fomc_sep.js`.
 They are not on FRED in a form the refresh can use, so update that file by hand after each projection
 meeting (March, June, September and December).
+
+## Latest news
+
+`scripts/fetch_news.py` reads free RSS feeds (WSJ, FT, New York Times, Economist, Washington Post,
+banking and housing trade press, Fed and budget research), keeps the past few days' items on U.S.
+economy topics, removes duplicate stories, tags each by topic and writes the top 40 to
+`data/news.js`. The workflow runs it with every data refresh. Summaries are the outlets' own RSS
+blurbs; nothing is rewritten.

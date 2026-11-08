@@ -85,7 +85,9 @@
   // ---------- page ----------
   function renderNav() {
     const box = document.getElementById("sections-nav");
-    const top = { latest: "The latest", questions: "Big questions" };
+    const top = { latest: "The latest" };
+    if (window.NEWS_DATA && window.NEWS_DATA.items && window.NEWS_DATA.items.length) top.news = "News";
+    top.questions = "Big questions";
     if (DATA.model) top.outlook = "GDP outlook";
     box.innerHTML = Object.entries(Object.assign(top, DATA.sections))
       .map(([key, label]) => `<a href="#${key}">${label}</a>`).join("") +
@@ -112,6 +114,8 @@
     main.textContent = "";
     EXTRA.length = 0;
     main.appendChild(latestSection());
+    const news = newsSection();
+    if (news) main.appendChild(news);
     main.appendChild(questionsSection());
     if (DATA.model) main.appendChild(outlookSection());
     for (const [key, label] of Object.entries(DATA.sections)) {
@@ -712,6 +716,55 @@
     }).join("");
     sec.innerHTML = `<header class="sec-head"><h2>Big questions</h2><p>Straight answers to what people are asking about the economy, written automatically from the latest data on this page.</p></header>` +
       `<div class="questions">${body}</div>`;
+    return sec;
+  }
+
+  // ---------- latest news: headlines from free RSS feeds (data/news.js, refreshed by scripts/fetch_news.py) ----------
+  const esc = (t) => String(t == null ? "" : t).replace(/[&<>"]/g, (ch) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[ch]));
+  const safeUrl = (u) => (/^https?:\/\//i.test(u || "") ? esc(u) : "#");
+  const ago = (iso) => {
+    const h = (Date.now() - new Date(iso).getTime()) / 36e5;
+    if (h < 1) return "just now";
+    if (h < 24) return `${Math.round(h)}h ago`;
+    return new Date(iso).toLocaleDateString("en-US", { month: "short", day: "numeric" });
+  };
+  // Where each topic leads on this page
+  const TOPIC_LINK = { "Fed & rates": "money", "Inflation": "prices", "Jobs": "jobs", "Growth": "outlook", "Consumer": "consumer",
+    "Housing": "money", "Energy": "energy", "Budget & taxes": "budget", "Banks & credit": "credit" };
+
+  function newsSection() {
+    const N = window.NEWS_DATA;
+    if (!N || !N.items || !N.items.length) return null;
+    const sec = document.createElement("section");
+    sec.className = "sec";
+    sec.id = "news";
+    const top = N.items.slice(0, 3), rest = N.items.slice(3, 18);
+    const tags = (it) => it.topics.map((t) => `<span class="ntag">${esc(t)}</span>`).join("");
+    const feat = top.map((it) => {
+      const rel = it.topics.find((t) => TOPIC_LINK[t]);
+      return `<article class="card nfeat"><div class="nsrc"><b>${esc(it.source)}</b><span>${ago(it.published)}</span></div>` +
+        `<h3><a href="${safeUrl(it.link)}" target="_blank" rel="noopener">${esc(it.title)}</a></h3>` +
+        (it.summary ? `<p>${esc(it.summary)}</p>` : "") +
+        `<div class="ntags">${tags(it)}</div>` +
+        `<div class="nfoot"><a href="${safeUrl(it.link)}" target="_blank" rel="noopener">Read at ${esc(it.source)} →</a>` +
+        (rel ? `<a href="#${TOPIC_LINK[rel]}">${esc(rel)} data on this page</a>` : "") + `</div></article>`;
+    }).join("");
+    const topics = [...new Set(rest.flatMap((it) => it.topics))];
+    const rows = rest.map((it) =>
+      `<li data-topics="${esc(it.topics.join("|"))}"><a href="${safeUrl(it.link)}" target="_blank" rel="noopener">${esc(it.title)}</a>` +
+      `<span class="nmeta">${esc(it.source)} · ${ago(it.published)}</span></li>`).join("");
+    sec.innerHTML =
+      `<header class="sec-head"><h2>Latest news</h2><p>The most relevant economy headlines of the past few days from the WSJ, FT, New York Times and other outlets, plus Fed and budget research. Summaries are each outlet's own; links go to the original, which may be paywalled.</p></header>` +
+      `<div class="nfeats">${feat}</div>` +
+      (rest.length ? `<div class="card nmore"><div class="nmore-head"><h3>More headlines</h3>` +
+        `<div class="nfilter" role="group" aria-label="Filter by topic"><button type="button" aria-pressed="true" data-t="">All</button>` +
+        topics.map((t) => `<button type="button" aria-pressed="false" data-t="${esc(t)}">${esc(t)}</button>`).join("") + `</div></div>` +
+        `<ul class="nlist">${rows}</ul></div>` : "") +
+      `<p class="nupd">Headlines collected ${new Date(N.updated).toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" })}.</p>`;
+    sec.querySelectorAll(".nfilter button").forEach((b) => b.addEventListener("click", () => {
+      sec.querySelectorAll(".nfilter button").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+      sec.querySelectorAll(".nlist li").forEach((li) => { li.hidden = !!b.dataset.t && !li.dataset.topics.split("|").includes(b.dataset.t); });
+    }));
     return sec;
   }
 
