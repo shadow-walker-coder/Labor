@@ -96,3 +96,7 @@ written in `app.js` from the newest data, so it updates with every refresh. The 
 answers use (shelter and core goods CPI, unemployment for ages 20 to 24 and for college graduates,
 computer systems design and information jobs, productivity, and the core PCE price level) are listed
 in `EXTRAS` in `scripts/series_config.py` and saved under `extras` in `data/series.js`.
+
+The Fed's own projections (median of the FOMC Summary of Economic Projections) are in `data/fomc_sep.js`.
+They are not on FRED in a form the refresh can use, so update that file by hand after each projection
+meeting (March, June, September and December).

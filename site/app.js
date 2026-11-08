@@ -202,7 +202,8 @@
     // target line
     if (c.target !== undefined) {
       el("line", { x1: m.l, x2: W - m.r, y1: y(c.target), y2: y(c.target), stroke: "var(--ink)", "stroke-dasharray": "4 4", "stroke-width": 1 }, svg);
-      const lab = el("text", { x: W - m.r - 4, y: y(c.target) - 5, "text-anchor": "end" }, svg);
+      const lab = c.target_left ? el("text", { x: m.l + 6, y: y(c.target) - 5, "text-anchor": "start" }, svg)
+        : el("text", { x: W - m.r - 4, y: y(c.target) - 5, "text-anchor": "end" }, svg);
       lab.textContent = c.target_label || String(c.target);
     }
     // marks, clipped to the plot area
@@ -234,6 +235,7 @@
         const stroke = { d, fill: "none", stroke: color, "stroke-width": 2, "stroke-linejoin": "round" };
         if (s.line.dash) stroke["stroke-dasharray"] = "5 4";
         el("path", stroke, g);
+        if (s.line.marks) for (const p of pts.slice(1)) el("circle", { cx: x(p[0]), cy: y(p[1]), r: 4, fill: color, stroke: "var(--surface)", "stroke-width": 2 }, g);
         const l = pts[pts.length - 1];
         el("circle", { cx: x(l[0]), cy: y(l[1]), r: 4, fill: color, stroke: "var(--surface)", "stroke-width": 2 }, g);
       }
@@ -492,14 +494,29 @@
       }
     }
     const trend = ago6 ? (now[1] > ago6[1] + 0.2 ? "rising" : now[1] < ago6[1] - 0.2 ? "falling" : "flat") : null;
+    const F = window.FOMC_SEP;
+    const fedYear = F ? F.years.find((y, i) => F.median.pce[i] <= 2.0) : null;
     let tone, answer;
     if (now[1] <= 2.2) { tone = "good"; answer = "It's essentially there: headline PCE inflation, the measure the Fed's 2% goal is written in, is within a whisker of 2%."; }
+    else if (F && fedYear && +fedYear >= toDate(now[0]).getUTCFullYear() + 2) {
+      tone = "concern";
+      answer = `Not until ${fedYear}, by the Fed's own projections. Headline PCE inflation, the measure the 2% goal is written in, is ${pct(now[1])}` +
+        (trend === "rising" ? ` and moving away from target (${pct(ago6[1])} six months ago)` : "") +
+        `, and the median Fed official doesn't see it back at 2.0% until the end of ${fedYear}.`;
+    }
     else if (trend === "rising") { tone = "concern"; answer = `Not soon. Headline PCE inflation, the measure the Fed's 2% goal is written in, is ${pct(now[1])} and moving away from target, up from ${pct(ago6[1])} six months ago.`; }
     else if (hit) { tone = "watch"; answer = `Headline PCE inflation is ${pct(now[1])}. If prices keep rising at their pace of the past six months, it would reach about 2% around ${monthLabel(hit)}.`; }
     else { tone = now[1] >= 3 ? "concern" : "watch"; answer = `Not on the current pace. Headline PCE inflation is ${pct(now[1])}${pace6 !== null ? `, and prices have risen at a ${pct(pace6)} annual rate over the past six months` : ""}.`; }
     ev.push(`The Fed defines its 2% goal in terms of <b>headline PCE</b> prices, everything consumers buy including food and energy. That's up <b>${pct(now[1])}</b> from a year earlier (${when("PCEPI", now)})` +
       (ago6 && ago12 ? `, ${trend === "flat" ? "about the same as" : trend === "rising" ? "up from" : "down from"} ${pct(ago6[1])} six months ago and ${pct(ago12[1])} a year ago.` : ".") +
       (pace6 !== null ? ` Over the last six months prices rose at a <b>${pct(pace6)}</b> annual rate (${pct(pace3)} over the last three).` : ""));
+    if (F) {
+      const path = F.years.map((y, i) => `${F.median.pce[i].toFixed(1)}% in ${y}`).join(", ");
+      const ff = lastOf("FEDFUNDS");
+      ev.push(`<b>The Fed's own forecast</b> (<a href="${F.url}" target="_blank" rel="noopener">${F.label} projections</a>, median): headline PCE inflation of ${path}. ` +
+        `Core PCE: ${F.median.core_pce.map((v, i) => `${v.toFixed(1)}% in ${F.years[i]}`).join(", ")}.` +
+        (ff ? ` Officials see the federal funds rate at ${F.median.fedfunds[0].toFixed(1)}% at the end of ${F.years[0]}, versus ${pct(ff[1], 2)} now${F.median.fedfunds[0] > ff[1] + 0.1 ? ", which points to a possible further rate increase, not cuts" : ""}.` : ""));
+    }
     if (core) {
       const c = core[core.length - 1], cp6 = paceOf(clv, 6);
       ev.push(`Core PCE, which leaves out food and energy and is the Fed's best guide to where headline inflation is heading, is up <b>${pct(c[1])}</b>` +
@@ -514,8 +531,10 @@
     const card = lineCard("Q_INFL", "PCE inflation", "% y/y", [
       { label: "Headline PCE", id: "PCEPI", obs: yo },
       ...(core ? [{ label: "Core PCE", id: "PCEPILFE", obs: core }] : []),
-      ...(proj.length ? [{ label: "Headline, if the 6-month pace holds", id: "projection", obs: proj, dash: true }] : [])],
-      { target: 2, target_label: "Fed target 2%" });
+      ...(F ? [{ label: `Fed projection, headline (${F.label})`, id: "FOMC_SEP", dash: true, marks: true,
+        obs: [[now[0], +now[1].toFixed(2)], ...F.years.map((y, i) => [`${y}-12-01`, F.median.pce[i]])] }]
+        : proj.length ? [{ label: "Headline, if the 6-month pace holds", id: "projection", obs: proj, dash: true }] : [])],
+      { target: 2, target_label: "Fed target 2%", target_left: !!F, years: 6 });
     return { q: "When will inflation get back to the Fed's 2% target?", tone, answer, ev, card, link: "prices",
       change: "Sooner if oil prices fall back, since energy is what's keeping headline above core. Later if high energy costs spread into other prices or tariffs keep pushing goods prices up." };
   }
@@ -590,6 +609,8 @@
     if (curve) lights.push(`the yield curve is ${signed(curve[1], 2)} points (${curve[1] < 0 ? "inverted" : "not inverted"})`);
     if (claimsCh !== null) lights.push(`jobless claims are ${signed(claimsCh, 0)}% from a year earlier`);
     if (lights.length) ev.push(`Warning lights: ${lights.join("; ")}.`);
+    const F = window.FOMC_SEP;
+    if (F) ev.push(`Fed officials (${F.label} projections, median) expect real GDP growth of <b>${F.median.gdp[0].toFixed(1)}%</b> in ${F.years[0]} and ${F.median.gdp[1].toFixed(1)}% in ${F.years[1]}, with unemployment steady at ${F.median.unrate[0].toFixed(1)}%. No recession is in their forecast.`);
     const pce = lastOf("PCEC96");
     if (pce) ev.push(`Consumer spending, two thirds of the economy, is up <b>${pct(pce[1])}</b> after inflation over the past year.`);
     const card = { key: "Q_GDP", title: "Real GDP growth", unit: "% annualized", decimals: 1, chart: "bar", years: 5,
