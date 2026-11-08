@@ -30,11 +30,9 @@ KEEP = 40
 
 # (outlet, url, tier). Tier sets the dedup priority and how research is windowed.
 FEEDS = [
-    ("The Wall Street Journal", "https://feeds.content.dowjones.io/public/rss/socialeconomyfeed", "premium"),
     ("The Wall Street Journal", "https://feeds.content.dowjones.io/public/rss/RSSMarketsMain", "premium"),
     ("The Wall Street Journal", "https://feeds.content.dowjones.io/public/rss/RSSWSJD", "premium"),
     ("The Wall Street Journal", "https://feeds.content.dowjones.io/public/rss/RSSPersonalFinance", "premium"),
-    ("The Wall Street Journal", "https://feeds.content.dowjones.io/public/rss/RSSRealEstate", "premium"),
     ("Financial Times", "https://www.ft.com/world/us?format=rss", "premium"),
     ("Financial Times", "https://www.ft.com/global-economy?format=rss", "premium"),
     ("Financial Times", "https://www.ft.com/markets?format=rss", "premium"),
@@ -55,7 +53,7 @@ PRIORITY = {"The Wall Street Journal": 0, "Financial Times": 1, "The New York Ti
 
 # Topic tags, matched on headline + summary. The tag order is the display order.
 TOPICS = [
-    ("Fed & rates", r"\bfed\b|federal reserve|fomc|interest rates?|rate (cut|hike|increase)s?|treasury yields?|bond yields?|borrowing costs"),
+    ("Fed & rates", r"\bfed\b|federal reserve|fomc|interest rates?|(fed|interest)[- ]rate (cut|hike|increase)s?|rate cuts|treasury yields?|bond yields?|borrowing costs"),
     ("Inflation", r"inflation|consumer prices?|\bcpi\b|\bpce\b|price (increases|pressures)|cost of living|affordability"),
     ("Jobs", r"\bjobs report|payrolls?|unemployment|jobless|hiring|layoffs?|labor market|job market|wage growth|\bwages\b"),
     ("Growth", r"\bgdp\b|recession|economic growth|the economy|economists?|soft landing"),
@@ -72,7 +70,7 @@ TOPICS = [
 CORE = {"Fed & rates", "Inflation", "Jobs", "Growth", "Consumer", "Housing", "Energy", "Trade & tariffs", "Budget & taxes"}
 SKIP = r"obituar|\bdies\b|\bdied\b|recipe|celebrit|crossword|wedding|horoscope|sponsored|podcast:|^opinion|letters to the editor"
 # Foreign stories rank lower unless they mention the U.S.
-FOREIGN = r"\bboj\b|bank of (japan|korea|england|canada)|\becb\b|eurozone|\bchina\b|japan|korea|canad|europe|\buk\b|britain|germany|india"
+FOREIGN = r"\bboj\b|bank of (japan|korea|england|canada)|\becb\b|eurozone|\bchina\b|japan|korea|canad|europe|\buk\b|britain|germany|india|new zealand|australia|mexico|brazil|france|italy|spain"
 US = r"\bu\.?s\.?\b|united states|america|\bfed\b|federal reserve|washington|trump|wall street"
 ATOM = "{http://www.w3.org/2005/Atom}"
 
@@ -121,10 +119,18 @@ def norm(title):
     return re.sub(r"[^a-z0-9 ]", "", title.lower())
 
 
+def words(text):
+    return {w[:6] for w in norm(text).split() if len(w) > 3}  # crude stemming: hiring/hires, jobs/job
+
+
 def similar(a, b):
-    wa, wb = set(norm(a).split()), set(norm(b).split())
-    wa, wb = {w for w in wa if len(w) > 3}, {w for w in wb if len(w) > 3}
-    return bool(wa and wb) and len(wa & wb) / min(len(wa), len(wb)) >= 0.6
+    """Same story? Shared distinctive numbers (e.g. "165,000") or mostly the same headline words."""
+    na = set(re.findall(r"\d{1,3}(?:,\d{3})+", a["title"] + " " + a["summary"]))
+    nb = set(re.findall(r"\d{1,3}(?:,\d{3})+", b["title"] + " " + b["summary"]))
+    if na & nb:
+        return True
+    wa, wb = words(a["title"]), words(b["title"])
+    return bool(wa and wb) and len(wa & wb) / min(len(wa), len(wb)) >= 0.5
 
 
 def main():
@@ -166,10 +172,16 @@ def main():
     items.sort(key=lambda it: (PRIORITY.get(it["source"], 9), -dt.datetime.fromisoformat(it["published"]).timestamp()))
     kept = []
     for it in items:  # keep the first (highest-priority outlet) copy of each story
-        if not any(it["link"] == k["link"] or similar(it["title"], k["title"]) for k in kept):
+        if not any(it["link"] == k["link"] or similar(it, k) for k in kept):
             kept.append(it)
     kept.sort(key=score, reverse=True)
     kept = kept[:KEEP]
+    # Lead with three stories on different topics so one big event doesn't fill the top row.
+    lead = []
+    for it in kept:
+        if len(lead) < 3 and not any(CORE & set(it["topics"]) & set(x["topics"]) for x in lead):
+            lead.append(it)
+    kept = lead + [it for it in kept if it not in lead]
     for it in kept:
         it.pop("tier")
     payload = {"updated": now.isoformat(timespec="minutes"), "items": kept}
