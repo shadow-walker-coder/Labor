@@ -183,6 +183,19 @@ RECESSION_SERIES = "USREC"
 
 # GDP model (see scripts/nowcast.py). Monthly levels are averaged by quarter and turned into
 # annualized growth; the yield curve enters the one-quarter-ahead forecast.
+# Series the "Big questions" answers use that are not drawn as cards of their own.
+# They download with the cards and land in data/series.js under "extras".
+EXTRAS = [
+    dict(key="CORE_PCE_LEVEL", id="PCEPILFE", units="lin"),      # for the recent annualized pace
+    dict(key="SHELTER", id="CUSR0000SAH1", units="pc1"),         # CPI shelter, % y/y
+    dict(key="CORE_GOODS", id="CUSR0000SACL1E", units="pc1"),    # CPI core goods, % y/y
+    dict(key="UNRATE_20_24", id="LNS14000036", units="lin"),     # unemployment, ages 20 to 24
+    dict(key="UNRATE_COLLEGE", id="LNS14027662", units="lin"),   # unemployment, bachelor's degree+, 25+
+    dict(key="TECH_JOBS", id="CES6054150001", units="lin"),      # computer systems design jobs, thousands
+    dict(key="INFO_JOBS", id="USINFO", units="lin"),             # information sector jobs, thousands
+    dict(key="PRODUCTIVITY", id="OPHNFB", units="pc1"),          # output per hour, nonfarm business, % y/y
+]
+
 MODEL_TARGET = "A191RL1Q225SBEA"
 MODEL_INPUTS = [("PAYEMS", "Payroll jobs"), ("INDPRO", "Industrial production"),
                 ("PCEC96", "Real consumer spending")]
