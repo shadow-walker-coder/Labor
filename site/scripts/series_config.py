@@ -186,7 +186,9 @@ RECESSION_SERIES = "USREC"
 # Series the "Big questions" answers use that are not drawn as cards of their own.
 # They download with the cards and land in data/series.js under "extras".
 EXTRAS = [
+    dict(key="PCE_LEVEL", id="PCEPI", units="lin"),              # headline PCE price index, for its recent pace
     dict(key="CORE_PCE_LEVEL", id="PCEPILFE", units="lin"),      # for the recent annualized pace
+    dict(key="DSPI", id="DSPI", units="lin"),                     # disposable income, $bn a year (for excess savings)
     dict(key="SHELTER", id="CUSR0000SAH1", units="pc1"),         # CPI shelter, % y/y
     dict(key="CORE_GOODS", id="CUSR0000SACL1E", units="pc1"),    # CPI core goods, % y/y
     dict(key="UNRATE_20_24", id="LNS14000036", units="lin"),     # unemployment, ages 20 to 24
