@@ -23,7 +23,7 @@ from email.utils import parsedate_to_datetime
 from pathlib import Path
 
 OUT = Path(__file__).resolve().parent.parent / "data" / "news.js"
-UA = "MacroMonitor/1.0 (economic dashboard; https://github.com/shadow-walker-coder/Labor)"
+UA = "MacroMoonshot/1.0 (economic dashboard; https://github.com/shadow-walker-coder)"
 DAYS = 3          # news window
 RESEARCH_DAYS = 10  # research and Fed blogs publish less often
 KEEP = 40
