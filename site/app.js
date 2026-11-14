@@ -86,9 +86,12 @@
   function renderNav() {
     const box = document.getElementById("sections-nav");
     const top = { latest: "The latest" };
+    if (window.NEWS_DATA && window.NEWS_DATA.items && window.NEWS_DATA.items.length) top.news = "News";
+    top.questions = "Big questions";
     if (DATA.model) top.outlook = "GDP outlook";
     box.innerHTML = Object.entries(Object.assign(top, DATA.sections))
-      .map(([key, label]) => `<a href="#${key}">${label}</a>`).join("");
+      .map(([key, label]) => `<a href="#${key}">${label}</a>`).join("") +
+      `<a class="out" href="earnings/index.html">Company earnings →</a>`;
   }
 
   function readingHtml(c) {
@@ -109,7 +112,11 @@
   function renderSections() {
     const main = document.getElementById("main");
     main.textContent = "";
+    EXTRA.length = 0;
     main.appendChild(latestSection());
+    const news = newsSection();
+    if (news) main.appendChild(news);
+    main.appendChild(questionsSection());
     if (DATA.model) main.appendChild(outlookSection());
     for (const [key, label] of Object.entries(DATA.sections)) {
       const list = DATA.series.filter((c) => c.section === key);
@@ -146,7 +153,7 @@
     host.textContent = "";
     const W = Math.max(280, host.clientWidth || 560), H = Math.round(Math.min(260, Math.max(190, W * 0.46)));
     const m = { t: 12, r: 12, b: 26, l: 46 };
-    const cut = cutoff(c, RANGES[state.range]);
+    const cut = cutoff(c, c.years || RANGES[state.range]);
     const series = c.lines.map((line, i) => ({ line, i, pts: windowed(line, cut) })).filter((s) => s.pts.length > 1);
     const single = c.lines.length === 1;
     const all = series.flatMap((s) => s.pts);
@@ -199,7 +206,8 @@
     // target line
     if (c.target !== undefined) {
       el("line", { x1: m.l, x2: W - m.r, y1: y(c.target), y2: y(c.target), stroke: "var(--ink)", "stroke-dasharray": "4 4", "stroke-width": 1 }, svg);
-      const lab = el("text", { x: W - m.r - 4, y: y(c.target) - 5, "text-anchor": "end" }, svg);
+      const lab = c.target_left ? el("text", { x: m.l + 6, y: y(c.target) - 5, "text-anchor": "start" }, svg)
+        : el("text", { x: W - m.r - 4, y: y(c.target) - 5, "text-anchor": "end" }, svg);
       lab.textContent = c.target_label || String(c.target);
     }
     // marks, clipped to the plot area
@@ -228,7 +236,10 @@
           const base = y(Math.max(lo, Math.min(0, hi)));
           el("path", { d: d + `L${x(pts[pts.length - 1][0])} ${base}L${x(pts[0][0])} ${base}Z`, fill: "var(--accent-soft)" }, g);
         }
-        el("path", { d, fill: "none", stroke: color, "stroke-width": 2, "stroke-linejoin": "round" }, g);
+        const stroke = { d, fill: "none", stroke: color, "stroke-width": 2, "stroke-linejoin": "round" };
+        if (s.line.dash) stroke["stroke-dasharray"] = "5 4";
+        el("path", stroke, g);
+        if (s.line.marks) for (const p of pts.slice(1)) el("circle", { cx: x(p[0]), cy: y(p[1]), r: 4, fill: color, stroke: "var(--surface)", "stroke-width": 2 }, g);
         const l = pts[pts.length - 1];
         el("circle", { cx: x(l[0]), cy: y(l[1]), r: 4, fill: color, stroke: "var(--surface)", "stroke-width": 2 }, g);
       }
@@ -422,6 +433,18 @@
     return list.sort((a, b) => order[a.tone] - order[b.tone]);
   }
 
+  // A pointer to the Consumer Earnings Monitor (earnings/), from data/earnings_summary.js
+  function earningsTeaser() {
+    const E = window.EARNINGS_SUMMARY;
+    if (!E || !E.headline) return "";
+    const V = { strong: "Strong", steady: "Steady", choosy: "Choosy", strained: "Strained" };
+    const tone = { strong: "good", steady: "good", choosy: "watch", strained: "concern" }[E.verdict] || "watch";
+    return `<a class="earn" href="earnings/index.html"><div class="punch-top"><span class="topic">What companies are saying${E.as_of ? ` · ${E.as_of}` : ""}</span>` +
+      `<span class="tag ${tone}">Consumer: ${V[E.verdict] || E.verdict}</span></div>` +
+      `<h3>${E.headline}</h3><p>${E.summary || ""}</p>` +
+      `<span class="go">Read the latest earnings from ${E.companies} companies across ${E.sectors.length} sectors →</span></a>`;
+  }
+
   function latestSection() {
     const sec = document.createElement("section");
     sec.className = "sec";
@@ -437,7 +460,311 @@
     sec.innerHTML =
       `<header class="sec-head"><h2>The latest</h2><p>Where the economy stands, in a sentence or two per topic. Written automatically from the newest numbers on this page.</p></header>` +
       `<div class="punches">${cards}</div>` +
-      `<div class="risks"><h3>Key risks to watch <span>${flagged} of ${rk.length} flashing</span></h3><ul>${rows}</ul></div>`;
+      `<div class="risks"><h3>Key risks to watch <span>${flagged} of ${rk.length} flashing</span></h3><ul>${rows}</ul></div>` +
+      earningsTeaser();
+    return sec;
+  }
+
+  // ---------- big questions: plain answers to what people ask, written from the newest data ----------
+  // Like "The latest", every answer is generated from data/series.js, so it changes when the data does.
+  const ex = (key) => ((DATA.extras || {})[key] || []).filter((o) => o[1] !== null);
+  const exLast = (key) => { const v = ex(key); return v.length ? v[v.length - 1] : null; };
+  const monthLabel = (d) => toDate(d).toLocaleString("en-US", { month: "short", year: "numeric", timeZone: "UTC" });
+  const monthsBack = (arr, n) => (arr.length > n ? arr[arr.length - 1 - n] : null);
+  const avg3 = (arr, k) => avg(arr.slice(arr.length - 3 - (k || 0), arr.length - (k || 0)).map((o) => o[1]));
+  const addMonths = (d, n) => { const t = toDate(d); return new Date(Date.UTC(t.getUTCFullYear(), t.getUTCMonth() + n, 1)).toISOString().slice(0, 10); };
+  const lineCard = (key, title, unit, lines, opts) => Object.assign({ key, title, unit, decimals: 1, chart: "line", years: 5, lines }, opts || {});
+  const moved = (x, unit) => (Math.abs(x) < 0.05 ? "about unchanged" : `${x > 0 ? "up" : "down"} ${Math.abs(x).toFixed(1)} ${unit}`);
+
+  // Pace of a price index over the last n months, at an annual rate.
+  const paceOf = (lv, n) => (lv.length > n ? (Math.pow(lv[lv.length - 1][1] / lv[lv.length - 1 - n][1], 12 / n) - 1) * 100 : null);
+
+  function qInflation() {
+    const yo = obsOf("PCEPI"), core = obsOf("PCEPILFE"), lv = ex("PCE_LEVEL"), clv = ex("CORE_PCE_LEVEL");
+    if (!yo) return null;
+    const now = yo[yo.length - 1], ago6 = monthsBack(yo, 6), ago12 = monthsBack(yo, 12);
+    const ev = [];
+    const pace6 = paceOf(lv, 6), pace3 = paceOf(lv, 3);
+    // carry the last six months' pace forward and watch the 12-month rate converge to it
+    let hit = null, proj = [];
+    if (lv.length >= 13 && pace6 !== null) {
+      const n = lv.length, g = Math.pow(lv[n - 1][1] / lv[n - 7][1], 1 / 6), levels = lv.map((o) => o[1]);
+      proj = [[lv[n - 1][0], +now[1].toFixed(2)]];
+      for (let k = 1; k <= 12; k++) {
+        levels.push(levels[levels.length - 1] * g);
+        const yoy = (levels[levels.length - 1] / levels[levels.length - 13] - 1) * 100, d = addMonths(lv[n - 1][0], k);
+        proj.push([d, +yoy.toFixed(2)]);
+        if (hit === null && yoy <= 2.2) hit = d;
+      }
+    }
+    const trend = ago6 ? (now[1] > ago6[1] + 0.2 ? "rising" : now[1] < ago6[1] - 0.2 ? "falling" : "flat") : null;
+    const F = window.FOMC_SEP;
+    const fedYear = F ? F.years.find((y, i) => F.median.pce[i] <= 2.0) : null;
+    let tone, answer;
+    if (now[1] <= 2.2) { tone = "good"; answer = "It's essentially there: headline PCE inflation, the measure the Fed's 2% goal is written in, is within a whisker of 2%."; }
+    else if (F && fedYear && +fedYear >= toDate(now[0]).getUTCFullYear() + 2) {
+      tone = "concern";
+      answer = `Not until ${fedYear}, by the Fed's own projections. Headline PCE inflation, the measure the 2% goal is written in, is ${pct(now[1])}` +
+        (trend === "rising" ? ` and moving away from target (${pct(ago6[1])} six months ago)` : "") +
+        `, and the median Fed official doesn't see it back at 2.0% until the end of ${fedYear}.`;
+    }
+    else if (trend === "rising") { tone = "concern"; answer = `Not soon. Headline PCE inflation, the measure the Fed's 2% goal is written in, is ${pct(now[1])} and moving away from target, up from ${pct(ago6[1])} six months ago.`; }
+    else if (hit) { tone = "watch"; answer = `Headline PCE inflation is ${pct(now[1])}. If prices keep rising at their pace of the past six months, it would reach about 2% around ${monthLabel(hit)}.`; }
+    else { tone = now[1] >= 3 ? "concern" : "watch"; answer = `Not on the current pace. Headline PCE inflation is ${pct(now[1])}${pace6 !== null ? `, and prices have risen at a ${pct(pace6)} annual rate over the past six months` : ""}.`; }
+    ev.push(`The Fed defines its 2% goal in terms of <b>headline PCE</b> prices, everything consumers buy including food and energy. That's up <b>${pct(now[1])}</b> from a year earlier (${when("PCEPI", now)})` +
+      (ago6 && ago12 ? `, ${trend === "flat" ? "about the same as" : trend === "rising" ? "up from" : "down from"} ${pct(ago6[1])} six months ago and ${pct(ago12[1])} a year ago.` : ".") +
+      (pace6 !== null ? ` Over the last six months prices rose at a <b>${pct(pace6)}</b> annual rate (${pct(pace3)} over the last three).` : ""));
+    if (F) {
+      const path = F.years.map((y, i) => `${F.median.pce[i].toFixed(1)}% in ${y}`).join(", ");
+      const ff = lastOf("FEDFUNDS");
+      ev.push(`<b>The Fed's own forecast</b> (<a href="${F.url}" target="_blank" rel="noopener">${F.label} projections</a>, median): headline PCE inflation of ${path}. ` +
+        `Core PCE: ${F.median.core_pce.map((v, i) => `${v.toFixed(1)}% in ${F.years[i]}`).join(", ")}.` +
+        (ff ? ` Officials see the federal funds rate at ${F.median.fedfunds[0].toFixed(1)}% at the end of ${F.years[0]}, versus ${pct(ff[1], 2)} now${F.median.fedfunds[0] > ff[1] + 0.1 ? ", which points to a possible further rate increase, not cuts" : ""}.` : ""));
+    }
+    if (core) {
+      const c = core[core.length - 1], cp6 = paceOf(clv, 6);
+      ev.push(`Core PCE, which leaves out food and energy and is the Fed's best guide to where headline inflation is heading, is up <b>${pct(c[1])}</b>` +
+        (cp6 !== null ? `, rising at a ${pct(cp6)} pace over six months.` : ".") +
+        (now[1] > c[1] + 0.3 ? " The gap between the two is energy." : ""));
+    }
+    const wti = lastOf("CRUDE"), wtiAgo = backOf("CRUDE", 12), gas = lastOf("GASREGCOVM");
+    if (wti && wtiAgo) { const oc = (wti[1] / wtiAgo[1] - 1) * 100; ev.push(`Oil averaged <b>$${wti[1].toFixed(0)}</b> a barrel in ${when("CRUDE", wti)}, ${oc >= 0 ? "up" : "down"} ${Math.abs(oc).toFixed(0)}% from a year earlier${gas ? `, with gasoline at $${gas[1].toFixed(2)} a gallon` : ""}.`); }
+    const sh = exLast("SHELTER"), cg = exLast("CORE_GOODS");
+    if (sh || cg) ev.push([sh ? `Housing costs (CPI shelter) are up <b>${pct(sh[1])}</b> from a year earlier` : "",
+      cg ? `${sh ? "and" : ""} goods excluding food and energy are ${cg[1] >= 0 ? "up" : "down"} <b>${pct(Math.abs(cg[1]))}</b>` : ""].filter(Boolean).join(" ") + ` (${monthLabel((sh || cg)[0])}).`);
+    const card = lineCard("Q_INFL", "PCE inflation", "% y/y", [
+      { label: "Headline PCE", id: "PCEPI", obs: yo },
+      ...(core ? [{ label: "Core PCE", id: "PCEPILFE", obs: core }] : []),
+      ...(F ? [{ label: `Fed projection, headline (${F.label})`, id: "FOMC_SEP", dash: true, marks: true,
+        obs: [[now[0], +now[1].toFixed(2)], ...F.years.map((y, i) => [`${y}-12-01`, F.median.pce[i]])] }]
+        : proj.length ? [{ label: "Headline, if the 6-month pace holds", id: "projection", obs: proj, dash: true }] : [])],
+      { target: 2, target_label: "Fed target 2%", target_left: !!F, years: 6 });
+    return { q: "When will inflation get back to the Fed's 2% target?", tone, answer, ev, card, link: "prices",
+      change: "Sooner if oil prices fall back, since energy is what's keeping headline above core. Later if high energy costs spread into other prices or tariffs keep pushing goods prices up." };
+  }
+
+  function qAI() {
+    const u = obsOf("UNRATE"), y = ex("UNRATE_20_24"), col = ex("UNRATE_COLLEGE"), tech = ex("TECH_JOBS"), info = ex("INFO_JOBS");
+    if (!u) return null;
+    const ev = [];
+    const broad = u.length > 27 ? avg3(u) - avg3(u, 24) : null;
+    const young = y.length > 27 ? avg3(y) - avg3(y, 24) : null;
+    const grads = col.length > 27 ? avg3(col) - avg3(col, 24) : null;
+    const techYoY = tech.length > 13 ? (tech[tech.length - 1][1] / monthsBack(tech, 12)[1] - 1) * 100 : null;
+    const techPeak = tech.length ? tech.reduce((a, b) => (b[1] > a[1] ? b : a)) : null;
+    const entry = young !== null && broad !== null && young - broad >= 0.7;
+    const infoYoY = info.length > 13 ? (info[info.length - 1][1] / monthsBack(info, 12)[1] - 1) * 100 : null;
+    const techDown = (techYoY !== null && techYoY <= -1) || (infoYoY !== null && infoYoY <= -2);
+    let tone, answer;
+    if (broad !== null && broad >= 0.5) { tone = "concern"; answer = "Unemployment is rising across the board, which looks more like a slowing economy than AI. That makes any AI effect hard to separate."; }
+    else if (entry && techDown) { tone = "watch"; answer = "Not across the economy, but the early signs are where you'd expect them: younger workers and tech jobs."; }
+    else if (entry) { tone = "watch"; answer = "Not across the economy. Younger workers are having a harder time finding jobs, which fits AI replacing entry-level tasks, but also a slow-hiring market."; }
+    else if (techDown) { tone = "watch"; answer = "Not across the economy, but jobs are shrinking in tech and information, the industries most exposed to AI. Young workers aren't seeing a clear hit yet."; }
+    else { tone = "good"; answer = "Not in the numbers yet. Unemployment, young-worker joblessness and tech employment show no clear AI-driven break."; }
+    if (broad !== null) {
+      const fl = findCard("JOLTS_FLOWS");
+      const hires = fl && valid(fl.lines[0]).slice(-1)[0], lay = fl && valid(fl.lines[2]).slice(-1)[0];
+      ev.push(`Overall unemployment is <b>${pct(u[u.length - 1][1])}</b>, ${moved(broad, "points")} from two years ago.` +
+        (hires && lay ? ` Layoffs are low (${pct(lay[1])} of jobs a month) but so is hiring (${pct(hires[1])}), so job seekers find it harder to get hired.` : ""));
+    }
+    if (young !== null) ev.push(`Unemployment for ages 20 to 24 is <b>${pct(avg3(y))}</b> (three-month average), ${moved(young, "points")} from two years ago` +
+      (grads !== null ? `; for college graduates 25 and older it's ${pct(avg3(col))}, ${moved(grads, "points")}.` : "."));
+    if (techYoY !== null) {
+      const lastT = tech[tech.length - 1], fromPeak = (lastT[1] / techPeak[1] - 1) * 100;
+      let s = `Jobs in computer systems design, the industry closest to AI's coding tools, are ${techYoY >= 0 ? "up" : "down"} <b>${Math.abs(techYoY).toFixed(1)}%</b> from a year earlier`;
+      s += fromPeak < -1 ? ` and ${Math.abs(fromPeak).toFixed(0)}% below their ${monthLabel(techPeak[0])} peak.` : ".";
+      if (infoYoY !== null) s += ` Information-sector jobs (publishing, software, telecom, data processing) are ${infoYoY >= 0 ? "up" : "down"} <b>${Math.abs(infoYoY).toFixed(1)}%</b>.`;
+      ev.push(s);
+    }
+    const pr = exLast("PRODUCTIVITY");
+    if (pr) ev.push(`Output per hour worked is up <b>${pct(pr[1])}</b> from a year earlier (${qLabel(pr[0])}). Faster productivity is how AI would show up if it makes workers more efficient rather than replacing them.`);
+    const lines = [{ label: "Ages 20 to 24", id: "LNS14000036", obs: y }, { label: "All workers", id: "UNRATE", obs: u }];
+    if (col.length) lines.push({ label: "College grads, 25+", id: "LNS14027662", obs: col });
+    const card = lineCard("Q_AI", "Unemployment rate by group", "%", lines, { ylim: [0, 16] });
+    return { q: "Is AI really taking jobs?", tone, answer, ev, card, link: "jobs",
+      note: "No official statistic counts jobs lost to AI. These are the places it would show up first.",
+      change: "A clear sign would be young-worker and college-grad unemployment rising while the rest of the job market stays solid, and tech or office-support jobs falling as productivity speeds up." };
+  }
+
+  function qGrowth() {
+    const g = obsOf("A191RL1Q225SBEA");
+    if (!g) return null;
+    const M = DATA.model, f = M && (M.nowcast || M.forecast);
+    const last = g[g.length - 1], prev = g[g.length - 2];
+    const ev = [];
+    const u = obsOf("UNRATE");
+    let sahm = null;
+    if (u) { const lows = []; for (let k = 1; k <= 12; k++) lows.push(avg3(u, k)); sahm = avg3(u) - Math.min(...lows); }
+    const curve = lastOf("T10Y2Y"), cl = lastOf("ICSA"), clAgo = backOf("ICSA", 12);
+    const claimsCh = cl && clAgo ? (cl[1] / clAgo[1] - 1) * 100 : null;
+    const flags = [sahm !== null && sahm >= 0.5, curve && curve[1] < 0, claimsCh !== null && claimsCh >= 15, f && f.value < 0.5];
+    const n = flags.filter(Boolean).length;
+    let tone, answer;
+    if (n === 0) {
+      tone = "good";
+      answer = f && f.value < last[1] - 1 ? `Holding up. Growth is likely slowing this quarter (our model says about ${pct(f.value)}), but none of the classic recession warnings is flashing.`
+        : "Holding up, and none of the classic recession warnings is flashing.";
+    } else if (n === 1) { tone = "watch"; answer = "Slowing, with one recession warning light on. One signal on its own has given false alarms before."; }
+    else { tone = "concern"; answer = `Recession risk is rising: ${n} of the four warning lights we track are on.`; }
+    ev.push(`Real GDP grew at a <b>${pct(last[1])}</b> annual rate in ${qLabel(last[0])}${prev ? `, after ${pct(prev[1])} the quarter before` : ""}.` +
+      (f ? ` The model on this page puts ${qLabel(f.quarter)} at about <b>${pct(f.value)}</b> (range ${f.low.toFixed(1)}% to ${f.high.toFixed(1)}%).` : ""));
+    const lights = [];
+    if (sahm !== null) lights.push(`the Sahm rule gap is ${signed(sahm, 2)} points (0.5 signals a recession)`);
+    if (curve) lights.push(`the yield curve is ${signed(curve[1], 2)} points (${curve[1] < 0 ? "inverted" : "not inverted"})`);
+    if (claimsCh !== null) lights.push(`jobless claims are ${signed(claimsCh, 0)}% from a year earlier`);
+    if (lights.length) ev.push(`Warning lights: ${lights.join("; ")}.`);
+    const F = window.FOMC_SEP;
+    if (F) ev.push(`Fed officials (${F.label} projections, median) expect real GDP growth of <b>${F.median.gdp[0].toFixed(1)}%</b> in ${F.years[0]} and ${F.median.gdp[1].toFixed(1)}% in ${F.years[1]}, with unemployment steady at ${F.median.unrate[0].toFixed(1)}%. No recession is in their forecast.`);
+    const pce = lastOf("PCEC96");
+    if (pce) ev.push(`Consumer spending, two thirds of the economy, is up <b>${pct(pce[1])}</b> after inflation over the past year.`);
+    const card = { key: "Q_GDP", title: "Real GDP growth", unit: "% annualized", decimals: 1, chart: "bar", years: 5,
+      lines: [{ label: "Real GDP growth", id: "A191RL1Q225SBEA", obs: g }] };
+    return { q: "Is growth holding up, or is a recession coming?", tone, answer, ev, card, link: "outlook",
+      change: "A jump in layoffs or jobless claims, or consumers cutting spending as gasoline and borrowing costs bite." };
+  }
+
+  // Savings above or below the 2015-2019 saving rate, added up month by month from March 2020 ($ trillions).
+  function excessSavings() {
+    const sav = obsOf("PSAVERT"), inc = ex("DSPI");
+    if (!sav || !inc.length) return null;
+    const base = avg(sav.filter((o) => o[0] >= "2015-01-01" && o[0] < "2020-01-01").map((o) => o[1]));
+    const income = new Map(inc.map((o) => [o[0], o[1]]));
+    let total = 0;
+    const out = [];
+    for (const [d, r] of sav) {
+      if (d < "2020-03-01" || !income.has(d)) continue;
+      total += ((r - base) / 100) * income.get(d) / 12 / 1000;
+      out.push([d, +total.toFixed(3)]);
+    }
+    if (!out.length) return null;
+    const peak = out.reduce((a, b) => (b[1] > a[1] ? b : a));
+    const gone = out.find((o) => o[0] > peak[0] && o[1] <= 0);
+    return { base, out, peak, last: out[out.length - 1], gone };
+  }
+
+  function qConsumer() {
+    const pce = lastOf("PCEC96"), inc = lastOf("DSPIC96"), sav = obsOf("PSAVERT");
+    if (!pce) return null;
+    const ev = [];
+    const s = sav ? sav[sav.length - 1] : null;
+    const ahe = lastOf("CES0500000003"), cpi = obsOf("CPIAUCSL");
+    let real = null;
+    if (ahe && cpi) { const c = cpi.find((o) => o[0] === ahe[0]) || cpi[cpi.length - 1]; real = { v: ahe[1] - c[1], d: c[0] }; }
+    const del = lastOf("DELINQUENCY"), delAgo = backOf("DELINQUENCY", 4);
+    const xs = excessSavings();
+    const depleted = xs && xs.last[1] <= 0;
+    // The 2025 tax law cut taxes retroactively for 2025, so it showed up in early-2026 income and saving.
+    const tax = sav ? sav.filter((o) => o[0] >= "2026-01-01" && o[0] <= "2026-05-01") : [];
+    const taxPeak = tax.length ? tax.reduce((a, b) => (b[1] > a[1] ? b : a)) : null;
+    const taxFaded = taxPeak && s && s[0] > taxPeak[0] && s[1] <= taxPeak[1] - 0.8;
+    const thin = s && xs && s[1] < xs.base - 1;
+    let tone, answer;
+    if (pce[1] < 1) { tone = "concern"; answer = "Pulling back: spending after inflation has nearly stopped growing."; }
+    else if (depleted && taxFaded && real && real.v < 0) { tone = "concern"; answer = "Still spending, but the cushions are running out: pandemic-era savings are gone, the boost from this year's tax cuts has largely been spent, and paychecks are trailing prices."; }
+    else if ((real && real.v < 0) || (inc && inc[1] < pce[1] - 1 && thin) || depleted) { tone = "watch"; answer = taxFaded
+      ? "Still spending, but on a thinner cushion: spending is outpacing income, the boost from this year's tax cuts has faded, and households are saving less to keep it up."
+      : "Still spending, but on a thinner cushion: spending is outpacing income, and households are saving less to keep it up."; }
+    else if (pce[1] >= 2) { tone = "good"; answer = "Healthy: spending and income are both growing after inflation."; }
+    else { tone = "watch"; answer = "Okay, but spending growth has slowed."; }
+    ev.push(`Spending after inflation is up <b>${pct(pce[1])}</b> from a year earlier` +
+      (inc ? `; after-tax income after inflation is up only <b>${pct(inc[1])}</b> (${when("DSPIC96", inc)}).` : "."));
+    if (xs) ev.push(`<b>Pandemic savings:</b> households built up about <b>$${xs.peak[1].toFixed(1)} trillion</b> more than usual by ${monthLabel(xs.peak[0])}. ` +
+      (xs.last[1] <= 0 ? `It's all been spent${xs.gone ? ` (gone by ${monthLabel(xs.gone[0])})` : ""}; measured against their 2015–2019 saving habit, households are now about <b>$${Math.abs(xs.last[1]).toFixed(1)} trillion</b> behind.`
+        : (() => {
+          const yr = monthsBack(xs.out, 12), burn = yr ? yr[1] - xs.last[1] : 0;
+          let t = `About <b>$${xs.last[1].toFixed(1)} trillion</b> of it is left by this measure`;
+          if (burn > 0.05) {
+            t += `, but households drew down <b>$${(burn * 1000).toFixed(0)} billion</b> of it over the past year`;
+            const yrs = xs.last[1] / burn;
+            t += yrs <= 4 ? `; at that pace it would be gone around ${toDate(addMonths(xs.last[0], Math.round(yrs * 12))).getUTCFullYear()}.` : ".";
+          } else t += ".";
+          return t;
+        })()));
+    if (taxPeak && s) ev.push(`<b>Tax cuts:</b> the 2025 tax law (the "One Big Beautiful Bill") cut taxes retroactively, so bigger refunds and lower withholding lifted income early this year. The saving rate rose to <b>${pct(taxPeak[1])}</b> in ${monthLabel(taxPeak[0])}` +
+      (taxFaded ? `, and has since fallen to <b>${pct(s[1])}</b> (${monthLabel(s[0])}), so that money has likely been spent.` : `; it's ${pct(s[1])} now.`));
+    if (real) ev.push(`Hourly pay is up ${pct(ahe[1])} against prices up ${pct(ahe[1] - real.v)}, so ${real.v >= 0 ? `real wages are rising by about <b>${pct(real.v)}</b>` : `paychecks are <b>falling behind</b> prices by ${pct(-real.v)}`} (${monthLabel(real.d)}).` +
+      (del ? ` ${pct(del[1], 2)} of credit card balances are delinquent${delAgo ? `, ${del[1] >= delAgo[1] ? "up" : "down"} ${Math.abs(del[1] - delAgo[1]).toFixed(2)} points in a year` : ""}.` : ""));
+    const E = window.EARNINGS_SUMMARY;
+    if (E && E.verdict) ev.push(`Companies' read from their latest earnings: <b>${E.verdict}</b>. <a href="earnings/index.html">See what ${E.companies} companies are saying →</a>`);
+    const card = xs
+      ? { key: "Q_CONS", title: "Pandemic savings still unspent, $ trillions", unit: "$ trillions", decimals: 1, chart: "line", years: 7,
+          lines: [{ label: "Excess savings", id: "PSAVERT", obs: xs.out }] }
+      : lineCard("Q_CONS", "Spending vs income, after inflation", "% y/y", [
+          { label: "Real consumer spending", id: "PCEC96", obs: obsOf("PCEC96") },
+          ...(obsOf("DSPIC96") ? [{ label: "Real disposable income", id: "DSPIC96", obs: obsOf("DSPIC96") }] : [])], { years: 3 });
+    return { q: "How healthy is the U.S. consumer?", tone, answer, ev, card, link: "consumer",
+      note: xs ? "Excess savings: each month's saving above or below the 2015–2019 average saving rate, added up from March 2020. A common way to estimate it; the exact number depends on the baseline." : null,
+      change: "Watch whether job growth keeps income rising. With savings already drawn down, spending now depends on paychecks, so a hiring slowdown would hit it quickly." };
+  }
+
+  function questionsSection() {
+    const sec = document.createElement("section");
+    sec.className = "sec";
+    sec.id = "questions";
+    const qs = [];
+    for (const fn of [qInflation, qAI, qGrowth, qConsumer]) { try { const r = fn(); if (r) qs.push(r); } catch (e) { /* skip */ } }
+    const short = { good: "Good news", watch: "Mixed", concern: "Worrying" };
+    const body = qs.map((q) => {
+      EXTRA.push(q.card);
+      return `<article class="question card"><div class="punch-top"><span class="topic">Big question</span><span class="tag ${q.tone}">${short[q.tone]}</span></div>` +
+        `<h3>${q.q}</h3><p class="answer">${q.answer}</p>` +
+        `<div class="qchart"><div class="card-head"><h4>${q.card.title}</h4></div>${q.card.lines.length > 1 ? readingHtml(q.card) : ""}<div class="chart" data-key="${q.card.key}"></div></div>` +
+        `<h4>The evidence</h4><ul class="ev">${q.ev.map((e) => `<li>${e}</li>`).join("")}</ul>` +
+        (q.note ? `<p class="qnote">${q.note}</p>` : "") +
+        `<p class="change"><b>What would change the answer:</b> ${q.change}</p>` +
+        `<a class="more" href="#${q.link}">See the charts →</a></article>`;
+    }).join("");
+    sec.innerHTML = `<header class="sec-head"><h2>Big questions</h2><p>Straight answers to what people are asking about the economy, written automatically from the latest data on this page.</p></header>` +
+      `<div class="questions">${body}</div>`;
+    return sec;
+  }
+
+  // ---------- latest news: headlines from free RSS feeds (data/news.js, refreshed by scripts/fetch_news.py) ----------
+  const esc = (t) => String(t == null ? "" : t).replace(/[&<>"]/g, (ch) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[ch]));
+  const safeUrl = (u) => (/^https?:\/\//i.test(u || "") ? esc(u) : "#");
+  const ago = (iso) => {
+    const h = (Date.now() - new Date(iso).getTime()) / 36e5;
+    if (h < 1) return "just now";
+    if (h < 24) return `${Math.round(h)}h ago`;
+    return new Date(iso).toLocaleDateString("en-US", { month: "short", day: "numeric" });
+  };
+  // Where each topic leads on this page
+  const TOPIC_LINK = { "Fed & rates": "money", "Inflation": "prices", "Jobs": "jobs", "Growth": "outlook", "Consumer": "consumer",
+    "Housing": "money", "Energy": "energy", "Budget & taxes": "budget", "Banks & credit": "credit" };
+
+  function newsSection() {
+    const N = window.NEWS_DATA;
+    if (!N || !N.items || !N.items.length) return null;
+    const sec = document.createElement("section");
+    sec.className = "sec";
+    sec.id = "news";
+    const top = N.items.slice(0, 3), rest = N.items.slice(3, 18);
+    const tags = (it) => it.topics.map((t) => `<span class="ntag">${esc(t)}</span>`).join("");
+    const feat = top.map((it) => {
+      const rel = it.topics.find((t) => TOPIC_LINK[t]);
+      return `<article class="card nfeat"><div class="nsrc"><b>${esc(it.source)}</b><span>${ago(it.published)}</span></div>` +
+        `<h3><a href="${safeUrl(it.link)}" target="_blank" rel="noopener">${esc(it.title)}</a></h3>` +
+        (it.summary ? `<p>${esc(it.summary)}</p>` : "") +
+        `<div class="ntags">${tags(it)}</div>` +
+        `<div class="nfoot"><a href="${safeUrl(it.link)}" target="_blank" rel="noopener">Read at ${esc(it.source)} →</a>` +
+        (rel ? `<a href="#${TOPIC_LINK[rel]}">${esc(rel)} data on this page</a>` : "") + `</div></article>`;
+    }).join("");
+    const topics = [...new Set(rest.flatMap((it) => it.topics))];
+    const rows = rest.map((it) =>
+      `<li data-topics="${esc(it.topics.join("|"))}"><a href="${safeUrl(it.link)}" target="_blank" rel="noopener">${esc(it.title)}</a>` +
+      `<span class="nmeta">${esc(it.source)} · ${ago(it.published)}</span></li>`).join("");
+    sec.innerHTML =
+      `<header class="sec-head"><h2>Latest news</h2><p>The most relevant economy headlines of the past few days from the WSJ, FT, New York Times and other outlets, plus Fed and budget research. Summaries are each outlet's own; links go to the original, which may be paywalled.</p></header>` +
+      `<div class="nfeats">${feat}</div>` +
+      (rest.length ? `<div class="card nmore"><div class="nmore-head"><h3>More headlines</h3>` +
+        `<div class="nfilter" role="group" aria-label="Filter by topic"><button type="button" aria-pressed="true" data-t="">All</button>` +
+        topics.map((t) => `<button type="button" aria-pressed="false" data-t="${esc(t)}">${esc(t)}</button>`).join("") + `</div></div>` +
+        `<ul class="nlist">${rows}</ul></div>` : "") +
+      `<p class="nupd">Headlines collected ${new Date(N.updated).toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" })}.</p>`;
+    sec.querySelectorAll(".nfilter button").forEach((b) => b.addEventListener("click", () => {
+      sec.querySelectorAll(".nfilter button").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+      sec.querySelectorAll(".nlist li").forEach((li) => { li.hidden = !!b.dataset.t && !li.dataset.topics.split("|").includes(b.dataset.t); });
+    }));
     return sec;
   }
 
@@ -458,7 +785,6 @@
       rows.map((r) => `<tr><td>${r.label}</td><td>${r.val}</td><td>${signed(r.c, 2)}</td></tr>`).join("") +
       `<tr class="sum"><td>Model ${kind}</td><td></td><td>${main.value.toFixed(2)}%</td></tr></tbody></table>`;
 
-    EXTRA.length = 0;
     const fc = { key: "GDP_MODEL", title: "GDP growth: actual vs model", unit: "% annualized", decimals: 1, chart: "line", ylim: [-10, 10],
       lines: [{ label: "Actual GDP growth", id: "A191RL1Q225SBEA", obs: M.actual },
               { label: "Model estimate", id: "model", obs: M.fitted },
