@@ -1,4 +1,4 @@
-# Macro Monitor
+# Macro Moonshot
 
 A one-page running check on the U.S. economy. The page has seven sections: growth,
 consumer health, jobs, inflation, financial conditions, bank lending and credit, and

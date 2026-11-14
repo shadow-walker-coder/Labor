@@ -383,7 +383,7 @@ table.seg { width: 100%; min-width: 720px; border-collapse: collapse; background
     const newest = [...D.reports].sort((a, b) => b.report_date.localeCompare(a.report_date))[0];
     const next = Object.entries(D.calendar || {}).filter(([, c]) => c.date >= today).sort((a, b) => a[1].date.localeCompare(b[1].date))[0];
     return `<header class="wrap mast">
-      <div><a class="home" href="../index.html">← Macro Monitor</a><h1>Consumer <span>Earnings</span> Monitor</h1>
+      <div><a class="home" href="../index.html">← Macro Moonshot</a><h1>Consumer <span>Earnings</span> Monitor</h1>
       <p>Each quarterly report from the biggest U.S. retailers, restaurants, airlines, hotels, cruise lines and car-rental companies, read for what it says about the consumer and the economy: who is spending, on what, and how it is changing.</p></div>
       <div class="stamp">
         ${newest ? `Latest report <b>${esc(retailers[newest.ticker].name)}</b> · ${fmtDate(newest.report_date)}<br>` : ""}
